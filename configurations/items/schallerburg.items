@@ -1,0 +1,174 @@
+Group All
+Group gGF 		(All)
+Group gFF 		(All)
+Group gC 		(All)
+Group Outdoor 	(All)
+Group Shutters 	(All)
+Group Weather 	(All)
+Group Status 	(All)
+Group Network 	(All)
+Group Test		(All)
+
+Group GF_Living 	"Wohnzimmer" 	<sofa>	 		(gGF)
+Group GF_Dining 	"Esszimmer" 	<diningroom> 	(gGF)
+Group GF_Kitchen 	"Kueche" 		<kitchen> 		(gGF)
+Group GF_Toilet 	"WC" 			<bath> 			(gGF)
+Group GF_Corridor 	"Vorzimmer"		<corridor> 		(gGF)
+
+Group FF_Bath 		"Bad"	 		<bath> 			(gFF)
+Group FF_Barbara 	"Barbara" 		<office> 		(gFF)
+Group FF_Dominik	"Dominik"	 	<boy1> 			(gFF)
+Group FF_Bed 		"Schlafzimmer" 	<bedroom> 		(gFF)
+Group FF_Wardrobe 	"Schrankraum"	<wardrobe>		(gFF)
+Group FF_Corridor 	"Gang"	 		<corridor> 		(gFF)
+
+Group GC_Hannes		"Hannes"		<office>		(gC)
+Group GC_Corridor	"Vorraum"		<corridor>		(gC)
+Group GC_Cellar		"Keller"		<cellar>		(gC)
+
+/* active groups */
+Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
+Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(All)
+Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
+Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
+
+/* XBMC */
+// String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
+String XBMC_State	"Status: [%s]"	(GF_Living, Test)		{ xbmc="<[#livingRoom|Player.State]" }
+String XBMC_Title	"Title: [%s]"	(GF_Living, Test)		{ xbmc="<[#livingRoom|Player.Title]" }
+// Switch XBMC_Power	"XBMC Power"	(GF_Living)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
+
+
+/* Printer */
+Number Print_Jobs_Queued  "Unfinished print jobs"  (GC_Hannes, Test)   { cups="http://datastore:631/printers/usbprinter1#NOT_COMPLETED" }
+Switch Printer            "Printer"	(Test)
+
+Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch Btn2 (Test) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command" }
+String Btn1RawData (Test) { rfxcom="<66696.2:RawData" }
+
+Switch lights_bed_table  (Test)  { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch tog_lights_bed_table (Test) { rfxcom="<66696.2:Command"}
+
+Switch btn3  (Test)  { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch tog_btn3 (Test) { rfxcom="<66696.4:Command"}
+
+Dimmer Btn4DimLevel (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:DimmingLevel" }
+Switch Btn4 (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
+
+/*
+ * aw data = 07100143420A0170
+ - Packet type = LIGHTING1
+ - Seq number = 67
+ - Sub type = ARC
+ - Id = B
+ - Unit code = 10
+ - Command = ON
+ - Signal level = 7
+ */
+
+
+// Dimmer Btn4DimLevel { rfxcom="<636602.2:DimmingLevel" }
+
+Number RFXTemp_Living { rfxcom="<22016:Temperature" }
+Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Living) { rfxcom="<22016:Temperature" }   
+
+/* Network Health */
+// Switch Network_Google	"Internet"	(Status, Network)   { nh="google.com" }
+Switch Network_Router	"Router"	(Status, Network)   { nh="192.168.1.1" }
+Switch Network_Nas		"NAS"		(Status, Network)   { nh="192.168.1.5" }
+
+/* Lights */
+Dimmer Light_GF_Living_Table 		"Table" 		(GF_Living, Lights)
+Switch Light_GF_Corridor_Ceiling 	"Ceiling" 		(GF_Corridor, Lights)
+Switch Light_GF_Kitchen_Ceiling 	"Ceiling" 		(GF_Kitchen, Lights)
+Switch Light_GF_Kitchen_Table 		"Table" 		(GF_Kitchen, Lights)
+Switch Light_GF_Corridor_Wardrobe 	"Wardrobe"	 	(GF_Corridor, Lights)
+Switch Light_GF_Toilet_Ceiling 		"Ceiling" 		(GF_Toilet, Lights)
+Switch Light_GF_Toilet_Mirror 		"Mirror" 		(GF_Toilet, Lights)
+
+Switch Light_FF_Bath_Ceiling 		"Ceiling" 		(FF_Bath, Lights)
+Switch Light_FF_Bath_Mirror 		"Mirror" 		(FF_Bath, Lights)
+Switch Light_FF_Corridor_Ceiling 	"Corridor" 		(FF_Corridor, Lights)
+Switch Light_FF_Barbara_Ceiling 	"Ceiling"	 	(FF_Barbara, Lights)
+Switch Light_FF_Dominik_Ceiling 		"Ceiling" 		(FF_Dominik, Lights)
+Switch Light_FF_Bed_Ceiling 		"Ceiling" 		(FF_Bed, Lights)
+
+Switch Light_C_Corridor_Ceiling 	"Ceiling" 		(gC, Lights)
+Switch Light_C_Staircase 			"Staircase" 	(gC, Lights)
+Switch Light_C_Washing_Ceiling 		"Washing" 		(gC, Lights)
+Switch Light_C_Workshop 			"Workshop" 		(gC, Lights)
+
+Switch Light_Outdoor_Garage 		"Garage" 		(Outdoor, Lights)
+Switch Light_Outdoor_Terrace 		"Terrace" 		(Outdoor, Lights)
+Switch Light_Outdoor_Frontdoor 		"Frontdoor"		(Outdoor, Lights)
+
+/* Heating */
+Switch Heating_GF_Corridor 	"GF Corridor" 	<heating>	(GF_Corridor, Heating)
+Switch Heating_GF_Toilet 	"Toilet"	 	<heating>	(GF_Toilet, Heating)
+Switch Heating_GF_Living 	"Livingroom" 	<heating>	(GF_Living, Heating)
+Switch Heating_GF_Kitchen 	"Kitchen" 		<heating>	(GF_Kitchen, Heating)
+
+Switch Heating_FF_Bath 		"Bath" 			<heating>	(FF_Bath, Heating)
+Switch Heating_FF_Barbara 	"Office" 		<heating>	(FF_Barbara, Heating)
+Switch Heating_FF_Dominik 	"Child's Room" 	<heating>	(FF_Dominik, Heating)
+Switch Heating_FF_Bed 		"Bedroom" 		<heating>	(FF_Bed, Heating)
+
+/* Rollershutters */
+Switch Shutter_all (Shutters)
+
+Rollershutter Shutter_GF_Toilet 		"Toilet"		(GF_Toilet, Shutters)
+Rollershutter Shutter_GF_Kitchen 		"Kitchen"		(GF_Kitchen, Shutters)
+Rollershutter Shutter_GF_Living 		"Livingroom"	(GF_Living, Shutters)
+
+Rollershutter Shutter_FF_Bed 			"Bedroom"		(FF_Bed, Shutters)
+Rollershutter Shutter_FF_Bath 			"Bath"			(FF_Bath, Shutters)
+Rollershutter Shutter_FF_Barbara_Window	"Office Window"	(FF_Barbara, Shutters)
+Rollershutter Shutter_FF_Barbara_Door 	"Office Door"	(FF_Barbara, Shutters)
+
+/* Indoor Temperatures */
+Number Temperature_GF_Corridor 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
+Number Temperature_GF_Toilet 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
+// Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Living)
+Number Temperature_GF_Kitchen 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Kitchen)
+Number Temperature_FF_Bath 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bath)
+Number Temperature_FF_Barbara 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Barbara)
+Number Temperature_FF_Dominik 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Dominik)
+Number Temperature_FF_Bed 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bed)
+
+/* Windows */
+Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(GF_Corridor, Windows)
+Contact Window_GF_Kitchen 		"Kitchen [MAP(en.map):%s]"			(GF_Kitchen, Windows)
+Contact Window_GF_Living 		"Terrace door [MAP(en.map):%s]"		(GF_Living, Windows)
+Contact Window_GF_Toilet 		"Toilet [MAP(en.map):%s]"			(GF_Toilet, Windows)
+
+Contact Window_FF_Bath 			"Bath [MAP(en.map):%s]"				(FF_Bath, Windows)
+Contact Window_FF_Bed 			"Bedroom [MAP(en.map):%s]"			(FF_Bed, Windows)
+Contact Window_FF_Barbara_Window "Office Window [MAP(en.map):%s]"	(FF_Barbara, Windows)
+Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(en.map):%s]"		(FF_Barbara, Windows)
+
+Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
+
+Group Weather_Chart													(Weather)
+Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=551801&u=c:60000:XSLT(yahoo_weather_temperature.xsl)]" }
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Chart_Period		"Chart Period"
+DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+
+/* NTP binding demo item */
+DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
+
+/* Demo items */
+Switch DemoSwitch				"Switch"
+Dimmer DimmedLight				"Dimmer [%d %%]"		<slider>
+Color  RGBLight					"RGB Light"				<slider>
+Rollershutter DemoShutter	 	"Roller Shutter"
+Dimmer DemoBlinds			 	"Blinds [%d %%]"		<rollershutter>
+Number Scene_General			"Scene"					<sofa>
+Number Radio_Station			"Radio"					<network>
+Dimmer Volume 					"Volume [%.1f %%]"
+Number Temperature_Setpoint		"Temperature [%.1f °C]" <temperature>
+
+String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
+Number NoOfPairedDevices "Paired Devices in Range: [%d]"  { bluetooth="!" }
