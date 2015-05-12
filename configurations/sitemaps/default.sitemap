@@ -21,11 +21,11 @@ sitemap schallerburg label="Schallerburg"
 			}
 		}
 	}
-	Frame label="Date" {
+//	Frame label="Date" {
 		// Text item=Date
-		Group item=Status label="Status" icon="settings"
-		Group item=Test   label="Test" icon="siren-on"
-	}
+		Group item=Status     label="Status" icon="settings"
+		Group item=Security   label="Sicherheit"
+//	}
 	/*
 	Frame label="Demo" {
 		Text label="Group Demo" icon="firstfloor" {

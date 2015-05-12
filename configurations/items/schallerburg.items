@@ -1,15 +1,15 @@
 //////////////// Gruppen
 
 Group All
-Group gEG 		(All)
-Group gOG 		(All)
-Group gUG 		(All)
-Group Outdoor 	(All)
+Group gEG 		  (All)
+Group gOG 		  (All)
+Group gUG 		  (All)
+Group Outdoor 	          (All)
 //Group Shutters 	(All)
-Group Weather 	(All)
-Group Status 	(All)
-Group Network 	(All)
-Group Test		(All)
+Group Weather 	          (All)
+Group Status              (All)
+Group Network <settings>  (Status)
+Group Test    <smiley>	  (Status)
 
 Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
 Group EG_Esszimmer 	  "Esszimmer" 	        <diningroom> 	        (gEG)
@@ -30,16 +30,13 @@ Group UG_Sauna		  "Sauna"		<cellar>		(gUG)
 Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 
 /* active groups */
-Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
-Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(Status)
-Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(Status)
+Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
+Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
+Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"		<contact>     (Status)
+Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <siren-on>    (All)
+Group:Contact:OR(0)           Battery         "Batterie [(%d)]"               <energy>      (Status)
 
 //////////////// Fertig ////////////////
-
-//////////////// Test ////////////////
-
-/* Heating */
-Switch Heating_UG_Sauna 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Temperature */
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
@@ -52,14 +49,15 @@ Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Statu
 Number Humidity_OG_Schlafzimmer 	"Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
-Contact Window_EG_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
+Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(en.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
+Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
 /* XBMC */
-String EG_Wohnzimmer_XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.State]" }
-String EG_Wohnzimmer_XBMC_Title	"Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.Title]" }
+String EG_Wohnzimmer_XBMC_State	"WZ Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.State]" }
+String EG_Wohnzimmer_XBMC_Title	"WZ Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.Title]" }
 
-String UG_Hannes_XBMC_State	"Status: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.State]" }
-String UG_Hannes_XBMC_Title	"Title: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.Title]" }
+String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.State]" }
+String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.Title]" }
 
 /* Network Health */
 Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
@@ -67,9 +65,30 @@ Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1"
 Switch Network_acedia	        "acedia"	(UG_Hannes, Network)   { nh="192.168.1.1" }
 Switch Network_nas		"NAS"		(UG_Hannes, Network)   { nh="192.168.1.5" }
 Switch Network_ccu		"CCU"		(UG_Hannes, Network)   { nh="192.168.1.6" }
+Switch Network_pangea		"Pangea"	(UG_Hannes, Network)   { nh="192.168.1.9" }
 Switch Network_raspi		"Raspi"		(UG_Hannes, Network)   { nh="192.168.1.10" }
 Switch Network_cybmc		"cybmc"		(EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
-Switch Network_heisenberg	"heisenberg"		(Network)   { nh="192.168.1.20" }
+Switch Network_heisenberg	"heisenberg"	(UG_Hannes,Network)   { nh="192.168.1.20" }
+
+//////////////// Test ////////////////
+
+/* Heating */
+Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
+
+/* Steckdosen */
+
+Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine" (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
+Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Current [%.1f mA]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
+Number UG_Wirtschaftsraum_Waschmaschine_energy_counter  "Waschmaschine Energy Counter [%.1f Wh]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
+Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Frequency [%.1f   Hz]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=FREQUENCY"}
+Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Power [%.1f W]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
+Number UG_Wirtschaftsraum_Waschmaschine_voltage         "Waschmaschine Voltage [%.1f V]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=VOLTAGE"}
+
+/* Tuergong */
+Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
+
+/* Batterien */
+Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <energy> (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
 
 //////////////// Vorbereitet ////////////////
 
