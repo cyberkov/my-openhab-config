@@ -50,6 +50,9 @@
 	
 	<!-- temporary workaround to circumvent error messages with any obvious effect -->
 	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF" />
+
+        <!-- debug bindings -->
+	<logger name="org.openhab.binding.homematic" level="DEBUG" />
 	
 	<root level="WARN">
 		<appender-ref ref="FILE" />
