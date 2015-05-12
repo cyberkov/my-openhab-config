@@ -1,46 +1,52 @@
+//////////////// Gruppen
+
 Group All
-Group gGF 		(All)
-Group gFF 		(All)
-Group gC 		(All)
+Group gEG 		(All)
+Group gOG 		(All)
+Group gUG 		(All)
 Group Outdoor 	(All)
-Group Shutters 	(All)
+//Group Shutters 	(All)
 Group Weather 	(All)
 Group Status 	(All)
 Group Network 	(All)
 Group Test		(All)
 
-Group GF_Living 	"Wohnzimmer" 	<sofa>	 		(gGF)
-Group GF_Dining 	"Esszimmer" 	<diningroom> 	(gGF)
-Group GF_Kitchen 	"Kueche" 		<kitchen> 		(gGF)
-Group GF_Toilet 	"WC" 			<bath> 			(gGF)
-Group GF_Corridor 	"Vorzimmer"		<corridor> 		(gGF)
+Group EG_Wohnzimmer 	"Wohnzimmer" 	<sofa>	 		(gEG)
+Group EG_Esszimmer 	"Esszimmer" 	<diningroom> 	(gEG)
+Group EG_Kueche 	"Kueche" 		<kitchen> 		(gEG)
+Group EG_Toilet 	"WC" 			<bath> 			(gEG)
+Group EG_Corridor 	"Vorzimmer"		<corridor> 		(gEG)
 
-Group FF_Bath 		"Bad"	 		<bath> 			(gFF)
-Group FF_Barbara 	"Barbara" 		<office> 		(gFF)
-Group FF_Dominik	"Dominik"	 	<boy1> 			(gFF)
-Group FF_Bed 		"Schlafzimmer" 	<bedroom> 		(gFF)
-Group FF_Wardrobe 	"Schrankraum"	<wardrobe>		(gFF)
-Group FF_Corridor 	"Gang"	 		<corridor> 		(gFF)
+Group OG_Bath 		"Bad"	 		<bath> 			(gOG)
+Group OG_Barbara 	"Barbara" 		<office> 		(gOG)
+Group OG_Dominik	"Dominik"	 	<boy1> 			(gOG)
+Group OG_Bed 		"Schlafzimmer" 	<bedroom> 		(gOG)
+Group OG_Wardrobe 	"Schrankraum"	<wardrobe>		(gOG)
+Group OG_Corridor 	"Gang"	 		<corridor> 		(gOG)
 
-Group GC_Hannes		"Hannes"		<office>		(gC)
-Group GC_Corridor	"Vorraum"		<corridor>		(gC)
-Group GC_Cellar		"Keller"		<cellar>		(gC)
+Group UG_Hannes		"Hannes"		<office>		(gUG)
+Group UG_Corridor	"Vorraum"		<corridor>		(gUG)
+Group UG_Cellar		"Keller"		<cellar>		(gUG)
 
 /* active groups */
+Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
+
+//////////////// Fertig ////////////////
+//////////////// Test ////////////////
+//////////////// Vorbereitet ////////////////
 Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
 Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(All)
-Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
 
 /* XBMC */
 // String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
-String XBMC_State	"Status: [%s]"	(GF_Living, Test)		{ xbmc="<[#livingRoom|Player.State]" }
-String XBMC_Title	"Title: [%s]"	(GF_Living, Test)		{ xbmc="<[#livingRoom|Player.Title]" }
-// Switch XBMC_Power	"XBMC Power"	(GF_Living)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
+String XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.State]" }
+String XBMC_Title	"Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.Title]" }
+// Switch XBMC_Power	"XBMC Power"	(EG_Wohnzimmer)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
 
 
 /* Printer */
-Number Print_Jobs_Queued  "Unfinished print jobs"  (GC_Hannes, Test)   { cups="http://datastore:631/printers/usbprinter1#NOT_COMPLETED" }
+Number Print_Jobs_Queued  "Unfinished print jobs"  (UG_Hannes, Test)   { cups="http://datastore:631/printers/usbprinter1#NOT_COMPLETED" }
 Switch Printer            "Printer"	(Test)
 
 Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
@@ -56,22 +62,10 @@ Switch tog_btn3 (Test) { rfxcom="<66696.4:Command"}
 Dimmer Btn4DimLevel (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:DimmingLevel" }
 Switch Btn4 (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 
-/*
- * aw data = 07100143420A0170
- - Packet type = LIGHTING1
- - Seq number = 67
- - Sub type = ARC
- - Id = B
- - Unit code = 10
- - Command = ON
- - Signal level = 7
- */
-
-
 // Dimmer Btn4DimLevel { rfxcom="<636602.2:DimmingLevel" }
 
 Number RFXTemp_Living { rfxcom="<22016:Temperature" }
-Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Living) { rfxcom="<22016:Temperature" }   
+Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<22016:Temperature" }   
 
 /* Network Health */
 // Switch Network_Google	"Internet"	(Status, Network)   { nh="google.com" }
@@ -79,7 +73,7 @@ Switch Network_Router	"Router"	(Status, Network)   { nh="192.168.1.1" }
 Switch Network_Nas		"NAS"		(Status, Network)   { nh="192.168.1.5" }
 
 /* Lights */
-Dimmer Light_GF_Living_Table 		"Table" 		(GF_Living, Lights)
+Dimmer Light_EG_Wohnzimmer_Table 		"Table" 		(EG_Wohnzimmer, Lights)
 Switch Light_GF_Corridor_Ceiling 	"Ceiling" 		(GF_Corridor, Lights)
 Switch Light_GF_Kitchen_Ceiling 	"Ceiling" 		(GF_Kitchen, Lights)
 Switch Light_GF_Kitchen_Table 		"Table" 		(GF_Kitchen, Lights)
@@ -106,7 +100,7 @@ Switch Light_Outdoor_Frontdoor 		"Frontdoor"		(Outdoor, Lights)
 /* Heating */
 Switch Heating_GF_Corridor 	"GF Corridor" 	<heating>	(GF_Corridor, Heating)
 Switch Heating_GF_Toilet 	"Toilet"	 	<heating>	(GF_Toilet, Heating)
-Switch Heating_GF_Living 	"Livingroom" 	<heating>	(GF_Living, Heating)
+Switch Heating_EG_Wohnzimmer 	"Livingroom" 	<heating>	(EG_Wohnzimmer, Heating)
 Switch Heating_GF_Kitchen 	"Kitchen" 		<heating>	(GF_Kitchen, Heating)
 
 Switch Heating_FF_Bath 		"Bath" 			<heating>	(FF_Bath, Heating)
@@ -119,7 +113,7 @@ Switch Shutter_all (Shutters)
 
 Rollershutter Shutter_GF_Toilet 		"Toilet"		(GF_Toilet, Shutters)
 Rollershutter Shutter_GF_Kitchen 		"Kitchen"		(GF_Kitchen, Shutters)
-Rollershutter Shutter_GF_Living 		"Livingroom"	(GF_Living, Shutters)
+Rollershutter Shutter_EG_Wohnzimmer 		"Livingroom"	(EG_Wohnzimmer, Shutters)
 
 Rollershutter Shutter_FF_Bed 			"Bedroom"		(FF_Bed, Shutters)
 Rollershutter Shutter_FF_Bath 			"Bath"			(FF_Bath, Shutters)
@@ -129,7 +123,7 @@ Rollershutter Shutter_FF_Barbara_Door 	"Office Door"	(FF_Barbara, Shutters)
 /* Indoor Temperatures */
 Number Temperature_GF_Corridor 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
 Number Temperature_GF_Toilet 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
-// Number Temperature_GF_Living 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Living)
+// Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer)
 Number Temperature_GF_Kitchen 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Kitchen)
 Number Temperature_FF_Bath 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bath)
 Number Temperature_FF_Barbara 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Barbara)
@@ -139,7 +133,7 @@ Number Temperature_FF_Bed 		"Temperature [%.1f °C]"	<temperature>	(Temperature,
 /* Windows */
 Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(GF_Corridor, Windows)
 Contact Window_GF_Kitchen 		"Kitchen [MAP(en.map):%s]"			(GF_Kitchen, Windows)
-Contact Window_GF_Living 		"Terrace door [MAP(en.map):%s]"		(GF_Living, Windows)
+Contact Window_EG_Wohnzimmer 		"Terrace door [MAP(en.map):%s]"		(EG_Wohnzimmer, Windows)
 Contact Window_GF_Toilet 		"Toilet [MAP(en.map):%s]"			(GF_Toilet, Windows)
 
 Contact Window_FF_Bath 			"Bath [MAP(en.map):%s]"				(FF_Bath, Windows)
