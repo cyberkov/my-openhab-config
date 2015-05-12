@@ -11,44 +11,75 @@ Group Status 	(All)
 Group Network 	(All)
 Group Test		(All)
 
-Group EG_Wohnzimmer 	"Wohnzimmer" 	<sofa>	 		(gEG)
-Group EG_Esszimmer 	"Esszimmer" 	<diningroom> 	(gEG)
-Group EG_Kueche 	"Kueche" 		<kitchen> 		(gEG)
-Group EG_Toilet 	"WC" 			<bath> 			(gEG)
-Group EG_Corridor 	"Vorzimmer"		<corridor> 		(gEG)
+Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
+Group EG_Esszimmer 	  "Esszimmer" 	        <diningroom> 	        (gEG)
+Group EG_Kueche 	  "Kueche" 		<kitchen> 		(gEG)
+Group EG_Toilet 	  "WC" 			<bath> 			(gEG)
+Group EG_Vorzimmer 	  "Vorzimmer"		<corridor> 		(gEG)
 
-Group OG_Bath 		"Bad"	 		<bath> 			(gOG)
-Group OG_Barbara 	"Barbara" 		<office> 		(gOG)
-Group OG_Dominik	"Dominik"	 	<boy1> 			(gOG)
-Group OG_Bed 		"Schlafzimmer" 	<bedroom> 		(gOG)
-Group OG_Wardrobe 	"Schrankraum"	<wardrobe>		(gOG)
-Group OG_Corridor 	"Gang"	 		<corridor> 		(gOG)
+Group OG_Bad 		  "Bad"	 		<bath> 			(gOG)
+Group OG_Barbara 	  "Barbara" 		<office> 		(gOG)
+Group OG_Dominik	  "Dominik"	 	<boy1> 			(gOG)
+Group OG_Schlafzimmer	  "Schlafzimmer" 	<bedroom> 		(gOG)
+Group OG_Schrankraum 	  "Schrankraum"         <wardrobe>		(gOG)
+Group OG_Gang    	  "Gang"	 	<corridor> 		(gOG)
 
-Group UG_Hannes		"Hannes"		<office>		(gUG)
-Group UG_Corridor	"Vorraum"		<corridor>		(gUG)
-Group UG_Cellar		"Keller"		<cellar>		(gUG)
+Group UG_Hannes		  "Hannes"		<office>		(gUG)
+Group UG_Vorzimmer	  "Vorraum"		<corridor>		(gUG)
+Group UG_Sauna		  "Sauna"		<cellar>		(gUG)
+Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 
 /* active groups */
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
-
-//////////////// Fertig ////////////////
-//////////////// Test ////////////////
-//////////////// Vorbereitet ////////////////
+Group:Number:AVG 				Humidity	"Avg. Room Humidity [%.1f %]" 	<temperature>	(Status)
 Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
 Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(All)
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
 
+//////////////// Fertig ////////////////
+//////////////// Test ////////////////
+
+/* Heating */
+Switch Heating_UG_Sauna 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
+
+/* Temperature */
+Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<22016:Temperature" }   
+Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer)
+Number Temperature_UG_Sauna 	        "Temperatur Sauna [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna)
+
+/* Humidity */
+Number Temperature_OG_Schlafzimmer 	"Luftfeuchte [%.1f °C]"	<temperature>	(Humidity, OG_Schlafzimmer)
+
+/* Windows */
+Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows)
+
 /* XBMC */
-// String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 String XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.State]" }
 String XBMC_Title	"Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.Title]" }
+
+/* Network Health */
+Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
+Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1" }
+Switch Network_acedia	        "acedia"	(UG_Hannes, Network)   { nh="192.168.1.1" }
+Switch Network_nas		"NAS"		(UG_Hannes, Network)   { nh="192.168.1.5" }
+Switch Network_ccu		"CCU"		(UG_Hannes, Network)   { nh="192.168.1.6" }
+Switch Network_raspi		"Raspi"		(UG_Hannes, Network)   { nh="192.168.1.10" }
+Switch Network_cybmc		"cybmc"		(EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
+Switch Network_heisenberg	"heisenberg"		(Network)   { nh="192.168.1.20" }
+
+//////////////// Vorbereitet ////////////////
+
+// String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 // Switch XBMC_Power	"XBMC Power"	(EG_Wohnzimmer)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
 
 
 /* Printer */
+/*
 Number Print_Jobs_Queued  "Unfinished print jobs"  (UG_Hannes, Test)   { cups="http://datastore:631/printers/usbprinter1#NOT_COMPLETED" }
 Switch Printer            "Printer"	(Test)
+*/
 
+/*
 Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 Switch Btn2 (Test) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command" }
 String Btn1RawData (Test) { rfxcom="<66696.2:RawData" }
@@ -61,18 +92,13 @@ Switch tog_btn3 (Test) { rfxcom="<66696.4:Command"}
 
 Dimmer Btn4DimLevel (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:DimmingLevel" }
 Switch Btn4 (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
-
+*/
 // Dimmer Btn4DimLevel { rfxcom="<636602.2:DimmingLevel" }
 
-Number RFXTemp_Living { rfxcom="<22016:Temperature" }
-Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<22016:Temperature" }   
-
-/* Network Health */
-// Switch Network_Google	"Internet"	(Status, Network)   { nh="google.com" }
-Switch Network_Router	"Router"	(Status, Network)   { nh="192.168.1.1" }
-Switch Network_Nas		"NAS"		(Status, Network)   { nh="192.168.1.5" }
+//Number RFXTemp_Living { rfxcom="<22016:Temperature" }
 
 /* Lights */
+/*
 Dimmer Light_EG_Wohnzimmer_Table 		"Table" 		(EG_Wohnzimmer, Lights)
 Switch Light_GF_Corridor_Ceiling 	"Ceiling" 		(GF_Corridor, Lights)
 Switch Light_GF_Kitchen_Ceiling 	"Ceiling" 		(GF_Kitchen, Lights)
@@ -96,8 +122,10 @@ Switch Light_C_Workshop 			"Workshop" 		(gC, Lights)
 Switch Light_Outdoor_Garage 		"Garage" 		(Outdoor, Lights)
 Switch Light_Outdoor_Terrace 		"Terrace" 		(Outdoor, Lights)
 Switch Light_Outdoor_Frontdoor 		"Frontdoor"		(Outdoor, Lights)
+*/
 
 /* Heating */
+/*
 Switch Heating_GF_Corridor 	"GF Corridor" 	<heating>	(GF_Corridor, Heating)
 Switch Heating_GF_Toilet 	"Toilet"	 	<heating>	(GF_Toilet, Heating)
 Switch Heating_EG_Wohnzimmer 	"Livingroom" 	<heating>	(EG_Wohnzimmer, Heating)
@@ -107,8 +135,10 @@ Switch Heating_FF_Bath 		"Bath" 			<heating>	(FF_Bath, Heating)
 Switch Heating_FF_Barbara 	"Office" 		<heating>	(FF_Barbara, Heating)
 Switch Heating_FF_Dominik 	"Child's Room" 	<heating>	(FF_Dominik, Heating)
 Switch Heating_FF_Bed 		"Bedroom" 		<heating>	(FF_Bed, Heating)
+*/
 
 /* Rollershutters */
+/*
 Switch Shutter_all (Shutters)
 
 Rollershutter Shutter_GF_Toilet 		"Toilet"		(GF_Toilet, Shutters)
@@ -119,8 +149,10 @@ Rollershutter Shutter_FF_Bed 			"Bedroom"		(FF_Bed, Shutters)
 Rollershutter Shutter_FF_Bath 			"Bath"			(FF_Bath, Shutters)
 Rollershutter Shutter_FF_Barbara_Window	"Office Window"	(FF_Barbara, Shutters)
 Rollershutter Shutter_FF_Barbara_Door 	"Office Door"	(FF_Barbara, Shutters)
+*/
 
 /* Indoor Temperatures */
+/*
 Number Temperature_GF_Corridor 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
 Number Temperature_GF_Toilet 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
 // Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer)
@@ -129,8 +161,10 @@ Number Temperature_FF_Bath 		"Temperature [%.1f °C]"	<temperature>	(Temperature
 Number Temperature_FF_Barbara 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Barbara)
 Number Temperature_FF_Dominik 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Dominik)
 Number Temperature_FF_Bed 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bed)
+*/
 
 /* Windows */
+/*
 Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(GF_Corridor, Windows)
 Contact Window_GF_Kitchen 		"Kitchen [MAP(en.map):%s]"			(GF_Kitchen, Windows)
 Contact Window_EG_Wohnzimmer 		"Terrace door [MAP(en.map):%s]"		(EG_Wohnzimmer, Windows)
@@ -142,18 +176,22 @@ Contact Window_FF_Barbara_Window "Office Window [MAP(en.map):%s]"	(FF_Barbara, W
 Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(en.map):%s]"		(FF_Barbara, Windows)
 
 Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
+*/
 
+/*
 Group Weather_Chart													(Weather)
 Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=551801&u=c:60000:XSLT(yahoo_weather_temperature.xsl)]" }
 Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart)
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart)
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+*/
 
 /* NTP binding demo item */
-DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
+//DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
 
 /* Demo items */
+/*
 Switch DemoSwitch				"Switch"
 Dimmer DimmedLight				"Dimmer [%d %%]"		<slider>
 Color  RGBLight					"RGB Light"				<slider>
@@ -166,3 +204,4 @@ Number Temperature_Setpoint		"Temperature [%.1f °C]" <temperature>
 
 String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 Number NoOfPairedDevices "Paired Devices in Range: [%d]"  { bluetooth="!" }
+*/
