@@ -37,6 +37,7 @@ Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 	
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
 
 //////////////// Fertig ////////////////
+
 //////////////// Test ////////////////
 
 /* Heating */
@@ -44,11 +45,11 @@ Switch Heating_UG_Sauna 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Temperature */
 Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<22016:Temperature" }   
-Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer)
-Number Temperature_UG_Sauna 	        "Temperatur Sauna [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna)
+Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
+Number Temperature_UG_Sauna 	        "Temperatur Sauna [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 
 /* Humidity */
-Number Temperature_OG_Schlafzimmer 	"Luftfeuchte [%.1f °C]"	<temperature>	(Humidity, OG_Schlafzimmer)
+Number Temperature_OG_Schlafzimmer 	"Luftfeuchte [%.1f °C]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
 Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows)
