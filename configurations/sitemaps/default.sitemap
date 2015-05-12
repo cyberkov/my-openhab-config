@@ -1,9 +1,9 @@
 sitemap schallerburg label="Schallerburg"
 {
 	Frame {
-		Group item=gFF label="Obergeschoss" icon="firstfloor"
-		Group item=gGF label="Erdgeschoss" icon="groundfloor"
-		Group item=gC label="Keller" icon="cellar"	
+		Group item=gOG label="Obergeschoss" icon="firstfloor"
+		Group item=gEG label="Erdgeschoss" icon="groundfloor"
+		Group item=gUG label="Keller" icon="cellar"	
 		Group item=Outdoor label="Garten" icon="garden" 
 	}
 	Frame label="Weather" {
@@ -22,7 +22,7 @@ sitemap schallerburg label="Schallerburg"
 		}
 	}
 	Frame label="Date" {
-		Text item=Date
+		// Text item=Date
 		Group item=Status label="Status" icon="settings"
 		Group item=Test   label="Test" icon="siren-on"
 	}

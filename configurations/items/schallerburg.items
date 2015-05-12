@@ -30,11 +30,9 @@ Group UG_Sauna		  "Sauna"		<cellar>		(gUG)
 Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 
 /* active groups */
-Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
-Group:Number:AVG 				Humidity	"Avg. Room Humidity [%.1f %]" 	<temperature>	(Status)
 Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
-Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(All)
-Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
+Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(Status)
+Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(Status)
 
 //////////////// Fertig ////////////////
 
@@ -44,15 +42,17 @@ Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(Al
 Switch Heating_UG_Sauna 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Temperature */
-Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<22016:Temperature" }   
+Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
+Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<18176:Temperature" }   
 Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna 	        "Temperatur Sauna [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 
 /* Humidity */
-Number Temperature_OG_Schlafzimmer 	"Luftfeuchte [%.1f °C]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
+Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
+Number Humidity_OG_Schlafzimmer 	"Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
-Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows)
+Contact Window_EG_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 
 /* XBMC */
 String EG_Wohnzimmer_XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.State]" }
@@ -188,6 +188,45 @@ Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Cha
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart)
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+
+
+// athmosphere
+Number   Humidity         "Humidity [%d %%]"    <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=humidity"}
+Number   Visibility       "Visibility [%.2f km]"<temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=visibility"}
+Number   Pressure         "Pressure [%.2f mb]"  <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=pressure"}
+String   Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
+Number   Ozone            "Ozone [%d ppm]"      <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=ozone"}
+
+// clouds
+Number   Clouds   "Clouds [%.0f %%]" <temperature> (Weather_Chart)  {weather="locationId=home, type=clouds, property=percent"}
+
+// condition
+String   Condition        "Condition [%s]"    <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=text"}
+String   Condition_ID     "Condition id [%s]" <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=id"}
+DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=observationTime"}
+DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"      <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=lastUpdate"}
+String   CommonId         "Common id [%s]"  <temperature> (Weather_Chart)    {weather="locationId=home, type=condition, property=commonId"}
+
+// precipitation
+Number   Rain          "Rain [%.2f mm/h]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=rain"}
+Number   Snow          "Snow [%.2f mm/h]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=snow"}
+Number   Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=probability"}
+
+// temperature
+Number   Temperature      "Temperature [%.2f °C]"     <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=current"}
+Number   Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=feel"}
+Number   Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=dewpoint"}
+// min and max values only available in forecasts
+Number   Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=min"}
+Number   Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=max"}
+String   Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=minMax"}
+
+// wind
+Number   Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=speed"}
+String   Wind_Direction       "Wind direction [%s]"   <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=direction"}
+Number   Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=degree"}
+Number   Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=gust"}
+Number   Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=chill"}
 
 /* NTP binding demo item */
 //DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
