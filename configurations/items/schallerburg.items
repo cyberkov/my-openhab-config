@@ -54,8 +54,11 @@ Number Temperature_OG_Schlafzimmer 	"Luftfeuchte [%.1f °C]"	<temperature>	(Humi
 Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(EG_Vorzimmer, Windows)
 
 /* XBMC */
-String XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.State]" }
-String XBMC_Title	"Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#livingRoom|Player.Title]" }
+String EG_Wohnzimmer_XBMC_State	"Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.State]" }
+String EG_Wohnzimmer_XBMC_Title	"Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.Title]" }
+
+String UG_Hannes_XBMC_State	"Status: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.State]" }
+String UG_Hannes_XBMC_Title	"Title: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.Title]" }
 
 /* Network Health */
 Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
