@@ -1,0 +1,8 @@
+Strategies {
+        everyHour : "0 0 * * * ?"
+        default = everyChange
+}
+Items {
+        // persist all items every hour and on every change
+        * : strategy = everyChange, everyHour
+}
