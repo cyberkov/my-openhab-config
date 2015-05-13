@@ -138,6 +138,7 @@ rule "Set random room temperatures"
 		)
 end
 */
+/*
 rule "Update max and min temperatures"
 when
 	Item Weather_Temperature changed or
@@ -147,8 +148,10 @@ then
 	postUpdate(Weather_Temp_Max, Weather_Temperature.maximumSince(now.toDateMidnight).state)
 	postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
 end
+*/
 
 /** shows how to use sensor values from the past */
+/*
 rule "Persistence Demo"
 when
 	Time cron "0 * * * * ?"
@@ -157,6 +160,7 @@ then
 		println("2 minutes ago, the temperature was " + Weather_Temperature.historicState(now.minusMinutes(2)) + " degrees.")		
 	}
 end
+*/
 
 /** 
  * shows how to check recent switch states - very helpful to avoid executing something too often, just
