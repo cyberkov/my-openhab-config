@@ -83,11 +83,18 @@ Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 /* Steckdosen */
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine" (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
-Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Current [%.1f mA]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
-Number UG_Wirtschaftsraum_Waschmaschine_energy_counter  "Waschmaschine Energy Counter [%.1f Wh]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
-Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Frequency [%.1f   Hz]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=FREQUENCY"}
-Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Power [%.1f W]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
-Number UG_Wirtschaftsraum_Waschmaschine_voltage         "Waschmaschine Voltage [%.1f V]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=VOLTAGE"}
+Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
+Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Frequenz [%.2f   Hz]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=FREQUENCY"}
+Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
+Number UG_Wirtschaftsraum_Waschmaschine_voltage         "Waschmaschine Spannung [%.2f V]"  (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=VOLTAGE"}
+Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	<switch>	(UG_Wirtschaftsraum)	{ homematic="variable=Waschmaschine" }
+Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch  "Gesamtverbrauch in Wh [%.2f Wh]" <socket> (UG_Wirtschaftsraum) {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
+
+// Die KWh werde ich in einer rule ausrechnen lassen
+Number		UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (UG_Wirtschaftsraum)
+// Der Preis pro KWh ist mir bekannt - also lasse ich mir per rule, wieviel Geld die Maschine bislang verbraten hat
+Number		UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f Eur]"		<smiley>	(UG_Wirtschaftsraum)
+
 
 /* Tuergong */
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
@@ -99,7 +106,8 @@ Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <ene
 
 
 /* MQTT */
-Switch  PresenceHannes_PhoneMqtt   "Hannes @ Home" (Anwesenheit)  { mqttitude="proton:owntracks/cyberkov" }
+Switch  PresenceHannes_PhoneMqtt  "Hannes @ Home"                       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov" }
+Switch  CCU2_Anwesenheit	  "CCU Anwesenheit"	<switch>	(Anwesenheit)	{ homematic="variable=Anwesenheit" }
 
 //Astro
 Group Astro   (Test)
