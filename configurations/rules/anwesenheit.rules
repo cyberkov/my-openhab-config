@@ -4,7 +4,7 @@ when
 then
 	logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
 	JemandDa.sendCommand(OFF)
-	pushover("PresenceCheck", "Viel Spass unterwegs, Hannes.")
+	pushover("Viel Spass unterwegs, Hannes.")
 end
 
 rule "Hannes kommt nach Hause"
@@ -13,7 +13,7 @@ when
 then
 	logInfo("PresenceCheck", "Hannes kommt nach Hause.")
 	JemandDa.sendCommand(ON)
-	pushover("PresenceCheck", "Willkommen zu Hause, Hannes.")
+	pushover("Willkommen zu Hause, Hannes.")
 end
 
 rule "Hannes im Office"
@@ -21,7 +21,7 @@ when
 	Item Presence_Hannes_Office changed from OFF to ON 
 then
 	logInfo("PresenceCheck", "Hannes ist im Bureau.")
-	pushover("PresenceCheck", "Du bist nun im Bureau.")
+	pushover("Du bist nun im Bureau.")
 end
 
 rule "Hannes verlaesst KiGa"
