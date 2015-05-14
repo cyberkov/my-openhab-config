@@ -1,0 +1,35 @@
+rule "Hannes verlaesst das Haus"
+when
+	Item Presence_Hannes_Home changed from ON to OFF
+then
+	logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
+	JemandDa.sendCommand(OFF)
+	pushNotification("PresenceCheck", "Viel Spass unterwegs, Hannes.")
+end
+
+rule "Hannes kommt nach Hause"
+when
+	Item Presence_Hannes_Home changed from OFF to ON 
+then
+	logInfo("PresenceCheck", "Hannes kommt nach Hause.")
+	JemandDa.sendCommand(ON)
+	pushNotification("PresenceCheck", "Willkommen zu Hause, Hannes.")
+end
+
+rule "Hannes im Office"
+when
+	Item Presence_Hannes_Office changed from OFF to ON 
+then
+	logInfo("PresenceCheck", "Hannes ist am Kindergarten.")
+	pushNotification("PresenceCheck", "Du bist nun am KiGa.")
+end
+
+rule "Hannes verlaesst KiGa"
+when
+	Item Presence_Hannes_Office changed from ON to OFF 
+then
+	logInfo("PresenceCheck", "Hannes verlaesst nun den Kindergarten.")
+	pushNotification("PresenceCheck", "Du verlaesst nun den KiGa.")
+end
+ 
+

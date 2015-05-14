@@ -1,0 +1,15 @@
+
+Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present> (Status)
+
+
+//-------------------------
+// Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
+//
+//Switch	JemandDa								{ homematic="variable=CCU2_mqtt" }
+Switch  JemandDa	  "CCU Anwesenheit"	<switch>	(Anwesenheit)	{ homematic="variable=Anwesenheit" }
+
+//-------------------------
+// Switches zu Hannes
+//
+Switch  Presence_Hannes_Home  "Hannes @Home"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Home" }
+Switch  Presence_Hannes_Office  "Hannes @Office"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Office" }

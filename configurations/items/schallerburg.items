@@ -9,7 +9,6 @@ Group Outdoor 	          (All)
 Group Weather 	          (All)
 Group Status              (All)
 Group Network <settings>  (Status)
-Group Anwesenheit <present> (Status)
 Group Test    <smiley>	  (Status)
 
 Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
@@ -106,10 +105,6 @@ Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <ene
 
 //////////////// Vorbereitet ////////////////
 
-
-/* MQTT */
-Switch  PresenceHannes_PhoneMqtt  "Hannes @ Home"                       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov" }
-Switch  CCU2_Anwesenheit	  "CCU Anwesenheit"	<switch>	(Anwesenheit)	{ homematic="variable=Anwesenheit" }
 
 //Astro
 Group Astro   (Test)
