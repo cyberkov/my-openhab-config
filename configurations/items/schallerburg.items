@@ -71,9 +71,14 @@ Switch Network_cybmc		"cybmc"		(EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
 Switch Network_heisenberg	"heisenberg"	(UG_Hannes,Network)   { nh="192.168.1.20" }
 Switch Network_Internet          "Internet"               (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 Switch Network_Avaratia          "Avaratia"               (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
-//Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
-//Switch Network_Smartphone   "Smartphone"                (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.67 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":120000:REGEX((.*))]" }
-//Switch Network_NAS               "Pi"                    (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.5 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+
+/* Weather */
+Group Weather_Chart													(Weather)
+Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
+Number Weather_Chart_Period		"Chart Period"
+DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
 
 //////////////// Test ////////////////
 
@@ -202,7 +207,7 @@ Rollershutter Shutter_FF_Barbara_Door 	"Office Door"	(FF_Barbara, Shutters)
 /*
 Number Temperature_GF_Corridor 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
 Number Temperature_GF_Toilet 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
-// Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer)
+Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer)
 Number Temperature_GF_Kitchen 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Kitchen)
 Number Temperature_FF_Bath 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bath)
 Number Temperature_FF_Barbara 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Barbara)
@@ -225,14 +230,8 @@ Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(en.map):%s]"		(FF_Barbara, Wi
 Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
 */
 
-Group Weather_Chart													(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
-Number Weather_Chart_Period		"Chart Period"
-DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
 
-
+/* Weather */
 // athmosphere
 Number   Humidity         "Humidity [%d %%]"    <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=humidity"}
 Number   Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
