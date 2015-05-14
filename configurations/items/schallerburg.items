@@ -9,6 +9,7 @@ Group Outdoor 	          (All)
 Group Weather 	          (All)
 Group Status              (All)
 Group Network <settings>  (Status)
+Group Anwesenheit <present> (Status)
 Group Test    <smiley>	  (Status)
 
 Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
@@ -33,7 +34,7 @@ Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"		<contact>     (Status)
-Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <siren-on>    (All)
+Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <shield>    (All)
 Group:Contact:OR(0)           Battery         "Batterie [(%d)]"               <energy>      (Status)
 
 //////////////// Fertig ////////////////
@@ -60,7 +61,6 @@ String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#h
 String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.Title]" }
 
 /* Network Health */
-Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
 Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1" }
 Switch Network_acedia	        "acedia"	(UG_Hannes, Network)   { nh="192.168.1.1" }
 Switch Network_nas		"NAS"		(UG_Hannes, Network)   { nh="192.168.1.5" }
@@ -69,6 +69,11 @@ Switch Network_pangea		"Pangea"	(UG_Hannes, Network)   { nh="192.168.1.9" }
 Switch Network_raspi		"Raspi"		(UG_Hannes, Network)   { nh="192.168.1.10" }
 Switch Network_cybmc		"cybmc"		(EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
 Switch Network_heisenberg	"heisenberg"	(UG_Hannes,Network)   { nh="192.168.1.20" }
+Switch Network_Internet          "Internet"               (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+Switch Network_Avaratia          "Avaratia"               (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+//Switch Network_Google	        "Internet"	(Status, Network)   { nh="google.com" }
+//Switch Network_Smartphone   "Smartphone"                (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.67 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":120000:REGEX((.*))]" }
+//Switch Network_NAS               "Pi"                    (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.5 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 
 //////////////// Test ////////////////
 
@@ -92,6 +97,10 @@ Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <ene
 
 //////////////// Vorbereitet ////////////////
 
+
+/* MQTT */
+Switch  PresenceHannes_PhoneMqtt   "Hannes @ Home" (Anwesenheit)  { mqttitude="proton:owntracks/cyberkov" }
+
 //Astro
 Group Astro   (Test)
 DateTime        Sunrise_Time    "Sunrise [%1$tH:%1$tM]"             <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
@@ -101,13 +110,6 @@ Number          Elevation       "Elevation [%.2f]"                              
 Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
 Switch          Sunset_Event    "Sunset Event"         <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
 
-//Status updates devices
-/*
-Switch Network_Pi               "Pi"                    (DEBUG)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.13 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
-Switch Network_Pioneer          "Pioneer"               (DEBUG)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.12 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
-Switch Network_Desktop          "Desktop"               (DEBUG)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.78 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
-Switch Network_Smartphone   "Smartphone"                (DEBUG)  { exec="<[/bin/sh@@-c@@ping -c 1 192.168.1.67 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":120000:REGEX((.*))]" }
-*/
 
 // String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 // Switch XBMC_Power	"XBMC Power"	(EG_Wohnzimmer)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
@@ -219,50 +221,50 @@ Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
 */
 
 Group Weather_Chart													(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { http="<[http://weather.yahooapis.com/forecastrss?w=551801&u=c:60000:XSLT(yahoo_weather_temperature.xsl)]" }
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart)
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
 
 
 // athmosphere
-Number   Humidity         "Humidity [%d %%]"    <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=humidity"}
-Number   Visibility       "Visibility [%.2f km]"<temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=visibility"}
-Number   Pressure         "Pressure [%.2f mb]"  <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=pressure"}
-String   Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
-Number   Ozone            "Ozone [%d ppm]"      <temperature> (Weather_Chart)  {weather="locationId=home, type=athmosphere, property=ozone"}
+Number   Humidity         "Humidity [%d %%]"    <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=humidity"}
+Number   Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
+Number   Pressure         "Pressure [%.2f mb]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressure"}
+String   Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
+Number   Ozone            "Ozone [%d ppm]"      <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=ozone"}
 
 // clouds
-Number   Clouds   "Clouds [%.0f %%]" <temperature> (Weather_Chart)  {weather="locationId=home, type=clouds, property=percent"}
+Number   Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="locationId=home, type=clouds, property=percent"}
 
 // condition
-String   Condition        "Condition [%s]"    <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=text"}
-String   Condition_ID     "Condition id [%s]" <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=id"}
-DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=observationTime"}
-DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"      <temperature> (Weather_Chart)  {weather="locationId=home, type=condition, property=lastUpdate"}
-String   CommonId         "Common id [%s]"  <temperature> (Weather_Chart)    {weather="locationId=home, type=condition, property=commonId"}
+String   Condition        "Condition [%s]"    <temperature> (Weather)  {weather="locationId=home, type=condition, property=text"}
+String   Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
+DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
+DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"      <temperature> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
+String   CommonId         "Common id [%s]"  <temperature> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
 
 // precipitation
-Number   Rain          "Rain [%.2f mm/h]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=rain"}
-Number   Snow          "Snow [%.2f mm/h]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=snow"}
-Number   Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather_Chart)  {weather="locationId=home, type=precipitation, property=probability"}
+Number   Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
+Number   Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=snow"}
+Number   Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
 
 // temperature
-Number   Temperature      "Temperature [%.2f °C]"     <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=current"}
-Number   Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=feel"}
-Number   Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=dewpoint"}
+Number   Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
+Number   Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
+Number   Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
 // min and max values only available in forecasts
-Number   Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=min"}
-Number   Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=max"}
-String   Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather_Chart)  {weather="locationId=home, type=temperature, property=minMax"}
+Number   Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=min"}
+Number   Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=max"}
+String   Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather)  {weather="locationId=home, type=temperature, property=minMax"}
 
 // wind
-Number   Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=speed"}
-String   Wind_Direction       "Wind direction [%s]"   <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=direction"}
-Number   Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=degree"}
-Number   Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=gust"}
-Number   Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather_Chart)   {weather="locationId=home, type=wind, property=chill"}
+Number   Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=speed"}
+String   Wind_Direction       "Wind direction [%s]"   <temperature> (Weather)   {weather="locationId=home, type=wind, property=direction"}
+Number   Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=degree"}
+Number   Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=gust"}
+Number   Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=chill"}
 
 /* NTP binding demo item */
 //DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
