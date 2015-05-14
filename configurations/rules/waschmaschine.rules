@@ -5,7 +5,7 @@
 import org.openhab.core.library.types.*
 var Number Var_WH
 // Anbieterpreis für KWh incl. MwSt.
-var Number ESSL_KWH=0.51 // Naturkraft 14.5.2015
+var Number Naturkraft_KWH=0.51 // Naturkraft 14.5.2015
 
 //----------------------------------------------------------
 // Umrechnung der Wh in KWh
@@ -27,6 +27,6 @@ when
   Item UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH changed
 then
   var Number Var_KWH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH.state
-  var Number Kosten = Var_KWH * ESSL_KWH
-  WaMaTro_Summe.postUpdate(Kosten)
+  var Number Kosten = Var_KWH * Naturkraft_KWH
+  UG_Wirtschaftsraum_Waschmaschine_Summe.postUpdate(Kosten)
 end 
