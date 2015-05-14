@@ -2,3 +2,6 @@
 
 /* CCU2 Variable Sync */
 Switch Reload_Variables {homematic="address=BidCoS-RF, channel=1, parameter=PRESS_SHORT, action=RELOAD_VARIABLES"}
+
+/* Automatic Datapoint Reload */
+Switch Reload_Datapoints {homematic="action=RELOAD_DATAPOINTS"}

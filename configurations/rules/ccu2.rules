@@ -1,0 +1,8 @@
+import org.openhab.core.library.types.*
+
+rule "Reload datapoints"
+when 
+    Time cron "0 0 0/6 * * ?"   // every 6 hours
+then
+    sendCommand(Reload_Datapoints, ON)
+end
