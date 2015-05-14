@@ -1,18 +1,19 @@
 sitemap schallerburg label="Schallerburg"
 {
-	Frame {
+	Frame label="Haus" {
 		Group item=gOG label="Obergeschoss" icon="firstfloor"
 		Group item=gEG label="Erdgeschoss" icon="groundfloor"
 		Group item=gUG label="Keller" icon="cellar"	
 		Group item=Outdoor label="Garten" icon="garden" 
+                Text item=Temperature
+                Text item=Humidity
 	}
-	Frame label="Weather" {
+	Frame label="Wetter" {
 		Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
 			Frame {
 				Text item=Weather_Temp_Max valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
 				Text item=Weather_Temp_Min valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
 				Text item=Weather_LastUpdate visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
-                                Group item=Weather
 			}
 			Frame {
 				Switch item=Weather_Chart_Period label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]
@@ -21,12 +22,17 @@ sitemap schallerburg label="Schallerburg"
 				Chart item=Weather_Chart period=W refresh=3600 visibility=[Weather_Chart_Period==2]
 			}
 		}
+                Text item=Condition label="Wetter [%s]"
+                Text item=Condition_today label="Wetter heute [%s]"
+                Text item=Condition_tomorrow label="Wetter morgen [%s]"
 	}
-//	Frame label="Date" {
+	Frame label="Status" {
+                Switch item=JemandDa
 		// Text item=Date
 		Group item=Status     label="Status" icon="settings"
 		Group item=Security
-//	}
+                Group item=Weather
+	}
 	/*
 	Frame label="Demo" {
 		Text label="Group Demo" icon="firstfloor" {

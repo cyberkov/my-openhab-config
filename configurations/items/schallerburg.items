@@ -6,7 +6,7 @@ Group gOG 		  (All)
 Group gUG 		  (All)
 Group Outdoor 	          (All)
 //Group Shutters 	(All)
-Group Weather 	          (All)
+Group Weather <sun_clouds> (All)
 Group Status              (All)
 Group Network <settings>  (Status)
 Group Test    <smiley>	  (Status)
@@ -77,7 +77,10 @@ Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Wea
 Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
-DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
+String   Condition        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
+String   Condition_today        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=0, property=text"}
+String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=1, property=text"}
 
 //////////////// Test ////////////////
 
@@ -228,45 +231,44 @@ Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
 
 /* Weather */
 // athmosphere
-Number   Humidity         "Humidity [%d %%]"    <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=humidity"}
-Number   Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
-Number   Pressure         "Pressure [%.2f mb]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressure"}
-String   Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
-Number   Ozone            "Ozone [%d ppm]"      <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=ozone"}
+Number   Weather_Humidity         "Humidity [%d %%]"    <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=humidity"}
+Number   Weather_Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
+Number   Weather_Pressure         "Pressure [%.2f mb]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressure"}
+String   Weather_Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
+Number   Weather_Ozone            "Ozone [%d ppm]"      <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=ozone"}
 
 // clouds
-Number   Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="locationId=home, type=clouds, property=percent"}
+Number   Weather_Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="locationId=home, type=clouds, property=percent"}
 
 // condition
-String   Condition        "Condition [%s]"    <temperature> (Weather)  {weather="locationId=home, type=condition, property=text"}
-String   Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
-DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
-DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"      <temperature> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
-String   CommonId         "Common id [%s]"  <temperature> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
+String   Weather_Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
+DateTime Weather_ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
+String   Weather_CommonId         "Common id [%s]"  <temperature> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
 
 // precipitation
-Number   Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
-Number   Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=snow"}
-Number   Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
+Number   Weather_Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
+Number   Weather_Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=snow"}
+Number   Weather_Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
 
 // temperature
-Number   Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
-Number   Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
-Number   Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
+Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
+Number   Weather_Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
+Number   Weather_Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
 // min and max values only available in forecasts
-Number   Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=min"}
-Number   Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=max"}
-String   Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather)  {weather="locationId=home, type=temperature, property=minMax"}
+Number   Weather_Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=min"}
+Number   Weather_Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=max"}
+String   Weather_Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather)  {weather="locationId=home, type=temperature, property=minMax"}
 
 // wind
-Number   Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=speed"}
-String   Wind_Direction       "Wind direction [%s]"   <temperature> (Weather)   {weather="locationId=home, type=wind, property=direction"}
-Number   Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=degree"}
-Number   Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=gust"}
-Number   Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=chill"}
+Number   Weather_Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=speed"}
+String   Weather_Wind_Direction       "Wind direction [%s]"   <temperature> (Weather)   {weather="locationId=home, type=wind, property=direction"}
+Number   Weather_Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=degree"}
+Number   Weather_Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=gust"}
+Number   Weather_Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=chill"}
 
 /* NTP binding demo item */
 //DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Vienna:de_DE" }
+//DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
 
 /* Demo items */
 /*
