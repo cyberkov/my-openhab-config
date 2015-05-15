@@ -115,7 +115,7 @@ Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
 
 /* Batterien */
-Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <energy> (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
+//Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <energy> (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
 
 //////////////// Vorbereitet ////////////////
 

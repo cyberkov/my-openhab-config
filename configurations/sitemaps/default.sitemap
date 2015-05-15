@@ -7,6 +7,11 @@ sitemap schallerburg label="Schallerburg"
 		Group item=Outdoor label="Garten" icon="garden" 
                 Text item=Temperature
                 Text item=Humidity
+                Frame label="Sauna" {
+                  Group item=UG_Sauna_Heizung
+                  Setpoint item=UG_Sauna_Heizung_SET_TEMPERATURE minValue=17 maxValue=28 step=0.5
+                  Switch item=UG_Sauna_Scene_Heating mappings=[0="Normal", 1="Baden", 2="Eco", 3="Comfort"]
+                }
 	}
 	Frame label="Wetter" {
 		Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
