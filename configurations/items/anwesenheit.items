@@ -6,7 +6,7 @@ Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present> (Status)
 // Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
 //
 //Switch	JemandDa								{ homematic="variable=CCU2_mqtt" }
-Switch  JemandDa	  "CCU Anwesenheit"	<switch>	(Anwesenheit)	{ homematic="variable=Anwesenheit" }
+Switch  JemandDa	  "CCU Anwesenheit"	<present>	(Anwesenheit)	{ homematic="variable=Anwesenheit" }
 
 //-------------------------
 // Switches zu Hannes

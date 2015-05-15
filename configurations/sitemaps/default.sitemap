@@ -27,7 +27,7 @@ sitemap schallerburg label="Schallerburg"
                 Text item=Weather_CommonId_tomorrow
 	}
 	Frame label="Status" {
-                Switch item=JemandDa
+                Switch item=Anwesenheit
 		// Text item=Date
 		Group item=Status     label="Status" icon="settings"
 		Group item=Security
