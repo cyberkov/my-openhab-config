@@ -12,4 +12,4 @@ Switch  JemandDa	  "CCU Anwesenheit"	<switch>	(Anwesenheit)	{ homematic="variabl
 // Switches zu Hannes
 //
 Switch  Presence_Hannes_Home  "Hannes @Home"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Home" }
-Switch  Presence_Hannes_Office  "Hannes @Office"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Office" }
+Switch  Presence_Hannes_Office  "Hannes @Office"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Itsdone" }
