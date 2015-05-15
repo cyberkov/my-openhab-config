@@ -1,3 +1,7 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
 rule "Hannes verlaesst das Haus"
 when
 	Item Presence_Hannes_Home changed from ON to OFF

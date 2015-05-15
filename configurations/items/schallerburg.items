@@ -38,6 +38,10 @@ Group:Contact:OR(0)           Battery         "Batterie [(%d)]"               <e
 
 //////////////// Fertig ////////////////
 
+/* Modes 0=HOME, 1=NIGHT, 2=AWAY */
+Number mode "Modus: [MAP(modus.map)]" <present>
+Number previous_mode 
+
 /* Temperature */
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
 Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<18176:Temperature" }   
@@ -125,6 +129,14 @@ Number          Elevation       "Elevation [%.2f]"                              
 Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
 Switch          Sunset_Event    "Sunset Event"         <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
 
+/* Living room TV */
+/*
+Group TV <tv>
+Switch        tv_power    "TV"      <power>     (TV, proximity) {samsungtv="ON:Livingroom:KEY_POWERON, OFF:Livingroom:KEY_POWEROFF", nh="192.168.1.153"}
+Rollershutter tv_channel  "Kanal"   <channel>   (TV) {samsungtv="UP:Livingroom:KEY_CHUP, DOWN:Livingroom:KEY_CHDOWN"}
+Switch        tv_mute     "Mute"    <volume>    (TV){samsungtv="ON:Livingroom:KEY_MUTE, OFF:Livingroom:KEY_MUTE"}
+Rollershutter tv_volume   "Volume"  <volume>    (TV) {samsungtv="UP:Livingroom:KEY_VOLUP, DOWN:Livingroom:KEY_VOLDOWN"}
+*/
 
 // String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 // Switch XBMC_Power	"XBMC Power"	(EG_Wohnzimmer)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
