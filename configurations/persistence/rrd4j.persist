@@ -11,4 +11,7 @@ Items {
         
         // let's only store temperature values in rrd
         Temperature*,Weather_Chart* : strategy = everyMinute, restoreOnStartup
+
+        // store everything for restore
+        * : strategy = everyMinute, everyChange, everyDay, restoreOnStartup
 }
