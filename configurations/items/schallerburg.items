@@ -79,9 +79,15 @@ Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Cha
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
 String   Weather_CommonId               "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
-String   Weather_CommonId_today         "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
-String   Weather_CommonId_tomorrow      "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=1, type=condition, property=commonId"}
-String   Condition                      "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
+String   Weather_CommonId_today         "heute: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
+String   Weather_CommonId_tomorrow      "morgen: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=1, type=condition, property=commonId"}
+String   Condition                      "Wetter [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
+
+// Wetterbericht f heute Rule
+String   Condition_today              "Condition [%s]"              <sun_clouds>  (Weather)  {weather="locationId=home, forecast=0, type=condition, property=text"}
+Number   Weather_Temp_Min             "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
+Number   Weather_Temp_Max             "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
+Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
 
 //////////////// Test ////////////////
 
@@ -244,7 +250,6 @@ Number   Weather_Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="
 // condition
 String   Weather_Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
 DateTime Weather_ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
-String   Condition_today        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=0, property=text"}
 String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=1, property=text"}
 
 // precipitation
@@ -257,8 +262,6 @@ Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (We
 Number   Weather_Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
 Number   Weather_Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
 // min and max values only available in forecasts
-Number   Weather_Temp_Min         "Temperature min [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=min"}
-Number   Weather_Temp_Max         "Temperature max [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=max"}
 String   Weather_Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather)  {weather="locationId=home, type=temperature, property=minMax"}
 
 // wind

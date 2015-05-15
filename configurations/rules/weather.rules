@@ -8,3 +8,15 @@ then
 	postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
 end
 
+var wetter_output = "Wetter heute:"
+rule "schicke Wetterbericht fuer heute"
+when
+	Time cron "0 * * * * ?"
+then	
+        wetter_output = wetter_output + " " + Condition_today
+        wetter_output = wetter_output + " Min: " + Weather_Temp_Min
+        wetter_output = wetter_output + " Max: " + Weather_Temp_Max
+        wetter_output = wetter_output + " Regen: " + Weather_Precip_Probability
+        logInfo("Rule Wetterbericht", wetter_output)
+	pushover(wetter_output)
+end

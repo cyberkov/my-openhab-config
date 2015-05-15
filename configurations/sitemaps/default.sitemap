@@ -22,11 +22,9 @@ sitemap schallerburg label="Schallerburg"
 				Chart item=Weather_Chart period=W refresh=3600 visibility=[Weather_Chart_Period==2]
 			}
 		}
-                Text item=Condition label="Wetter [%s]"
-                Text item=Condition_today label="Wetter heute [%s]"
-                Text item=Condition_tomorrow label="Wetter morgen [%s]"
-                Text item=Weather_CommonId_today label="Wetter heute [%s]"
-                Text item=Weather_CommonId_tomorrow label="Wetter morgen [%s]"
+                Text item=Condition
+                Text item=Weather_CommonId_today
+                Text item=Weather_CommonId_tomorrow
 	}
 	Frame label="Status" {
                 Switch item=JemandDa
