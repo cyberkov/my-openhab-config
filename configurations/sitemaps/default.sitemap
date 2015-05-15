@@ -25,6 +25,8 @@ sitemap schallerburg label="Schallerburg"
                 Text item=Condition label="Wetter [%s]"
                 Text item=Condition_today label="Wetter heute [%s]"
                 Text item=Condition_tomorrow label="Wetter morgen [%s]"
+                Text item=Weather_CommonId_today label="Wetter heute [%s]"
+                Text item=Weather_CommonId_tomorrow label="Wetter morgen [%s]"
 	}
 	Frame label="Status" {
                 Switch item=JemandDa

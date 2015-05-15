@@ -78,9 +78,10 @@ Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Cha
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
-String   Condition        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
-String   Condition_today        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=0, property=text"}
-String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=1, property=text"}
+String   Weather_CommonId               "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
+String   Weather_CommonId_today         "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
+String   Weather_CommonId_tomorrow      "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=1, type=condition, property=commonId"}
+String   Condition                      "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
 
 //////////////// Test ////////////////
 
@@ -243,7 +244,8 @@ Number   Weather_Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="
 // condition
 String   Weather_Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
 DateTime Weather_ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
-String   Weather_CommonId         "Common id [%s]"  <temperature> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
+String   Condition_today        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=0, property=text"}
+String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=1, property=text"}
 
 // precipitation
 Number   Weather_Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
