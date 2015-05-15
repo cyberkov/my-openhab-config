@@ -12,7 +12,7 @@ Group Network <settings>  (Status)
 Group Test    <smiley>	  (Status)
 
 Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
-Group EG_Esszimmer 	  "Esszimmer" 	        <diningroom> 	        (gEG)
+Group EG_Esszimmer 	  "Esszimmer" 	        <dining> 	        (gEG)
 Group EG_Kueche 	  "Kueche" 		<kitchen> 		(gEG)
 Group EG_Toilet 	  "WC" 			<bath> 			(gEG)
 Group EG_Vorzimmer 	  "Vorzimmer"		<corridor> 		(gEG)
@@ -96,7 +96,7 @@ Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Steckdosen */
 
-Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <switch>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
+Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <switch>  (UG_Wirtschaftsraum)  { homematic="variable=Waschmaschine" }
 Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
 Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
