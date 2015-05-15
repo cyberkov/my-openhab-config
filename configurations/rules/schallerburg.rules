@@ -5,21 +5,23 @@ import org.openhab.model.script.actions.*
 // var Number counter = 1
 var Timer timer = null
 
-/*
 rule Startup
 when 
 	System started
 then
-	say("Welcome at openHab!")
+	//say("Welcome at openHab!")
+	pushover("OpenHAB wurde gestartet.")
 end
 
 rule Goodbye
 when 
 	System shuts down
 then
-	say("Good bye!")
+	pushover("OpenHAB wird beendet.")
+	// say("Good bye!")
 end
 
+/*
 rule "Crontest"
 	when 
 		Time cron "0/15 * * * * ?"
