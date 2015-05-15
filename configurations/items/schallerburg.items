@@ -1,10 +1,10 @@
 //////////////// Gruppen
 
 Group All
-Group gEG 		  (All)
-Group gOG 		  (All)
-Group gUG 		  (All)
-Group Outdoor 	          (All)
+Group gEG "Erdgeschoss"  <groundfloor>	  (All)
+Group gOG "Obergeschoss" <firstfloor>	  (All)
+Group gUG "Keller"       <cellar>         (All)
+Group Outdoor "Garten"	 <garden>         (All)
 //Group Shutters 	(All)
 Group Weather <sun_clouds> (All)
 Group Status              (All)
