@@ -2,6 +2,7 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
+
 rule "Update max and min temperatures"
 when
 	Item Weather_Temperature changed or
@@ -12,15 +13,17 @@ then
 	postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
 end
 
-var wetter_output = "Wetter heute:"
+var String wetterOutput = null
+
 rule "schicke Wetterbericht fuer heute"
 when
 	Time cron "0 * * * * ?"
 then	
-        wetter_output = wetter_output + " " + Condition_today
-        wetter_output = wetter_output + " Min: " + Weather_Temp_Min
-        wetter_output = wetter_output + " Max: " + Weather_Temp_Max
-        wetter_output = wetter_output + " Regen: " + Weather_Precip_Probability
-        logInfo("Rule Wetterbericht", wetter_output)
-	pushover(wetter_output)
+		wetterOutput = "Wetter heute:"
+        wetterOutput = wetterOutput + " " + Condition_today
+        wetterOutput = wetterOutput + " Min: " + Weather_Temp_Min
+        wetterOutput = wetterOutput + " Max: " + Weather_Temp_Max
+        wetterOutput = wetterOutput + " Regen: " + Weather_Precip_Probability
+        logInfo("Rule Wetterbericht", wetterOutput)
+		pushover(wetterOutput)
 end
