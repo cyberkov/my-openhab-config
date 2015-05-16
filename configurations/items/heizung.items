@@ -5,7 +5,7 @@
 Group:Number:AVG	Heizkoerper		"Heizkoerper"			<heating> (Status)
 
 // Dann erstelle ich eine Gruppe fuer die Badezimmerheizung
-Group		UG_Sauna_Heizung			"Heizung ELW Badezimmer"	<heating>	(UG_Sauna, Heizkoerper)
+Group		UG_Sauna_Heizung			"Heizung UG Sauna"	<heating>	(UG_Sauna, Heizkoerper)
 
 //---------------------------------------------------------------------------------------------------------------
 // Die vier Zustaende, in die ich den Heizkoerper schalten kann
