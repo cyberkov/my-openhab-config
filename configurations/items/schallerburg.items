@@ -46,11 +46,16 @@ Number previous_mode
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
 Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<18176:Temperature" }   
 Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna 	        "Temperatur Sauna [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
+Number Temperature_UG_Sauna_Heating 	        "Temperatur Sauna Heizung [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
+
+Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, EG_Kueche) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
+Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, EG_Kueche) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
 
 /* Humidity */
 Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
-Number Humidity_OG_Schlafzimmer 	"Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
+Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
+Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
 Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(en.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
