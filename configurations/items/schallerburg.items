@@ -115,12 +115,17 @@ Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Netzfrequ
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (UG_Wirtschaftsraum)
 Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (UG_Wirtschaftsraum)
 
+/* Drucker */
+Switch UG_Hannes_Power_Printer "Hannes Drucker" (UG_Hannes) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command" }
 
 /* Tuergong */
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
 
 /* Batterien */
 //Contact UG_Sauna_Heating_Bat "Sauna Heizung Batterie [MAP(battery.map):%d]" <energy> (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
+
+Switch Btn1 (Test,UG_Hannes) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch Btn3 (Test,UG_Hannes) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 
 //////////////// Vorbereitet ////////////////
 
@@ -156,6 +161,7 @@ Switch Printer            "Printer"	(Test)
 /*
 Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 Switch Btn2 (Test) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command" }
+Switch btn3  (Test)  { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 String Btn1RawData (Test) { rfxcom="<66696.2:RawData" }
 
 Switch lights_bed_table  (Test)  { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
