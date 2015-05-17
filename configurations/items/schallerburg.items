@@ -116,7 +116,7 @@ Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH	"Gesamtverbrauch in 
 Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (UG_Wirtschaftsraum)
 
 /* Drucker */
-Switch UG_Hannes_Power_Printer "Hannes Drucker" (UG_Hannes) <printer> { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
 
 /* Tuergong */
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
