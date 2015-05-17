@@ -6,4 +6,4 @@ Dimmer EG_Wohnzimmer_XBMC_Volume "WZ XBMC Volume [%.1f]"   (EG_wohnzimmer)      
 String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.State]" }
 String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
 Dimmer UG_Hannes_XBMC_Volume    "Raspi Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
-
+Switch UG_Hannes_XBMC_Screensaver "Raspi Screensaver"   (UG_Hannes)             { xbmc="<[#hannes|Screensaver.State]" }
