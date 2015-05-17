@@ -1,5 +1,4 @@
-﻿sitemap schallerburg label="Schallerburg"
-{
+sitemap schallerburg label="Schallerburg" {
   Frame label="Haus" {
     Text label="Erdgeschoss" icon="groundfloor" {
       Group item=EG_Wohnzimmer
