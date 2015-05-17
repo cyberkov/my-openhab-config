@@ -21,8 +21,8 @@ when
 then	
 		wetterOutput = "Wetter heute:"
         wetterOutput = wetterOutput + " " + Condition_today
-        wetterOutput = wetterOutput + " Min: " + Weather_Temp_Min
-        wetterOutput = wetterOutput + " Max: " + Weather_Temp_Max
+        wetterOutput = wetterOutput + " Min: " + Weather_Forecast_Temp_Min
+        wetterOutput = wetterOutput + " Max: " + Weather_Forecast_Temp_Max
         wetterOutput = wetterOutput + " Regen: " + Weather_Precip_Probability
         logInfo("Rule Wetterbericht", wetterOutput)
 		pushover(wetterOutput)

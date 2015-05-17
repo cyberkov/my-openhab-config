@@ -94,8 +94,8 @@ String   Condition                      "Wetter [%s]"    <sun_clouds> (Weather) 
 
 // Wetterbericht f heute Rule
 String   Condition_today              "Condition [%s]"              <sun_clouds>  (Weather)  {weather="locationId=home, forecast=0, type=condition, property=text"}
-Number   Weather_Temp_Min             "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
-Number   Weather_Temp_Max             "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
+Number   Weather_Forecast_Temp_Min             "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
+Number   Weather_Forecast_Temp_Max             "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
 Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
 
 //////////////// Test ////////////////
