@@ -1,0 +1,9 @@
+/* XBMC */
+String EG_Wohnzimmer_XBMC_State	"WZ Status: [%s]"	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.State]" }
+String EG_Wohnzimmer_XBMC_Title	"WZ Title: [%s]"	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.Title]" }
+Dimmer EG_Wohnzimmer_XBMC_Volume "WZ XBMC Volume [%.1f]"   (EG_wohnzimmer)         { xbmc="=[#wohnzimmer|Application.Volume]" }
+
+String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.State]" }
+String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
+Dimmer UG_Hannes_XBMC_Volume    "Raspi Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
+

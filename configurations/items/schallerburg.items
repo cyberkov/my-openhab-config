@@ -61,13 +61,6 @@ Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Hum
 Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(en.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
-/* XBMC */
-String EG_Wohnzimmer_XBMC_State	"WZ Status: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.State]" }
-String EG_Wohnzimmer_XBMC_Title	"WZ Title: [%s]"	(EG_Wohnzimmer, Test)		{ xbmc="<[#wohnzimmer|Player.Title]" }
-
-String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.State]" }
-String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes, Test)		{ xbmc="<[#hannes|Player.Title]" }
-
 /* Network Health */
 Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1" }
 Switch Network_acedia	        "acedia"	(UG_Hannes, Network)   { nh="192.168.1.1" }
