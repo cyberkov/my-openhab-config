@@ -31,7 +31,8 @@ sitemap default label="Schallerburg"
     }
   }
 
-  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
+//  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
+  Text item=MainStatus label="Informationen" icon="house"
   {
     Text item=Temperature label="Temperatur [%.1f °C]" {
       Frame {
@@ -196,11 +197,11 @@ sitemap default label="Schallerburg"
   }
   Frame label="Status" {
       Group item=Anwesenheit
-      Group item=Temperature
-      Group item=Humidity
+//      Group item=Temperature
+//      Group item=Humidity
       // Text item=Date
       Group item=Status     label="Status" icon="settings"
-      Group item=Security
-      Group item=Weather
+//      Group item=Security
+//      Group item=Weather
   }
 }
