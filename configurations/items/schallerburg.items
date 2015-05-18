@@ -34,7 +34,7 @@ Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"		<contact>     (Status)
 Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <shield>      (All)
-Group:Number:MIN                Battery         "Batterien [(%d)]"              <energy>      (Status)
+Group:Number:MIN                Battery         "Batterien [(%.1f V)]"              <energy>      (Status)
 
 //////////////// Fertig ////////////////
 
