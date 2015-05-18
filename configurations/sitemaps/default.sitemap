@@ -76,6 +76,66 @@ sitemap default label="Schallerburg"
         Chart item=Gas_Current_Consumption period=W refresh=10000
       }
     }
+    Text label="Wochenauswertung" icon="chart"{
+      Frame {
+        Chart item=Temperature period=W refresh=86400 label="Temperatur"
+      }
+      Frame {
+        Chart item=Humidity period=W refresh=86400 label="Luftfeuchtigkeit"
+      }
+      Frame {
+        Chart item=Weather_Temperature period=W refresh=86400 label="Temperatur Garten"
+      }
+      Frame {
+        Chart item=Weather_Humidity period=W refresh=86400 label="Luftfeuchtigkeit Garten"
+      }
+      Frame {
+        Chart item=Gas_Last_Daily_Consumption period=W refresh=86400 label="Gas"
+      }
+      Frame {
+        Chart item=Electricity_Last_Daily_Consumption period=W refresh=86400 label="Strom"
+      }
+    }
+    Text label="Monatsauswertung" icon="chart"{
+      Frame {
+        Chart item=Temperature period=M refresh=86400 label="Temperatur"
+      }
+      Frame {
+        Chart item=Humidity period=M refresh=86400 label="Luftfeuchtigkeit"
+      }
+      Frame {
+        Chart item=Weather_Temperature period=M refresh=86400 label="Temperatur Garten"
+      }
+      Frame {
+        Chart item=Weather_Humidity period=M refresh=86400 label="Luftfeuchtigkeit Garten"
+      }
+      Frame {
+        Chart item=Gas_Last_Daily_Consumption period=M refresh=86400 label="Gas"
+      }
+      Frame {
+        Chart item=Electricity_Last_Daily_Consumption period=M refresh=86400 label="Strom"
+      }
+    }
+    Text label="Jahresauswertung" icon="chart"{
+      Frame {
+        Chart item=Temperature period=Y refresh=86400 label="Temperatur"
+      }
+      Frame {
+        Chart item=Humidity period=Y refresh=86400 label="Luftfeuchtigkeit"
+      }
+      Frame {
+        Chart item=Weather_Temperature period=Y refresh=86400 label="Temperatur Garten"
+      }
+      Frame {
+        Chart item=Weather_Humidity period=Y refresh=86400 label="Luftfeuchtigkeit Garten"
+      }
+      Frame {
+        Chart item=Gas_Last_Daily_Consumption period=Y refresh=86400 label="Gas"
+      }
+      Frame {
+        Chart item=Electricity_Last_Daily_Consumption period=Y refresh=86400 label="Strom"
+      }
+    }
   }
 //  Frame label="Haus" {
 //    Text label="Erdgeschoss" icon="groundfloor" {

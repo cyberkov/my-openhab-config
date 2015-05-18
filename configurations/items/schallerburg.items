@@ -84,11 +84,12 @@ Switch Network_Avaratia          "Avaratia"               (Network)  { exec="<[/
 
 /* Weather */
 Group Weather_Chart			(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
+Number Weather_Temperature 		"Temperatur Aussen [%.1f °C]"	<temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, type=temperature, property=max"}
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
+Number   Weather_Humidity               "Luftfeuchte Aussen [%d %%]"    <temperature> (Weather,Outdoor)  {weather="locationId=home, type=athmosphere, property=humidity"}
 String   Weather_CommonId               "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
 String   Weather_CommonId_today         "heute: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
 String   Weather_CommonId_tomorrow      "morgen: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=1, type=condition, property=commonId"}
@@ -274,7 +275,6 @@ Contact Garage_Door 			"Garage Door [MAP(de.map):%s]"		(Outdoor, Windows)
 
 /* Weather */
 // athmosphere
-Number   Weather_Humidity         "Humidity [%d %%]"    <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=humidity"}
 Number   Weather_Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
 Number   Weather_Pressure         "Pressure [%.2f mb]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressure"}
 String   Weather_Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
