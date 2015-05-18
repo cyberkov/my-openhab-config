@@ -48,5 +48,4 @@ Number	UG_Sauna_Heizung_BOOST_STATE	"Boost Restdauer [%d min]"			<heating>	(UG_S
 String	UG_Sauna_Heizung_FAULT_REPORTING	"Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"		<heating>	(UG_Sauna_Heizung)	{ homematic="address=LEQ0584727, channel=4, parameter=FAULT_REPORTING" }
 
 // Die Batteriespannung
-Number	UG_Sauna_Heizung_BATTERY_STATE	"Batterie [%.1f V]"				<heating>	(UG_Sauna_Heizung)	{ homematic="address=LEQ0584727, channel=4, parameter=BATTERY_STATE" }
-Contact UG_Sauna_Heating_LOWBAT         "Sauna Heizung Batterie [MAP(battery.map):%d]"  <energy>        (Battery, UG_Sauna_Heizung) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
+//Number	UG_Sauna_Heizung_BATTERY_STATE	"Batterie [%.1f V]"				<heating>	(UG_Sauna_Heizung)	{ homematic="address=LEQ0584727, channel=4, parameter=BATTERY_STATE" }

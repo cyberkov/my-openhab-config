@@ -28,8 +28,6 @@ sitemap schallerburg label="Schallerburg" {
     }
 
     Group item=Outdoor label="Garten" icon="garden" 
-    Text item=Temperature
-    Text item=Humidity
   }
   Frame label="Wetter" {
     Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
@@ -50,7 +48,9 @@ sitemap schallerburg label="Schallerburg" {
       Text item=Weather_CommonId_tomorrow
   }
   Frame label="Status" {
-    Switch item=Anwesenheit
+      Group item=Anwesenheit
+      Group item=Temperature
+      Group item=Humidity
       // Text item=Date
       Group item=Status     label="Status" icon="settings"
       Group item=Security

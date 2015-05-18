@@ -30,11 +30,11 @@ Group UG_Sauna		  "Sauna"		<cellar>		(gUG)
 Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 
 /* active groups */
-Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
-Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
+//Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
+//Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
 Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"		<contact>     (Status)
 Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <shield>      (All)
-Group:Number:MIN                Battery         "Batterien [(%.1f V)]"              <energy>      (Status)
+Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 
 //////////////// Fertig ////////////////
 
@@ -115,14 +115,15 @@ Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes, Network) {
 
 /* Tuergong */
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
+Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=2,parameter=STATE" } 
 
 /* Batterien */
-Number	UG_Sauna_Heizung_BATTERY_STATE	        "Batterie [%.1f V]"	<heating>	(Battery, UG_Sauna_Heizung)    { homematic="address=LEQ0584727, channel=4, parameter=BATTERY_STATE" }
-Number	Window_EG_Frontdoor_BATTERY_STATE	"Batterie [%.1f V]"	<door-closed>	(Battery, EG_Vorzimmer)	      { homematic="address=LEQ1177637, channel=4, parameter=BATTERY_STATE" }
-Number  Temperature_EG_Kueche_BATTERY_STATE 	"Batterie [%.1f V]"	<temperature>	(Battery, EG_Kueche) { homematic="address=LEQ0868616,channel=4,parameter=BATTERY_STATE" }
-Number  Temperature_UG_Sauna_BATTERY_STATE 	"Batterie [%.1f V]"	<temperature>	(Battery, EG_Kueche) { homematic="address=LEQ0868600,channel=4,parameter=BATTERY_STATE" }
-Number  Temperature_OG_Schlafzimmer_BATTERY_STATE  "Batterie [%.1f V]"	<temperature>	(Battery, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=4,parameter=BATTERY_STATE" }
-Number	EG_Vorzimmer_Doorbell_BATTERY_STATE	"Batterie [%.1f V]"	<door-closed>	(Battery, EG_Vorzimmer)	      { homematic="address=JEQ0684449, channel=4, parameter=BATTERY_STATE" }
+Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
+Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"} 
+Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"} 
+Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"} 
+Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"} 
+Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"} 
 
 
 //////////////// Vorbereitet ////////////////
