@@ -1,0 +1,19 @@
+Group PersistentHistory
+Group PersistentChart
+Group PersistentCurrent
+
+Number Gas_Pulse_Counter                                                           (PersistentHistory)
+Number Gas_Current_Count                                                "Zählerstand [%.2f m³]"                 <selfGas>                       (PersistentHistory)
+Number Gas_Current_Daily_Consumption                    "Tagesverbrauch [%.2f m³]"              <selfGas>                       (PersistentCurrent)
+Number Gas_Current_Consumption                                  "Aktueller Verbrauch [%.2f m³]" <selfGas>                       (PersistentChart)
+Number Gas_Last_Daily_Consumption                               "Gas"                                                                                           (PersistentChart)
+Number Gas_Annual_Consumption                                   "Aktuelle Periode [%.2f m³]"    <selfGas>                       (PersistentCurrent)
+String Gas_Forecast                                                     "Hochrechnung [%s]"                             <selfGas>                       (PersistentCurrent)
+
+Number Electricity_Meter                                                "Zählerstand [%.2f KWh]"                <selfEnergy>            (PersistentHistory)
+Number Electricity_Current_Daily_Consumption    "Tagesverbrauch [%.2f KWh]"             <selfEnergy>            (PersistentCurrent)
+Number Electricity_Current_Consumption                  "Aktueller Verbrauch [%d Watt]" <selfEnergy>            (PersistentChart)
+Number Electricity_Last_Daily_Consumption               "Strom"                                                                                         (PersistentChart)
+Number Electricity_Annual_Consumption                   "Aktuelle Periode [%.2f KWh]"   <selfEnergy>            (PersistentCurrent)
+String Electricity_Forecast                                     "Hochrechnung [%s]"                             <selfEnergy>            (PersistentCurrent)
+

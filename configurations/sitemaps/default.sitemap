@@ -23,7 +23,8 @@ sitemap default label="Schallerburg"
       Frame label="Aussen" {
         Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"
       }
-      Frame label="Innen [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]" item=Security_Last_Change {
+      Frame label="Innen" {
+        Text item=Security_Last_Change label="Letzte Zustandsänderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"
         Group item=Openingcontacts
         Group item=Tamperswitches
       }
@@ -47,6 +48,32 @@ sitemap default label="Schallerburg"
       }
       Frame {
         Chart item=Weather_Chart period=D refresh=10000
+      }
+    }
+    Text item=Electricity_Current_Daily_Consumption label="Strom [%.2f KWh]"{
+      Frame {
+        Text item=Electricity_Current_Daily_Consumption
+        Text item=Electricity_Current_Consumption
+        Text item=Electricity_Annual_Consumption
+        Text item=Electricity_Meter
+        Text item=Electricity_Forecast
+      }
+      Frame {
+        Chart item=Electricity_Current_Consumption period=D refresh=10000
+        Chart item=Electricity_Current_Consumption period=W refresh=10000
+      }
+    }
+    Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
+      Frame {
+        Text item=Gas_Current_Daily_Consumption
+        Text item=Gas_Current_Consumption
+        Text item=Gas_Annual_Consumption
+        Text item=Gas_Current_Count
+        Text item=Gas_Forecast
+      }
+      Frame {
+        Chart item=Gas_Current_Consumption period=D refresh=10000
+        Chart item=Gas_Current_Consumption period=W refresh=10000
       }
     }
   }
