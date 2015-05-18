@@ -14,3 +14,5 @@ Switch  JemandDa	  "CCU Anwesenheit"	<present>	(Anwesenheit)	{ homematic="variab
 Switch  Presence_Hannes_Home    "Hannes @Home"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Home" }
 Switch  Presence_Hannes_Office  "Hannes @Office"  <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Itsdone" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
+Switch  Presence_Away 		"Abwesend"        <selfShield> 	  (Security,Anwesenheit)
+Switch  Presence_Garden         "Im Garten"       <selfShield> 	  (Security,Anwesenheit)

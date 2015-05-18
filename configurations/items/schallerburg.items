@@ -91,14 +91,10 @@ Number   Weather_Forecast_Temp_Min             "Temperature min [%.2f °C]"   <t
 Number   Weather_Forecast_Temp_Max             "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
 Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
 
-//////////////// Test ////////////////
-
-/* Heating */
-Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
-
 /* Steckdosen */
+Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>  (Status)
 
-Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
+Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <switch>  (UG_Wirtschaftsraum)  { homematic="variable=Waschmaschine" }
 Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
 Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
@@ -108,10 +104,22 @@ Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Netzfrequ
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (UG_Wirtschaftsraum)
 Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (UG_Wirtschaftsraum)
 
-Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 
 /* Drucker */
-Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes, Network) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes, Network,Sockets) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+
+
+/* Bell */
+Contact 	EG_Vorzimmer_Bell (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
+Contact 	EG_Vorzimmer_Bell_long  (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
+DateTime	Bell_Last_Change	(EG_Vorzimmer)				"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"	<selfBell> 	(Security)
+
+
+//////////////// Test ////////////////
+
+/* Heating */
+Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Tuergong */
 Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
@@ -129,7 +137,7 @@ Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(b
 //////////////// Vorbereitet ////////////////
 
 /* Steckdosen */
-Switch Btn3 (Test) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch Btn3 (Test,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 
 //Astro
 Group Astro   (Test)
