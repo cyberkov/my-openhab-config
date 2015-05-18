@@ -14,4 +14,5 @@ Items {
 
         // store everything for restore
         * : strategy = everyMinute, everyChange, everyDay, restoreOnStartup
+	PersistentChart* : strategy = everyMinute, restoreOnStartup
 }
