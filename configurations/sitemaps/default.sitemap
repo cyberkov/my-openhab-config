@@ -41,6 +41,12 @@ sitemap default label="Schallerburg"
         Text item=Weather_Temperature
       }
       Frame {
+        Text item=Humidity_EG
+        Text item=Humidity_OG
+        Text item=Humidity_UG
+        Text item=Weather_Humidity
+      }
+      Frame {
         Chart item=Temperature period=D refresh=10000
       }
       Frame {
@@ -48,6 +54,9 @@ sitemap default label="Schallerburg"
       }
       Frame {
         Chart item=Weather_Chart period=D refresh=10000
+      }
+      Frame {
+        Chart item=Weather_Humidity period=D refresh=10000
       }
     }
     Text item=Electricity_Current_Daily_Consumption label="Strom [%.2f KWh]"{

@@ -52,9 +52,12 @@ Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temper
 
 /* Humidity */
 Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
+Group:Number:AVG 				Humidity_OG	"Avg. Room Humidity OG [%d %%]" 	<temperature>	(gOG)
+Group:Number:AVG 				Humidity_EG	"Avg. Room Humidity EG [%d %%]" 	<temperature>	(gEG)
+Group:Number:AVG 				Humidity_UG	"Avg. Room Humidity UG [%d %%]" 	<temperature>	(gUG)
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
+Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
+Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
@@ -97,8 +100,8 @@ String   Condition                      "Wetter [%s]"    <sun_clouds> (Weather) 
 
 // Wetterbericht f heute Rule
 String   Condition_today              "Condition [%s]"              <sun_clouds>  (Weather)  {weather="locationId=home, forecast=0, type=condition, property=text"}
-Number   Weather_Forecast_Temp_Min             "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
-Number   Weather_Forecast_Temp_Max             "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
+Number   Weather_Forecast_Temp_Min    "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
+Number   Weather_Forecast_Temp_Max    "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
 Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
 
 /* Steckdosen */
