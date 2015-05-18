@@ -52,7 +52,7 @@
 	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF" />
 
         <!-- debug bindings -->
-	<logger name="org.openhab.binding.homematic" level="INFO" />
+	<logger name="org.openhab.binding.homematic" level="DEBUG" />
         <!-- 
         <logger name="org.openhab.binding.weather" level="INFO" />
 	<logger name="org.openhab.binding.mqtt" level="INFO" />
