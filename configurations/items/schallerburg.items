@@ -32,9 +32,6 @@ Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 /* active groups */
 //Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 //Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
-Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"		<contact>     (Status)
-Group:Contact:OR(OPEN,CLOSED)   Security        "Security [(%d)]"               <shield>      (All)
-Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 
 //////////////// Fertig ////////////////
 
@@ -44,12 +41,14 @@ Number previous_mode
 
 /* Temperature */
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
-Number Temperature_EG_Wohnzimmer 	"Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer) { rfxcom="<18176:Temperature" }   
-Number Temperature_OG_Schlafzimmer 	"Temperatur Schlafzimmer [%.1f °C]"	<temperature>	(Temperature, OG_Schlafzimmer) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna_Heating 	        "Temperatur Sauna Heizung [%.1f °C]"	        <temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
-
-Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, EG_Kueche) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, UG_Sauna) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
+Group:Number:AVG 				Temperature_OG	"Avg. Room Temperature OG [%.1f °C]" 	<temperature>	(gOG)
+Group:Number:AVG 				Temperature_EG	"Avg. Room Temperature EG [%.1f °C]" 	<temperature>	(gEG)
+Group:Number:AVG 				Temperature_UG	"Avg. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
+Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer, Temperature_EG) { rfxcom="<18176:Temperature" }   
+Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, OG_Schlafzimmer, Temperature_OG) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
+Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
+Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
+Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
 
 /* Humidity */
 Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
@@ -58,8 +57,18 @@ Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(H
 Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
 /* Windows */
-Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(en.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
-Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Windows, Security) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
+Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
+Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Status)
+Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Status)
+Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"		(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
+Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
+
+DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security)
+
+/* Bell */
+Contact   EG_Vorzimmer_Bell             "Tuerglocke [MAP(de.map):%s]"               <selfBell>  (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
+DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"  <selfBell> 	(EG_Vorzimmer)
+
 
 /* Network Health */
 Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1" }
@@ -68,14 +77,14 @@ Switch Network_nas		"NAS"		(UG_Hannes, Network)   { nh="192.168.1.5" }
 Switch Network_ccu		"CCU"		(UG_Hannes, Network)   { nh="192.168.1.6" }
 Switch Network_pangea		"Pangea"	(UG_Hannes, Network)   { nh="192.168.1.9" }
 Switch Network_raspi		"Raspi"		(UG_Hannes, Network)   { nh="192.168.1.10" }
-Switch Network_cybmc		"cybmc"		(EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
+Switch Network_cybmc		"XBMC Wohnzimmer"  (EG_Wohnzimmer, Network)   { nh="192.168.1.11" }
 Switch Network_heisenberg	"heisenberg"	(UG_Hannes,Network)   { nh="192.168.1.20" }
-Switch Network_Internet          "Internet"               (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+Switch Network_Internet         "Internet"               (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 Switch Network_Avaratia          "Avaratia"               (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 
 /* Weather */
-Group Weather_Chart													(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
+Group Weather_Chart			(Weather)
+Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
 Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=max"}
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) //{weather="locationId=home, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
@@ -110,22 +119,17 @@ Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom
 Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes, Network,Sockets) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
 
 
-/* Bell */
-Contact 	EG_Vorzimmer_Bell (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
-Contact 	EG_Vorzimmer_Bell_long  (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
-DateTime	Bell_Last_Change	(EG_Vorzimmer)				"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"	<selfBell> 	(Security)
-
-
 //////////////// Test ////////////////
 
 /* Heating */
 Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Tuergong */
-Switch EG_Esszimmer_Tuergong_Led  "Tuergong LED" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
+Switch EG_Esszimmer_Tuergong_Led     "Tuergong LED" (EG_Esszimmer)    { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
 Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=2,parameter=STATE" } 
 
 /* Batterien */
+Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
 Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"} 
 Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"} 
@@ -254,17 +258,17 @@ Number Temperature_FF_Bed 		"Temperature [%.1f °C]"	<temperature>	(Temperature,
 
 /* Windows */
 /*
-Contact Window_GF_Frontdoor 	"Frontdoor [MAP(en.map):%s]"		(GF_Corridor, Windows)
-Contact Window_GF_Kitchen 		"Kitchen [MAP(en.map):%s]"			(GF_Kitchen, Windows)
-Contact Window_EG_Wohnzimmer 		"Terrace door [MAP(en.map):%s]"		(EG_Wohnzimmer, Windows)
-Contact Window_GF_Toilet 		"Toilet [MAP(en.map):%s]"			(GF_Toilet, Windows)
+Contact Window_GF_Frontdoor 	"Frontdoor [MAP(de.map):%s]"		(GF_Corridor, Windows)
+Contact Window_GF_Kitchen 		"Kitchen [MAP(de.map):%s]"			(GF_Kitchen, Windows)
+Contact Window_EG_Wohnzimmer 		"Terrace door [MAP(de.map):%s]"		(EG_Wohnzimmer, Windows)
+Contact Window_GF_Toilet 		"Toilet [MAP(de.map):%s]"			(GF_Toilet, Windows)
 
-Contact Window_FF_Bath 			"Bath [MAP(en.map):%s]"				(FF_Bath, Windows)
-Contact Window_FF_Bed 			"Bedroom [MAP(en.map):%s]"			(FF_Bed, Windows)
-Contact Window_FF_Barbara_Window "Office Window [MAP(en.map):%s]"	(FF_Barbara, Windows)
-Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(en.map):%s]"		(FF_Barbara, Windows)
+Contact Window_FF_Bath 			"Bath [MAP(de.map):%s]"				(FF_Bath, Windows)
+Contact Window_FF_Bed 			"Bedroom [MAP(de.map):%s]"			(FF_Bed, Windows)
+Contact Window_FF_Barbara_Window "Office Window [MAP(de.map):%s]"	(FF_Barbara, Windows)
+Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(de.map):%s]"		(FF_Barbara, Windows)
 
-Contact Garage_Door 			"Garage Door [MAP(en.map):%s]"		(Outdoor, Windows)
+Contact Garage_Door 			"Garage Door [MAP(de.map):%s]"		(Outdoor, Windows)
 */
 
 

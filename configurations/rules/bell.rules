@@ -7,12 +7,12 @@ var Timer notificationTimer = null
 
 rule "Bell State" 
 when
-	Item Bell changed
+	Item EG_Vorzimmer_Bell changed
 then
 
-	if( Bell.state == OPEN ){
+	if( EG_Vorzimmer_Bell.state == OPEN ){
 
-		Bell_Last_Change.postUpdate( now.toString() )
+		EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
 
 		if( Presence_Garden.state == ON ){
 			if(notificationTimer==null) {

@@ -1,34 +1,85 @@
-sitemap schallerburg label="Schallerburg" {
-  Frame label="Haus" {
-    Text label="Erdgeschoss" icon="groundfloor" {
-      Group item=EG_Wohnzimmer
-      Group item=EG_Esszimmer
-      Group item=EG_Kueche
-      Group item=EG_Toilet
-      Group item=EG_Vorzimmer
+sitemap default label="Schallerburg"
+{
+  Frame label="Hauptkategorie" {
+    Text label="Etagen" icon="house" {
+      Group item=gOG icon="firstfloor"
+        Group item=gEG icon="groundfloor"
+        Group item=gUG icon="cellar"
+        Group item=Outdoor icon="garden" 
     }
-    Text label="Obergeschoss" icon="firstfloor" {
-      Group item=OG_Bad
-      Group item=OG_Barbara
-      Group item=OG_Dominik
-      Group item=OG_Schlafzimmer
-      Group item=OG_Schrankraum
-      Group item=OG_Gang
-    }
-    Text label="Untergeschoss" icon="cellar" {
-      Frame label="Sauna" {
-        Group item=UG_Sauna_Heizung
-        Setpoint item=UG_Sauna_Heizung_SET_TEMPERATURE minValue=17 maxValue=28 step=0.5
-        Switch item=UG_Sauna_Scene_Heating mappings=[0="Normal", 1="Baden", 2="Eco", 3="Comfort"]
-      }
-      Group item=UG_Hannes
-      Group item=UG_Vorzimmer
-      Group item=UG_Sauna
-      Group item=UG_Wirtschaftsraum
-    }
-
-    Group item=Outdoor label="Garten" icon="garden" 
   }
+  Frame label="Sonstiges" {
+    Group item=Sockets label="Steckdosen [(%d)]" 
+    Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
+      Text item=EG_Vorzimmer_Bell_Last_Change
+      Switch item=EG_Esszimmer_Tuergong_Led
+      Switch item=EG_Esszimmer_Tuergong_Signal
+    }
+    Text item=Security label="Sicherheit [(%d)]"{
+      Frame label="Steuerung" {
+        Switch item=Presence_Away
+        Switch item=Presence_Garden
+      }
+      Frame label="Aussen" {
+        Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"
+      }
+      Frame label="Innen [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]" item=Security_Last_Change {
+        Group item=Openingcontacts
+        Group item=Tamperswitches
+      }
+    }
+  }
+
+  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
+  {
+    Text item=Temperature label="Temperatur [%.1f °C]" {
+      Frame {
+        Text item=Temperature_EG
+        Text item=Temperature_OG
+        Text item=Temperature_UG
+        Text item=Weather_Temperature
+      }
+      Frame {
+        Chart item=Temperature period=D refresh=10000
+      }
+      Frame {
+        Chart item=Humidity period=D refresh=10000
+      }
+      Frame {
+        Chart item=Weather_Chart period=D refresh=10000
+      }
+    }
+  }
+//  Frame label="Haus" {
+//    Text label="Erdgeschoss" icon="groundfloor" {
+//      Group item=EG_Wohnzimmer
+//      Group item=EG_Esszimmer
+//      Group item=EG_Kueche
+//      Group item=EG_Toilet
+//      Group item=EG_Vorzimmer
+//    }
+//    Text label="Obergeschoss" icon="firstfloor" {
+//      Group item=OG_Bad
+//      Group item=OG_Barbara
+//      Group item=OG_Dominik
+//      Group item=OG_Schlafzimmer
+//      Group item=OG_Schrankraum
+//      Group item=OG_Gang
+//    }
+//    Text label="Untergeschoss" icon="cellar" {
+//      Frame label="Sauna" {
+//        Group item=UG_Sauna_Heizung
+//        Setpoint item=UG_Sauna_Heizung_SET_TEMPERATURE minValue=17 maxValue=28 step=0.5
+//        Switch item=UG_Sauna_Scene_Heating mappings=[0="Normal", 1="Baden", 2="Eco", 3="Comfort"]
+//      }
+//      Group item=UG_Hannes
+//      Group item=UG_Vorzimmer
+//      Group item=UG_Sauna
+//      Group item=UG_Wirtschaftsraum
+//    }
+//
+//    Group item=Outdoor label="Garten" icon="garden" 
+//  }
   Frame label="Wetter" {
     Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
       Frame {

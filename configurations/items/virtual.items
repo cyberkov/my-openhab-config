@@ -5,3 +5,7 @@ Switch Reload_Variables {homematic="address=BidCoS-RF, channel=1, parameter=PRES
 
 /* Automatic Datapoint Reload */
 Switch Reload_Datapoints {homematic="action=RELOAD_DATAPOINTS"}
+
+
+String MainStatus  "Status [%s]"    <selfError>
+String VoiceCommand
