@@ -61,8 +61,8 @@ Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Hum
 
 /* Windows */
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
-Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Status)
-Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Status)
+Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
+Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Security)
 Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"		(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
@@ -105,7 +105,7 @@ Number   Weather_Forecast_Temp_Max    "Temperature max [%.2f °C]"   <temperatur
 Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
 
 /* Steckdosen */
-Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>  (Status)
+Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <switch>  (UG_Wirtschaftsraum)  { homematic="variable=Waschmaschine" }

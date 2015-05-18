@@ -1,5 +1,5 @@
 
-Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present> (Status)
+Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present>
 
 
 //-------------------------
