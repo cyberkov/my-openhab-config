@@ -7,17 +7,17 @@ sitemap home label="Schallerburg"
 			Group item=gUG icon="cellar"
 			Group item=Outdoor icon="garden" 
 		}
-		Text item=Lights label="Lampen [%d]" {
-			Switch item=Lights mappings=[OFF="Aus",ON="An"]
-			Group item=Lights_OG
-			Group item=Lights_EG
-			Group item=Lights_Outdoor
-		}		
-		Text item=Shutters label="Rollläden [%d]" {
-			Switch item=Shutters label="Rollläden [%d]" mappings=[UP="Hoch",DOWN="Runter"]
-			Group item=Shutters_OG
-			Group item=Shutters_EG
-		}		
+//		Text item=Lights label="Lampen [%d]" {
+//			Switch item=Lights mappings=[OFF="Aus",ON="An"]
+//			Group item=Lights_OG
+//			Group item=Lights_EG
+//			Group item=Lights_Outdoor
+//		}		
+//		Text item=Shutters label="Rollläden [%d]" {
+//			Switch item=Shutters label="Rollläden [%d]" mappings=[UP="Hoch",DOWN="Runter"]
+//			Group item=Shutters_OG
+//			Group item=Shutters_EG
+//		}		
 	}
 	Frame label="Sonstiges" {
 		Text label="Szenen" icon="selfAutoMode" {
@@ -26,38 +26,38 @@ sitemap home label="Schallerburg"
 			Switch item=Scene3 label="Aufstehen" icon="selfAutoMode"
 		}
 		Group item=Sockets label="Steckdosen [%d]" 
-		Text item=Watering_Circuits label="Bewässerung [%d]" {
-			Frame label="Einzelsteuerung" {
-				Text item=Watering_Circuits label="Bewässerungskreise [%d]" {
-					Switch item=Watering_Gardenside_Lawn_left
-					Switch item=Watering_Gardenside_Lawn_right
-					/*Switch item=Watering_Gardenside_Beds_Terrace
-					Switch item=Watering_Gardenside_Beds_behind*/
-					Switch item=Watering_Streetside_Lawn
-					Switch item=Watering_Streetside_Beds
-				}
-			}
-			Frame label="Programm" {
-				Setpoint item=Watering_Program_Duration step=1.0 minValue=1 maxValue=60
-				Switch item=Watering_Program_Start
-				Text item=Watering_Program_State
-			}
-		}		
+//		Text item=Watering_Circuits label="Bewässerung [%d]" {
+//			Frame label="Einzelsteuerung" {
+//				Text item=Watering_Circuits label="Bewässerungskreise [%d]" {
+//					Switch item=Watering_Gardenside_Lawn_left
+//					Switch item=Watering_Gardenside_Lawn_right
+//					/*Switch item=Watering_Gardenside_Beds_Terrace
+//					Switch item=Watering_Gardenside_Beds_behind*/
+//					Switch item=Watering_Streetside_Lawn
+//					Switch item=Watering_Streetside_Beds
+//				}
+//			}
+//			Frame label="Programm" {
+//				Setpoint item=Watering_Program_Duration step=1.0 minValue=1 maxValue=60
+//				Switch item=Watering_Program_Start
+//				Text item=Watering_Program_State
+//			}
+//		}		
 		Text item=Bell_Last_Change icon="selfBell" {
-			Switch item=Dooropener_Timer
+//			Switch item=Dooropener_Timer
 			Text item=Bell_Last_Change
 		}
 		Text item=Security label="Sicherheit [%d]"{
 			Frame label="Steuerung" {
 				Switch item=State_Away
 				Switch item=State_Garden
-				Switch item=Motiondetector_Outdoor_Switch
-				Group item=Motiondetector_Switch
+//				Switch item=Motiondetector_Outdoor_Switch
+//				Group item=Motiondetector_Switch
 			}
 			Frame label="Aussen" {
-				Text label="Kameras" icon="selfCamera" {
-					Image url="http://192.168.0.50/cameraStrasse" label="Strasse" refresh=5000
-				}
+//				Text label="Kameras" icon="selfCamera" {
+//					Image url="http://192.168.0.50/cameraStrasse" label="Strasse" refresh=5000
+//				}
 				Group item=Sensor_Outdoor
 			}
 			Frame label="Innen • [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]" item=Security_Last_Change {
@@ -83,8 +83,6 @@ sitemap home label="Schallerburg"
 				}
 				Frame {
 					Text item=Ventilation_Filter_Runtime_Message
-/*Switch Ventilation_Filter_Reset	"Filterreset" (Lueftung) {comfoair="filter_reset"}*/
-/*Switch Ventilation_Error_Reset	"Fehlerreset" (Lueftung) {comfoair="error_reset"}*/
 					Text item=Ventilation_State_Message
 					Switch item=Ventilation_Control mappings=[1="App", 0="CCEase"]
 				}
@@ -93,7 +91,6 @@ sitemap home label="Schallerburg"
 				Frame {
 					Switch item=Heating_Livingroom_Circuit label="WZ Kreis"
 					Switch item=Heating_Auto_Mode label="Modus" mappings=[1="Auto", 0="Manuell"]
-/*					Switch item=Heating_Operating_Mode label="Betrieb" mappings=[1="WW", 2="HZ", 3="RD"]*/
 					Text item=Heating_Operating_Mode
 				}
 				Frame {
@@ -161,34 +158,34 @@ sitemap home label="Schallerburg"
 					Chart item=Electricity_Current_Consumption period=W refresh=10000
 				}
 			}
-			Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
-				Frame {
-					Text item=Gas_Current_Daily_Consumption
-					Text item=Gas_Current_Consumption
-					Text item=Gas_Annual_Consumption
-					Text item=Gas_Current_Count
-					Text item=Gas_Forecast
-				}
-				Frame {
-					Chart item=Gas_Current_Consumption period=D refresh=10000
-					Chart item=Gas_Current_Consumption period=W refresh=10000
-				}
-			}
-			Text item=Heating_Solar_Power_Current label="Solar [%.1f KW]" icon="sun"{
-				Frame {
-					Text item=Heating_Solar_State_Message
-					Text item=Heating_Temperature_Solar_Message
-					Text item=Heating_Temperature_Wather_Storage
-					Text item=Heating_Solar_Hours_Message
-					Text item=Heating_Solar_Power_Message
-				}
-				Frame {
-					Chart item=Heating_Solar_Power_Current5Min period=D refresh=10000
-					Chart item=Solar_Temperatures period=D refresh=10000
-					Chart item=Heating_Solar_Pump_State period=D refresh=10000
-				}
-			
-			}
+//			Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
+//				Frame {
+//					Text item=Gas_Current_Daily_Consumption
+//					Text item=Gas_Current_Consumption
+//					Text item=Gas_Annual_Consumption
+//					Text item=Gas_Current_Count
+//					Text item=Gas_Forecast
+//				}
+//				Frame {
+//					Chart item=Gas_Current_Consumption period=D refresh=10000
+//					Chart item=Gas_Current_Consumption period=W refresh=10000
+//				}
+//			}
+//			Text item=Heating_Solar_Power_Current label="Solar [%.1f KW]" icon="sun"{
+//				Frame {
+//					Text item=Heating_Solar_State_Message
+//					Text item=Heating_Temperature_Solar_Message
+//					Text item=Heating_Temperature_Wather_Storage
+//					Text item=Heating_Solar_Hours_Message
+//					Text item=Heating_Solar_Power_Message
+//				}
+//				Frame {
+//					Chart item=Heating_Solar_Power_Current5Min period=D refresh=10000
+//					Chart item=Solar_Temperatures period=D refresh=10000
+//					Chart item=Heating_Solar_Pump_State period=D refresh=10000
+//				}
+//			
+//			}
 			Text label="Monatsauswertung" icon="chart"{
 				Frame {
 					Chart item=Gas_Last_Daily_Consumption period=M refresh=86400 label="Gas"
