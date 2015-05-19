@@ -88,8 +88,8 @@ Switch Network_Avaratia          "Avaratia"               (Network)  { exec="<[/
 /* Weather */
 Group Weather_Chart			(Weather)
 Number Weather_Temperature 		"Temperatur Aussen [%.1f °C]"	<temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, type=temperature, property=max"}
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, type=temperature, property=min"}
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=max"}
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
 Number   Weather_Humidity               "Luftfeuchte Aussen [%d %%]"    <temperature> (Weather,Outdoor)  {weather="locationId=home, type=athmosphere, property=humidity"}
@@ -149,8 +149,8 @@ Switch Btn3 (Test,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 
 //Astro
 Group Astro   (Test)
-DateTime        Sunrise_Time    "Sunrise [%1$tH:%1$tM]"             <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
-DateTime        Sunset_Time     "Sunset [%1$tH:%1$tM]"   <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
+DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"             <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
+DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
 Number          Azimuth         "Azimuth [%.2f]"                                                        (Astro)         { astro="planet=sun, type=position, property=azimuth" }
 Number          Elevation       "Elevation [%.2f]"                                                      (Astro)         { astro="planet=sun, type=position, property=elevation" }
 Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
