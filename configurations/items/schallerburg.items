@@ -120,8 +120,8 @@ Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 
 /* Drucker */
-Switch UG_Hannes_Power_Printer "Hannes Drucker" <printer> (UG_Hannes, Network,Sockets) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
-
+Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs"  <printer>   (UG_Hannes)             { cups="http://127.0.0.1:631/printers/C500#NOT_COMPLETED" }
 
 //////////////// Test ////////////////
 
@@ -168,12 +168,6 @@ Rollershutter tv_volume   "Volume"  <volume>    (TV) {samsungtv="UP:Livingroom:K
 // String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 // Switch XBMC_Power	"XBMC Power"	(EG_Wohnzimmer)		{ xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
 
-
-/* Printer */
-/*
-Number Print_Jobs_Queued  "Unfinished print jobs"  (UG_Hannes, Test)   { cups="http://datastore:631/printers/usbprinter1#NOT_COMPLETED" }
-Switch Printer            "Printer"	(Test)
-*/
 
 /*
 Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
