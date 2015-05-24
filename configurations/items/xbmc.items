@@ -7,3 +7,8 @@ String UG_Hannes_XBMC_State	"Raspi Status: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|
 String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
 Dimmer UG_Hannes_XBMC_Volume    "Raspi Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
 Switch UG_Hannes_XBMC_Screensaver "Raspi Screensaver"   (UG_Hannes)             { xbmc="<[#hannes|Screensaver.State]" }
+
+String EG_Kueche_XBMC_State	"Pixie Status: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.State]" }
+String EG_Kueche_XBMC_Title	"Pixie Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
+Dimmer EG_Kueche_XBMC_Volume    "Pixie Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
+Switch EG_Kueche_XBMC_Screensaver "Pixie Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
