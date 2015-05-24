@@ -9,3 +9,8 @@ Switch Reload_Datapoints {homematic="action=RELOAD_DATAPOINTS"}
 
 String MainStatus  "Status [%s]"    <selfError>
 String VoiceCommand
+
+
+/* Holiday Calculation */
+Switch Holiday  "Public Holiday" (Test)
+String SpecialDay   "Day [MAP(holidays_de.map):%s]" (Test)
