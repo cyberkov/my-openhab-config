@@ -12,7 +12,14 @@ Switch  JemandDa	  "CCU Anwesenheit"	<present>	(Anwesenheit)	{ homematic="variab
 // Switches zu Hannes
 //
 Switch  Presence_Hannes_Home    "Hannes @Home"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Home" }
+String  Location_Hannes_Phone   {mqtt="<[proton:owntracks/cyberkov:state:JS(mqttitude-coordinates.js)]"}
 Switch  Presence_Hannes_Office  "Hannes @Office"  <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Itsdone" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
 Switch  Presence_Away 		"Abwesend"        <selfShield> 	  (Security,Anwesenheit)
 Switch  Presence_Garden         "Im Garten"       <selfShield> 	  (Security,Anwesenheit)
+
+
+Group gMobiles
+Switch phone_hannes   (gMobiles) {nh="192.168.1.25"}
+//Switch phone_barbara  (gMobiles) {nh="android-f107357c6bed4d40"}
+//Switch phone_tablet   (gMobiles) {nh="android-94404cd3b076b5b4"
