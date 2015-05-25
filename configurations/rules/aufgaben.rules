@@ -10,3 +10,12 @@ then
 	Tasks_Last_Change.postUpdate( now.toString() )
 end
 
+//Task_Toothbrush
+
+rule "Tausche Zahnbuerste vierteljaehrlich"
+when 
+    Time cron "0 0 8 20W MAR,JUN,SEP,DEC ?"   // virteljaehrlich, werktags um den 20. um 8:00
+then
+    sendCommand(Task_Toothbrush, ON)
+end
+

@@ -10,5 +10,5 @@ Switch Task_Katzenfutter          "Katzenfutter" (Tasks)
 Switch Task_Muell_Altpapier       "Altpapier ausleeren"	(Tasks)
 Switch Task_Muell_Glas            "Altglas ausleeren"	(Tasks)
 Switch Task_Handtuch	          "Handtuecher tauschen" <bath> (Tasks)
-Switch Task_Toothbrush	          "Zahnbuerste tauschen" <bath> (Tasks)
+Switch Task_Toothbrush	          "Zahnbuerste tauschen" <bath> (Tasks) // cron rule
 Switch Task_Conditioner	          "Conditioner nachfuellen" <bedroom>  (Tasks)
