@@ -148,6 +148,7 @@ sitemap default label="Schallerburg"
       }
     }
   }
+  Group item=Tasks
 //  Frame label="Haus" {
 //    Text label="Erdgeschoss" icon="groundfloor" {
 //      Group item=EG_Wohnzimmer
