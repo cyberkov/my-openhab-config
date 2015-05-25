@@ -110,7 +110,7 @@ Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature
 Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
-Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <switch>  (UG_Wirtschaftsraum)  { homematic="variable=Waschmaschine" }
+Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <waschmaschine>  (UG_Wirtschaftsraum)  { homematic="variable=Waschmaschine" }
 Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
 Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
