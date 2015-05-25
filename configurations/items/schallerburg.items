@@ -129,10 +129,6 @@ Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <pr
 /* Heating */
 Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
-/* Tuergong */
-Switch EG_Esszimmer_Tuergong_Led     "Tuergong LED" (EG_Esszimmer)    { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
-Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=2,parameter=STATE" } 
-
 /* Batterien */
 Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 

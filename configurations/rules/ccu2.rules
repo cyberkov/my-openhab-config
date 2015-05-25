@@ -5,4 +5,6 @@ when
     Time cron "0 0 0/6 * * ?"   // every 6 hours
 then
     sendCommand(Reload_Datapoints, ON)
+    sendCommand(Reload_Variables, ON)
 end
+

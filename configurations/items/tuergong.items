@@ -1,0 +1,11 @@
+//Parameter 1: Lautstärke (0 = 0% / 1 = 100%)
+//Parameter 2: Anzahl der Wiederholungen
+//Parameter 3: Begrenzung der Abspielzeit (keine Ahnung wie dies berechnet wird), "108000" bedeutet im Übrigen, das die Originallänge des jeweiligen MP3-Files genutzt wird.
+//Parameter 4: Playlist (Also Nummer der abzuspielenden MP3-Files), "null" (also nichts) steht im Übrigen für den fest integrierten "Standard-Gongton"
+
+//SUBMIT("1,2,108000,4,,6")
+
+/* Tuergong */
+Switch EG_Esszimmer_Tuergong_Led     "Tuergong LED" (EG_Esszimmer)    { homematic="address=LEQ0230481,channel=1,parameter=STATE" } 
+Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=2,parameter=STATE" } 
+
