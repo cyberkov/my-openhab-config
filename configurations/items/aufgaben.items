@@ -1,0 +1,13 @@
+Group:Number:SUM   Tasks          "Aufgaben [(%d)]"             <tasklist>      (All)
+DateTime Tasks_Last_Change   "Letzte Aenderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Tasks)
+
+Switch Task_Waschmaschine         "Waschmaschine"	(Tasks)
+Switch Task_Waesche	          "Waesche"	(Tasks)
+Switch Task_Geschirrspueler       "Geschirrspueler"	(Tasks)
+Switch Task_Blumen	          "Blumen"	(Tasks)
+Switch Task_Katzenklo	          "Katzenklo"	(Tasks)
+Switch Task_Katzenfutter          "Katzenfutter" (Tasks)
+Switch Task_Muell_Altpapier       "Altpapier ausleeren"	(Tasks)
+Switch Task_Muell_Glas            "Altglas ausleeren"	(Tasks)
+Switch Task_Handtuch	          "Handtuecher tauschen" (Tasks)
+Switch Task_Conditioner	          "Conditioner nachfuellen" (Tasks)

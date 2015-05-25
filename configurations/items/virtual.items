@@ -1,10 +1,10 @@
 /* These items are mostly used for internal stuff */
 
 /* CCU2 Variable Sync */
-Switch Reload_Variables {homematic="address=BidCoS-RF, channel=1, parameter=PRESS_SHORT, action=RELOAD_VARIABLES"}
+Switch Reload_Variables (Maintenance) {homematic="address=BidCoS-RF, channel=1, parameter=PRESS_SHORT, action=RELOAD_VARIABLES"}
 
 /* Automatic Datapoint Reload */
-Switch Reload_Datapoints {homematic="action=RELOAD_DATAPOINTS"}
+Switch Reload_Datapoints (Maintenance) {homematic="action=RELOAD_DATAPOINTS"}
 
 
 String MainStatus  "Status [%s]"    <selfError>

@@ -10,6 +10,7 @@ Group Weather <sun_clouds> (All)
 Group Status              (All)
 Group Network <settings>  (Status)
 Group Test    <smiley>	  (Status)
+Group Maintenance    <selfWrench>	  (Status)
 
 Group EG_Wohnzimmer 	  "Wohnzimmer" 	        <sofa>	 		(gEG)
 Group EG_Esszimmer 	  "Esszimmer" 	        <dining> 	        (gEG)
