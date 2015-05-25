@@ -31,6 +31,51 @@ sitemap default label="Schallerburg"
       }
     }
   }
+  Frame label="Menue" {
+    Text label="OG"
+    Text label="EG"
+    Text label="UG"
+    Text label="Einzelgeraete"
+    Text label="TV"
+    Text label="Klima"
+    Text label="Wetter"
+    Text label="Server"
+    Text label="Multimedia"
+    Text label="Sicherheit"
+    Text label="Automatik"
+  }
+  Frame label="Warnungen" {
+    Text label="Temperatur"
+    Text label="Luftfeuchte"
+    Text label="Feuer"
+    Text label="Alarm"
+    Text label="Eingangstuer"
+    Text label="Balkon OG"
+    Text label="Terasse EG"
+    Text label="Tuer UG"
+    Text label="Herdplatte"
+    Text label="Licht"
+    Text label="Geschirrspueler"
+  }
+  Frame label="Programme" {
+    Text label="Sofa"
+    Text label="Bett"
+    Text label="Party"
+    Text label="Nacht"
+    Text label="Bad"
+    Text label="Kochen"
+    Text label="Garten"
+    Text label="Waschmaschine"
+  }
+  Frame label="Aufgaben" {
+    Group item=Tasks
+  }
+  Frame label="Anwesenheit" {
+    Text item=Presence_Hannes_Home
+    Text item=Presence_Barbara_Home
+    Text item=JemandDa
+    Text label="Urlaub"
+  }
 
 //  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
   Text item=MainStatus label="Informationen" icon="house"
