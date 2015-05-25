@@ -12,3 +12,5 @@ String EG_Kueche_XBMC_State	"Pixie Status: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|
 String EG_Kueche_XBMC_Title	"Pixie Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
 Dimmer EG_Kueche_XBMC_Volume    "Pixie Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
 Switch EG_Kueche_XBMC_Screensaver "Pixie Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
+
+Switch EG_Wohnzimmer_TV_Power "Fernseher" (EG_Wohnzimmer) 
