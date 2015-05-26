@@ -289,7 +289,7 @@ Number   Weather_Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weat
 Number   Weather_Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
 
 // temperature
-Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
+//Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
 Number   Weather_Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
 Number   Weather_Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
 // min and max values only available in forecasts
