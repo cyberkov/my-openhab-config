@@ -18,8 +18,11 @@ Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
 Switch  Presence_Away 		"Abwesend"        <selfShield> 	  (Security,Anwesenheit)
 Switch  Presence_Garden         "Im Garten"       <selfShield> 	  (Security,Anwesenheit)
 
+// Barbara
+Switch  Presence_Barbara_Home   "Barbara @Home"   <present>       (Anwesenheit)
 
-Group gMobiles
+
+Group gMobiles (Test)
 Switch phone_hannes   (gMobiles) {nh="192.168.1.25"}
 //Switch phone_barbara  (gMobiles) {nh="android-f107357c6bed4d40"}
 //Switch phone_tablet   (gMobiles) {nh="android-94404cd3b076b5b4"

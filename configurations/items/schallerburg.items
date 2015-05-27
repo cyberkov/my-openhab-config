@@ -30,6 +30,11 @@ Group UG_Vorzimmer	  "Vorraum"		<corridor>		(gUG)
 Group UG_Sauna		  "Sauna"		<cellar>		(gUG)
 Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 
+// Persistency Groups
+Group PersistentHistory
+Group PersistentChart
+Group PersistentCurrent
+
 /* active groups */
 //Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 //Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
@@ -67,11 +72,11 @@ Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<conta
 Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"		(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
-DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security)
+DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security,PersistentCurrent)
 
 /* Bell */
 Contact   EG_Vorzimmer_Bell             "Tuerglocke [MAP(de.map):%s]"               <selfBell>  (EG_Vorzimmer)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
-DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"  <selfBell> 	(EG_Vorzimmer)
+DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"  <selfBell> 	(EG_Vorzimmer,PersistentCurrent)
 
 
 /* Network Health */

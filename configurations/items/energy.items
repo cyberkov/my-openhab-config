@@ -1,7 +1,3 @@
-Group PersistentHistory
-Group PersistentChart
-Group PersistentCurrent
-
 Number Gas_Pulse_Counter                                                           (PersistentHistory)
 Number Gas_Current_Count                                                "Zählerstand [%.2f m³]"                 <selfGas>                       (PersistentHistory)
 Number Gas_Current_Daily_Consumption                    "Tagesverbrauch [%.2f m³]"              <selfGas>                       (PersistentCurrent)
