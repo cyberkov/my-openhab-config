@@ -13,6 +13,14 @@ import org.openhab.model.script.actions.*
 //	postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
 //end
 
+// Creates an item that stores the last update time of this item
+rule "Records last weather update time"
+when
+  Item Weather_Temperature received update
+then
+  postUpdate(Weather_LastUpdate, new DateTimeType())
+end
+
 var String wetterOutput = null
 
 rule "schicke Wetterbericht fuer heute"

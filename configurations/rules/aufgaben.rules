@@ -2,6 +2,7 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
  
+// set date on update
 rule "Tasks changes" 
 when
 	Item Tasks changed
@@ -19,3 +20,16 @@ then
     sendCommand(Task_Toothbrush, ON)
 end
 
+//Task_Waschmaschine
+rule "Waschmaschine wurde eingeschaltet"
+when
+    Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed
+then
+  if( UG_Wirtschaftsraum_CCU2_Waschmaschine.state == ON) {
+    logInfo("Task_Waschmaschine", "Waschmaschine wurde eingeschaltet")
+    sendCommand(Task_Waschmaschine, OFF)
+    sendCommand(Task_Waesche, ON)
+    pushover("Waschmaschine wurde eingeschalten")
+//  } else if (UG_Wirtschaftsraum_CCU2_Waschmaschine.state == OFF) {
+  }
+end
