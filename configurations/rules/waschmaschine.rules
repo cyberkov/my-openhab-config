@@ -30,3 +30,13 @@ then
   var Number Kosten = Var_KWH * Naturkraft_KWH
   UG_Wirtschaftsraum_Waschmaschine_Summe.postUpdate(Kosten)
 end 
+
+//----------------------------------------------------------
+// Update Last changed
+//
+rule "Update CCU2_Waschmaschine_LastUpdate"
+when
+  Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed to ON
+then
+  UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate.postUpdate( now.toString() )
+end
