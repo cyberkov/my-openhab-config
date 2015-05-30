@@ -69,8 +69,8 @@ Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Hum
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
 Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
 Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Security)
-Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"		(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
-Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"		(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
+Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"	<door>	(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
+Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"	<door>	(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
 DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security,PersistentCurrent)
 
@@ -80,16 +80,16 @@ DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm
 
 
 /* Network Health */
-Switch Network_Router	        "Router"	(UG_Hannes, Network)   { nh="192.168.0.1" }
-Switch Network_acedia	        "acedia"	(UG_Hannes, Network)   { nh="192.168.1.1" }
+Switch Network_Router	        "Router"  <router>	(UG_Hannes, Network)   { nh="192.168.0.1" }
+Switch Network_acedia	        "acedia"  <router>	(UG_Hannes, Network)   { nh="192.168.1.1" }
 Switch Network_nas		"NAS"		(UG_Hannes, Network)   { nh="192.168.1.5" }
-Switch Network_ccu		"CCU"		(UG_Hannes, Network)   { nh="192.168.1.6" }
-Switch Network_pangea		"Pangea"	(UG_Hannes, Network)   { nh="192.168.1.9" }
-Switch Network_raspi		"XBMC Hannes"	(UG_Hannes, Network)   { nh="192.168.1.10:9090" }
-Switch Network_cybmc		"XBMC Wohnzimmer"  (EG_Wohnzimmer, Network)   { nh="192.168.1.11:9090" }
-Switch Network_pixie		"XBMC Kueche"   (EG_Kueche, Network)   { nh="192.168.1.12:9090" }
-Switch Network_heisenberg	"heisenberg"	(UG_Hannes,Network)   { nh="192.168.1.20" }
-Switch Network_Internet         "Internet"      (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+Switch Network_ccu		"CCU"<homematic>	(UG_Hannes, Network)   { nh="192.168.1.6" }
+Switch Network_pangea		"Pangea"      <computer> (UG_Hannes, Network)   { nh="192.168.1.9" }
+Switch Network_raspi		"XBMC Hannes" <video>	(UG_Hannes, Network)   { nh="192.168.1.10:9090" }
+Switch Network_cybmc		"XBMC Wohnzimmer" <video>  (EG_Wohnzimmer, Network)   { nh="192.168.1.11:9090" }
+Switch Network_pixie		"XBMC Kueche" <video>   (EG_Kueche, Network)   { nh="192.168.1.12:9090" }
+Switch Network_heisenberg	"heisenberg"  <router>	(UG_Hannes,Network)   { nh="192.168.1.20" }
+Switch Network_Internet         "Internet" <internet>  (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
 
 /* Weather */
@@ -138,12 +138,12 @@ Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Batterien */
 Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
-Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"} 
-Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"} 
-Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"} 
-Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"} 
-Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"} 
-Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(battery.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"} 
+Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
+Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
+Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}
+Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
+Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
+Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
 
 
 //////////////// Vorbereitet ////////////////
