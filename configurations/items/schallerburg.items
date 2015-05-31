@@ -75,7 +75,9 @@ Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotag
 DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security,PersistentCurrent)
 
 /* Bell */
-Switch   EG_Vorzimmer_Bell             "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT", homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
+Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)
+Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
+Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
 DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"  <selfBell> 	(EG_Vorzimmer,PersistentCurrent)
 
 
