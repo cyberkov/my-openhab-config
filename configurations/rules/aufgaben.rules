@@ -7,7 +7,6 @@ rule "Tasks changes"
 when
 	Item Tasks changed
 then
-
 	Tasks_Last_Change.postUpdate( now.toString() )
 end
 
@@ -21,15 +20,12 @@ then
 end
 
 //Task_Waschmaschine
-rule "Waschmaschine wurde eingeschaltet"
+rule "Waschmaschine ist fertig"
 when
-    Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed
+    Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed to OFF
 then
-  if( UG_Wirtschaftsraum_CCU2_Waschmaschine.state == ON) {
-    logInfo("Task_Waschmaschine", "Waschmaschine wurde eingeschaltet")
+    logInfo("Task_Waschmaschine", "Waschmaschine ist fertig")
     sendCommand(Task_Waschmaschine, OFF)
     sendCommand(Task_Waesche, ON)
-    pushover("Waschmaschine wurde eingeschalten")
-//  } else if (UG_Wirtschaftsraum_CCU2_Waschmaschine.state == OFF) {
-  }
+    pushover("Waschmaschine ist fertig.")
 end
