@@ -70,10 +70,10 @@ sitemap default label="Schallerburg"
     Text label="Waschmaschine" icon="waschmaschine"
   }
   Frame label="Anwesenheit" {
-    Text item=Presence_Hannes_Home
-    Text item=Presence_Barbara_Home
-    Text item=JemandDa
-    Text item=Presence_Away
+    Text item=Presence_Hannes_Home label="Hannes [%s]"
+    Text item=Presence_Barbara_Home label="Barbara [%s]
+    Text item=JemandDa label="Jemand Da [%s]"
+    Group item=Anwesenheit
   }
 
 //  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
@@ -244,13 +244,12 @@ sitemap default label="Schallerburg"
       Text item=Weather_CommonId_tomorrow
   }
   Frame label="Status" {
-      Group item=Anwesenheit
+      Group item=Status     label="Status" icon="settings"
+  }
+}
 //      Group item=Temperature
 //      Group item=Humidity
-      // Text item=Date
-      Group item=Status     label="Status" icon="settings"
+//      Text item=Date
 //      Group item=Security
 //      Group item=Weather
 //      Webview  url="https://haus.cyberkov.at/static/map.html"  height=12
-  }
-}
