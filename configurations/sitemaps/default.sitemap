@@ -71,7 +71,7 @@ sitemap default label="Schallerburg"
   }
   Frame label="Anwesenheit" {
     Text item=Presence_Hannes_Home label="Hannes [%s]"
-    Text item=Presence_Barbara_Home label="Barbara [%s]
+    Text item=Presence_Barbara_Home label="Barbara [%s]"
     Text item=JemandDa label="Jemand Da [%s]"
     Group item=Anwesenheit
   }
