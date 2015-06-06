@@ -7,6 +7,7 @@ var Number Var_WH
 // Anbieterpreis für KWh incl. MwSt.
 var Number Naturkraft_KWH=0.51 // Naturkraft 14.5.2015
 
+/////// Waschmaschine
 //----------------------------------------------------------
 // Umrechnung der Wh in KWh
 //
@@ -39,4 +40,39 @@ when
   Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed to ON
 then
   UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate.postUpdate( now.toString() )
+end
+
+/////// Geschirrspueler
+//----------------------------------------------------------
+// Umrechnung der Wh in KWh
+//
+rule "Berechne KWh"
+when
+  Item EG_Kueche_Geschirrspueler_Gesamtverbrauch changed
+then
+  Var_WH = EG_Kueche_Geschirrspueler_Gesamtverbrauch.state
+  var Number Var_KWH = Var_WH / 1000
+  EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.postUpdate(Var_KWH)
+end
+
+//----------------------------------------------------------
+// Berechnung der bisher vom Geraet verursachten Kosten
+//
+rule "Berechne Kosten Geschirrspueler"
+when 
+  Item EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH changed
+then
+  var Number Var_KWH = EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.state
+  var Number Kosten = Var_KWH * Naturkraft_KWH
+  EG_Kueche_Geschirrspueler_Summe.postUpdate(Kosten)
+end 
+
+//----------------------------------------------------------
+// Update Last changed
+//
+rule "Update CCU2_Geschirrspueler_LastUpdate"
+when
+  Item EG_Kueche_CCU2_Geschirrspueler changed to ON
+then
+  EG_Kueche_CCU2_Geschirrspueler_LastUpdate.postUpdate( now.toString() )
 end

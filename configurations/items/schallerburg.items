@@ -127,6 +127,17 @@ Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Netzfrequ
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (UG_Wirtschaftsraum)
 Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (UG_Wirtschaftsraum)
 
+Switch EG_Kueche_Geschirrspueler                 "Geschirrspueler"                           <socket>  (EG_Kueche,Sockets)  {homematic="address=LEQ0531373,channel=1,parameter=STATE"}
+Switch EG_Kueche_CCU2_Geschirrspueler		"Geschirrspueler in Betrieb"	          <geschirr>  (EG_Kueche,PersistentCurrent)  { homematic="variable=Geschirrspueler" }
+DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <selfCalendar> (EG_Kueche)
+Number EG_Kueche_Geschirrspueler_current         "Geschirrspueler Strom [%.2f mA]"           <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=CURRENT"}
+Number EG_Kueche_Geschirrspueler_power           "Geschirrspueler Leistung [%.2f W]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=POWER"}
+Number EG_Kueche_Geschirrspueler_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=ENERGY_COUNTER"}
+Number EG_Kueche_Geschirrspueler_voltage         "Geschirrspueler Netzspannung [%.2f V]"     <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=VOLTAGE"}
+Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [%.2f   Hz]"  <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=FREQUENCY"}
+Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (EG_Kueche)
+Number EG_Kueche_Geschirrspueler_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (EG_Kueche)
+
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 
 Switch OG_Schlafzimmer_Power_Lamp <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
