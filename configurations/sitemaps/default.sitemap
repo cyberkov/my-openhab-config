@@ -59,6 +59,7 @@ sitemap default label="Schallerburg"
     Text label="Herdplatte [n/a]" icon="kitchen"
     Text label="Licht [n/a]" icon="selfLight-off"
     Text label="Geschirrspueler [n/a]" icon="geschirr"
+    Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
   Frame label="Programme" {
     Text label="Sofa" icon="selfCouch"

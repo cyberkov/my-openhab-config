@@ -129,6 +129,8 @@ Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f
 
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 
+Switch OG_Schlafzimmer_Power_Lamp <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+
 /* Drucker */
 Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
 Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <printer>   (UG_Hannes)             { cups="http://127.0.0.1:631/printers/C500#NOT_COMPLETED" }
@@ -151,7 +153,7 @@ Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(z
 //////////////// Vorbereitet ////////////////
 
 /* Steckdosen */
-Switch Btn3 (Test,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+
 
 //Astro
 Group Astro   (Test)
@@ -294,7 +296,7 @@ String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {
 // precipitation
 Number   Weather_Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
 Number   Weather_Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=snow"}
-Number   Weather_Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
+//Number   Weather_Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
 
 // temperature
 //Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
