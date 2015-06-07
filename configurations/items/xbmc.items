@@ -12,5 +12,7 @@ String EG_Kueche_XBMC_State	"XBMC Küche Status: [%s]" <video>	(EG_Kueche)		{ xb
 String EG_Kueche_XBMC_Title	"XBMC Küche Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
 Dimmer EG_Kueche_XBMC_Volume    "XBMC Küche Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
 Switch EG_Kueche_XBMC_Screensaver "XBMC Küche Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
+String EG_Kueche_XBMC_OpenMedia    "XBMC Küche file [%s]"     (EG_Kueche)  { xbmc=">[#kueche|Player.Open]" }
+Switch EG_Kueche_XBMC_Radio        "XBMC Küche FM4" (EG_Kueche)
 
 Switch EG_Wohnzimmer_TV_Power "Fernseher" <selfTelevision>  (EG_Wohnzimmer) { exec="ON:/etc/openhab/bin/tv_on.sh, OFF:/etc/openhab/bin/tv_off.sh" }
