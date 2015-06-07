@@ -51,7 +51,7 @@ sitemap default label="Schallerburg"
     Text item=Temperature label="Temperatur [%.1f °C]"
     Text item=Humidity label="Luftfeuchte [%d %%]"
     Text label="Feuer [n/a]" icon="fire"
-    Text label="Alarm [n/a]" icon="siren-on"
+    Switch item=Security_Alarm
     Text item=Window_EG_Frontdoor //itemcolor=["zu"="green", "offen"="red"]
     Text label="Balkon OG [n/a]" icon="door-closed"
     Text label="Terasse EG [n/a]" icon="door-closed"

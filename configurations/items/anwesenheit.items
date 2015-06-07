@@ -1,6 +1,8 @@
 
 Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present>
 
+// Alarmfunktion
+Switch Security_Alarm   "Alarm" <siren> (EG_Vorzimmer,Anwesenheit) { homematic="variable=Alarm" }
 
 //-------------------------
 // Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
