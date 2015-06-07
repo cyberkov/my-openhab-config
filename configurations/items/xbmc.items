@@ -1,16 +1,16 @@
 /* XBMC */
-String EG_Wohnzimmer_XBMC_State	"WZ Status: [%s]" <video>	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.State]" }
-String EG_Wohnzimmer_XBMC_Title	"WZ Title: [%s]"	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.Title]" }
-Dimmer EG_Wohnzimmer_XBMC_Volume "WZ Volume [%.1f]"   (EG_wohnzimmer)         { xbmc="=[#wohnzimmer|Application.Volume]" }
+String EG_Wohnzimmer_XBMC_State	"XBMC WZ Status: [%s]" <video>	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.State]" }
+String EG_Wohnzimmer_XBMC_Title	"XBMC WZ Title: [%s]"	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.Title]" }
+Dimmer EG_Wohnzimmer_XBMC_Volume "XBMC WZ Volume [%.1f]"   (EG_wohnzimmer)         { xbmc="=[#wohnzimmer|Application.Volume]" }
 
-String UG_Hannes_XBMC_State	"Raspi Status: [%s]" <video>	(UG_Hannes)		{ xbmc="<[#hannes|Player.State]" }
-String UG_Hannes_XBMC_Title	"Raspi Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
-Dimmer UG_Hannes_XBMC_Volume    "Raspi Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
-Switch UG_Hannes_XBMC_Screensaver "Raspi Screensaver"   (UG_Hannes)             { xbmc="<[#hannes|Screensaver.State]" }
+String UG_Hannes_XBMC_State	"XBMC Hannes Status: [%s]" <video>	(UG_Hannes)		{ xbmc="<[#hannes|Player.State]" }
+String UG_Hannes_XBMC_Title	"XBMC Hannes Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
+Dimmer UG_Hannes_XBMC_Volume    "XBMC Hannes Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
+Switch UG_Hannes_XBMC_Screensaver "XBMC Hannes Screensaver"   (UG_Hannes)             { xbmc="<[#hannes|Screensaver.State]" }
 
-String EG_Kueche_XBMC_State	"Pixie Status: [%s]" <video>	(EG_Kueche)		{ xbmc="<[#kueche|Player.State]" }
-String EG_Kueche_XBMC_Title	"Pixie Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
-Dimmer EG_Kueche_XBMC_Volume    "Pixie Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
-Switch EG_Kueche_XBMC_Screensaver "Pixie Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
+String EG_Kueche_XBMC_State	"XBMC Küche Status: [%s]" <video>	(EG_Kueche)		{ xbmc="<[#kueche|Player.State]" }
+String EG_Kueche_XBMC_Title	"XBMC Küche Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
+Dimmer EG_Kueche_XBMC_Volume    "XBMC Küche Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
+Switch EG_Kueche_XBMC_Screensaver "XBMC Küche Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
 
 Switch EG_Wohnzimmer_TV_Power "Fernseher" <selfTelevision>  (EG_Wohnzimmer) { exec="ON:/etc/openhab/bin/tv_on.sh, OFF:/etc/openhab/bin/tv_off.sh" }
