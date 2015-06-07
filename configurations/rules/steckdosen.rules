@@ -76,3 +76,23 @@ when
 then
   EG_Kueche_CCU2_Geschirrspueler_LastUpdate.postUpdate( now.toString() )
 end
+
+//----------------------------------------------------------
+// Schalte Schlafzimmerlampe mit der Fernbedienung
+//
+rule "Lampe Schlafzimmer"
+when
+        Item OG_Schlafzimmer_Power_Lamp_tog changed
+then
+        sendCommand(OG_Schlafzimmer_Power_Lamp, OG_Schlafzimmer_Power_Lamp_tog.state.toString )
+end
+
+//----------------------------------------------------------
+// Schalte Hannes' Zimmerlampe mit der Fernbedienung
+//
+rule "Lampe Hannes"
+when
+        Item UG_Hannes_Power_Lamp_tog changed
+then
+        sendCommand(UG_Hannes_Power_Lamp, UG_Hannes_Power_Lamp_tog.state.toString )
+end

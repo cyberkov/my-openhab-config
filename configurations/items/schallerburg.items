@@ -139,10 +139,10 @@ Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.
 Number EG_Kueche_Geschirrspueler_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (EG_Kueche)
 
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.2:Command"}
 
 Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
-Switch OG_Schlafzimmer_Power_Lamp_tog (OG_Schlafzimmer,Test,Sockets) { rfxcom="<66696.2:Command"}
-Switch OG_Schlafzimmer_Power_Lamp_test (OG_Schlafzimmer,Test,Sockets) { rfxcom="<66696.2:Command", rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
 
 /* Drucker */
 Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
