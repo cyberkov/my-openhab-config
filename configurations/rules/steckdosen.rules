@@ -96,3 +96,37 @@ when
 then
         sendCommand(UG_Hannes_Power_Lamp, UG_Hannes_Power_Lamp_tog.state.toString )
 end
+
+//----------------------------------------------------------
+// Schalte Schlafzimmer Gelsenstecker mit der Fernbedienung
+//
+rule "Gelsenstecker Schlafzimmer"
+when
+        Item OG_Schlafzimmer_Power_Gelsenstecker_tog changed
+then
+        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OG_Schlafzimmer_Power_Gelsenstecker_tog.state.toString )
+end
+
+//----------------------------------------------------------
+// Schalte Gelsenstecker ein wenn jemand zu Hause ist
+//
+rule "Gelsenstecker ein am Abend"
+when
+    // um 21:00
+    Time cron "0 0 21 * * ?"
+then
+    if (JemandDa.state == ON) {
+      sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+    }
+end
+
+//----------------------------------------------------------
+// Schalte Gelsenstecker aus
+//
+rule "Gelsenstecker aus"
+when
+    // um 03:00
+    Time cron "0 0 3 * * ?"
+then
+    sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+end

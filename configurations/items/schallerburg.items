@@ -138,11 +138,14 @@ Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [
 Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (EG_Kueche)
 Number EG_Kueche_Geschirrspueler_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (EG_Kueche)
 
-Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
-Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.2:Command"}
+Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
 
 Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
+
+Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<66696.2:Command"}
 
 /* Drucker */
 Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
@@ -166,7 +169,6 @@ Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(z
 //////////////// Vorbereitet ////////////////
 
 /* Steckdosen */
-Switch Btn4 "Btn4" <socket> (Sockets,Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 
 //Astro
 Group Astro   (Test)
