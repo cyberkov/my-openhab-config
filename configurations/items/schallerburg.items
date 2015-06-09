@@ -55,6 +55,7 @@ Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <tempe
 Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
+Number WeatherDisplay_EG_Wohnzimmer    "Display Wohnzimmer [%.1f °C]"	<temperature>	(EG_Wohnzimmer) { rfxcom=">18177:Temperature" }
 
 /* Humidity */
 Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
@@ -157,7 +158,7 @@ Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <pr
 Switch UG_Sauna_Heating 	"Heizung Sauna" 	<heating>	(UG_Sauna, Heating)
 
 /* Batterien */
-Group:Contact:OR(0,1)       Battery         "Batterien [(%d)]"              <energy>      (Status)
+Group:Contact:OR(OPEN,CLOSED)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
 Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
 Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}

@@ -19,6 +19,7 @@ when
   Item Weather_Temperature received update
 then
   postUpdate(Weather_LastUpdate, new DateTimeType())
+  postUpdate(WeatherDisplay_EG_Wohnzimmer, Weather_Temperature.state)
 end
 
 var String wetterOutput = null
