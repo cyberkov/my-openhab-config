@@ -73,7 +73,7 @@ String Lueftungseff_UG    "Lüftungseffizienz UG [%s]"   <contact> (gUG)
 Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG) 
 Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG) 
 Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG) 
-Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor) 
+Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor)
 
 /* Windows */
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
@@ -82,13 +82,13 @@ Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<conta
 Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"	<door>	(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"	<door>	(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 
-DateTime Security_Last_Change   "Sicherheit [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Security,PersistentCurrent)
+DateTime Security_Last_Change   "Sicherheit [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"   <selfCalendar>  (Security,PersistentCurrent)
 
 /* Bell */
 Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)
 Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
 Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
-DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"  <selfBell> 	(EG_Vorzimmer,PersistentCurrent)
+DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfBell> 	(EG_Vorzimmer,PersistentCurrent)
 
 
 /* Network Health */
@@ -110,7 +110,7 @@ Number Weather_Temperature 		"Temperatur Aussen [%.1f °C]"	<temperature> (Weath
 Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=max"}
 Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=min"}
 Number Weather_Chart_Period		"Chart Period"
-DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
+DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm. %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
 Number   Weather_Humidity               "Luftfeuchte Aussen [%d %%]"    <temperature> (Weather,Outdoor)  {weather="locationId=home, type=athmosphere, property=humidity"}
 String   Weather_CommonId               "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
 String   Weather_CommonId_today         "heute: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
@@ -128,7 +128,7 @@ Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <waschmaschine>  (UG_Wirtschaftsraum,PersistentCurrent)  { homematic="variable=Waschmaschine" }
-DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <selfCalendar> (UG_Wirtschaftsraum)
+DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Wirtschaftsraum)
 Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
 Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
@@ -139,7 +139,7 @@ Number UG_Wirtschaftsraum_Waschmaschine_Summe		"Bislang verursachte Kosten [%.2f
 
 Switch EG_Kueche_Geschirrspueler                 "Geschirrspueler"                           <socket>  (EG_Kueche,Sockets)  {homematic="address=LEQ0531373,channel=1,parameter=STATE"}
 Switch EG_Kueche_CCU2_Geschirrspueler		"Geschirrspueler in Betrieb"	          <geschirr>  (EG_Kueche,PersistentCurrent)  { homematic="variable=Geschirrspueler" }
-DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  <selfCalendar> (EG_Kueche)
+DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (EG_Kueche)
 Number EG_Kueche_Geschirrspueler_current         "Geschirrspueler Strom [%.2f mA]"           <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=CURRENT"}
 Number EG_Kueche_Geschirrspueler_power           "Geschirrspueler Leistung [%.2f W]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=POWER"}
 Number EG_Kueche_Geschirrspueler_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=ENERGY_COUNTER"}
