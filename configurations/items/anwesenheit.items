@@ -20,7 +20,7 @@ Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
 Switch  Presence_Away 		"Abwesend"        <selfShield> 	  (Security,Anwesenheit)
 Switch  Presence_Garden         "Im Garten"       <selfShield> 	  (Security,Anwesenheit)
 
-String mqtt_Hannes_Position_Raw "Hannes Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/cyberkov:state]" }
+String mqtt_Hannes_Position_Raw "Hannes Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/cyberkov:state:default]" }
 Number mqtt_Hannes_Latitude "Latitude [%s]" (gMobiles)
 Number mqtt_Hannes_Longitude "Longitude [%s]" (gMobiles)
 Number mqtt_Hannes_Accuracy   "Genauigkeit [%s]" (gMobiles)
@@ -29,7 +29,7 @@ Number mqtt_Hannes_Battery   "Batterie [%s]" (gMobiles)
 // Barbara
 Switch  Presence_Barbara_Home   "Barbara @Home"   <present>       (Anwesenheit)   { mqttitude="proton:owntracks/barbara:Home" }
 
-String mqtt_Barbara_Position_Raw "Barbara Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/barbara:state]" }
+String mqtt_Barbara_Position_Raw "Barbara Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/barbara:state:default]" }
 Number mqtt_Barbara_Latitude "Latitude [%s]" (gMobiles)
 Number mqtt_Barbara_Longitude "Longitude [%s]" (gMobiles)
 Number mqtt_Barbara_Accuracy   "Genauigkeit [%s]" (gMobiles)
