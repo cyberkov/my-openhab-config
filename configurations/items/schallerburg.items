@@ -73,6 +73,7 @@ String Lueftungseff_UG    "Lüftungseffizienz UG [%s]"   <contact> (gUG)
 Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG) 
 Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG) 
 Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG) 
+Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor) 
 
 /* Windows */
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
