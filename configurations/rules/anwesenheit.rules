@@ -25,7 +25,7 @@ when
 	Item Presence_Hannes_Office changed from OFF to ON 
 then
 	logInfo("PresenceCheck", "Hannes ist im Bureau.")
-	pushover("Du bist nun im Bureau.")
+	pushover("Du bist nun im Bureau. Vergiss nicht BMD zu buchen!")
 end
 
 rule "Hannes verlaesst KiGa"
@@ -33,7 +33,7 @@ when
 	Item Presence_Hannes_Office changed from ON to OFF 
 then
 	logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
-	pushover("Du verlaesst nun das Bureau.")
+	pushover("Du verlaesst nun das Bureau. Vergiss nicht BMD zu buchen!")
 end
  
 
