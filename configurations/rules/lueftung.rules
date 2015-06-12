@@ -1,0 +1,131 @@
+import org.openhab.core.library.*
+import org.openhab.core.items.*
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import org.joda.time.*
+import java.lang.Math.*
+
+/* ------------------------------------------------------------------------------------------------------ 
+ * 
+ * Berechnung des Taupunktes für eine gegebene Temperatur und Luftfeuchtigkeit
+ * 
+ * Beschreibung:
+ * Die Luft ist ein Gemisch verschiedener Gase. Eines dieser Gase ist der Wasserdampf. Die Menge an 
+ * Wasserdampf, die in der Luft enthalten sein kann, ist allerdings begrenzt. Je wärmer die Luft ist, 
+ * desto mehr Wasserdampf kann in ihr enthalten sein.
+ * 
+ * Die relative Luftfeuchtigkeit gibt an, wie viel Prozent des maximalen Wasserdampfgehaltes die Luft 
+ * im Augenblick enthält. Da der maximale Wasserdampfgehalt mit steigender Temperatur ansteigt, 
+ * fällt die relative Luftfeuchtigkeit mit steigender Temperatur (und umgekehrt).
+ * 
+ * Die Taupunkttemperatur ist definiert als die Temperatur, bei der der aktuelle Wasserdampfgehalt in 
+ * der Luft der maximale (100% relative Luftfeuchtigkeit) ist. Die Taupunkttemperatur ist damit eine von 
+ * der aktuellen Temperatur unabhängige Größe. Eine Möglichkeit die Taupunkttemperatur zu messen 
+ * ist das Abkühlen von Metall bis sich die Oberfläche mit Wasserdampf beschlägt. Dann ist die 
+ * Temperatur des Metalls die Taupunkttemperatur.
+ * 
+ * Es gibt keine exakte Formel zur Umrechnung der Taupunkttemperatur in die relative Luftfeuchtigkeit. 
+ * Zur Erstellung des Taupunktrechners habe ich eine einfache Näherungsformel benutzt. Eine exakte 
+ * Umrechnung ist nur mit experimentell ermittelten Tabellen möglich.
+ * 
+ * Aus Temperatur und relativer Luftfeuchte bzw. Temperatur und Taupunkt lässt sich auch der 
+ * absolute Feuchtegehalt der Luft in Gramm Wasserdampf pro Kubikmeter ausrechnen.
+ * 
+ * Formeln:
+ * Die Grundlage der Berechnungen ist die Näherungsformel für den Sättigungsdampfdruck ( Gleichung 1 ), 
+ * die sogenannte Magnusformel. Die relative Luftfeuchtigkeit ist definiert als das Verhältnis vom 
+ * augenblicklichen Dampfdruck zum Sättigungsdampfdruck (umgeformte Gleichung 2). Bei der 
+ * Taupunkttemperatur ist definitionsgemäß der Sättigungsdampfdruck gleich dem aktuellen Dampfdruck. 
+ * Aus diesen beiden Definitionen folgt unmittelbar Gleichung 3, die Formel zur Berechnung der 
+ * relativen Luftfeuchtigkeit aus der Taupunkttemperatur. Die 4. Gleichung beschreibt umgekehrt die 
+ * Berechnung der Taupunkttemperatur aus der relativen Luftfeuchtigkeit und der aktuellen Temperatur. 
+ * Diese 4. Gleichung ist im Grunde nichts anderes als die nach T aufgelöste 1. Gleichung , wobei für 
+ * den Sättigungsdampfdruck der aktuelle Dampfdruck (und nicht der aktuelle Sättigungsdampfdruck) 
+ * eingesetzt wird, so dass die Taupunkttemperatur und nicht die normale Temperatur als Ergebnis 
+ * herauskommt. Aus der allgemeinen Gasgleichung ergibt sich die 5. Gleichung .
+ * 
+ * Bezeichnungen:
+ * r = relative Luftfeuchte
+ * T = Temperatur in °C
+ * TK = Temperatur in Kelvin (TK = T + 273.15)
+ * TD = Taupunkttemperatur in °C
+ * DD = Dampfdruck in hPa
+ * SDD = Sättigungsdampfdruck in hPa
+ * 
+ * Parameter:
+ * a = 7.5, b = 237.3 für T >= 0
+ * a = 7.6, b = 240.7 für T < 0 über Wasser (Taupunkt)
+ * a = 9.5, b = 265.5 für T < 0 über Eis (Frostpunkt)
+ * 
+ * R* = 8314.3 J/(kmol*K) (universelle Gaskonstante)
+ * mw = 18.016 kg/kmol (Molekulargewicht des Wasserdampfes)
+ * AF = absolute Feuchte in g Wasserdampf pro m3 Luft
+ * 
+ * Formeln:
+ * SDD(T) = 6.1078 * 10^((a*T)/(b+T))
+ * DD(r,T) = r/100 * SDD(T)
+ * r(T,TD) = 100 * SDD(TD) / SDD(T)
+ * TD(r,T) = b*v/(a-v) mit v(r,T) = log10(DD(r,T)/6.1078)
+ * AF(r,TK) = 10^5 * mw/R* * DD(r,T)/TK; AF(TD,TK) = 10^5 * mw/R* * SDD(TD)/TK
+ * 
+ * Quelle: http://www.wetterochs.de/wetter/feuchte.html
+ * 
+ * Danke an Stefan Ochs von www.wetterochs.de
+ * 
+ * ------------------------------------------------------------------------------------------------------
+ */
+val org.eclipse.xtext.xbase.lib.Functions$Function2 calculateDewPoint = [
+    double temperature, double humidity 
+    |
+    var double a
+    var double b
+    var double SDD
+    var double DD
+    var double v
+    var double TD
+    
+    if (temperature >= 0.0){ // T >= 0 °C
+        a = 7.5
+        b = 237.3
+    } else { // T < 0 °C über Wasser
+        a = 7.6
+        b = 240.7
+    }
+    SDD=(6.1078 * Math::pow(10.0, ((a*temperature)/(b+temperature)).doubleValue)).doubleValue
+    DD = (humidity/100*SDD).doubleValue
+    v = Math::log10((DD/6.107).doubleValue)
+    TD = ((b*v)/(a-v)).doubleValue
+
+    // Return Value is TD
+    TD
+]
+
+rule "Lüftung Vorratskeller"
+when
+     Item Temperature_OG changed or
+     Item Humidity_OG changed or
+     Item Weather_Temperature changed or
+     Item Weather_Humidity changed or
+     System started
+then
+    var double TDi
+    var double TDo
+
+    TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
+    TDi = calculateDewPoint.apply((Temperature_OG.state as DecimalType).doubleValue, (Humidity_OG.state as DecimalType).doubleValue) as Double
+    // Lueftungseffektivität ermitteln
+    var String effectivity = "keine"
+    if ((TDo+5.0 <= TDi)&& (VCBSSupplyCellarVentilation.state == OPEN)) {
+        effectivity = "mäßig"
+        sendCommand(VCBSSupplyCellarVentilation, CLOSED)
+        // Hier den Code für die Benachrichtigung einbauen -> Lüften
+    } else if ((TDo+3.0 > TDi)&& (VCBSSupplyCellarVentilation.state == CLOSED)) {
+        effectivity = "mittel"
+        sendCommand(VCBSSupplyCellarVentilation, OPEN)
+        // Hier den Code für die Benachrichtigung einbauen -> Nicht lüften
+    } else {
+        effectivity = "hoch"
+        sendCommand(VCBSSupplyCellarVentilation, OPEN)
+    }
+    postUpdate(Lueftungseff_OG, effectivity)
+end
