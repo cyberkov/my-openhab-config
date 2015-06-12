@@ -100,7 +100,7 @@ val org.eclipse.xtext.xbase.lib.Functions$Function2 calculateDewPoint = [
     TD
 ]
 
-rule "Lüftung Vorratskeller"
+rule "Lüftung OG"
 when
      Item Temperature_OG changed or
      Item Humidity_OG changed or
@@ -129,5 +129,61 @@ then
         effectivity = "hoch"
         //sendCommand(VCBSSupplyCellarVentilation, OPEN)
     }
+    postUpdate(Weather_Dewpoint, TDo)
+    postUpdate(Dewpoint_OG, TDi)
     postUpdate(Lueftungseff_OG, effectivity)
+end
+
+rule "Lüftung EG"
+when
+     Item Temperature_EG changed or
+     Item Humidity_EG changed or
+     Item Weather_Temperature changed or
+     Item Weather_Humidity changed or
+     System started
+then
+    var double TDi
+    var double TDo
+
+    TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
+    TDi = calculateDewPoint.apply((Temperature_EG.state as DecimalType).doubleValue, (Humidity_EG.state as DecimalType).doubleValue) as Double
+    // Lueftungseffektivität ermitteln
+    var String effectivity = "keine"
+    if (TDo+5.0 <= TDi) {
+        effectivity = "mäßig"
+    } else if (TDo+3.0 > TDi) {
+        effectivity = "mittel"
+        // Hier den Code für die Benachrichtigung einbauen -> Nicht lüften
+    } else {
+        effectivity = "hoch"
+    }
+    postUpdate(Dewpoint_EG, TDi)
+    postUpdate(Lueftungseff_EG, effectivity)
+end
+
+rule "Lüftung UG"
+when
+     Item Temperature_UG changed or
+     Item Humidity_UG changed or
+     Item Weather_Temperature changed or
+     Item Weather_Humidity changed or
+     System started
+then
+    var double TDi
+    var double TDo
+
+    TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
+    TDi = calculateDewPoint.apply((Temperature_UG.state as DecimalType).doubleValue, (Humidity_UG.state as DecimalType).doubleValue) as Double
+    // Lueftungseffektivität ermitteln
+    var String effectivity = "keine"
+    if (TDo+5.0 <= TDi) {
+        effectivity = "mäßig"
+    } else if (TDo+3.0 > TDi) {
+        effectivity = "mittel"
+        // Hier den Code für die Benachrichtigung einbauen -> Nicht lüften
+    } else {
+        effectivity = "hoch"
+    }
+    postUpdate(Dewpoint_UG, TDi)
+    postUpdate(Lueftungseff_UG, effectivity)
 end
