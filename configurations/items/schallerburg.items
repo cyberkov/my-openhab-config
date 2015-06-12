@@ -66,6 +66,11 @@ Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>
 Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
+/* Lueftungseffizienz */
+String Lueftungseff_OG    "Lüftungseffizienz OG [%s]"   <contact> (gOG)
+String Lueftungseff_EG    "Lüftungseffizienz EG [%s]"   <contact> (gEG)
+String Lueftungseff_UG    "Lüftungseffizienz UG [%s]"   <contact> (gUG)
+
 /* Windows */
 Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
 Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
