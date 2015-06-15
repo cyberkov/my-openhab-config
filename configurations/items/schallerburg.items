@@ -50,8 +50,9 @@ Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperatur
 Group:Number:AVG 				Temperature_OG	"Avg. Room Temperature OG [%.1f °C]" 	<temperature>	(gOG)
 Group:Number:AVG 				Temperature_EG	"Avg. Room Temperature EG [%.1f °C]" 	<temperature>	(gEG)
 Group:Number:AVG 				Temperature_UG	"Avg. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
+Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, OG_Schlafzimmer, Temperature_OG) {mqtt="<[mysensor:MyMQTT/105/1/V_TEMP:state:default]"}
+Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]"  (Temperature, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer, Temperature_EG) { rfxcom="<18176:Temperature" }   
-Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, OG_Schlafzimmer, Temperature_OG) { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
@@ -62,7 +63,8 @@ Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Statu
 Group:Number:AVG 				Humidity_OG	"Avg. Room Humidity OG [%d %%]" 	<temperature>	(gOG)
 Group:Number:AVG 				Humidity_EG	"Avg. Room Humidity EG [%d %%]" 	<temperature>	(gEG)
 Group:Number:AVG 				Humidity_UG	"Avg. Room Humidity UG [%d %%]" 	<temperature>	(gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { mqtt="<[mysensor:MyMQTT/105/0/V_HUM:state:default]"}
+Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
@@ -174,6 +176,10 @@ Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(zustand
 Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
 Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
 Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
+
+/* Scene Controller */
+Number Test_Scene_Controller_on "Scene Controller on [%d %%]"	 <video>  (EG_Wohnzimmer, Test) { mqtt="<[mysensor:MyMQTT/20/1/V_SCENE_ON:state:default]"}
+Number Test_Scene_Controller_off "Scene Controller off [%d %%]"	 <video>  (EG_Wohnzimmer, Test) { mqtt="<[mysensor:MyMQTT/20/1/V_SCENE_OFF:state:default]"}
 
 
 //////////////// Vorbereitet ////////////////
