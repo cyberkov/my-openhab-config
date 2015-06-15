@@ -59,14 +59,14 @@ Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temper
 Number WeatherDisplay_EG_Wohnzimmer    "Display Wohnzimmer [%.1f °C]"	<temperature>	(EG_Wohnzimmer) { rfxcom=">18177:TEMPERATURE.LACROSSE_TX2_TX3_TX4_TX17:Temperature" }
 
 /* Humidity */
-Group:Number:AVG 				Humidity	"Avg. Room Humidity [%d %%]" 	<temperature>	(Status)
-Group:Number:AVG 				Humidity_OG	"Avg. Room Humidity OG [%d %%]" 	<temperature>	(gOG)
-Group:Number:AVG 				Humidity_EG	"Avg. Room Humidity EG [%d %%]" 	<temperature>	(gEG)
-Group:Number:AVG 				Humidity_UG	"Avg. Room Humidity UG [%d %%]" 	<temperature>	(gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%d %%]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { mqtt="<[mysensor:MyMQTT/105/0/V_HUM:state:default]"}
+Group:Number:AVG 				Humidity	"Avg. Room Humidity [%.1f %%Rh]" 	<temperature>	(Status)
+Group:Number:AVG 				Humidity_OG	"Avg. Room Humidity OG [%.1f %%Rh]" 	<temperature>	(gOG)
+Group:Number:AVG 				Humidity_EG	"Avg. Room Humidity EG [%.1f %%Rh]" 	<temperature>	(gEG)
+Group:Number:AVG 				Humidity_UG	"Avg. Room Humidity UG [%.1f %%Rh]" 	<temperature>	(gUG)
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { mqtt="<[mysensor:MyMQTT/105/0/V_HUM:state:default]"}
 Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%d %%]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%d %%]"	        <temperature>	(Humidity, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
+Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%.1f %%Rh]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
+Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%.1f %%Rh]"	        <temperature>	(Humidity, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 
 /* Lueftungseffizienz */
 String Lueftungseff_OG    "Lüftungseffizienz OG [%s]"   <contact> (gOG)
