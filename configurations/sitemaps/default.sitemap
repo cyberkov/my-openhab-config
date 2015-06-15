@@ -194,6 +194,7 @@ sitemap default label="Schallerburg"
   Frame label="Wetter" {
     Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
       Frame {
+        Webview url="http://127.0.0.1:8080/weather?locationId=home&layout=home&iconset=colorful" height=7
         Text item=Weather_Temp_Max valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
         Text item=Weather_Temp_Min valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
         Text item=Weather_LastUpdate visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
@@ -207,13 +208,13 @@ sitemap default label="Schallerburg"
           Chart item=Weather_Chart period=W refresh=3600 visibility=[Weather_Chart_Period==2]
       }
     }
-    Text item=Condition
-      Text item=Weather_CommonId_today
-      Text item=Weather_CommonId_tomorrow
+//    Text item=Condition
+//      Text item=Weather_CommonId_today
+//      Text item=Weather_CommonId_tomorrow
   }
-  Frame label="Status" {
+//  Frame label="Status" {
       Group item=Status     label="Status" icon="settings"
-  }
+//  }
 }
 ///////  Vorbereitet  ///////////
 //  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
