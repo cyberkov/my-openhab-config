@@ -189,6 +189,7 @@ sitemap default label="Schallerburg"
         Chart item=Electricity_Last_Daily_Consumption period=Y refresh=86400 label="Strom"
       }
     }
+    Webview url="http://127.0.0.1:8080/static/map2.html"  height=12
   }
   Frame label="Wetter" {
     Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
