@@ -49,7 +49,7 @@ sitemap default label="Schallerburg"
   Frame label="Warnungen" {
     Text item=Network_Internet label="Internet [%s]" //itemcolor=["ON"="green","OFF"="red"]
     Text item=Temperature label="Temperatur [%.1f °C]"
-    Text item=Humidity label="Luftfeuchte [%d %%]"
+    Text item=Humidity label="Luftfeuchte [%.1f %%Rh]"
     Text label="Feuer [n/a]" icon="fire"
     Switch item=Security_Alarm
     Text item=Window_EG_Frontdoor //itemcolor=["zu"="green", "offen"="red"]
