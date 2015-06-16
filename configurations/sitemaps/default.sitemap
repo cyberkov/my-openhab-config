@@ -57,7 +57,7 @@ sitemap default label="Schallerburg"
     Text label="Terasse EG [n/a]" icon="door-closed"
     Text label="Tuer UG [n/a]" icon="door-closed"
     Text label="Herdplatte [n/a]" icon="kitchen"
-    Text label="Licht [n/a]" icon="selfLight-off"
+    Text item=Lights label="Licht [%d]" icon="selfLight-off"
     Text item=EG_Kueche_CCU2_Geschirrspueler label="Geschirrspueler [%s]" icon="geschirr"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }

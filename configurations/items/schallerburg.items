@@ -36,7 +36,7 @@ Group PersistentChart
 Group PersistentCurrent
 
 /* active groups */
-//Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
+Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 //Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
 
 //////////////// Fertig ////////////////
@@ -150,10 +150,10 @@ Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [
 Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH	"Gesamtverbrauch in KWh [%.2f KWh]"	<socket>        (EG_Kueche)
 Number EG_Kueche_Geschirrspueler_Summe		"Bislang verursachte Kosten [%.2f Eur]"	  <smiley>  (EG_Kueche)
 
-Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
 
-Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
 
 Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
