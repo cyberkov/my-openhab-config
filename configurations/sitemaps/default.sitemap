@@ -18,7 +18,7 @@ sitemap default label="Schallerburg"
     Text item=Security label="Sicherheit [(%d)]" {
       Frame label="Steuerung" {
         Group item=Anwesenheit
-        Switch item=Presence_Away
+        Switch item=JemandDa
         Switch item=Presence_Garden
       }
       Frame label="Aussen" {
