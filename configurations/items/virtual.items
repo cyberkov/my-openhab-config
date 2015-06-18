@@ -14,3 +14,20 @@ String VoiceCommand
 /* Holiday Calculation */
 Switch Holiday  "Public Holiday" (Test)
 String SpecialDay   "Day [MAP(holidays_de.map):%s]" (Test)
+
+/* Automatikfunktionen */
+Group Automatik  "Automatiksteuerung" <settings> (Status)
+/* Modes 0=HOME, 1=NIGHT, 2=AWAY */
+Number mode "Modus: [MAP(modus.map)]" <present>
+Number previous_mode 
+
+Switch  mode_sofa    "Sofa"     <selfCouch> (Automatik)
+Switch  mode_bed     "Bett"     <selfBedSleep> (Automatik)
+Switch  mode_party   "Party"    <outdoorlight> (Automatik)
+Switch  mode_night   "Nacht"    <selfRuntime> (Automatik)
+Switch  mode_bath    "Bad"      <bath> (Automatik)
+Switch  mode_cooking "Kochen"   <kitchen> (Automatik)
+Switch  mode_outdoor "Garten"   <garden> (Automatik)
+
+Switch auto_gelsenstecker "Gelsensteckerautomatik" <socket> (Automatik)
+

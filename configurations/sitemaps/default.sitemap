@@ -63,13 +63,13 @@ sitemap default label="Schallerburg"
   }
   Frame label="Programme" {
     Switch item=mode label="Modus" mappings=[0="Home", 1="Nacht", 2="Abwesend"]
-    Switch label="Sofa" icon="selfCouch" mappings=[ON="Go!"]
-    Switch label="Bett" icon="selfBedSleep" mappings=[ON="Go!"]
-    Switch label="Party" icon="outdoorlight" mappings=[ON="Go!"]
-    Switch label="Nacht" icon="selfRuntime" mappings=[ON="Go!"]
-    Switch label="Bad" icon="bath" mappings=[ON="Go!"]
-    Switch label="Kochen" icon="kitchen" mappings=[ON="Go!"]
-    Switch label="Garten" icon="garden" mappings=[ON="Go!"]
+    Switch item=mode_sofa label="Sofa" icon="selfCouch" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_bed label="Bett" icon="selfBedSleep" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_party label="Party" icon="outdoorlight" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_night label="Nacht" icon="selfRuntime" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_bath label="Bad" icon="bath" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_cooking label="Kochen" icon="kitchen" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_outdoor label="Garten" icon="garden" mappings=[ON="An", OFF="Aus"]
   }
   Frame label="Anwesenheit" {
     Text item=Presence_Hannes_Home label="Hannes [%s]"
