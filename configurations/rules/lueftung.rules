@@ -106,7 +106,6 @@ when
      Item Humidity_OG changed or
      Item Weather_Temperature changed or
      Item Weather_Humidity changed or
-     System started
 then
     var double TDi
     var double TDo
@@ -140,7 +139,6 @@ when
      Item Humidity_EG changed or
      Item Weather_Temperature changed or
      Item Weather_Humidity changed or
-     System started
 then
     var double TDi
     var double TDo
@@ -167,7 +165,6 @@ when
      Item Humidity_UG changed or
      Item Weather_Temperature changed or
      Item Weather_Humidity changed or
-     System started
 then
     var double TDi
     var double TDo
