@@ -3,7 +3,6 @@
 // openhab-1.7.0-SNAPSHOT
 
 import org.openhab.core.library.types.*
-import org.openhab.model.script.actions.Timer
 var Number Var_WH
 // Anbieterpreis für KWh incl. MwSt.
 var Number Naturkraft_KWH=0.51 // Naturkraft 14.5.2015
@@ -110,41 +109,24 @@ end
 
 //----------------------------------------------------------
 // Schalte Gelsenstecker ein wenn jemand zu Hause ist
-// Wenn Gelsenstecker manuell aktiviert, aus nach 3h
-// Schalte Gelsenstecker aus um 03:00
 //
-var Timer GelsensteckerTimer = null
 rule "Gelsenstecker ein am Abend"
 when
     // um 21:00
-    Time cron "0 0 21 * * ?" or
-    Item OG_Schlafzimmer_Power_Gelsenstecker changed
+    Time cron "0 0 21 * * ?"
 then
-    if (GelsensteckerTimer!=null) {
-      GelsensteckerTimer.cancel
-      GelsensteckerTimer=null
-    }
     if (JemandDa.state == ON) {
-        if (OG_Schlafzimmer_Power_Gelsenstecker.state==OFF) {
-	    logInfo("Gelsenstecker", "Schalte Gelsenstecker ein.")
-            sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
-            GelsensteckerTimer = createTimer(now.plusHours(6)) [|
-    	      logInfo("Gelsenstecker", "Schalte Gelsenstecker aus.")
-              sendCommand(OG_Schlafzimmer_Power_Gelsenstecker,OFF)
-            ]
-        }
+      sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
     }
 end
 
 //----------------------------------------------------------
 // Schalte Gelsenstecker aus
 //
-//rule "Gelsenstecker aus"
-//when
-//    // um 03:00
-//    Time cron "0 0 3 * * ?"
-//then
-//    sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
-//end
-//----------------------------------------------------------
-//
+rule "Gelsenstecker aus"
+when
+    // um 03:00
+    Time cron "0 0 3 * * ?"
+then
+    sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+end
