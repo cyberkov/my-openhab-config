@@ -40,10 +40,13 @@ Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 //Group:Switch:OR(ON, OFF) 	Heating 	"No. of Active Heatings [(%d)]" <heating>     (Status)
 
 //////////////// Fertig ////////////////
+Group Automatik  "Automatiksteuerung" <settings> (Status)
 
+/* Automatikfunktionen */
 /* Modes 0=HOME, 1=NIGHT, 2=AWAY */
 Number mode "Modus: [MAP(modus.map)]" <present>
 Number previous_mode 
+Switch auto_gelsenstecker "Gelsensteckerautomatik" <socket> (Automatik)
 
 /* Temperature */
 Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)

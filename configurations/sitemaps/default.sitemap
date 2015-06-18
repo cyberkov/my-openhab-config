@@ -76,6 +76,10 @@ sitemap default label="Schallerburg"
     Text item=JemandDa label="Jemand Da [%s]"
     Group item=Anwesenheit
   }
+  Text label="Steuerung" icon="house" {
+    Switch item=mode mappings=[0=" Home ", 2="Nacht", 3="Abwesend"]
+    Switch item=auto_gelsenstecker
+  }
   Text item=MainStatus label="Informationen" icon="house" {
     Text item=Temperature label="Temperatur [%.1f °C]" {
       Frame {
@@ -208,9 +212,6 @@ sitemap default label="Schallerburg"
           Chart item=Weather_Chart period=W refresh=3600 visibility=[Weather_Chart_Period==2]
       }
     }
-//    Text item=Condition
-//      Text item=Weather_CommonId_today
-//      Text item=Weather_CommonId_tomorrow
   }
 //  Frame label="Status" {
       Group item=Status     label="Status" icon="settings"
