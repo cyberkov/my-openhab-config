@@ -62,13 +62,14 @@ sitemap default label="Schallerburg"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
   Frame label="Programme" {
-    Text label="Sofa" icon="selfCouch"
-    Text label="Bett" icon="selfBedSleep"
-    Text label="Party" icon="outdoorlight"
-    Text label="Nacht" icon="selfRuntime"
-    Text label="Bad" icon="bath"
-    Text label="Kochen" icon="kitchen"
-    Text label="Garten" icon="garden"
+    Switch item=mode label="Modus" mappings=[0="Home", 1="Nacht", 2="Abwesend"]
+    Switch label="Sofa" icon="selfCouch" mappings=[ON="Go!"]
+    Switch label="Bett" icon="selfBedSleep" mappings=[ON="Go!"]
+    Switch label="Party" icon="outdoorlight" mappings=[ON="Go!"]
+    Switch label="Nacht" icon="selfRuntime" mappings=[ON="Go!"]
+    Switch label="Bad" icon="bath" mappings=[ON="Go!"]
+    Switch label="Kochen" icon="kitchen" mappings=[ON="Go!"]
+    Switch label="Garten" icon="garden" mappings=[ON="Go!"]
   }
   Frame label="Anwesenheit" {
     Text item=Presence_Hannes_Home label="Hannes [%s]"
