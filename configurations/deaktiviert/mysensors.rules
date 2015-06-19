@@ -81,6 +81,10 @@ var HashMap<String, String> sensorToItemsMap = newLinkedHashMap(
     "Humidity_OG_Schlafzimmer" -> "105;0;",
     "Test_Scene_Controller_time" -> "20;255;",
     "20;255;" -> "Test_Scene_Controller_time"
+    "104;1;" -> "Temperature_UG_Hannes", 
+    "Temperature_UG_Hannes" -> "104;1;",
+    "104;0;" -> "Humidity_UG_Hannes", 
+    "Humidity_UG_Hannes" -> "104;0;",
 )
 //    "22;0;" -> "plugStrip01s12", 
 //    "plugStrip01s12" -> "22;0;",
