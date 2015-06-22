@@ -29,3 +29,13 @@ then
     sendCommand(Task_Waesche, ON)
     pushover("Waschmaschine ist fertig.")
 end
+
+rule "Waschmaschine wird ausgeschaltet"
+when
+    Item openhab.UG_Wirtschaftsraum_Waschmaschine_power changed
+then
+    if ( openhab.UG_Wirtschaftsraum_Waschmaschine_power.state <= 1 and Task_Waesche.state == ON) {
+        logInfo("Task Waschmaschine2", "Waschmaschine ausgeschaltet")
+        sendCommand(Task_Waesche, ON)
+    }
+end
