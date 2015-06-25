@@ -1,0 +1,10 @@
+//------------------
+// Items for the MySensors Network
+
+String Notify_Scenecontroller "Message: [%s]" (EG_Wohnzimmer, Test)  {mqtt=">[proton:/mySensors/20/1/V_VAR1:state:*:default]"}
+
+/* Scene Controller */
+Number Test_Scene_Controller_on "Scene Controller on [%d]"	 <video>  (EG_Wohnzimmer, Test)  { mqtt="<[proton:/mySensors/20/1/V_SCENE_ON:state:default]"}
+Number Test_Scene_Controller_off "Scene Controller off [%d]"	 <video>  (EG_Wohnzimmer, Test)  { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
+String Test_Scene_Controller_time "Scene Controller time [%s]"	 <video>  (EG_Wohnzimmer, Test) // { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
+

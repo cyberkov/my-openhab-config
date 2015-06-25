@@ -176,11 +176,6 @@ Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(zustand
 Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
 Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
 
-/* Scene Controller */
-Number Test_Scene_Controller_on "Scene Controller on [%d %%]"	 <video>  (EG_Wohnzimmer, Test)  { mqtt="<[proton:/mySensors/20/1/V_SCENE_ON:state:default]"}
-Number Test_Scene_Controller_off "Scene Controller off [%d %%]"	 <video>  (EG_Wohnzimmer, Test)  { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
-String Test_Scene_Controller_time "Scene Controller time [%s]"	 <video>  (EG_Wohnzimmer, Test) // { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
-
 
 //////////////// Vorbereitet ////////////////
 
