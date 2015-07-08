@@ -52,9 +52,10 @@ sitemap default label="Schallerburg"
     Text item=Humidity label="Luftfeuchte [%.1f %%Rh]"
     Text label="Feuer [n/a]" icon="fire"
     Switch item=Security_Alarm
-    Text item=Window_EG_Frontdoor //itemcolor=["zu"="green", "offen"="red"]
-    Text label="Balkon OG [n/a]" icon="door-closed"
-    Text label="Terasse EG [n/a]" icon="door-closed"
+    Text item=EG_Vorzimmer_Door //itemcolor=["zu"="green", "offen"="red"]
+    Text item=OG_Schlafzimmer_Door_left
+    Text item=OG_Schlafzimmer_Door_right
+    Text item=EG_Wohnzimmer_Door
     Text label="Tuer UG [n/a]" icon="door-closed"
     Text label="Herdplatte [n/a]" icon="kitchen"
     Text item=Lights label="Licht [%d]" icon="selfLight-off"
