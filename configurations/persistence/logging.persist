@@ -12,5 +12,5 @@ Strategies {
 Items {
         // log all temperatures on every change
         // Temperature* -> "temperatures"
-        Windows* -> "windows"
+        Openingcontacts*, Tamperswitches* -> "windows"
 }

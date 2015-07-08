@@ -75,14 +75,6 @@ Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG)
 Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG) 
 Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor)
 
-/* Windows */
-Group:Contact:OR(OPEN,CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
-Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
-Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Security)
-Contact Window_EG_Frontdoor 	"Eingangstuer [MAP(de.map):%s]"	<door>	(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
-Contact Window_EG_Frontdoor_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"	<door>	(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
-
-DateTime Security_Last_Change   "Sicherheit [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"   <selfCalendar>  (Security,PersistentCurrent)
 
 /* Bell */
 Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)
