@@ -1,5 +1,6 @@
 //------------------
 // Items for the MySensors Network
+Group Mysensors    <selfWrench>	  (Status)
 
 String Notify_Scenecontroller "Message: [%s]" (EG_Wohnzimmer, Test)  {mqtt=">[proton:/mySensors/20/1/V_VAR1:state:*:default]"}
 
@@ -8,3 +9,13 @@ Number Test_Scene_Controller_on "Scene Controller on [%d]"	 <video>  (EG_Wohnzim
 Number Test_Scene_Controller_off "Scene Controller off [%d]"	 <video>  (EG_Wohnzimmer, Test)  { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
 String Test_Scene_Controller_time "Scene Controller time [%s]"	 <video>  (EG_Wohnzimmer, Test) // { mqtt="<[proton:/mySensors/20/1/V_SCENE_OFF:state:default]"}
 
+/* Sensornetzwerk */
+// /mySensors/1/1/V_TEMP/lastupdate 20150730-16:12:52
+//String Temperature_UG_Hannes_Last_Change  "Temperatur Hannes [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <temperature>	(UG_Hannes, Mysensors)  {mqtt="<[proton:/mySensors/1/1/V_TEMP/lastupdate:state:default]"}
+String Temperature_UG_Hannes_Last_Change  "Temperatur Hannes [%s]"  <temperature>	(UG_Hannes, Mysensors)  {mqtt="<[proton:/mySensors/1/1/V_TEMP/lastupdate:state:default]"}
+String Humidity_UG_Hannes_Last_Change  "Luftfeuchte Hannes [%s]"  <temperature>	(UG_Hannes, Mysensors)  {mqtt="<[proton:/mySensors/1/0/V_HUM/lastupdate:state:default]"}
+
+String Temperature_OG_Schlafzimmer_Last_Change  "Temperatur Schlafzimmer [%s]"	 <temperature>	(Mysensors, OG_Schlafzimmer)  {mqtt="<[proton:/mySensors/104/1/V_TEMP/lastupdate:state:default]"}
+String Humidity_OG_Schlafzimmer_Last_Change "Luftfeuchte Schlafzimmer [%s]"	<temperature>	(Mysensors, OG_Schlafzimmer) { mqtt="<[proton:/mySensors/104/0/V_HUM/lastupdate:state:default]"}
+String Temperature_UG_Wirtschaftsraum_Last_Change 	"Temperatur Wirtschaftsraum [%s]"	<temperature>	(Mysensors, UG_Wirtschaftsraum)  {mqtt="<[proton:/mySensors/103/1/V_TEMP/lastupdate:state:default]"}
+String Humidity_UG_Wirtschaftsraum_Last_Change 	"Luftfeuchte Wirtschaftsraum [%s]"	        <temperature>	(Mysensors, UG_Wirtschaftsraum) { mqtt="<[proton:/mySensors/103/0/V_HUM/lastupdate:state:default]"}
