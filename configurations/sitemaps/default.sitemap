@@ -52,6 +52,7 @@ sitemap default label="Schallerburg"
 //    Text item=Temperature label="Temperatur [%.1f °C]"
 //    Text item=Humidity label="Luftfeuchte [%.1f %%Rh]"
     Text label="Feuer [n/a]" icon="fire"
+    Switch item=Security_Alarmanlage label="Alarmanlage" mappings=[ON="Scharf", OFF="Unscharf"]
     Switch item=Security_Alarm
     Text item=EG_Vorzimmer_Door //itemcolor=["zu"="green", "offen"="red"]
     Text item=OG_Schlafzimmer_Door_left
@@ -64,14 +65,14 @@ sitemap default label="Schallerburg"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
   Frame label="Programme" {
-    Switch item=mode label="Modus" mappings=[0="Home", 1="Nacht", 2="Abwesend"]
-    Switch item=mode_sofa label="Sofa" icon="selfCouch" mappings=[ON="An", OFF="Aus"]
+//    Switch item=mode label="Modus" mappings=[0="Home", 1="Nacht", 2="Abwesend"]
+//    Switch item=mode_sofa label="Sofa" icon="selfCouch" mappings=[ON="An", OFF="Aus"]
     Switch item=mode_bed label="Bett" icon="selfBedSleep" mappings=[ON="An", OFF="Aus"]
-    Switch item=mode_party label="Party" icon="outdoorlight" mappings=[ON="An", OFF="Aus"]
+//    Switch item=mode_party label="Party" icon="outdoorlight" mappings=[ON="An", OFF="Aus"]
     Switch item=mode_night label="Nacht" icon="selfRuntime" mappings=[ON="An", OFF="Aus"]
-    Switch item=mode_bath label="Bad" icon="bath" mappings=[ON="An", OFF="Aus"]
-    Switch item=mode_cooking label="Kochen" icon="kitchen" mappings=[ON="An", OFF="Aus"]
-    Switch item=mode_outdoor label="Garten" icon="garden" mappings=[ON="An", OFF="Aus"]
+//    Switch item=mode_bath label="Bad" icon="bath" mappings=[ON="An", OFF="Aus"]
+//    Switch item=mode_cooking label="Kochen" icon="kitchen" mappings=[ON="An", OFF="Aus"]
+//    Switch item=mode_outdoor label="Garten" icon="garden" mappings=[ON="An", OFF="Aus"]
   }
   Frame label="Anwesenheit" {
     Text item=Presence_Hannes_Home label="Hannes [%s]"
