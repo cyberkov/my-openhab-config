@@ -42,10 +42,10 @@ Group:Switch:OR(ON, OFF) 	Lights 		"All Lights [(%d)]" 			      (All)
 //////////////// Fertig ////////////////
 
 /* Temperature */
-Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f °C]" 	<temperature>	(Status)
-Group:Number:AVG 				Temperature_OG	"Avg. Room Temperature OG [%.1f °C]" 	<temperature>	(gOG)
-Group:Number:AVG 				Temperature_EG	"Avg. Room Temperature EG [%.1f °C]" 	<temperature>	(gEG)
-Group:Number:AVG 				Temperature_UG	"Avg. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
+Group:Number:MAX 				Temperature	"Max. Room Temperature [%.1f °C]" 	<temperature>	(Status)
+Group:Number:MAX 				Temperature_OG	"Max. Room Temperature OG [%.1f °C]" 	<temperature>	(gOG)
+Group:Number:MAX 				Temperature_EG	"Max. Room Temperature EG [%.1f °C]" 	<temperature>	(gEG)
+Group:Number:MAX 				Temperature_UG	"Max. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
 Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, OG_Schlafzimmer, Temperature_OG)  {mqtt="<[proton:/mySensors/104/1/V_TEMP:state:default]"}
 Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]"  (Temperature, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer, Temperature_EG) { rfxcom="<18176:Temperature" }   

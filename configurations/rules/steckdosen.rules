@@ -113,7 +113,9 @@ end
 rule "Gelsenstecker ein am Abend"
 when
     // um 21:00
-    Time cron "0 0 21 * * ?"
+    Time cron "0 0 21 * * ?" or
+    Item OG_Schlafzimmer_Door_left changed to OPEN or
+    Item OG_Schlafzimmer_Door_right changed to OPEN
 then
     if (JemandDa.state == ON) {
       sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
@@ -126,7 +128,9 @@ end
 rule "Gelsenstecker aus"
 when
     // um 03:00
-    Time cron "0 0 6 * * ?"
+    Time cron "0 0 6 * * ?" or
+    Item OG_Schlafzimmer_Door_left changed to CLOSED or
+    Item OG_Schlafzimmer_Door_right changed to CLOSED
 then
     sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
 end
