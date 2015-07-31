@@ -83,6 +83,16 @@ Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfBell>  (EG_Vorzim
 Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfBell>  (EG_Vorzimmer,PersistentHistory)	{ homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
 DateTime  EG_Vorzimmer_Bell_Last_Change	"Klingel [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfBell> 	(EG_Vorzimmer,PersistentCurrent)
 
+/* Fernbedienungen */
+Switch Barbara_Remote_Anwesend { homematic="address=LEQ0496279, channel=1, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_Abwesend { homematic="address=LEQ0496279, channel=2, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_Licht    { homematic="address=LEQ0496279, channel=3, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_AnAus    { homematic="address=LEQ0496279, channel=4, parameter=PRESS_SHORT" }
+
+Switch Hannes_Remote_Anwesend { homematic="address=LEQ0496323, channel=1, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_Abwesend { homematic="address=LEQ0496323, channel=2, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_Licht    { homematic="address=LEQ0496323, channel=3, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_AnAus    { homematic="address=LEQ0496323, channel=4, parameter=PRESS_SHORT" }
 
 /* Network Health */
 Switch Network_Router	        "Router"  <router>	(UG_Hannes, Network)   { nh="192.168.0.1" }

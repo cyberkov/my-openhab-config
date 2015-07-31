@@ -56,3 +56,35 @@ rule "MqttPostionParseHannes"
       sendCommand(mqtt_Hannes_Battery,  batt)
     }
   end
+
+rule "Barbara Fernbedienung Abwesend"
+when
+  Item Barbara_Remote_Anwesend changed to ON
+then
+  sendCommand(Presence_Barbara_Home, ON)
+  logInfo("PresenceCheck", "Barbara kommt nach Hause.")
+end
+
+rule "Barbara Fernbedienung Abwesend"
+when
+  Item Barbara_Remote_Abwesend changed to ON
+then
+  sendCommand(Presence_Barbara_Home, OFF)
+  logInfo("PresenceCheck", "Barbara verlaesst das Haus.")
+end
+
+rule "Hannes Fernbedienung Abwesend"
+when
+  Item Hannes_Remote_Anwesend changed to ON
+then
+  sendCommand(Presence_Hannes_Home, ON)
+  logInfo("PresenceCheck", "Hannes kommt nach Hause.")
+end
+
+rule "Hannes Fernbedienung Abwesend"
+when
+  Item Hannes_Remote_Abwesend changed to ON
+then
+  sendCommand(Presence_Hannes_Home, OFF)
+  logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
+end
