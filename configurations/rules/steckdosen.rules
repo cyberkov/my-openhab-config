@@ -117,8 +117,13 @@ when
     Item OG_Schlafzimmer_Door_left changed to OPEN or
     Item OG_Schlafzimmer_Door_right changed to OPEN
 then
-    if (JemandDa.state == ON) {
-      sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+    var Date sunsetTime = (Sunset_Time.state as DateTimeType).calendar.time
+    var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
+    if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
+      if (JemandDa.state == ON) {
+	logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
+        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+      }
     }
 end
 
