@@ -38,6 +38,7 @@ then
 					notificationTimer=null
 				]
 				pushover("Klingel: Es klingelt")
+                                postUpdate(push_message_text, "Klingel: Es klingelt")
 			}
 //		}
 //	}

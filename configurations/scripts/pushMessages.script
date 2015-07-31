@@ -1,0 +1,14 @@
+
+if (Presence_Hannes_Home.state == ON) {
+	logError('Sending to Hannes','Sending to Hannes: ' + push_message_text)
+	pushover(push_message_text.state.toString)
+}
+if (Presence_Barbara_Home.state == ON) {
+	logError('Sending to barbara','Sending to barbara: ' + push_message_text)
+	pushover(pushover_token_default.state.toString, pushover_token_barbara.state.toString, push_message_text.state.toString)
+}
+
+if (JemandDa.state != ON) {
+	logError('Sending to both', 'Sending to both: ' + push_message_text)
+	pushover(pushover_token_default.state.toString, pushover_token_both.state.toString, push_message_text.state.toString)
+}

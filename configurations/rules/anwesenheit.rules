@@ -63,6 +63,7 @@ when
 then
   sendCommand(Presence_Barbara_Home, ON)
   logInfo("PresenceCheck", "Barbara kommt nach Hause.")
+  pushover(pushover_token_default.state.toString, pushover_token_barbara.state.toString, "Willkommen zu Hause, Barbara.")
 end
 
 rule "Barbara Fernbedienung Abwesend"
@@ -71,6 +72,7 @@ when
 then
   sendCommand(Presence_Barbara_Home, OFF)
   logInfo("PresenceCheck", "Barbara verlaesst das Haus.")
+  pushover(pushover_token_default.state.toString, pushover_token_barbara.state.toString, "Viel Spass unterwegs, Barbara.")
 end
 
 rule "Hannes Fernbedienung Abwesend"
@@ -88,3 +90,5 @@ then
   sendCommand(Presence_Hannes_Home, OFF)
   logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
 end
+
+

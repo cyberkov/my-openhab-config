@@ -27,7 +27,7 @@ then
     logInfo("Task_Waschmaschine", "Waschmaschine ist fertig")
     sendCommand(Task_Waschmaschine, OFF)
     sendCommand(Task_Waesche, ON)
-    pushover("Waschmaschine ist fertig.")
+    postUpdate(push_message_text, "Waschmaschine ist fertig.")
 end
 
 rule "Waschmaschine wird ausgeschaltet"
@@ -39,3 +39,13 @@ then
         sendCommand(Task_Waesche, ON)
     }
 end
+
+//Task_Geschirrspueler
+rule "Geschirrspueler ist fertig"
+when
+    Item EG_Kueche_CCU2_Geschirrspueler changed to OFF
+then
+    logInfo("Task_Geschirrspueler", "Geschirrspueler ist fertig")
+    postUpdate(push_message_text, "Geschirrspueler ist fertig.")
+end
+
