@@ -19,7 +19,6 @@ sitemap default label="Schallerburg"
       Frame label="Steuerung" {
         Group item=Anwesenheit
         Switch item=JemandDa
-        Switch item=Presence_Garden
       }
       Frame label="Aussen" {
         Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"

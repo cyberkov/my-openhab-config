@@ -26,22 +26,16 @@ rule "Bell State"
 when
 	Item EG_Vorzimmer_Bell changed to ON
 then
+	EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
+        logInfo("Bell rule", "Es hat geklingelt.")
 
-//	if( EG_Vorzimmer_Bell.state == OPEN ){
-
-		EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
-	        logInfo("Bell rule", "Es hat geklingelt.")
-
-//		if( Presence_Garden.state == ON ){
-			if(notificationTimer==null) {
-				notificationTimer = createTimer(now.plusSeconds(30)) [|
-					notificationTimer=null
-				]
-				pushover("Klingel: Es klingelt")
-                                postUpdate(push_message_text, "Klingel: Es klingelt")
-			}
-//		}
-//	}
+		if(notificationTimer==null) {
+			notificationTimer = createTimer(now.plusSeconds(30)) [|
+				notificationTimer=null
+			]
+			pushover("Klingel: Es klingelt")
+                        postUpdate(push_message_text, "Klingel: Es klingelt")
+		}
 end 
 
 

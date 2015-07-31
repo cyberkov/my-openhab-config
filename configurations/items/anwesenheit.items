@@ -17,7 +17,6 @@ Switch  Presence_Hannes_Home    "Hannes @Home"    <present>       (Anwesenheit) 
 String  Location_Hannes_Phone (gMobiles)   {mqtt="<[proton:owntracks/cyberkov:state:JS(mqttitude-coordinates.js)]"}
 Switch  Presence_Hannes_Office  "Hannes @Office"  <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Itsdone" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
-Switch  Presence_Garden         "Im Garten"       <selfShield> 	  (Security,Anwesenheit)
 
 String mqtt_Hannes_Position_Raw "Hannes Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/cyberkov:state:default]" }
 Number mqtt_Hannes_Latitude "Latitude [%s]" (gMobiles)
