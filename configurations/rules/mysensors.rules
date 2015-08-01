@@ -2,45 +2,51 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
-rule "Temperature_UG_Hannes Update" 
+rule "Temperature_UG_Hannes Update"
 when
 	Item Temperature_UG_Hannes changed
 then
 	Temperature_UG_Hannes_Last_Change.postUpdate( now.toString() )
-end 
+end
 
-rule "Humidity_UG_Hannes Update" 
+rule "Humidity_UG_Hannes Update"
 when
 	Item Humidity_UG_Hannes changed
 then
 	Humidity_UG_Hannes_Last_Change.postUpdate( now.toString() )
-end 
+end
 
-rule "Temperature_OG_Schlafzimmer Update" 
+rule "Temperature_OG_Schlafzimmer Update"
 when
 	Item Temperature_OG_Schlafzimmer changed
 then
 	Temperature_OG_Schlafzimmer_Last_Change.postUpdate( now.toString() )
-end 
+end
 
-rule "Humidity_OG_Schlafzimmer Update" 
+rule "Humidity_OG_Schlafzimmer Update"
 when
 	Item Humidity_OG_Schlafzimmer changed
 then
 	Humidity_OG_Schlafzimmer_Last_Change.postUpdate( now.toString() )
-end 
+end
 
-rule "Temperature_UG_Wirtschaftsraum Update" 
+rule "Temperature_UG_Wirtschaftsraum Update"
 when
 	Item Temperature_UG_Wirtschaftsraum changed
 then
 	Temperature_UG_Wirtschaftsraum_Last_Change.postUpdate( now.toString() )
-end 
+end
 
-rule "Humidity_UG_Wirtschaftsraum Update" 
+rule "Humidity_UG_Wirtschaftsraum Update"
 when
 	Item Humidity_UG_Wirtschaftsraum changed
 then
 	Humidity_UG_Wirtschaftsraum_Last_Change.postUpdate( now.toString() )
-end 
+end
 
+rule "Temperature_EG_Wohnzimmer Update"
+when
+	Item Temperature_EG_Wohnzimmer changed
+then
+	Temperature_EG_Wohnzimmer_Last_Change.postUpdate( now.toString() )
+end
