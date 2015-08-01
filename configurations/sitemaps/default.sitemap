@@ -9,12 +9,6 @@ sitemap default label="Schallerburg"
     }
   }
   Frame label="Sonstiges" {
-    Group item=Sockets label="Steckdosen [(%d)]" 
-    Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
-      Text item=EG_Vorzimmer_Bell_Last_Change
-      Switch item=EG_Esszimmer_Tuergong_Led
-      Switch item=EG_Esszimmer_Tuergong_Signal
-    }
     Text item=Security label="Sicherheit [(%d)]" {
       Frame label="Steuerung" {
         Group item=Anwesenheit
@@ -28,6 +22,12 @@ sitemap default label="Schallerburg"
         Group item=Openingcontacts
         Group item=Tamperswitches
       }
+    }
+    Group item=Sockets label="Steckdosen [(%d)]" 
+    Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
+      Text item=EG_Vorzimmer_Bell_Last_Change
+      Switch item=EG_Esszimmer_Tuergong_Led
+      Switch item=EG_Esszimmer_Tuergong_Signal
     }
     Group item=Tasks
   }
@@ -51,16 +51,15 @@ sitemap default label="Schallerburg"
     Group item=Humidity label="Luftfeuchte [%.1f %%Rh]"
 //    Text item=Temperature label="Temperatur [%.1f °C]"
 //    Text item=Humidity label="Luftfeuchte [%.1f %%Rh]"
-    Text label="Feuer [n/a]" icon="fire"
+//    Text label="Feuer [n/a]" icon="fire"
     Switch item=Security_Alarmanlage label="Alarmanlage" mappings=[ON="Scharf", OFF="Unscharf"]
-    Switch item=Security_Alarm
     Text item=EG_Vorzimmer_Door //itemcolor=["zu"="green", "offen"="red"]
     Text item=OG_Schlafzimmer_Door_left
     Text item=OG_Schlafzimmer_Door_right
     Text item=EG_Wohnzimmer_Door
     Text item=UG_Hannes_Door
-    Text label="Herdplatte [n/a]" icon="kitchen"
-    Text item=Lights label="Licht [%d]" icon="selfLight-off"
+//    Text label="Herdplatte [n/a]" icon="kitchen"
+    Text item=Lights label="Licht [%d]" icon="selfLight"
     Text item=EG_Kueche_CCU2_Geschirrspueler label="Geschirrspueler [%s]" icon="geschirr"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
@@ -80,124 +79,126 @@ sitemap default label="Schallerburg"
     Text item=JemandDa label="Jemand Da [%s]"
     Group item=Anwesenheit
   }
-  Text label="Steuerung" icon="house" {
-    Switch item=mode mappings=[0=" Home ", 2="Nacht", 3="Abwesend"]
-    Switch item=auto_gelsenstecker
-  }
-  Text item=MainStatus label="Informationen" icon="house" {
-    Text item=Temperature label="Temperatur [%.1f °C]" {
-      Frame {
-        Text item=Temperature_EG
-        Text item=Temperature_OG
-        Text item=Temperature_UG
-        Text item=Weather_Temperature
-      }
-      Frame {
-        Text item=Humidity_EG
-        Text item=Humidity_OG
-        Text item=Humidity_UG
-        Text item=Weather_Humidity
-      }
-      Frame {
-        Chart item=Temperature period=D refresh=10000
-      }
-      Frame {
-        Chart item=Humidity period=D refresh=10000
-      }
-      Frame {
-        Chart item=Weather_Chart period=D refresh=10000
-      }
-      Frame {
-        Chart item=Weather_Humidity period=D refresh=10000
-      }
+  Frame label="Status" {
+    Text label="Steuerung" icon="house" {
+      Switch item=auto_gelsenstecker
     }
-    Text item=Electricity_Current_Daily_Consumption label="Strom [%.2f KWh]"{
-      Frame {
-        Text item=Electricity_Current_Daily_Consumption
-        Text item=Electricity_Current_Consumption
-        Text item=Electricity_Annual_Consumption
-        Text item=Electricity_Meter
-        Text item=Electricity_Forecast
+    Text item=MainStatus label="Informationen" icon="house" {
+      Text item=Temperature label="Temperatur [%.1f °C]" {
+        Frame {
+          Text item=Temperature_EG
+          Text item=Temperature_OG
+          Text item=Temperature_UG
+          Text item=Weather_Temperature
+        }
+        Frame {
+          Text item=Humidity_EG
+          Text item=Humidity_OG
+          Text item=Humidity_UG
+          Text item=Weather_Humidity
+        }
+        Frame {
+          Chart item=Temperature period=D refresh=10000
+        }
+        Frame {
+          Chart item=Humidity period=D refresh=10000
+        }
+        Frame {
+          Chart item=Weather_Chart period=D refresh=10000
+        }
+        Frame {
+          Chart item=Weather_Humidity period=D refresh=10000
+        }
       }
-      Frame {
-        Chart item=Electricity_Current_Consumption period=D refresh=10000
-        Chart item=Electricity_Current_Consumption period=W refresh=10000
+      Text item=Electricity_Current_Daily_Consumption label="Strom [%.2f KWh]"{
+        Frame {
+          Text item=Electricity_Current_Daily_Consumption
+          Text item=Electricity_Current_Consumption
+          Text item=Electricity_Annual_Consumption
+          Text item=Electricity_Meter
+          Text item=Electricity_Forecast
+        }
+        Frame {
+          Chart item=Electricity_Current_Consumption period=D refresh=10000
+          Chart item=Electricity_Current_Consumption period=W refresh=10000
+        }
       }
+      Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
+        Frame {
+          Text item=Gas_Current_Daily_Consumption
+          Text item=Gas_Current_Consumption
+          Text item=Gas_Annual_Consumption
+          Text item=Gas_Current_Count
+          Text item=Gas_Forecast
+        }
+        Frame {
+          Chart item=Gas_Current_Consumption period=D refresh=10000
+          Chart item=Gas_Current_Consumption period=W refresh=10000
+        }
+      }
+      Text label="Wochenauswertung" icon="chart"{
+        Frame {
+          Chart item=Temperature period=W refresh=86400 label="Temperatur"
+        }
+        Frame {
+          Chart item=Humidity period=W refresh=86400 label="Luftfeuchtigkeit"
+        }
+        Frame {
+          Chart item=Weather_Temperature period=W refresh=86400 label="Temperatur Garten"
+        }
+        Frame {
+          Chart item=Weather_Humidity period=W refresh=86400 label="Luftfeuchtigkeit Garten"
+        }
+        Frame {
+          Chart item=Gas_Last_Daily_Consumption period=W refresh=86400 label="Gas"
+        }
+        Frame {
+          Chart item=Electricity_Last_Daily_Consumption period=W refresh=86400 label="Strom"
+        }
+      }
+      Text label="Monatsauswertung" icon="chart"{
+        Frame {
+          Chart item=Temperature period=M refresh=86400 label="Temperatur"
+        }
+        Frame {
+          Chart item=Humidity period=M refresh=86400 label="Luftfeuchtigkeit"
+        }
+        Frame {
+          Chart item=Weather_Temperature period=M refresh=86400 label="Temperatur Garten"
+        }
+        Frame {
+          Chart item=Weather_Humidity period=M refresh=86400 label="Luftfeuchtigkeit Garten"
+        }
+        Frame {
+          Chart item=Gas_Last_Daily_Consumption period=M refresh=86400 label="Gas"
+        }
+        Frame {
+          Chart item=Electricity_Last_Daily_Consumption period=M refresh=86400 label="Strom"
+        }
+      }
+      Text label="Jahresauswertung" icon="chart"{
+        Frame {
+          Chart item=Temperature period=Y refresh=86400 label="Temperatur"
+        }
+        Frame {
+          Chart item=Humidity period=Y refresh=86400 label="Luftfeuchtigkeit"
+        }
+        Frame {
+          Chart item=Weather_Temperature period=Y refresh=86400 label="Temperatur Garten"
+        }
+        Frame {
+          Chart item=Weather_Humidity period=Y refresh=86400 label="Luftfeuchtigkeit Garten"
+        }
+        Frame {
+          Chart item=Gas_Last_Daily_Consumption period=Y refresh=86400 label="Gas"
+        }
+        Frame {
+          Chart item=Electricity_Last_Daily_Consumption period=Y refresh=86400 label="Strom"
+        }
+      }
+      Webview url="http://127.0.0.1:8080/static/map2.html"  height=12
     }
-    Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
-      Frame {
-        Text item=Gas_Current_Daily_Consumption
-        Text item=Gas_Current_Consumption
-        Text item=Gas_Annual_Consumption
-        Text item=Gas_Current_Count
-        Text item=Gas_Forecast
-      }
-      Frame {
-        Chart item=Gas_Current_Consumption period=D refresh=10000
-        Chart item=Gas_Current_Consumption period=W refresh=10000
-      }
-    }
-    Text label="Wochenauswertung" icon="chart"{
-      Frame {
-        Chart item=Temperature period=W refresh=86400 label="Temperatur"
-      }
-      Frame {
-        Chart item=Humidity period=W refresh=86400 label="Luftfeuchtigkeit"
-      }
-      Frame {
-        Chart item=Weather_Temperature period=W refresh=86400 label="Temperatur Garten"
-      }
-      Frame {
-        Chart item=Weather_Humidity period=W refresh=86400 label="Luftfeuchtigkeit Garten"
-      }
-      Frame {
-        Chart item=Gas_Last_Daily_Consumption period=W refresh=86400 label="Gas"
-      }
-      Frame {
-        Chart item=Electricity_Last_Daily_Consumption period=W refresh=86400 label="Strom"
-      }
-    }
-    Text label="Monatsauswertung" icon="chart"{
-      Frame {
-        Chart item=Temperature period=M refresh=86400 label="Temperatur"
-      }
-      Frame {
-        Chart item=Humidity period=M refresh=86400 label="Luftfeuchtigkeit"
-      }
-      Frame {
-        Chart item=Weather_Temperature period=M refresh=86400 label="Temperatur Garten"
-      }
-      Frame {
-        Chart item=Weather_Humidity period=M refresh=86400 label="Luftfeuchtigkeit Garten"
-      }
-      Frame {
-        Chart item=Gas_Last_Daily_Consumption period=M refresh=86400 label="Gas"
-      }
-      Frame {
-        Chart item=Electricity_Last_Daily_Consumption period=M refresh=86400 label="Strom"
-      }
-    }
-    Text label="Jahresauswertung" icon="chart"{
-      Frame {
-        Chart item=Temperature period=Y refresh=86400 label="Temperatur"
-      }
-      Frame {
-        Chart item=Humidity period=Y refresh=86400 label="Luftfeuchtigkeit"
-      }
-      Frame {
-        Chart item=Weather_Temperature period=Y refresh=86400 label="Temperatur Garten"
-      }
-      Frame {
-        Chart item=Weather_Humidity period=Y refresh=86400 label="Luftfeuchtigkeit Garten"
-      }
-      Frame {
-        Chart item=Gas_Last_Daily_Consumption period=Y refresh=86400 label="Gas"
-      }
-      Frame {
-        Chart item=Electricity_Last_Daily_Consumption period=Y refresh=86400 label="Strom"
-      }
-    }
-    Webview url="http://127.0.0.1:8080/static/map2.html"  height=12
+    Group item=Status     label="Status" icon="settings"
   }
   Frame label="Wetter" {
     Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
@@ -217,9 +218,6 @@ sitemap default label="Schallerburg"
       }
     }
   }
-//  Frame label="Status" {
-      Group item=Status     label="Status" icon="settings"
-//  }
 }
 ///////  Vorbereitet  ///////////
 //  Text item=MainStatus label="Informationen [%s]" icon="house" valuecolor=[MainStatus=="Alles in Ordnung"="green",MainStatus!="Alles in Ordnung"="red"]
