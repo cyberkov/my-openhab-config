@@ -56,10 +56,10 @@ Number Temperature_UG_Hannes 	"Temperatur Hannes [%.1f °C]"	<temperature>	(Temp
 Number Temperature_UG_Wirtschaftsraum 	"Temperatur Wirtschaftsraum [%.1f °C]"	<temperature>	(Temperature, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/103/1/V_TEMP:state:default]"}
 
 /* Humidity */
-Group:Number:AVG 				Humidity	"Avg. Room Humidity [%.1f %%Rh]" 	<temperature>	(Status)
-Group:Number:AVG 				Humidity_OG	"Avg. Room Humidity OG [%.1f %%Rh]" 	<temperature>	(gOG)
-Group:Number:AVG 				Humidity_EG	"Avg. Room Humidity EG [%.1f %%Rh]" 	<temperature>	(gEG)
-Group:Number:AVG 				Humidity_UG	"Avg. Room Humidity UG [%.1f %%Rh]" 	<temperature>	(gUG)
+Group:Number:MAX 				Humidity	"Max. Room Humidity [%.1f %%Rh]" 	<temperature>	(Status)
+Group:Number:MAX 				Humidity_OG	"Max. Room Humidity OG [%.1f %%Rh]" 	<temperature>	(gOG)
+Group:Number:MAX 				Humidity_EG	"Max. Room Humidity EG [%.1f %%Rh]" 	<temperature>	(gEG)
+Group:Number:MAX 				Humidity_UG	"Max. Room Humidity UG [%.1f %%Rh]" 	<temperature>	(gUG)
 Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"	<temperature>	(Humidity, OG_Schlafzimmer, Humidity_OG) { mqtt="<[proton:/mySensors/104/0/V_HUM:state:default]"}
 Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%.1f %%Rh]"	        <temperature>	(Humidity, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
