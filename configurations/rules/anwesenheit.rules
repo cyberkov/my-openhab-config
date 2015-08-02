@@ -119,8 +119,10 @@ then
 	  logInfo("PresenceCheck", "Keine Gaeste.")
         }
 
-        if ( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF) {
+        if (( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF)) {
 	  logInfo("PresenceCheck", "Alle weg.")
 	  JemandDa.sendCommand(OFF)
+        } else {
+          logInfo("PresenceCheck", "Presence_Hannes_Home: [{}]. Presence_Barbara_Home: [{}]. Presence_Guest_Home: [{}].", Presence_Hannes_Home.state, Presence_Barbara_Home.state, Presence_Guest_Home.state)
         }
 end
