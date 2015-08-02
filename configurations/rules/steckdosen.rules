@@ -137,5 +137,9 @@ when
     Item OG_Schlafzimmer_Door_left changed to CLOSED or
     Item OG_Schlafzimmer_Door_right changed to CLOSED
 then
-    sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+    if (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) {
+    	logInfo("GelsensteckerRule", "Die andere Tuer ist noch geoeffnet. Lasse Gelsenstecker an.")
+    } else {
+      sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+    }
 end
