@@ -8,6 +8,50 @@ when
 	or
 	Item Tamperswitches changed
 then
-
 	Security_Last_Change.postUpdate( now.toString() )
+
+        if ( Security_Alarmanlage.state == ON ) {
+        }
+end
+
+rule "SecurityCheck vorm Weggehen"
+when
+        Item Barbara_Remote_AnAus changed to ON or
+        Item Hannes_Remote_AnAus changed to ON
+then
+        var String message = "SecCheck:"
+        if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
+          val report = Openingcontacts.allMembers.filter([state == OPEN]).map[
+            name + ": " + state.format("%s")
+          ].join("\n")
+          message =  message + " Offene Fenster:\n" + report
+        } else {
+          message = message + " Alles ok."
+        }
+        logInfo("SecurityCheckRule", "Message: [{}]", message)
+        postUpdate(push_message_text, message)
+end
+
+rule "Alarmanlage" 
+when
+	Item JemandDa changed
+then
+        if( JemandDa.state == OFF ) {
+	  logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
+
+          var String message = "Alle weg. Aktiviere Alarmanlage." 
+          if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
+            val report = Openingcontacts.allMembers.filter([state == OPEN]).map[
+              name + ": " + state.format("%s")
+            ].join("\n")
+            message =  message + " Offene Fenster:\n" + report
+          }
+          logInfo("AlarmanlageRule", "Message: [{}]", message)
+          postUpdate(push_message_text, message)
+
+        } else {
+	  logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
+          postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
+        }
+
 end
