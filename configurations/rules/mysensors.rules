@@ -50,3 +50,10 @@ when
 then
 	Temperature_EG_Wohnzimmer_Last_Change.postUpdate( now.toString() )
 end
+
+rule "Motion_UG_Hannes Update"
+when
+	Item Motion_UG_Hannes changed
+then
+	Motion_UG_Hannes_Last_Change.postUpdate( now.toString() )
+end

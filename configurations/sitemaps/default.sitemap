@@ -21,6 +21,7 @@ sitemap default label="Schallerburg"
         Text item=Security_Last_Change label="Letzte Zustandsänderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"
         Group item=Openingcontacts
         Group item=Tamperswitches
+        Group item=Motionsensors
       }
     }
     Group item=Sockets label="Steckdosen [(%d)]" 

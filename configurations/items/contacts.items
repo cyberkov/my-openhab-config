@@ -3,6 +3,7 @@
 Group:Contact:OR(OPEN, CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
 Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
 Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Security)
+Group:Contact:OR(OPEN, CLOSED) 	Motionsensors	  "Bewegungsmelder [(%d)]"	<contact>     (Security)
 DateTime Security_Last_Change   "Sicherheit [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"   <selfCalendar>  (Security,PersistentCurrent)
 
 

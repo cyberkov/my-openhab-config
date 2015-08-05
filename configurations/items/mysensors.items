@@ -22,3 +22,6 @@ DateTime Temperature_UG_Wirtschaftsraum_Last_Change 	"Temperatur Wirtschaftsraum
 DateTime Humidity_UG_Wirtschaftsraum_Last_Change 	"Luftfeuchte Wirtschaftsraum [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"	        <temperature>	(Mysensors, UG_Wirtschaftsraum, PersistentCurrent)
 
 DateTime Temperature_EG_Wohnzimmer_Last_Change 	"Temperatur Wohnzimmer [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"        <temperature>	(Mysensors, EG_Wohnzimmer, PersistentCurrent)
+
+Contact Motion_UG_Hannes  "Bewegungsmelder Hannes [MAP(de.map):%s]"	 <selfMotion>	(UG_Hannes,Motionsensors)  {mqtt="<[proton:/mySensors/21/1/V_TRIPPED:state:default]"}
+DateTime Motion_UG_Hannes_Last_Change 	"Bewegungsmelder Hannes [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"	<selfMotion>	(Mysensors, UG_Hannes, PersistentCurrent)
