@@ -192,12 +192,12 @@ Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(z
 
 //Astro
 Group Astro   (Test)
-DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"             <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
-DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
+DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"             <sunrise>       (Astro,PersistentCurrent)         { astro="planet=sun, type=rise, property=start, offset=0" }
+DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)         { astro="planet=sun, type=set, property=start, offset=0" }
+Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
+Switch          Sunset_Event    "Sunset Event"         <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=0" }
 Number          Azimuth         "Azimuth [%.2f]"                                                        (Astro)         { astro="planet=sun, type=position, property=azimuth" }
 Number          Elevation       "Elevation [%.2f]"                                                      (Astro)         { astro="planet=sun, type=position, property=elevation" }
-Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
-Switch          Sunset_Event    "Sunset Event"         <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=-15" }
 
 /* Living room TV */
 /*
