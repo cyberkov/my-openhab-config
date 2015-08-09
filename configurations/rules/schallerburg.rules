@@ -8,7 +8,6 @@ when
 	System started
 then
 	pushover("OpenHAB wurde gestartet.")
-        sendCommand(UG_Hannes_Power_Internet,ON)
 end
 
 rule Goodbye
