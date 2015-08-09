@@ -134,6 +134,9 @@ Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature
 
 /* Steckdosen */
 Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>
+Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
+Switch Btn1 <socket> (Test,Sockets) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
+Switch Btn3 <socket> (Test,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine		"Waschmaschine in Betrieb"	          <waschmaschine>  (UG_Wirtschaftsraum,PersistentCurrent)  { homematic="variable=Waschmaschine" }
