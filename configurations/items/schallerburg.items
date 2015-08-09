@@ -53,26 +53,26 @@ Group:Number:MAX 				Temperature	"Max. Room Temperature [%.1f °C]" 	<temperatur
 Group:Number:MAX 				Temperature_OG	"Max. Room Temperature OG [%.1f °C]" 	<temperature>	(gOG)
 Group:Number:MAX 				Temperature_EG	"Max. Room Temperature EG [%.1f °C]" 	<temperature>	(gEG)
 Group:Number:MAX 				Temperature_UG	"Max. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
-Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG)  {mqtt="<[proton:/mySensors/104/1/V_TEMP:state:default]"}
+Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG)  {mqtt="<[proton:/mySensors/1/1/V_TEMP:state:default]"}
 Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { rfxcom="<3072:Temperature" }   
 Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Hannes 	"Temperatur Hannes [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Hannes, Temperature_UG)  {mqtt="<[proton:/mySensors/1/1/V_TEMP:state:default]"}
-Number Temperature_UG_Wirtschaftsraum 	"Temperatur Wirtschaftsraum [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/103/1/V_TEMP:state:default]"}
+Number Temperature_UG_Hannes 	"Temperatur Hannes [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Hannes, Temperature_UG)  {mqtt="<[proton:/mySensors/103/1/V_TEMP:state:default]"}
+Number Temperature_UG_Wirtschaftsraum 	"Temperatur Wirtschaftsraum [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/104/1/V_TEMP:state:default]"}
 
 /* Humidity */
 Group:Number:MAX 				Humidity	"Max. Room Humidity [%.1f %%Rh]" 	<temperature>	(Status)
 Group:Number:MAX 				Humidity_OG	"Max. Room Humidity OG [%.1f %%Rh]" 	<temperature>	(gOG)
 Group:Number:MAX 				Humidity_EG	"Max. Room Humidity EG [%.1f %%Rh]" 	<temperature>	(gEG)
 Group:Number:MAX 				Humidity_UG	"Max. Room Humidity UG [%.1f %%Rh]" 	<temperature>	(gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"	<temperature>	(Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { mqtt="<[proton:/mySensors/104/0/V_HUM:state:default]"}
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"	<temperature>	(Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { mqtt="<[proton:/mySensors/1/0/V_HUM:state:default]"}
 Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, Monitoring, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
 Number Humidity_EG_Kueche 	"Luftfeuchte Kueche [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, EG_Kueche, Humidity_EG)       { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Sauna 	"Luftfeuchte Sauna [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Hannes 	"Luftfeuchte Hannes [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Hannes, Humidity_UG) { mqtt="<[proton:/mySensors/1/0/V_HUM:state:default]"}
-Number Humidity_UG_Wirtschaftsraum 	"Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/103/0/V_HUM:state:default]"}
+Number Humidity_UG_Hannes 	"Luftfeuchte Hannes [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Hannes, Humidity_UG) { mqtt="<[proton:/mySensors/103/0/V_HUM:state:default]"}
+Number Humidity_UG_Wirtschaftsraum 	"Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/104/0/V_HUM:state:default]"}
 
 /* Lueftungseffizienz */
 Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG)
@@ -237,46 +237,6 @@ Switch Btn4 (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 
 //Number RFXTemp_Living { rfxcom="<22016:Temperature" }
 
-/* Lights */
-/*
-Dimmer Light_EG_Wohnzimmer_Table 		"Table" 		(EG_Wohnzimmer, Lights)
-Switch Light_GF_Corridor_Ceiling 	"Ceiling" 		(GF_Corridor, Lights)
-Switch Light_GF_Kitchen_Ceiling 	"Ceiling" 		(GF_Kitchen, Lights)
-Switch Light_GF_Kitchen_Table 		"Table" 		(GF_Kitchen, Lights)
-Switch Light_GF_Corridor_Wardrobe 	"Wardrobe"	 	(GF_Corridor, Lights)
-Switch Light_GF_Toilet_Ceiling 		"Ceiling" 		(GF_Toilet, Lights)
-Switch Light_GF_Toilet_Mirror 		"Mirror" 		(GF_Toilet, Lights)
-
-Switch Light_FF_Bath_Ceiling 		"Ceiling" 		(FF_Bath, Lights)
-Switch Light_FF_Bath_Mirror 		"Mirror" 		(FF_Bath, Lights)
-Switch Light_FF_Corridor_Ceiling 	"Corridor" 		(FF_Corridor, Lights)
-Switch Light_FF_Barbara_Ceiling 	"Ceiling"	 	(FF_Barbara, Lights)
-Switch Light_FF_Dominik_Ceiling 		"Ceiling" 		(FF_Dominik, Lights)
-Switch Light_FF_Bed_Ceiling 		"Ceiling" 		(FF_Bed, Lights)
-
-Switch Light_C_Corridor_Ceiling 	"Ceiling" 		(gC, Lights)
-Switch Light_C_Staircase 			"Staircase" 	(gC, Lights)
-Switch Light_C_Washing_Ceiling 		"Washing" 		(gC, Lights)
-Switch Light_C_Workshop 			"Workshop" 		(gC, Lights)
-
-Switch Light_Outdoor_Garage 		"Garage" 		(Outdoor, Lights)
-Switch Light_Outdoor_Terrace 		"Terrace" 		(Outdoor, Lights)
-Switch Light_Outdoor_Frontdoor 		"Frontdoor"		(Outdoor, Lights)
-*/
-
-/* Heating */
-/*
-Switch Heating_GF_Corridor 	"GF Corridor" 	<heating>	(GF_Corridor, Heating)
-Switch Heating_GF_Toilet 	"Toilet"	 	<heating>	(GF_Toilet, Heating)
-Switch Heating_EG_Wohnzimmer 	"Livingroom" 	<heating>	(EG_Wohnzimmer, Heating)
-Switch Heating_GF_Kitchen 	"Kitchen" 		<heating>	(GF_Kitchen, Heating)
-
-Switch Heating_FF_Bath 		"Bath" 			<heating>	(FF_Bath, Heating)
-Switch Heating_FF_Barbara 	"Office" 		<heating>	(FF_Barbara, Heating)
-Switch Heating_FF_Dominik 	"Child's Room" 	<heating>	(FF_Dominik, Heating)
-Switch Heating_FF_Bed 		"Bedroom" 		<heating>	(FF_Bed, Heating)
-*/
-
 /* Rollershutters */
 /*
 Switch Shutter_all (Shutters)
@@ -290,34 +250,6 @@ Rollershutter Shutter_FF_Bath 			"Bath"			(FF_Bath, Shutters)
 Rollershutter Shutter_FF_Barbara_Window	"Office Window"	(FF_Barbara, Shutters)
 Rollershutter Shutter_FF_Barbara_Door 	"Office Door"	(FF_Barbara, Shutters)
 */
-
-/* Indoor Temperatures */
-/*
-Number Temperature_GF_Corridor 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Corridor)
-Number Temperature_GF_Toilet 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Toilet)
-Number Temperature_EG_Wohnzimmer 	"Temperature [%.1f °C]"	<temperature>	(Temperature, EG_Wohnzimmer)
-Number Temperature_GF_Kitchen 	"Temperature [%.1f °C]"	<temperature>	(Temperature, GF_Kitchen)
-Number Temperature_FF_Bath 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bath)
-Number Temperature_FF_Barbara 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Barbara)
-Number Temperature_FF_Dominik 	"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Dominik)
-Number Temperature_FF_Bed 		"Temperature [%.1f °C]"	<temperature>	(Temperature, FF_Bed)
-*/
-
-/* Windows */
-/*
-Contact Window_GF_Frontdoor 	"Frontdoor [MAP(de.map):%s]"		(GF_Corridor, Windows)
-Contact Window_GF_Kitchen 		"Kitchen [MAP(de.map):%s]"			(GF_Kitchen, Windows)
-Contact Window_EG_Wohnzimmer 		"Terrace door [MAP(de.map):%s]"		(EG_Wohnzimmer, Windows)
-Contact Window_GF_Toilet 		"Toilet [MAP(de.map):%s]"			(GF_Toilet, Windows)
-
-Contact Window_FF_Bath 			"Bath [MAP(de.map):%s]"				(FF_Bath, Windows)
-Contact Window_FF_Bed 			"Bedroom [MAP(de.map):%s]"			(FF_Bed, Windows)
-Contact Window_FF_Barbara_Window "Office Window [MAP(de.map):%s]"	(FF_Barbara, Windows)
-Contact Window_FF_Barbara_Door 	"Balcony Door [MAP(de.map):%s]"		(FF_Barbara, Windows)
-
-Contact Garage_Door 			"Garage Door [MAP(de.map):%s]"		(Outdoor, Windows)
-*/
-
 
 /* Weather */
 // athmosphere
