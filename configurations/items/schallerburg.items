@@ -33,6 +33,10 @@ Group UG_Wirtschaftsraum  "Wirtschaftsraum"	<cellar>		(gUG)
 // These items should be monitored for updates
 Group Monitoring          "Monitoring"          <selfInfo>              (Status)
 
+// Initialization helpers
+Group InitializeON      <selfInfo>      (Maintenance)
+Group InitializeOFF     <selfInfo>      (Maintenance)
+
 // Persistency Groups
 Group PersistentHistory
 Group PersistentChart
@@ -134,7 +138,7 @@ Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature
 
 /* Steckdosen */
 Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"			<selfSocket>
-Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
+Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets,InitializeON) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
 Switch Btn1 <socket> (Test,Sockets) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
 Switch Btn3 <socket> (Test,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
 

@@ -8,6 +8,7 @@ when
 	System started
 then
 	pushover("OpenHAB wurde gestartet.")
+        sendCommand(UG_Hannes_Power_Internet,ON)
 end
 
 rule Goodbye
@@ -27,4 +28,17 @@ then
         } catch (org.openhab.core.scriptengine.ScriptExecutionException e) {
           pushover('Could not send push message: ' + push_message_text.state.toString)
         }
+end
+
+rule "Initialize items"
+when
+        System started
+then
+        InitializeON?.members.forEach(item|
+                postUpdate(item, ON )
+        )
+
+        InitializeOFF?.members.forEach(item|
+                postUpdate(item, OFF )
+        )
 end
