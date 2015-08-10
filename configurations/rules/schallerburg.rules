@@ -33,11 +33,23 @@ rule "Initialize items"
 when
         System started
 then
-        InitializeON?.members.forEach(item|
-                postUpdate(item, ON )
-        )
+    logInfo(    "Initializer", "Started Timer ...")
+    createTimer(now.plusSeconds(45)) [|
+        logInfo(    "Initializer", "... initializing!")
+        InitializeON?.members.filter( x | x.state == Uninitialized).forEach[ item |
+          logInfo("Initializer", "... initialize {}", item.name)
+          postUpdate(item, ON )
+        ]
 
-        InitializeOFF?.members.forEach(item|
-                postUpdate(item, OFF )
-        )
+        InitializeOFF?.members.filter( x | x.state == Uninitialized).forEach[ item |
+          logInfo("Initializer", "... initialize {}", item.name)
+          postUpdate(item, OFF )
+        ]
+
+        InitializeZero?.members.filter( x | x.state == Uninitialized).forEach[ item |
+          logInfo("Initializer", "... initialize {}", item.name)
+          postUpdate( item, 0)
+        ]
+    ]
 end
+

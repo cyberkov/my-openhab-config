@@ -36,6 +36,7 @@ Group Monitoring          "Monitoring"          <selfInfo>              (Status)
 // Initialization helpers
 Group InitializeON      <selfInfo>      (Maintenance)
 Group InitializeOFF     <selfInfo>      (Maintenance)
+Group InitializeZero    <selfInfo>      (Maintenance)
 
 // Persistency Groups
 Group PersistentHistory
