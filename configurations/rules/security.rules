@@ -37,7 +37,7 @@ when
   Item JemandDa changed
 then
         if( JemandDa.state == OFF ) {
-    logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
+          logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
 
           var String message = "Alle weg. Aktiviere Alarmanlage."
           if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
@@ -50,8 +50,8 @@ then
           postUpdate(push_message_text, message)
 
         } else {
-    logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
+          logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
           postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
         }
-
 end
+

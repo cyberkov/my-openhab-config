@@ -1,0 +1,28 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+rule "Fire detection"
+when
+    Item Temperature received update
+then
+    // check for any temperature sensors in the house that are very high
+    if (Temperature.members.filter(s | s.state > 45).size > 0) {        
+        if (Alarm_Fire.state == OFF) {
+            logInfo("safety.rules", "Fire alarm tripped by temperature sensor!")
+            Alarm_Fire.postUpdate(ON)
+        }       
+    }
+end
+
+rule "Fire alarm"
+when
+    Item Alarm_Fire received update ON
+then
+    // turn on all lights
+    // callScript("lights_on")
+
+    // send notifications
+    postUpdate(push_message_text, "FIRE alarm has been tripped!!!")
+
+end

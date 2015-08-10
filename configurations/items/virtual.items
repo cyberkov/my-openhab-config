@@ -11,6 +11,13 @@ String MainStatus  "Status [%s]"    <selfError>
 String VoiceCommand
 Switch Testswitch  "Testswitch" (Test)
 
+// Alarmfunktion
+Switch Security_Alarmanlage   "Alarmanlage" <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarmanlage" }
+Switch Alarm_Security         "Alarm"       <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarm" }
+
+// Feueralarm
+Switch Alarm_Fire   "Feueralarm" <fire> (EG_Vorzimmer,PersistentCurrent) // { homematic="variable=Feueralarm" }
+
 
 /* Holiday Calculation */
 Switch Holiday  "Public Holiday" (Test)
