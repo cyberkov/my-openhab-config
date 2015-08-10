@@ -207,7 +207,8 @@ when
     Item Lueftungseff_UG changed to 3
 then
     logInfo("LueftungsNotification", "Lueftungseff_OG: [{}], Lueftungseff_EG: [{}], Lueftungseff_UG: [{}]", Lueftungseff_OG.state, Lueftungseff_EG.state, Lueftungseff_UG.state)
-    if ((JemandDa.state == ON) && (mode_night == OFF)) {
+    logInfo("LueftungsNotification", "JemandDa: [{}], Nacht: [{}]", JemandDa.state, mode_night.state)
+    if ((JemandDa.state == ON) && (mode_night.state == OFF)) {
       var String message = "Man könnte jetzt im"
       Lueftungseffizienz?.members.filter( x | x.state >= 3).forEach[ item |
        message = message + " " + name
