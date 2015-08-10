@@ -9,6 +9,7 @@ Switch Reload_Datapoints (Maintenance) {homematic="action=RELOAD_DATAPOINTS"}
 
 String MainStatus  "Status [%s]"    <selfError>
 String VoiceCommand
+Switch Testswitch  "Testswitch" (Test)
 
 
 /* Holiday Calculation */
