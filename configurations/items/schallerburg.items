@@ -76,9 +76,10 @@ Number Humidity_UG_Hannes 	"Luftfeuchte Hannes [%.1f %%Rh]"	        <temperature
 Number Humidity_UG_Wirtschaftsraum 	"Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"	        <temperature>	(Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/104/0/V_HUM:state:default]"}
 
 /* Lueftungseffizienz */
-Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG)
-Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG)
-Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG)
+Group Lueftungseffizienz   <selfInfo>      (Maintenance)
+Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG, Lueftungseffizienz)
+Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG, Lueftungseffizienz)
+Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG, Lueftungseffizienz)
 Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG) 
 Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG) 
 Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG) 
