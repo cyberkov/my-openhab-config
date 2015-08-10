@@ -14,8 +14,8 @@ then
         if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
 /*                brightnessBeforePause = LivingRoom_Lamp.state as DecimalType
                 if ( brightnessBeforePause < 50){
-                        sendCommand( LivingRoom_Lamp, "50")     
-                } 
+                        sendCommand( LivingRoom_Lamp, "50")
+                }
 */
           sendCommand( UG_Hannes_Power_Lamp, ON )
         }
@@ -26,7 +26,7 @@ rule "Lights off when pause end"
 when
         Item UG_Hannes_XBMC_State changed from Pause to Play
 then
- /*       if (LivingRoom_Lamp.state == 50){               
+ /*       if (LivingRoom_Lamp.state == 50){
                 sendCommand( LivingRoom_Lamp, brightnessBeforePause)
         } */
         sendCommand( UG_Hannes_Power_Lamp, OFF )

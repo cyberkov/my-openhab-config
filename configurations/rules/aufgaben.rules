@@ -1,9 +1,9 @@
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
- 
+
 // set date on update
-rule "Tasks changes" 
+rule "Tasks changes"
 when
 	Item Tasks changed
 then
@@ -13,7 +13,7 @@ end
 //Task_Toothbrush
 
 rule "Tausche Zahnbuerste vierteljaehrlich"
-when 
+when
     Time cron "0 0 8 20W MAR,JUN,SEP,DEC ?"   // virteljaehrlich, werktags um den 20. um 8:00
 then
     sendCommand(Task_Toothbrush, ON)
@@ -48,4 +48,3 @@ then
     logInfo("Task_Geschirrspueler", "Geschirrspueler ist fertig")
     postUpdate(push_message_text, "Geschirrspueler ist fertig.")
 end
-

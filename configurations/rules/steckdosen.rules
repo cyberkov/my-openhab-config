@@ -24,13 +24,13 @@ end
 // Berechnung der bisher vom Geraet verursachten Kosten
 //
 rule "Berechne Kosten Waschmaschine"
-when 
+when
   Item UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH changed
 then
   var Number Var_KWH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH.state
   var Number Kosten = Var_KWH * Naturkraft_KWH
   UG_Wirtschaftsraum_Waschmaschine_Summe.postUpdate(Kosten)
-end 
+end
 
 //----------------------------------------------------------
 // Update Last changed
@@ -59,13 +59,13 @@ end
 // Berechnung der bisher vom Geraet verursachten Kosten
 //
 rule "Berechne Kosten Geschirrspueler"
-when 
+when
   Item EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH changed
 then
   var Number Var_KWH = EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.state
   var Number Kosten = Var_KWH * Naturkraft_KWH
   EG_Kueche_Geschirrspueler_Summe.postUpdate(Kosten)
-end 
+end
 
 //----------------------------------------------------------
 // Update Last changed

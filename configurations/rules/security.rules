@@ -1,8 +1,8 @@
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
- 
-rule "Security State Sensor" 
+
+rule "Security State Sensor"
 when
 	Item Openingcontacts changed
 	or
@@ -32,14 +32,14 @@ then
         postUpdate(push_message_text, message)
 end
 
-rule "Alarmanlage" 
+rule "Alarmanlage"
 when
 	Item JemandDa changed
 then
         if( JemandDa.state == OFF ) {
 	  logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
 
-          var String message = "Alle weg. Aktiviere Alarmanlage." 
+          var String message = "Alle weg. Aktiviere Alarmanlage."
           if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
             val report = Openingcontacts.allMembers.filter([state == OPEN]).map[
               name + ": " + state.format("%s")

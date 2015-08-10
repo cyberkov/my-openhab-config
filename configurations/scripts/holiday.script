@@ -30,7 +30,7 @@ if (dayOfYear==parse(year+"-01-01").getDayOfYear) {
 // Baden-Württemberg, Bayern, Sachsen-Anhalt
 else if (dayOfYear==parse(year+"-01-06").getDayOfYear) {
     holidayName = "holy_trinity"// Heilige 3 Könige
-    holiday = false 
+    holiday = false
 }
 // Carnival ;-)
 else if (dayOfYear==easterSunday.getDayOfYear-48) {
@@ -55,7 +55,7 @@ else if (dayOfYear==easterSunday.getDayOfYear+1) {
 // bundesweiter Feiertag
 else if (dayOfYear==parse(year+"-05-01").getDayOfYear) {
     holidayName = "1st_may"// Tag der Arbeit
-    holiday = true 
+    holiday = true
 }
 // bundesweiter Feiertag
 else if (dayOfYear==easterSunday.getDayOfYear+39) {

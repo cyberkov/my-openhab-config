@@ -5,7 +5,7 @@ sitemap default label="Schallerburg"
       Group item=gOG icon="firstfloor"
         Group item=gEG icon="groundfloor"
         Group item=gUG icon="cellar"
-        Group item=Outdoor icon="garden" 
+        Group item=Outdoor icon="garden"
     }
   }
   Frame label="Sonstiges" {
@@ -24,7 +24,7 @@ sitemap default label="Schallerburg"
         Group item=Motionsensors
       }
     }
-    Group item=Sockets label="Steckdosen [(%d)]" 
+    Group item=Sockets label="Steckdosen [(%d)]"
     Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
       Text item=EG_Vorzimmer_Bell_Last_Change
       Switch item=EG_Esszimmer_Tuergong_Led
@@ -256,5 +256,5 @@ sitemap default label="Schallerburg"
 //      Group item=UG_Wirtschaftsraum
 //    }
 //
-//    Group item=Outdoor label="Garten" icon="garden" 
+//    Group item=Outdoor label="Garten" icon="garden"
 //  }

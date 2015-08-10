@@ -12,7 +12,7 @@ end
 
 rule "Hannes kommt nach Hause"
 when
-	Item Presence_Hannes_Home changed from OFF to ON 
+	Item Presence_Hannes_Home changed from OFF to ON
 then
 	logInfo("PresenceCheck", "Hannes kommt nach Hause.")
 	pushover("Willkommen zu Hause, Hannes.")
@@ -20,7 +20,7 @@ end
 
 rule "Hannes im Office"
 when
-	Item Presence_Hannes_Office changed from OFF to ON 
+	Item Presence_Hannes_Office changed from OFF to ON
 then
 	logInfo("PresenceCheck", "Hannes ist im Bureau.")
 	pushover("Du bist nun im Bureau. Vergiss nicht BMD zu buchen!")
@@ -28,12 +28,12 @@ end
 
 rule "Hannes verlaesst KiGa"
 when
-	Item Presence_Hannes_Office changed from ON to OFF 
+	Item Presence_Hannes_Office changed from ON to OFF
 then
 	logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
 	pushover("Du verlaesst nun das Bureau. Vergiss nicht BMD zu buchen!")
 end
- 
+
 rule "MqttPostionParseHannes"
   when
     Item mqtt_Hannes_Position_Raw changed

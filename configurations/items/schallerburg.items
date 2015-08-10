@@ -56,7 +56,7 @@ Group:Number:MAX 				Temperature_EG	"Max. Room Temperature EG [%.1f °C]" 	<temp
 Group:Number:MAX 				Temperature_UG	"Max. Room Temperature UG [%.1f °C]" 	<temperature>	(gUG)
 Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"	 <temperature>	(Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG)  {mqtt="<[proton:/mySensors/1/1/V_TEMP:state:default]"}
 Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
-Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { rfxcom="<3072:Temperature" }   
+Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"	<temperature>	(Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { rfxcom="<3072:Temperature" }
 Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
 Number Temperature_EG_Kueche 	"Temperatur Kueche [%.1f °C]"	<temperature>	(Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna 	"Temperatur Sauna [%.1f °C]"	<temperature>	(Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
@@ -80,9 +80,9 @@ Group Lueftungseffizienz   <selfInfo>      (Maintenance)
 Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG, Lueftungseffizienz)
 Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG, Lueftungseffizienz)
 Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG, Lueftungseffizienz)
-Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG) 
-Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG) 
-Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG) 
+Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG)
+Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG)
+Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG)
 Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor)
 
 

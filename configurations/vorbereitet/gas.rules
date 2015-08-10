@@ -26,7 +26,7 @@ when
 then
 
 	if( Gas_Pulse_Counter.state != Uninitialized ){
-	
+
 		var Number Aktuell_End = Gas_Pulse_Counter.state as DecimalType
 
 		/* Aktueller Verbrauch */
@@ -35,7 +35,7 @@ then
 		if( Aktuell_5Min < 0 ) Aktuell_5Min = 0;
 
 		if( Gas_Current_Consumption.state == Uninitialized || Gas_Current_Consumption.state != Aktuell_5Min ){
-		
+
 			postUpdate(Gas_Current_Consumption, Aktuell_5Min )
 		}
 
@@ -49,7 +49,7 @@ then
 		var jahresVerbrauch = zaehlerStand - letzteGasAblesungWert
 		if( jahresVerbrauch != Gas_Annual_Consumption.state ){
 
-			postUpdate( Gas_Annual_Consumption, jahresVerbrauch )	
+			postUpdate( Gas_Annual_Consumption, jahresVerbrauch )
 
 			// Hochrechnung
 			var Number aktuellesJahrMillis = now.getMillis - letzteGasAblesungDatum.getMillis
@@ -57,14 +57,14 @@ then
 			var hochrechnungVerbrauch = Math::round((ganzesJahrMillis * jahresVerbrauch / aktuellesJahrMillis).doubleValue)
 			postUpdate( Gas_Forecast, hochrechnungVerbrauch + " m³, " + letzteGasAblesungJahresverbrauch + " m³" )
 		}
-		
+
 		// Aktueller Tagesverbrauch
 		var Number Start = Gas_Pulse_Counter.historicState(now.toDateMidnight).state as DecimalType
 		var Number Aktuell = (Aktuell_End - Start) * 0.01
 		if( Aktuell < 0 ) Aktuell = 0;
 
 		if( Gas_Current_Daily_Consumption.state == Uninitialized || Gas_Current_Daily_Consumption.state != Aktuell ){
-		
+
 			postUpdate(Gas_Current_Daily_Consumption, Aktuell )
 		}
 	}

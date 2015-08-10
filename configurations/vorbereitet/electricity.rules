@@ -28,7 +28,7 @@ then
 //	logInfo("strom","start3")
 //	Electricity_Meter.historicState(now.toDateMidnight).state
 //	logInfo("strom","start4")
-	
+
 	var Number Aktuell_Zaehler = Electricity_Meter.state as DecimalType
 
 	// Jahresverbrauch

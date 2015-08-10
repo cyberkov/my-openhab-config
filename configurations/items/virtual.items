@@ -20,7 +20,7 @@ String SpecialDay   "Day [MAP(holidays_de.map):%s]" (Test)
 Group Automatik  "Automatiksteuerung" <settings> (Status)
 /* Modes 0=HOME, 1=NIGHT, 2=AWAY */
 Number mode "Modus: [MAP(modus.map)]" <present>
-Number previous_mode 
+Number previous_mode
 
 Switch  mode_sofa    "Sofa"     <selfCouch> (Automatik)
 Switch  mode_bed     "Bett"     <selfBedSleep> (Automatik)
@@ -31,4 +31,3 @@ Switch  mode_cooking "Kochen"   <kitchen> (Automatik)
 Switch  mode_outdoor "Garten"   <garden> (Automatik)
 
 Switch auto_gelsenstecker "Gelsensteckerautomatik" <socket> (Automatik)
-
