@@ -11,7 +11,7 @@ when
     Item Network_Router changed to OFF
 then
     if (Network_Internet.state == ON) {
-	logInfo("Internetswitchrule", "Internet is back again.")
+  logInfo("Internetswitchrule", "Internet is back again.")
         if (internetTimer!=null) {
             internetTimer.cancel
             internetTimer=null

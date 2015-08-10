@@ -1,5 +1,5 @@
 
-Group:Switch:OR(ON, OFF)		Anwesenheit	"Anwesenheit [(%d)]"		<present>
+Group:Switch:OR(ON, OFF)    Anwesenheit  "Anwesenheit [(%d)]"    <present>
 
 // Alarmfunktion
 Switch Security_Alarmanlage   "Alarmanlage" <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarmanlage" }
@@ -8,8 +8,8 @@ Switch Security_Alarm   "Alarm" <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurr
 //-------------------------
 // Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
 //
-//Switch	JemandDa								{ homematic="variable=CCU2_mqtt" }
-Switch  JemandDa	  "Anwesenheit"	  <selfShield>	(Security,Anwesenheit,PersistentCurrent)	{ homematic="variable=Anwesenheit" }
+//Switch  JemandDa                { homematic="variable=CCU2_mqtt" }
+Switch  JemandDa    "Anwesenheit"    <selfShield>  (Security,Anwesenheit,PersistentCurrent)  { homematic="variable=Anwesenheit" }
 
 //-------------------------
 // Switches zu Hannes

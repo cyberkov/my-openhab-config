@@ -1,13 +1,13 @@
 
 /* Windows */
 Group:Contact:OR(OPEN, CLOSED)   Security          "Security [(%d)]"             <shield>      (All)
-Group:Contact:OR(OPEN, CLOSED) 	Openingcontacts	  "Öffnungssensoren [(%d)]"	<contact>     (Security)
-Group:Contact:OR(OPEN, CLOSED) 	Tamperswitches  "Sabotagekontakte [(%d)]"	<contact>     (Security)
-Group:Contact:OR(OPEN, CLOSED) 	Motionsensors	  "Bewegungsmelder [(%d)]"	<contact>     (Security)
+Group:Contact:OR(OPEN, CLOSED)   Openingcontacts    "Öffnungssensoren [(%d)]"  <contact>     (Security)
+Group:Contact:OR(OPEN, CLOSED)   Tamperswitches  "Sabotagekontakte [(%d)]"  <contact>     (Security)
+Group:Contact:OR(OPEN, CLOSED)   Motionsensors    "Bewegungsmelder [(%d)]"  <contact>     (Security)
 DateTime Security_Last_Change   "Sicherheit [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"   <selfCalendar>  (Security,PersistentCurrent)
 
 
-Contact EG_Vorzimmer_Door  "Eingangstuer [MAP(de.map):%s]"	<door>	(EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
+Contact EG_Vorzimmer_Door  "Eingangstuer [MAP(de.map):%s]"  <door>  (EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact EG_Wohnzimmer_Door "Terrassentuer [MAP(de.map):%s]" <door>  (EG_Wohnzimmer, Openingcontacts) { homematic="address=MEQ0186561,channel=1,parameter=STATE" }
 Contact EG_Kueche_Window "Kuechenfenster [MAP(de.map):%s]" <door>  (EG_Kueche, Openingcontacts) { homematic="address=MEQ0186642,channel=1,parameter=STATE" }
 Contact OG_Barbara_Window "Buereaufenster [MAP(de.map):%s]" <door>  (OG_Barbara, Openingcontacts) { homematic="address=MEQ0186563,channel=1,parameter=STATE" }
@@ -18,7 +18,7 @@ Contact OG_Gang_Window "Vorzimmer OG Fenster [MAP(de.map):%s]" <door>  (OG_Gang,
 Contact UG_Hannes_Window "Hannes Fenster [MAP(de.map):%s]" <door>  (UG_Hannes, Openingcontacts) { homematic="address=MEQ0186623,channel=1,parameter=STATE" }
 Contact UG_Hannes_Door "Hannes Tuer [MAP(de.map):%s]" <door>  (UG_Hannes, Openingcontacts) { homematic="address=MEQ0186547,channel=1,parameter=STATE" }
 
-Contact EG_Vorzimmer_Door_Sabotage 	"Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"	<door>	(EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
+Contact EG_Vorzimmer_Door_Sabotage   "Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"  <door>  (EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 Contact EG_Wohnzimmer_Door_Sabotage "Terrassentuer Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (EG_Wohnzimmer, Tamperswitches) { homematic="address=MEQ0186561,channel=1,parameter=ERROR" }
 Contact EG_Kueche_Window_Sabotage "Kuechenfenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (EG_Kueche, Tamperswitches) { homematic="address=MEQ0186642,channel=1,parameter=ERROR" }
 Contact OG_Barbara_Window_Sabotage "Buereaufenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Barbara, Tamperswitches) { homematic="address=MEQ0186563,channel=1,parameter=ERROR" }

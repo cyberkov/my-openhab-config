@@ -121,7 +121,7 @@ then
     var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
     if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
       if (JemandDa.state == ON) {
-	logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
+  logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
         sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
       }
     }
@@ -138,7 +138,7 @@ when
     Item OG_Schlafzimmer_Door_right changed to CLOSED
 then
     if (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) {
-    	logInfo("GelsensteckerRule", "Die andere Tuer ist noch geoeffnet. Lasse Gelsenstecker an.")
+      logInfo("GelsensteckerRule", "Die andere Tuer ist noch geoeffnet. Lasse Gelsenstecker an.")
     } else {
       sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
     }

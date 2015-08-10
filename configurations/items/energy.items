@@ -12,4 +12,3 @@ Number Electricity_Current_Consumption                  "Aktueller Verbrauch [%d
 Number Electricity_Last_Daily_Consumption               "Strom"                                                                                         (PersistentChart)
 Number Electricity_Annual_Consumption                   "Aktuelle Periode [%.2f KWh]"   <selfEnergy>            (PersistentCurrent)
 String Electricity_Forecast                                     "Hochrechnung [%s]"                             <selfEnergy>            (PersistentCurrent)
-

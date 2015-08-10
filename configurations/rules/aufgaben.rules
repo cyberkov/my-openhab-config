@@ -5,9 +5,9 @@ import org.openhab.model.script.actions.*
 // set date on update
 rule "Tasks changes"
 when
-	Item Tasks changed
+  Item Tasks changed
 then
-	Tasks_Last_Change.postUpdate( now.toString() )
+  Tasks_Last_Change.postUpdate( now.toString() )
 end
 
 //Task_Toothbrush

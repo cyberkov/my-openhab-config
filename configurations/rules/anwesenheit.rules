@@ -4,34 +4,34 @@ import org.openhab.model.script.actions.*
 
 rule "Hannes verlaesst das Haus"
 when
-	Item Presence_Hannes_Home changed from ON to OFF
+  Item Presence_Hannes_Home changed from ON to OFF
 then
-	logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
-	pushover("Viel Spass unterwegs, Hannes.")
+  logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
+  pushover("Viel Spass unterwegs, Hannes.")
 end
 
 rule "Hannes kommt nach Hause"
 when
-	Item Presence_Hannes_Home changed from OFF to ON
+  Item Presence_Hannes_Home changed from OFF to ON
 then
-	logInfo("PresenceCheck", "Hannes kommt nach Hause.")
-	pushover("Willkommen zu Hause, Hannes.")
+  logInfo("PresenceCheck", "Hannes kommt nach Hause.")
+  pushover("Willkommen zu Hause, Hannes.")
 end
 
 rule "Hannes im Office"
 when
-	Item Presence_Hannes_Office changed from OFF to ON
+  Item Presence_Hannes_Office changed from OFF to ON
 then
-	logInfo("PresenceCheck", "Hannes ist im Bureau.")
-	pushover("Du bist nun im Bureau. Vergiss nicht BMD zu buchen!")
+  logInfo("PresenceCheck", "Hannes ist im Bureau.")
+  pushover("Du bist nun im Bureau. Vergiss nicht BMD zu buchen!")
 end
 
 rule "Hannes verlaesst KiGa"
 when
-	Item Presence_Hannes_Office changed from ON to OFF
+  Item Presence_Hannes_Office changed from ON to OFF
 then
-	logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
-	pushover("Du verlaesst nun das Bureau. Vergiss nicht BMD zu buchen!")
+  logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
+  pushover("Du verlaesst nun das Bureau. Vergiss nicht BMD zu buchen!")
 end
 
 rule "MqttPostionParseHannes"
@@ -92,36 +92,36 @@ end
 
 rule "Ist noch wer im Haus"
 when
-	System started or
-	Item Presence_Hannes_Home changed or
-	Item Presence_Barbara_Home changed or
-	Item Presence_Guest_Home changed
+  System started or
+  Item Presence_Hannes_Home changed or
+  Item Presence_Barbara_Home changed or
+  Item Presence_Guest_Home changed
 then
-	logInfo("PresenceCheck", "Kontrolliere ob noch jemand da ist:")
+  logInfo("PresenceCheck", "Kontrolliere ob noch jemand da ist:")
         if( Presence_Hannes_Home.state == ON ) {
-	  logInfo("PresenceCheck", "Hannes ist da.")
-	  JemandDa.sendCommand(ON)
+    logInfo("PresenceCheck", "Hannes ist da.")
+    JemandDa.sendCommand(ON)
         } else {
-	  logInfo("PresenceCheck", "Hannes nicht.")
+    logInfo("PresenceCheck", "Hannes nicht.")
         }
 
         if( Presence_Barbara_Home.state == ON ) {
-	  logInfo("PresenceCheck", "Barbara ist da.")
-	  JemandDa.sendCommand(ON)
+    logInfo("PresenceCheck", "Barbara ist da.")
+    JemandDa.sendCommand(ON)
         } else {
-	  logInfo("PresenceCheck", "Barbara nicht.")
+    logInfo("PresenceCheck", "Barbara nicht.")
         }
 
         if( Presence_Guest_Home.state == ON ) {
-	  logInfo("PresenceCheck", "Wir haben Gaeste.")
-	  JemandDa.sendCommand(ON)
+    logInfo("PresenceCheck", "Wir haben Gaeste.")
+    JemandDa.sendCommand(ON)
         } else {
-	  logInfo("PresenceCheck", "Keine Gaeste.")
+    logInfo("PresenceCheck", "Keine Gaeste.")
         }
 
         if (( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF)) {
-	  logInfo("PresenceCheck", "Alle weg.")
-	  JemandDa.sendCommand(OFF)
+    logInfo("PresenceCheck", "Alle weg.")
+    JemandDa.sendCommand(OFF)
         } else {
           logInfo("PresenceCheck", "Presence_Hannes_Home: [{}]. Presence_Barbara_Home: [{}]. Presence_Guest_Home: [{}].", Presence_Hannes_Home.state, Presence_Barbara_Home.state, Presence_Guest_Home.state)
         }

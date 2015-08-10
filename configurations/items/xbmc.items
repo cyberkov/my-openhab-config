@@ -1,15 +1,15 @@
 /* XBMC */
-String EG_Wohnzimmer_XBMC_State	"XBMC WZ Status: [%s]" <video>	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.State]" }
-String EG_Wohnzimmer_XBMC_Title	"XBMC WZ Title: [%s]"	(EG_Wohnzimmer)		{ xbmc="<[#wohnzimmer|Player.Title]" }
+String EG_Wohnzimmer_XBMC_State  "XBMC WZ Status: [%s]" <video>  (EG_Wohnzimmer)    { xbmc="<[#wohnzimmer|Player.State]" }
+String EG_Wohnzimmer_XBMC_Title  "XBMC WZ Title: [%s]"  (EG_Wohnzimmer)    { xbmc="<[#wohnzimmer|Player.Title]" }
 Dimmer EG_Wohnzimmer_XBMC_Volume "XBMC WZ Volume [%.1f]"   (EG_wohnzimmer)         { xbmc="=[#wohnzimmer|Application.Volume]" }
 
-String UG_Hannes_XBMC_State	"XBMC Hannes Status: [%s]" <video>	(UG_Hannes)		{ xbmc="<[#hannes|Player.State]" }
-String UG_Hannes_XBMC_Title	"XBMC Hannes Title: [%s]"	(UG_Hannes)		{ xbmc="<[#hannes|Player.Title]" }
+String UG_Hannes_XBMC_State  "XBMC Hannes Status: [%s]" <video>  (UG_Hannes)    { xbmc="<[#hannes|Player.State]" }
+String UG_Hannes_XBMC_Title  "XBMC Hannes Title: [%s]"  (UG_Hannes)    { xbmc="<[#hannes|Player.Title]" }
 Dimmer UG_Hannes_XBMC_Volume    "XBMC Hannes Volume [%.1f]"   (UG_Hannes)             { xbmc="=[#hannes|Application.Volume]" }
 Switch UG_Hannes_XBMC_Screensaver "XBMC Hannes Screensaver"   (UG_Hannes)             { xbmc="<[#hannes|Screensaver.State]" }
 
-String EG_Kueche_XBMC_State	"XBMC Küche Status: [%s]" <video>	(EG_Kueche)		{ xbmc="<[#kueche|Player.State]" }
-String EG_Kueche_XBMC_Title	"XBMC Küche Title: [%s]"	(EG_Kueche)		{ xbmc="<[#kueche|Player.Title]" }
+String EG_Kueche_XBMC_State  "XBMC Küche Status: [%s]" <video>  (EG_Kueche)    { xbmc="<[#kueche|Player.State]" }
+String EG_Kueche_XBMC_Title  "XBMC Küche Title: [%s]"  (EG_Kueche)    { xbmc="<[#kueche|Player.Title]" }
 Dimmer EG_Kueche_XBMC_Volume    "XBMC Küche Volume [%.1f]"   (EG_Kueche)             { xbmc="=[#kueche|Application.Volume]" }
 Switch EG_Kueche_XBMC_Screensaver "XBMC Küche Screensaver"   (EG_Kueche)             { xbmc="<[#kueche|Screensaver.State]" }
 String EG_Kueche_XBMC_OpenMedia    "XBMC Küche file [%s]"     (EG_Kueche)  { xbmc=">[#kueche|Player.Open]" }

@@ -6,34 +6,34 @@ var Timer notificationTimer = null
 
 rule "Bell State ON"
 when
-	Item EG_Vorzimmer_Bell_short changed to ON or
-	Item EG_Vorzimmer_Bell_long changed to ON
+  Item EG_Vorzimmer_Bell_short changed to ON or
+  Item EG_Vorzimmer_Bell_long changed to ON
 then
-	logInfo("Bell rule on", "Turn bell on")
-	sendCommand(EG_Vorzimmer_Bell,ON)
+  logInfo("Bell rule on", "Turn bell on")
+  sendCommand(EG_Vorzimmer_Bell,ON)
 end
 
 rule "Bell State OFF"
 when
-	Item EG_Vorzimmer_Bell_short changed to OFF or
-	Item EG_Vorzimmer_Bell_long changed to OFF
+  Item EG_Vorzimmer_Bell_short changed to OFF or
+  Item EG_Vorzimmer_Bell_long changed to OFF
 then
-	logInfo("Bell rule off", "Turn bell off")
-	sendCommand(EG_Vorzimmer_Bell,OFF)
+  logInfo("Bell rule off", "Turn bell off")
+  sendCommand(EG_Vorzimmer_Bell,OFF)
 end
 
 rule "Bell State"
 when
-	Item EG_Vorzimmer_Bell changed to ON
+  Item EG_Vorzimmer_Bell changed to ON
 then
-	EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
+  EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
         logInfo("Bell rule", "Es hat geklingelt.")
 
-		if(notificationTimer==null) {
-			notificationTimer = createTimer(now.plusSeconds(30)) [|
-				notificationTimer=null
-			]
-			pushover("Klingel: Es klingelt")
+    if(notificationTimer==null) {
+      notificationTimer = createTimer(now.plusSeconds(30)) [|
+        notificationTimer=null
+      ]
+      pushover("Klingel: Es klingelt")
                         //postUpdate(push_message_text, "Klingel: Es klingelt")
-		}
+    }
 end
