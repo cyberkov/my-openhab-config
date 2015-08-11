@@ -200,11 +200,12 @@ then
     }
 end
 
+// TODO: Ueberpruefe ob bereits Fenster offen sind.
 rule "Lueftungseffizienz Notification"
 when
     Item Lueftungseff_OG changed to 3 or
-    Item Lueftungseff_EG changed to 3 or
-    Item Lueftungseff_UG changed to 3
+    Item Lueftungseff_EG changed to 3
+//    Item Lueftungseff_UG changed to 3 // UG kann man nicht gscheit lueften.
 then
     logInfo("LueftungsNotification", "Lueftungseff_OG: [{}], Lueftungseff_EG: [{}], Lueftungseff_UG: [{}]", Lueftungseff_OG.state, Lueftungseff_EG.state, Lueftungseff_UG.state)
     logInfo("LueftungsNotification", "JemandDa: [{}], Nacht: [{}]", JemandDa.state, mode_night.state)
@@ -215,6 +216,6 @@ then
       ]
       message = message + " lüften."
       logInfo("LueftungsNotification", "Sending: [{}]", message)
-      postUpdate(push_message_text, message)
+      // postUpdate(push_message_text, message)
     }
 end
