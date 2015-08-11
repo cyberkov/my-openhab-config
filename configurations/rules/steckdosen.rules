@@ -108,6 +108,26 @@ then
 end
 
 //----------------------------------------------------------
+// Schalte Btn1 mit der Fernbedienung
+//
+rule "Btn1"
+when
+        Item Btn1_tog changed
+then
+        sendCommand(Btn1, Btn1_tog.state.toString )
+end
+
+//----------------------------------------------------------
+// Schalte Btn3 mit der Fernbedienung
+//
+rule "Btn3"
+when
+        Item Btn3_tog changed
+then
+        sendCommand(Btn3, Btn3_tog.state.toString )
+end
+
+//----------------------------------------------------------
 // Schalte Gelsenstecker ein wenn jemand zu Hause ist
 //
 rule "Gelsenstecker ein am Abend"
