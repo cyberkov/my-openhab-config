@@ -211,7 +211,7 @@ then
     if ((JemandDa.state == ON) && (mode_night.state == OFF)) {
       var String message = "Man könnte jetzt im"
       Lueftungseffizienz?.members.filter( x | x.state >= 3).forEach[ item |
-       message = message + " " + name
+       message = message + " " + item.name
       ]
       message = message + " lüften."
       logInfo("LueftungsNotification", "Sending: [{}]", message)

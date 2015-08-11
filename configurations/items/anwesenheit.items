@@ -37,9 +37,9 @@ Switch phone_hannes   (gMobiles) {nh="192.168.1.25"}
 //Switch phone_tablet   (gMobiles) {nh="android-94404cd3b076b5b4"
 
 /* Config-values */
-String pushover_token_barbara  "Pushover Barbara [%s]" (Maintenance)  {configadmin = "pushover:barbaraToken"}
-String pushover_token_both    "Pushover both [%s]" (Maintenance)  {configadmin = "pushover:bothToken"}
-String pushover_token_default   "Pushover default [%s]" (Maintenance) {configadmin = "pushover:defaultToken"}
+String pushover_token_barbara  "Pushover Barbara [%s]" (Maintenance,PersistentCurrent)  {configadmin = "pushover:barbaraToken"}
+String pushover_token_both    "Pushover both [%s]" (Maintenance,PersistentCurrent)  {configadmin = "pushover:bothToken"}
+String pushover_token_default   "Pushover default [%s]" (Maintenance,PersistentCurrent) {configadmin = "pushover:defaultToken"}
 
 /* Text values */
 String push_message_text "Default message [%s]" (Maintenance)
