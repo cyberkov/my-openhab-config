@@ -175,7 +175,7 @@ Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer
 Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
 
 Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
-Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502.3:Command"}
+Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502.3:Command", rfxcom="<66696.2:Command"}
 
 //Astro
 Group Astro   (Status)
