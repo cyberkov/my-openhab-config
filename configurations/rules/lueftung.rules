@@ -129,7 +129,7 @@ then
           effectivity = 3
           //sendCommand(VCBSSupplyCellarVentilation, OPEN)
       }
-      logInfo("LueftungOG", "Temperature_OG: [{}], Humidity_OG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_OG.state, Humidity_OG.state, Weather_Temperature.state, Weather_Humidity.state)
+      logDebug("LueftungOG", "Temperature_OG: [{}], Humidity_OG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_OG.state, Humidity_OG.state, Weather_Temperature.state, Weather_Humidity.state)
       postUpdate(Weather_Dewpoint, TDo)
       postUpdate(Dewpoint_OG, TDi)
       postUpdate(Lueftungseff_OG, effectivity)
@@ -161,7 +161,7 @@ then
       } else {
           effectivity = 3
       }
-        logInfo("LueftungEG", "Temperature_EG: [{}], Humidity_EG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_EG.state, Humidity_EG.state, Weather_Temperature.state, Weather_Humidity.state)
+        logDebug("LueftungEG", "Temperature_EG: [{}], Humidity_EG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_EG.state, Humidity_EG.state, Weather_Temperature.state, Weather_Humidity.state)
       postUpdate(Dewpoint_EG, TDi)
       postUpdate(Lueftungseff_EG, effectivity)
     } else {
@@ -192,7 +192,7 @@ then
       } else {
           effectivity = 3
       }
-        logInfo("LueftungUG", "Temperature_UG: [{}], Humidity_UG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_UG.state, Humidity_UG.state, Weather_Temperature.state, Weather_Humidity.state)
+        logDebug("LueftungUG", "Temperature_UG: [{}], Humidity_UG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_UG.state, Humidity_UG.state, Weather_Temperature.state, Weather_Humidity.state)
       postUpdate(Dewpoint_UG, TDi)
       postUpdate(Lueftungseff_UG, effectivity)
     } else {
