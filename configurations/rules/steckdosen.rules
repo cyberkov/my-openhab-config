@@ -134,16 +134,17 @@ rule "Gelsenstecker ein am Abend"
 when
     // um 21:00
     Time cron "0 0 21 * * ?" or
+    Item mode_night changed to ON or
     Item OG_Schlafzimmer_Door_left changed to OPEN or
     Item OG_Schlafzimmer_Door_right changed to OPEN
 then
-    var Date sunsetTime = (Sunset_Time.state as DateTimeType).calendar.time
-    var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
-    if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
-      if (JemandDa.state == ON) {
-  logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
+    if (auto_gelsenstecker.state == ON) {
+      if ((JemandDa.state == ON) && (mode_night.state == ON)) {
+        logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
         sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
       }
+    } else {
+      logInfo("GelsensteckerRule", "Gelsensteckerautomatik ist [{}].", auto_gelsenstecker.state)
     }
 end
 
@@ -154,12 +155,16 @@ rule "Gelsenstecker aus"
 when
     // um 03:00
     Time cron "0 0 6 * * ?" or
+    Item mode_night changed to OFF or
     Item OG_Schlafzimmer_Door_left changed to CLOSED or
     Item OG_Schlafzimmer_Door_right changed to CLOSED
 then
-    if (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) {
-      logInfo("GelsensteckerRule", "Die andere Tuer ist noch geoeffnet. Lasse Gelsenstecker an.")
-    } else {
-      sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+    if (auto_gelsenstecker.state == ON) {
+      if ( (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) && mode_night.state == ON) {
+        logInfo("GelsensteckerRule", "Tuer links ist [{}], Tuer rechts ist [{}], Nacht [{}]. Lasse Gelsenstecker an.", OG_Schlafzimmer_Door_left.state, OG_Schlafzimmer_Door_right.state, mode_night.state)
+      } else {
+        logInfo("GelsensteckerRule", "Schalte Gelsenstecker aus. Tuer links [{}], Tuer rechts [{}], Nacht [{}]", OG_Schlafzimmer_Door_left.state, OG_Schlafzimmer_Door_right.state, mode_night.state)
+        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+      }
     }
 end
