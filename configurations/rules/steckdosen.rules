@@ -138,10 +138,12 @@ when
     Item OG_Schlafzimmer_Door_left changed to OPEN or
     Item OG_Schlafzimmer_Door_right changed to OPEN
 then
-    if (auto_gelsenstecker.state == ON) {
-      if ((JemandDa.state == ON) && (mode_night.state == ON)) {
-        logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
-        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+    if (auto_gelsenstecker.state == ON) {  // Automatik sollte aktiviert sein
+      if ((JemandDa.state == ON) && (mode_night.state == ON)) { // wenn jemand da ist, Nacht oder 21h ist
+        if (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) { // Tuer wird geoeffnet
+          logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
+          sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+        }
       }
     } else {
       logInfo("GelsensteckerRule", "Gelsensteckerautomatik ist [{}].", auto_gelsenstecker.state)
