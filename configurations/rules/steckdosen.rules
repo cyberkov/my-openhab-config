@@ -15,7 +15,7 @@ rule "Berechne KWh"
 when
   Item UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch changed
 then
-  Var_WH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch.state
+  Var_WH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch.state as DecimalType
   var Number Var_KWH = Var_WH / 1000
   UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH.postUpdate(Var_KWH)
 end
@@ -27,7 +27,7 @@ rule "Berechne Kosten Waschmaschine"
 when
   Item UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH changed
 then
-  var Number Var_KWH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH.state
+  var Number Var_KWH = UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH.state as DecimalType
   var Number Kosten = Var_KWH * Naturkraft_KWH
   UG_Wirtschaftsraum_Waschmaschine_Summe.postUpdate(Kosten)
 end
@@ -50,7 +50,7 @@ rule "Berechne KWh"
 when
   Item EG_Kueche_Geschirrspueler_Gesamtverbrauch changed
 then
-  Var_WH = EG_Kueche_Geschirrspueler_Gesamtverbrauch.state
+  Var_WH = EG_Kueche_Geschirrspueler_Gesamtverbrauch.state as DecimalType
   var Number Var_KWH = Var_WH / 1000
   EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.postUpdate(Var_KWH)
 end
@@ -62,7 +62,7 @@ rule "Berechne Kosten Geschirrspueler"
 when
   Item EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH changed
 then
-  var Number Var_KWH = EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.state
+  var Number Var_KWH = EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH.state as DecimalType
   var Number Kosten = Var_KWH * Naturkraft_KWH
   EG_Kueche_Geschirrspueler_Summe.postUpdate(Kosten)
 end

@@ -32,11 +32,11 @@ end
 
 rule "Waschmaschine wird ausgeschaltet"
 when
-    Item openhab.UG_Wirtschaftsraum_Waschmaschine_power changed
+    Item UG_Wirtschaftsraum_Waschmaschine_power changed
 then
-    if ( openhab.UG_Wirtschaftsraum_Waschmaschine_power.state <= 1 and Task_Waesche.state == ON) {
+    if  (( UG_Wirtschaftsraum_Waschmaschine_power.state <= 1 ) && (Task_Waesche.state == ON )) {
         logInfo("Task Waschmaschine2", "Waschmaschine ausgeschaltet")
-        sendCommand(Task_Waesche, ON)
+        sendCommand(Task_Waesche, OFF)
     }
 end
 
