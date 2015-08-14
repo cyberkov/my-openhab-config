@@ -168,6 +168,17 @@ Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [
 Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (EG_Kueche)
 Number EG_Kueche_Geschirrspueler_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (EG_Kueche)
 
+Switch UG_Sauna_Luftentfeuchter                 "Luftentfeuchter"                           <socket>  (UG_Sauna,Sockets)  {homematic="address=LEQ0531146,channel=1,parameter=STATE"}
+//Switch UG_Sauna_CCU2_Luftentfeuchter    "Luftentfeuchter in Betrieb"            <geschirr>  (UG_Sauna,PersistentCurrent)  { homematic="variable=Luftentfeuchter" }
+//DateTime UG_Sauna_CCU2_Luftentfeuchter_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Sauna,PersistentCurrent)
+Number UG_Sauna_Luftentfeuchter_current         "Luftentfeuchter Strom [%.2f mA]"           <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=CURRENT"}
+Number UG_Sauna_Luftentfeuchter_power           "Luftentfeuchter Leistung [%.2f W]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=POWER"}
+Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=ENERGY_COUNTER"}
+Number UG_Sauna_Luftentfeuchter_voltage         "Luftentfeuchter Netzspannung [%.2f V]"     <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=VOLTAGE"}
+Number UG_Sauna_Luftentfeuchter_frequency       "Luftentfeuchter Netzfrequenz [%.2f   Hz]"  <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=FREQUENCY"}
+Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Sauna)
+Number UG_Sauna_Luftentfeuchter_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Sauna)
+
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
 

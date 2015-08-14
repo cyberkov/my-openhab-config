@@ -77,6 +77,31 @@ then
   EG_Kueche_CCU2_Geschirrspueler_LastUpdate.postUpdate( now.toString() )
 end
 
+/////// Luftentfeuchter
+//----------------------------------------------------------
+// Umrechnung der Wh in KWh
+//
+rule "Berechne KWh"
+when
+  Item UG_Sauna_Luftentfeuchter_Gesamtverbrauch changed
+then
+  Var_WH = UG_Sauna_Luftentfeuchter_Gesamtverbrauch.state as DecimalType
+  var Number Var_KWH = Var_WH / 1000
+  UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH.postUpdate(Var_KWH)
+end
+
+//----------------------------------------------------------
+// Berechnung der bisher vom Geraet verursachten Kosten
+//
+rule "Berechne Kosten Geschirrspueler"
+when
+  Item UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH changed
+then
+  var Number Var_KWH = UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH.state as DecimalType
+  var Number Kosten = Var_KWH * Naturkraft_KWH
+  UG_Sauna_Luftentfeuchter_Summe.postUpdate(Kosten)
+end
+
 //----------------------------------------------------------
 // Schalte Schlafzimmerlampe mit der Fernbedienung
 //
