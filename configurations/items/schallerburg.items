@@ -62,7 +62,7 @@ Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temp
 Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) {mqtt="<[proton:/mySensors/20/1/V_TEMP:state:default]"}
 //Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna   "Temperatur Sauna [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Wirtschaftsraum   "Temperatur Wirtschaftsraum [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/104/1/V_TEMP:state:default]"}
+Number Temperature_UG_Wirtschaftsraum   "Temperatur Wirtschaftsraum [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/22/1/V_TEMP:state:default]"}
 //Number Temperature_UG_Hannes   "Temperatur Hannes [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Hannes, Temperature_UG)
 
 /* Humidity */
@@ -75,7 +75,7 @@ Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <tempera
 Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)     { mqtt="<[proton:/mySensors/20/0/V_HUM:state:default]"}
 Number Humidity_EG_Wohnzimmer   "Luftfeuchte Wohnzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, EG_Wohnzimmer, Humidity_EG) { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Sauna   "Luftfeuchte Sauna [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/104/0/V_HUM:state:default]"}
+Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/22/0/V_HUM:state:default]"}
 //Number Humidity_UG_Hannes   "Luftfeuchte Hannes [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Hannes, Humidity_UG)
 
 /* Lueftungseffizienz */
