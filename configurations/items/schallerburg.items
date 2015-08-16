@@ -124,7 +124,7 @@ Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c
 
 /* Weather */
 Group Weather_Chart      (Weather)
-Number Weather_Temperature     "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
+Number Weather_Temperature     "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { rfxcom="<3072:Temperature" } // { weather="locationId=home, type=temperature, property=current" }
 Number Weather_Temp_Max     "Todays Maximum [%.1f °C]"  <temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=max"}
 Number Weather_Temp_Min     "Todays Minimum [%.1f °C]"  <temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=min"}
 Number Weather_Chart_Period    "Chart Period"
