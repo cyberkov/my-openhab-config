@@ -7,3 +7,4 @@
 /extra/mosquitto.conf
 /extra/mysql_cleanup.sh
 /www/static/map2.html
+/bin/tvcheck.sh
