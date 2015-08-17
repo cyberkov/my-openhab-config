@@ -1,4 +1,5 @@
 configurations/openhab.cfg
 configurations/users.cfg
 extra/mosquitto.conf
+extra/mysql_cleanup.sh
 extra/openhab.htpasswd
