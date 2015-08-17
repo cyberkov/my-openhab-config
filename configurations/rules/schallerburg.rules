@@ -16,6 +16,12 @@ then
   pushover("OpenHAB wird beendet.")
 end
 
+//----------------------------------------------------------
+// Pushover notifications are sent through the script
+// to the people currently in the house.
+// If no one is here the message is simply passed to
+// both.
+//
 rule "When text changes, send a push message"
 when
         Item push_message_text received update
@@ -28,6 +34,10 @@ then
         }
 end
 
+//----------------------------------------------------------
+// Some items are not persisted. They should be kept in a
+// certain state on startup.
+//
 rule "Initialize items"
 when
         System started

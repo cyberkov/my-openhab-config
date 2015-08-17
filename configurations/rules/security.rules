@@ -11,9 +11,13 @@ then
   Security_Last_Change.postUpdate( now.toString() )
 
         if ( Security_Alarmanlage.state == ON ) {
+        //TODO
         }
 end
 
+//----------------------------------------------------------
+// Check all open doors and windows and let me know
+//
 rule "SecurityCheck vorm Weggehen"
 when
         Item Barbara_Remote_AnAus changed to ON or
@@ -32,6 +36,9 @@ then
         postUpdate(push_message_text, message)
 end
 
+//----------------------------------------------------------
+// Activate alarm if everyone is away
+//
 rule "Alarmanlage"
 when
   Item JemandDa changed
@@ -54,4 +61,3 @@ then
           postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
         }
 end
-

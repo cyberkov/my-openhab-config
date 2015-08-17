@@ -1,5 +1,9 @@
 import org.openhab.core.library.types.*
 
+//----------------------------------------------------------
+// Datapoints shall be reloaded once a day
+// according to documentation
+//
 rule "Reload datapoints"
 when
     Time cron "0 0 0/6 * * ?"   // every 6 hours
