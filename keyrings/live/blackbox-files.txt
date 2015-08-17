@@ -3,3 +3,4 @@ configurations/users.cfg
 extra/mosquitto.conf
 extra/mysql_cleanup.sh
 extra/openhab.htpasswd
+www/static/map2.html
