@@ -1,3 +1,4 @@
 configurations/openhab.cfg
 configurations/users.cfg
+extra/mosquitto.conf
 extra/openhab.htpasswd
