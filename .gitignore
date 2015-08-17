@@ -3,3 +3,4 @@
 /keyrings/live/secring.gpg
 /configurations/users.cfg
 /configurations/openhab.cfg
+/extra/openhab.htpasswd
