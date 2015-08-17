@@ -1,1 +1,2 @@
+configurations/openhab.cfg
 configurations/users.cfg
