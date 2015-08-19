@@ -1,1 +1,2 @@
 admin@cyberkov.at
+jenkins@proton.lan.cyberkov.at
