@@ -30,5 +30,5 @@ then
         wetterOutput = wetterOutput + " Max: " + Weather_Forecast_Temp_Max.state
         wetterOutput = wetterOutput + " Regen: " + Weather_Precip_Probability.state
         logInfo("Rule Wetterbericht", wetterOutput)
-      pushover(wetterOutput)
+        pushover(wetterOutput, 0, "http://wetter.orf.at/m/wien/", "wetter.orf.at")
 end
