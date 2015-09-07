@@ -10,13 +10,16 @@ when
 then
   Security_Last_Change.postUpdate( now.toString() )
 
+  val OpenContacts = Openingcontacts.allMembers.filter([state == OPEN]).size
+  val TamperswitchOpen = Tamperswitches.allMembers.filter([state == OPEN]).size
+
   if ( Security_Alarmanlage.state == ON ) {
-    if ( ( Security_OpenWindows.state <= Openingcontacts.state ) || (Tamperswitches.state >= 1 ) ) { // someone opened a door or window
-      logInfo("AlarmanlageRule", "Windows opened during alarm active. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, Openingcontacts.state, Tamperswitches.state)
+    if ( ( Security_OpenWindows.state <= OpenContacts ) || (TamperswitchOpen >= 1 ) ) { // someone opened a door or window
+      logInfo("AlarmanlageRule", "Windows opened during alarm active. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, OpenContacts, Tamperswitches.state)
       Alarm_Security.postUpdate(ON)
-    } else if ( Security_OpenWindows.state >= Openingcontacts.state ) { // someone closed a door or window while the alarm is active
-      logInfo("AlarmanlageRule", "Window closed. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, Openingcontacts.state, Tamperswitches.state)
-      Security_OpenWindows.postUpdate(Openingcontacts.format("%d"))
+    } else if ( Security_OpenWindows.state >= OpenContacts ) { // someone closed a door or window while the alarm is active
+      logInfo("AlarmanlageRule", "Window closed. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, OpenContacts, Tamperswitches.state)
+      Security_OpenWindows.postUpdate(OpenContacts)
     }
   }
 end
@@ -28,9 +31,10 @@ rule "Alarmanlage wird aktiviert"
 when
   Item Security_Alarmanlage changed
 then
+  val OpenContacts = Openingcontacts.allMembers.filter([state == OPEN]).size
   if ( Security_Alarmanlage.state == ON) {
-    logInfo("AlarmanlageRule", "Security_OpenWindows: [{}], Openingcontacts: [{}]", Security_OpenWindows.state, Openingcontacts.state)
-    Security_OpenWindows.postUpdate(Openingcontacts.format("%d"))
+    logInfo("AlarmanlageRule", "Security_OpenWindows: [{}], Openingcontacts: [{}]", Security_OpenWindows.state, OpenContacts)
+    Security_OpenWindows.postUpdate(OpenContacts)
   } else {
     Security_OpenWindows.postUpdate(0)
   }
