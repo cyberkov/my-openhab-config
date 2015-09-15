@@ -190,6 +190,8 @@ Number UG_Sauna_Luftentfeuchter_Summe    "Bislang verursachte Kosten [%.2f Eur]"
 Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
 
+Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Sockets,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
+
 Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
 
