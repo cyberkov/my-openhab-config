@@ -217,12 +217,13 @@ Switch UG_Sauna_Heating   "Heizung Sauna"   <heating>  (UG_Sauna, Heating)
 
 /* Batterien */
 Group:Contact:OR(CLOSED,OPEN)       Battery         "Batterien [(%d)]"              <energy>      (Status)
-Contact UG_Sauna_Heating_LOWBAT               "Sauna Heizung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
-Contact EG_Frontdoor_Contact_LOWBAT           "Eingangstuer Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
-Contact EG_Vorzimmer_Doorbell_LOWBAT          "Tuerklingel Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}
-Contact Temperature_EG_Kueche_LOWBAT          "Kueche Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
-Contact Temperature_UG_Sauna_LOWBAT           "Sauna Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
-Contact Temperature_OG_Schlafzimmer_LOWBAT    "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
+Contact UG_Sauna_Heating_LOWBAT             "Sauna Heizung Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
+Contact EG_Frontdoor_Contact_LOWBAT         "Eingangstuer Batterie [MAP(zustand.map):%d]"       <energy>    (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
+Contact EG_Vorzimmer_Doorbell_LOWBAT        "Tuerklingel Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}
+Contact Temperature_EG_Kueche_LOWBAT        "Kueche Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
+Contact Temperature_UG_Sauna_LOWBAT         "Sauna Temp Batterie [MAP(zustand.map):%d]"         <energy>    (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
+Contact Temperature_OG_Schlafzimmer_LOWBAT  "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>    (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
+Number  Weather_Temperature_LOWBAT          "Aussen Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0798807, channel=0, parameter=LOWBAT"}
 
 
 //////////////// Vorbereitet ////////////////
