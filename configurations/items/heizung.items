@@ -4,6 +4,8 @@
 // In einer Gruppe will ich alle Heizkoerper erfassen
 Group:Number:AVG  Heizkoerper    "Heizkoerper"      <heating> (Status)
 
+Switch UG_Wirtschaftsraum_Therme "Therme" <heating> (UG_Wirtschaftsraum,Heating) {homematic="address=MEQ0712568, channel=1, parameter=STATE"}
+
 // Dann erstelle ich eine Gruppe fuer die Badezimmerheizung
 Group    UG_Sauna_Heizung      "Heizung UG Sauna"  <heating>  (UG_Sauna, Heizkoerper)
 

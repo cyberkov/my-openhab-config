@@ -50,8 +50,6 @@ sitemap default label="Schallerburg"
     Text item=Network_Internet label="Internet [%s]" //itemcolor=["ON"="green","OFF"="red"]
     Group item=Temperature label="Temperatur [%.1f °C]"
     Group item=Humidity label="Luftfeuchte [%.1f %%Rh]"
-//    Text item=Temperature label="Temperatur [%.1f °C]"
-//    Text item=Humidity label="Luftfeuchte [%.1f %%Rh]"
     Switch item=Security_Alarmanlage label="Alarmanlage" mappings=[ON="Scharf", OFF="Unscharf"]
     Text item=Alarm_Fire label="Feueralarm [%s]"
     Text item=EG_Vorzimmer_Door //itemcolor=["zu"="green", "offen"="red"]
@@ -59,8 +57,8 @@ sitemap default label="Schallerburg"
     Text item=OG_Schlafzimmer_Door_right
     Text item=EG_Wohnzimmer_Door
     Text item=UG_Hannes_Door
-//    Text label="Herdplatte [n/a]" icon="kitchen"
     Text item=Lights label="Licht [%d]" icon="selfLight"
+    Text item=UG_Wirtschaftsraum_Therme label="Heizung [%s]"
     Text item=EG_Kueche_CCU2_Geschirrspueler label="Geschirrspueler [%s]" icon="geschirr"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
