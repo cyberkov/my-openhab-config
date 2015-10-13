@@ -20,13 +20,13 @@ Contact UG_Hannes_Door "Hannes Tuer [MAP(de.map):%s]" <door>  (UG_Hannes, Openin
 
 Contact EG_Vorzimmer_Door_Sabotage   "Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"  <door>  (EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 Contact EG_Wohnzimmer_Door_Sabotage "Terrassentuer Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (EG_Wohnzimmer, Tamperswitches) { homematic="address=MEQ0186561,channel=1,parameter=ERROR" }
-Contact EG_Kueche_Window_Sabotage "Kuechenfenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (EG_Kueche, Tamperswitches) { homematic="address=MEQ0186642,channel=1,parameter=ERROR" }
-Contact OG_Barbara_Window_Sabotage "Buereaufenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Barbara, Tamperswitches) { homematic="address=MEQ0186563,channel=1,parameter=ERROR" }
-Contact OG_Dominik_Window_Sabotage "Dominik Fenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Dominik, Tamperswitches) { homematic="address=MEQ0186607,channel=1,parameter=ERROR" }
+Contact EG_Kueche_Window_Sabotage "Kuechenfenster Sabotagekontakt [MAP(sabotage.map):%s]" (EG_Kueche, Tamperswitches) { homematic="address=MEQ0186642,channel=1,parameter=ERROR" }
+Contact OG_Barbara_Window_Sabotage "Buereaufenster Sabotagekontakt [MAP(sabotage.map):%s]" (OG_Barbara, Tamperswitches) { homematic="address=MEQ0186563,channel=1,parameter=ERROR" }
+Contact OG_Dominik_Window_Sabotage "Dominik Fenster Sabotagekontakt [MAP(sabotage.map):%s]" (OG_Dominik, Tamperswitches) { homematic="address=MEQ0186607,channel=1,parameter=ERROR" }
 Contact OG_Schlafzimmer_Door_left_Sabotage "Schlafzimmer Tuer links Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Schlafzimmer, Tamperswitches) { homematic="address=MEQ0172089,channel=1,parameter=ERROR" }
 Contact OG_Schlafzimmer_Door_right_Sabotage "Schlafzimmer Tuer rechts Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Schlafzimmer, Tamperswitches) { homematic="address=MEQ0186709,channel=1,parameter=ERROR" }
-Contact OG_Gang_Window_Sabotage "Vorzimmer OG Fenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (OG_Gang, Tamperswitches) { homematic="address=MEQ0186720,channel=1,parameter=ERROR" }
-Contact UG_Hannes_Window_Sabotage "Hannes Fenster Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (UG_Hannes, Tamperswitches) { homematic="address=MEQ0186623,channel=1,parameter=ERROR" }
+Contact OG_Gang_Window_Sabotage "Vorzimmer OG Fenster Sabotagekontakt [MAP(sabotage.map):%s]" (OG_Gang, Tamperswitches) { homematic="address=MEQ0186720,channel=1,parameter=ERROR" }
+Contact UG_Hannes_Window_Sabotage "Hannes Fenster Sabotagekontakt [MAP(sabotage.map):%s]" (UG_Hannes, Tamperswitches) { homematic="address=MEQ0186623,channel=1,parameter=ERROR" }
 Contact UG_Hannes_Door_Sabotage "Hannes Tuer  Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (UG_Hannes, Tamperswitches) { homematic="address=MEQ0186547,channel=1,parameter=ERROR" }
 
 Contact EG_Vorzimmer_Door_LOWBAT           "Eingangstuer Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
