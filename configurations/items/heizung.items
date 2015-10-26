@@ -55,7 +55,7 @@ String  UG_Sauna_Heizung_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"
 //---------------------------------------------------------------------------------------------------------------
 // EG_Windfang_Heating MEQ0182100
 Group:Number:AVG  CTRL_Heating
-Group EG_Windfang_Heating (EG_Windfang)
+Group EG_Windfang_Heating (EG_Windfang, Heizkoerper)
 
 Number  EG_Windfang_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  EG_Windfang_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182100, channel=4, parameter=AUTO_MODE" }
@@ -73,7 +73,7 @@ Contact EG_Windfang_Heating_LOWBAT             "EG Windfang Batterie [MAP(zustan
 //---------------------------------------------------------------------------------------------------------------
 // EG_Vorzimmer_Heating MEQ0182105
 Group:Number:AVG  CTRL_Heating
-Group EG_Vorzimmer_Heating (EG_Vorzimmer)
+Group EG_Vorzimmer_Heating (EG_Vorzimmer, Heizkoerper)
 
 Number  EG_Vorzimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  EG_Vorzimmer_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182105, channel=4, parameter=AUTO_MODE" }
@@ -91,7 +91,7 @@ Contact EG_Vorzimmer_Heating_LOWBAT             "EG Vorzimmer Batterie [MAP(zust
 //---------------------------------------------------------------------------------------------------------------
 // EG_Kueche_Heating MEQ0182095
 Group:Number:AVG  CTRL_Heating
-Group EG_Kueche_Heating (EG_Kueche)
+Group EG_Kueche_Heating (EG_Kueche, Heizkoerper)
 
 Number  EG_Kueche_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  EG_Kueche_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182095, channel=4, parameter=AUTO_MODE" }
@@ -109,7 +109,7 @@ Contact EG_Kueche_Heating_LOWBAT             "EG Kueche Batterie [MAP(zustand.ma
 //---------------------------------------------------------------------------------------------------------------
 // EG_Esszimmer_Heating MEQ0182064
 Group:Number:AVG  CTRL_Heating
-Group EG_Esszimmer_Heating (EG_Esszimmer)
+Group EG_Esszimmer_Heating (EG_Esszimmer, Heizkoerper)
 
 Number  EG_Esszimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  EG_Esszimmer_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182064, channel=4, parameter=AUTO_MODE" }
@@ -127,7 +127,7 @@ Contact EG_Esszimmer_Heating_LOWBAT             "EG Esszimmer Batterie [MAP(zust
 //---------------------------------------------------------------------------------------------------------------
 // EG_Wohnzimmer_Heating MEQ0182042
 Group:Number:AVG  CTRL_Heating
-Group EG_Wohnzimmer_Heating (EG_Wohnzimmer)
+Group EG_Wohnzimmer_Heating (EG_Wohnzimmer, Heizkoerper)
 
 Number  EG_Wohnzimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  EG_Wohnzimmer_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182042, channel=4, parameter=AUTO_MODE" }
@@ -143,27 +143,27 @@ String  EG_Wohnzimmer_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map)
 Contact EG_Wohnzimmer_Heating_LOWBAT             "EG Wohnzimmer Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQ0182042, channel=0, parameter=LOWBAT"}
 
 //---------------------------------------------------------------------------------------------------------------
-// OG_Bad_Heating MEQ0182097
+// OG_Bad_Heating MEQBUYME
 Group:Number:AVG  CTRL_Heating
-Group OG_Bad_Heating (OG_Bad)
+Group OG_Bad_Heating (OG_Bad, Heizkoerper)
 
 Number  OG_Bad_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
-Switch  OG_Bad_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=AUTO_MODE" }
-Switch  OG_Bad_STATE_BOOST    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=BOOST_MODE" }
-Switch  OG_Bad_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=LOWERING_MODE" }
-Switch  OG_Bad_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=COMFORT_MODE" }
-Number  OG_Bad_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182097, channel=4, parameter=SET_TEMPERATURE" }
-Number  Temperature_OG_Bad_Heating  "Temperatur OG Bad [%.1f °C]"    <temperature>   (Temperature, OG_Bad, Temperature_OG, OG_Bad_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Bad_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Bad_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=VALVE_STATE" }
-String  OG_Bad_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=CONTROL_MODE" }
-Number  OG_Bad_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=BOOST_STATE" }
-String  OG_Bad_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=FAULT_REPORTING" }
-Contact OG_Bad_Heating_LOWBAT             "OG Bad Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQ0182097, channel=0, parameter=LOWBAT"}
+Switch  OG_Bad_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=AUTO_MODE" }
+Switch  OG_Bad_STATE_BOOST    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=BOOST_MODE" }
+Switch  OG_Bad_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=LOWERING_MODE" }
+Switch  OG_Bad_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=COMFORT_MODE" }
+Number  OG_Bad_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQBUYME, channel=4, parameter=SET_TEMPERATURE" }
+Number  Temperature_OG_Bad_Heating  "Temperatur OG Bad [%.1f °C]"    <temperature>   (Temperature, OG_Bad, Temperature_OG, OG_Bad_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=ACTUAL_TEMPERATURE" }
+Number  OG_Bad_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Bad_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=VALVE_STATE" }
+String  OG_Bad_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=CONTROL_MODE" }
+Number  OG_Bad_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Bad_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=BOOST_STATE" }
+String  OG_Bad_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=FAULT_REPORTING" }
+Contact OG_Bad_Heating_LOWBAT             "OG Bad Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQBUYME, channel=0, parameter=LOWBAT"}
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Barbara_Heating MEQ0182655
 Group:Number:AVG  CTRL_Heating
-Group OG_Barbara_Heating (OG_Barbara)
+Group OG_Barbara_Heating (OG_Barbara, Heizkoerper)
 
 Number  OG_Barbara_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  OG_Barbara_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182655, channel=4, parameter=AUTO_MODE" }
@@ -181,7 +181,7 @@ Contact OG_Barbara_Heating_LOWBAT             "OG Barbara Batterie [MAP(zustand.
 //---------------------------------------------------------------------------------------------------------------
 // OG_Dominik_Heating MEQ0182136
 Group:Number:AVG  CTRL_Heating
-Group OG_Dominik_Heating (OG_Dominik)
+Group OG_Dominik_Heating (OG_Dominik, Heizkoerper)
 
 Number  OG_Dominik_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  OG_Dominik_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182136, channel=4, parameter=AUTO_MODE" }
@@ -199,7 +199,7 @@ Contact OG_Dominik_Heating_LOWBAT             "OG Dominik Batterie [MAP(zustand.
 //---------------------------------------------------------------------------------------------------------------
 // OG_Gang_Heating MEQ0182081
 Group:Number:AVG  CTRL_Heating
-Group OG_Gang_Heating (OG_Gang)
+Group OG_Gang_Heating (OG_Gang, Heizkoerper)
 
 Number  OG_Gang_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  OG_Gang_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182081, channel=4, parameter=AUTO_MODE" }
@@ -217,7 +217,7 @@ Contact OG_Gang_Heating_LOWBAT             "OG Gang Batterie [MAP(zustand.map):%
 //---------------------------------------------------------------------------------------------------------------
 // OG_Schlafzimmer_left_Heating MEQ0182106
 Group:Number:AVG  CTRL_Heating
-Group OG_Schlafzimmer_left_Heating (OG_Schlafzimmer_left)
+Group OG_Schlafzimmer_left_Heating (OG_Schlafzimmer_left, Heizkoerper)
 
 Number  OG_Schlafzimmer_left_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  OG_Schlafzimmer_left_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182106, channel=4, parameter=AUTO_MODE" }
@@ -235,7 +235,7 @@ Contact OG_Schlafzimmer_left_Heating_LOWBAT             "OG Schlafzimmer_left Ba
 //---------------------------------------------------------------------------------------------------------------
 // OG_Schlafzimmer_right_Heating MEQ0182137
 Group:Number:AVG  CTRL_Heating
-Group OG_Schlafzimmer_right_Heating (OG_Schlafzimmer_right)
+Group OG_Schlafzimmer_right_Heating (OG_Schlafzimmer_right, Heizkoerper)
 
 Number  OG_Schlafzimmer_right_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
 Switch  OG_Schlafzimmer_right_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182137, channel=4, parameter=AUTO_MODE" }
@@ -251,19 +251,19 @@ String  OG_Schlafzimmer_right_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT
 Contact OG_Schlafzimmer_right_Heating_LOWBAT             "OG Schlafzimmer_right Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQ0182137, channel=0, parameter=LOWBAT"}
 
 //---------------------------------------------------------------------------------------------------------------
-// UG_Hannes_Heating MEQBUYME
+// UG_Hannes_Heating MEQ0182097
 Group:Number:AVG  CTRL_Heating
-Group UG_Hannes_Heating (UG_Hannes)
+Group UG_Hannes_Heating (UG_Hannes, Heizkoerper)
 
 Number  UG_Hannes_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
-Switch  UG_Hannes_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=AUTO_MODE" }
-Switch  UG_Hannes_STATE_BOOST    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=BOOST_MODE" }
-Switch  UG_Hannes_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=LOWERING_MODE" }
-Switch  UG_Hannes_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQBUYME, channel=4, parameter=COMFORT_MODE" }
-Number  UG_Hannes_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQBUYME, channel=4, parameter=SET_TEMPERATURE" }
-Number  Temperature_UG_Hannes_Heating  "Temperatur UG Hannes [%.1f °C]"    <temperature>   (Temperature, UG_Hannes, Temperature_UG, UG_Hannes_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  UG_Hannes_Heating_VALVE    "Ventil [%d %%]"        <heating>       (UG_Hannes_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=VALVE_STATE" }
-String  UG_Hannes_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=CONTROL_MODE" }
-Number  UG_Hannes_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (UG_Hannes_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=BOOST_STATE" }
-String  UG_Hannes_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQBUYME, channel=4, parameter=FAULT_REPORTING" }
-Contact UG_Hannes_Heating_LOWBAT             "UG Hannes Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQBUYME, channel=0, parameter=LOWBAT"}
+Switch  UG_Hannes_STATE_AUTO    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=AUTO_MODE" }
+Switch  UG_Hannes_STATE_BOOST    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=BOOST_MODE" }
+Switch  UG_Hannes_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=LOWERING_MODE" }
+Switch  UG_Hannes_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=COMFORT_MODE" }
+Number  UG_Hannes_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182097, channel=4, parameter=SET_TEMPERATURE" }
+Number  Temperature_UG_Hannes_Heating  "Temperatur UG Hannes [%.1f °C]"    <temperature>   (Temperature, UG_Hannes, Temperature_UG, UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=ACTUAL_TEMPERATURE" }
+Number  UG_Hannes_Heating_VALVE    "Ventil [%d %%]"        <heating>       (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=VALVE_STATE" }
+String  UG_Hannes_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=CONTROL_MODE" }
+Number  UG_Hannes_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=BOOST_STATE" }
+String  UG_Hannes_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=FAULT_REPORTING" }
+Contact UG_Hannes_Heating_LOWBAT             "UG Hannes Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=MEQ0182097, channel=0, parameter=LOWBAT"}
