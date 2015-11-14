@@ -4,8 +4,8 @@ import org.openhab.model.script.actions.*
 import org.joda.time.*
 import java.lang.Math
 
-var DateTime letzteAblesungDatum = parse("2015-04-28")
-var Number letzteAblesungWert = 113757
+var DateTime letzteAblesungDatum = parse("2015-11-13")
+var Number letzteAblesungWert = 115699
 var Number letzteAblesungJahresverbrauch = 2166
 
 rule "Last daily electricity consumption"
