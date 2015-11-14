@@ -55,11 +55,11 @@ Group:Number:MAX         Temperature  "Max. Room Temperature [%.1f °C]"   <temp
 Group:Number:MAX         Temperature_OG  "Max. Room Temperature OG [%.1f °C]"   <temperature>  (gOG)
 Group:Number:MAX         Temperature_EG  "Max. Room Temperature EG [%.1f °C]"   <temperature>  (gEG)
 Group:Number:MAX         Temperature_UG  "Max. Room Temperature UG [%.1f °C]"   <temperature>  (gUG)
-Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"   <temperature>  (Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG)  {mqtt="<[proton:/mySensors/1/1/V_TEMP:state:default]"}
+Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"   <temperature>  (Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG) { homematic="address=LEQ0868021,channel=1,parameter=TEMPERATURE" }
 Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
 Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
-Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) {mqtt="<[proton:/mySensors/20/1/V_TEMP:state:default]"}
+Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0867920,channel=1,parameter=TEMPERATURE" }
 //Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Sauna   "Temperatur Sauna [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
 Number Temperature_UG_Wirtschaftsraum   "Temperatur Wirtschaftsraum [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/22/1/V_TEMP:state:default]"}
@@ -70,9 +70,9 @@ Group:Number:MAX         Humidity  "Max. Room Humidity [%.1f %%Rh]"   <temperatu
 Group:Number:MAX         Humidity_OG  "Max. Room Humidity OG [%.1f %%Rh]"   <temperature>  (gOG)
 Group:Number:MAX         Humidity_EG  "Max. Room Humidity EG [%.1f %%Rh]"   <temperature>  (gEG)
 Group:Number:MAX         Humidity_UG  "Max. Room Humidity UG [%.1f %%Rh]"   <temperature>  (gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { mqtt="<[proton:/mySensors/1/0/V_HUM:state:default]"}
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { homematic="address=LEQ0868021,channel=1,parameter=HUMIDITY" }
 Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, Monitoring, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)     { mqtt="<[proton:/mySensors/20/0/V_HUM:state:default]"}
+Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)  { homematic="address=LEQ0867920,channel=1,parameter=HUMIDITY" }
 Number Humidity_EG_Wohnzimmer   "Luftfeuchte Wohnzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, EG_Wohnzimmer, Humidity_EG) { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Sauna   "Luftfeuchte Sauna [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
 Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/22/0/V_HUM:state:default]"}
