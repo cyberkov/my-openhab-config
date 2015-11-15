@@ -9,27 +9,16 @@ rule "Lights on when paused"
 when
         Item UG_Hannes_XBMC_State changed from Play to Pause
 then
-        var Date sunsetTime = (Sunset_Time.state as DateTimeType).calendar.time
-        var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
-        if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
-/*                brightnessBeforePause = LivingRoom_Lamp.state as DecimalType
-                if ( brightnessBeforePause < 50){
-                        sendCommand( LivingRoom_Lamp, "50")
-                }
-*/
-          sendCommand( UG_Hannes_Power_Lamp, ON )
+        if( mode_night.state == ON ) {
+          sendCommand( UG_Hannes_Deckenlampe, ON )
         }
-
 end
 
 rule "Lights off when pause end"
 when
         Item UG_Hannes_XBMC_State changed from Pause to Play
 then
- /*       if (LivingRoom_Lamp.state == 50){
-                sendCommand( LivingRoom_Lamp, brightnessBeforePause)
-        } */
-        sendCommand( UG_Hannes_Power_Lamp, OFF )
+        sendCommand( UG_Hannes_Deckenlampe, OFF )
 end
 
 rule "Lights off when screensaver activates"
@@ -39,10 +28,7 @@ then
     if(UG_Hannes_XBMC_Screensaver.state == ON)
     {
         logInfo("screensaver", "turn lamp OFF")
-        sendCommand(UG_Hannes_Power_Lamp,OFF)
-//            } else{
-//        logInfo("screensaver", "turn lamp ON")
-//        sendCommand(UG_Hannes_Power_Lamp,ON)
+        sendCommand(UG_Hannes_Deckenlampe,OFF)
     }
 end
 

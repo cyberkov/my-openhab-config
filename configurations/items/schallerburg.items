@@ -79,7 +79,7 @@ Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"  
 //Number Humidity_UG_Hannes   "Luftfeuchte Hannes [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Hannes, Humidity_UG)
 
 /* Lueftungseffizienz */
-Group Lueftungseffizienz   <selfInfo>      (Maintenance)
+Group:Number:MAX Lueftungseffizienz   "Lüftungseffizienz [MAP(lueftung.map):%s]" <selfInfo>      (Maintenance)
 Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG, Lueftungseffizienz)
 Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG, Lueftungseffizienz)
 Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG, Lueftungseffizienz)

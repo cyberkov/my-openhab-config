@@ -47,18 +47,20 @@ sitemap default label="Schallerburg"
 //    Text label="Automatik"
 //  }
   Frame label="Warnungen" {
-    Text item=Network_Internet label="Internet [%s]" //itemcolor=["ON"="green","OFF"="red"]
-    Group item=Temperature label="Temperatur [%.1f °C]"
-    Group item=Humidity label="Luftfeuchte [%.1f %%Rh]"
+    Switch item=Network_Internet label="Internet [%s]" mappings=["ON"="ON","OFF"="Reset"]
+    Group item=Temperature label="Temperatur [%.1f °C]" valuecolor=[>23="orange",>19="green",>5="orange",<5="blue"]
+    Group item=Humidity label="Luftfeuchte [%.1f %%Rh]" valuecolor=[>65="orange",>45="green",>20="orange"]
+    Group item=Lueftungseffizienz
     Switch item=Security_Alarmanlage label="Alarmanlage" mappings=[ON="Scharf", OFF="Unscharf"]
     Text item=Alarm_Fire label="Feueralarm [%s]"
-    Text item=EG_Vorzimmer_Door //itemcolor=["zu"="green", "offen"="red"]
-    Text item=OG_Schlafzimmer_Door_left
-    Text item=OG_Schlafzimmer_Door_right
-    Text item=EG_Wohnzimmer_Door
-    Text item=UG_Hannes_Door
-    Text item=Lights label="Licht [%d]" icon="selfLight"
+    Text item=EG_Vorzimmer_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
+    Text item=OG_Schlafzimmer_Door_left valuecolor=["CLOSED"="green", "OPEN"="red"]
+    Text item=OG_Schlafzimmer_Door_right valuecolor=["CLOSED"="green", "OPEN"="red"]
+    Text item=EG_Wohnzimmer_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
+    Text item=UG_Hannes_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
+    Group item=Lights label="Licht [%d]" icon="selfLight"
     Text item=UG_Wirtschaftsraum_Therme label="Heizung [%s]"
+    Group item=Heatingvalve
     Text item=EG_Kueche_CCU2_Geschirrspueler label="Geschirrspueler [%s]" icon="geschirr"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
