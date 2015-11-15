@@ -16,7 +16,7 @@ Contact OG_Schlafzimmer_Door_left "Schlafzimmer Tuer links [MAP(de.map):%s]" <do
 Contact OG_Schlafzimmer_Door_right "Schlafzimmer Tuer rechts [MAP(de.map):%s]" <door>  (OG_Schlafzimmer, Openingcontacts) { homematic="address=MEQ0186709,channel=1,parameter=STATE" }
 Contact OG_Gang_Window "Vorzimmer OG Fenster [MAP(de.map):%s]" <door>  (OG_Gang, Openingcontacts) { homematic="address=MEQ0186720,channel=1,parameter=STATE" }
 Contact UG_Hannes_Window "Hannes Fenster [MAP(de.map):%s]" <door>  (UG_Hannes, Openingcontacts) { homematic="address=MEQ0186623,channel=1,parameter=STATE" }
-Contact UG_Hannes_Door "Hannes Tuer [MAP(de.map):%s]" <door>  (UG_Hannes, Openingcontacts) { homematic="address=MEQ0186547,channel=1,parameter=STATE" }
+Contact UG_Hannes_Door "Hannes Tuer [MAP(de.map):%s]" <door>  (UG_Hannes, Openingcontacts) { homematic="address=LEQ1085620,channel=1,parameter=STATE" }
 
 Contact EG_Vorzimmer_Door_Sabotage   "Eingangstuer Sabotagekontakt [MAP(sabotage.map):%s]"  <door>  (EG_Vorzimmer, Tamperswitches) { homematic="address=LEQ1177637,channel=1,parameter=ERROR" }
 Contact EG_Wohnzimmer_Door_Sabotage "Terrassentuer Sabotagekontakt [MAP(sabotage.map):%s]" <door>  (EG_Wohnzimmer, Tamperswitches) { homematic="address=MEQ0186561,channel=1,parameter=ERROR" }
