@@ -133,13 +133,13 @@ then
 end
 
 //----------------------------------------------------------
-// Schalte Btn1 mit der Fernbedienung
+// Schalte EG_Wohnzimmer_Power_Stehlampe mit der Fernbedienung
 //
-rule "Btn1"
+rule "EG_Wohnzimmer_Power_Stehlampe"
 when
-        Item Btn1_tog changed
+        Item EG_Wohnzimmer_Power_Stehlampe_tog changed
 then
-        sendCommand(Btn1, Btn1_tog.state.toString )
+        sendCommand(EG_Wohnzimmer_Power_Stehlampe, EG_Wohnzimmer_Power_Stehlampe_tog.state.toString )
 end
 
 //----------------------------------------------------------

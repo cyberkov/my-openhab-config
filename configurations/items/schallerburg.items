@@ -149,8 +149,8 @@ Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature
 /* Steckdosen */
 Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfSocket>
 Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets,InitializeON) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
-Switch Btn1 <socket> (Test,Sockets) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
-Switch Btn1_tog      (Maintenance)  { rfxcom="<15888502.1:Command"}
+Switch EG_Wohnzimmer_Power_Stehlampe "Wohnzimmer Stehlampe" <socket> (EG_Wohnzimmer,Lights) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
+Switch EG_Wohnzimmer_Power_Stehlampe_tog      (Maintenance)  { rfxcom="<15888502.1:Command"}
 Switch Btn3 <socket> (Test,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
 Switch Btn3_tog      (Maintenance)  { rfxcom="<66696.2:Command"}
 
