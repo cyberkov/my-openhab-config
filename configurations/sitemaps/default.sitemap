@@ -24,6 +24,7 @@ sitemap default label="Schallerburg"
         Group item=Motionsensors
       }
     }
+    Group item=Lights label="Licht [(%d)]" icon="selfLight"
     Group item=Sockets label="Steckdosen [(%d)]"
     Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
       Text item=EG_Vorzimmer_Bell_Last_Change
@@ -58,7 +59,6 @@ sitemap default label="Schallerburg"
     Text item=OG_Schlafzimmer_Door_right valuecolor=["CLOSED"="green", "OPEN"="red"]
     Text item=EG_Wohnzimmer_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
     Text item=UG_Hannes_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
-    Group item=Lights label="Licht [%d]" icon="selfLight"
     Text item=UG_Wirtschaftsraum_Therme label="Heizung [%s]"
     Group item=Heatingvalve
     Text item=EG_Kueche_CCU2_Geschirrspueler label="Geschirrspueler [%s]" icon="geschirr"
@@ -197,7 +197,6 @@ sitemap default label="Schallerburg"
           Chart item=Electricity_Last_Daily_Consumption period=Y refresh=86400 label="Strom"
         }
       }
-      Webview url="http://127.0.0.1:8080/static/map2.html"  height=12
     }
     Group item=Status     label="Status" icon="settings"
   }

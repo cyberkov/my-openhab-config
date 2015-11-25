@@ -187,12 +187,12 @@ Number UG_Sauna_Luftentfeuchter_frequency       "Luftentfeuchter Netzfrequenz [%
 Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Sauna)
 Number UG_Sauna_Luftentfeuchter_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Sauna)
 
-Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Sockets,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
 Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
 
-Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Sockets,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
+Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
 
-Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Sockets,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
 Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
 
 Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
