@@ -39,7 +39,7 @@ Number  UG_Sauna_Heizung_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f �
 Number  UG_Sauna_Heizung_ACTUALTEMP  "Aktuell gemessene Temperatur [%.1f °C]"    <temperature>   (UG_Sauna_Heizung)  { homematic="address=LEQ0584727, channel=4, parameter=ACTUAL_TEMPERATURE" }
 
 // Die aktuelle Ventiloeffnung, Angabe in Prozent
-Number  UG_Sauna_Heizung_VALVE    "Ventil [%d %%]"        <heating>       (UG_Sauna_Heizung,Heatingvalve)  { homematic="address=LEQ0584727, channel=4, parameter=VALVE_STATE" }
+Number  UG_Sauna_Heizung_VALVE    "UG Sauna Ventil [%d %%]"        <heating>       (UG_Sauna_Heizung,Heatingvalve)  { homematic="address=LEQ0584727, channel=4, parameter=VALVE_STATE" }
 
 // Der aktuelle Modus
 String  UG_Sauna_Heizung_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Sauna_Heizung)  { homematic="address=LEQ0584727, channel=4, parameter=CONTROL_MODE" }
@@ -65,7 +65,7 @@ Switch  EG_Windfang_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ01821
 Switch  EG_Windfang_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182100, channel=4, parameter=COMFORT_MODE" }
 Number  EG_Windfang_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182100, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_EG_Windfang_Heating  "Temperatur EG Windfang [%.1f °C]"    <temperature>   (Temperature, EG_Windfang, Temperature_EG, EG_Windfang_Heating)  { homematic="address=MEQ0182100, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  EG_Windfang_Heating_VALVE    "Ventil [%d %%]"        <heating>       (EG_Windfang_Heating,Heatingvalve)  { homematic="address=MEQ0182100, channel=4, parameter=VALVE_STATE" }
+Number  EG_Windfang_Heating_VALVE    "EG Windfang Ventil [%d %%]"        <heating>       (EG_Windfang_Heating,Heatingvalve)  { homematic="address=MEQ0182100, channel=4, parameter=VALVE_STATE" }
 String  EG_Windfang_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Windfang_Heating)  { homematic="address=MEQ0182100, channel=4, parameter=CONTROL_MODE" }
 Number  EG_Windfang_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (EG_Windfang_Heating)  { homematic="address=MEQ0182100, channel=4, parameter=BOOST_STATE" }
 String  EG_Windfang_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Windfang_Heating)  { homematic="address=MEQ0182100, channel=4, parameter=FAULT_REPORTING" }
@@ -83,7 +83,7 @@ Switch  EG_Vorzimmer_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182
 Switch  EG_Vorzimmer_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182105, channel=4, parameter=COMFORT_MODE" }
 Number  EG_Vorzimmer_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182105, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_EG_Vorzimmer_Heating  "Temperatur EG Vorzimmer [%.1f °C]"    <temperature>   (Temperature, EG_Vorzimmer, Temperature_EG, EG_Vorzimmer_Heating)  { homematic="address=MEQ0182105, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  EG_Vorzimmer_Heating_VALVE    "Ventil [%d %%]"        <heating>       (EG_Vorzimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182105, channel=4, parameter=VALVE_STATE" }
+Number  EG_Vorzimmer_Heating_VALVE    "EG Vorzimmer Ventil [%d %%]"        <heating>       (EG_Vorzimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182105, channel=4, parameter=VALVE_STATE" }
 String  EG_Vorzimmer_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Vorzimmer_Heating)  { homematic="address=MEQ0182105, channel=4, parameter=CONTROL_MODE" }
 Number  EG_Vorzimmer_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (EG_Vorzimmer_Heating)  { homematic="address=MEQ0182105, channel=4, parameter=BOOST_STATE" }
 String  EG_Vorzimmer_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Vorzimmer_Heating)  { homematic="address=MEQ0182105, channel=4, parameter=FAULT_REPORTING" }
@@ -101,7 +101,7 @@ Switch  EG_Kueche_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182095
 Switch  EG_Kueche_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182095, channel=4, parameter=COMFORT_MODE" }
 Number  EG_Kueche_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182095, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_EG_Kueche_Heating  "Temperatur EG Kueche [%.1f °C]"    <temperature>   (Temperature, EG_Kueche, Temperature_EG, EG_Kueche_Heating)  { homematic="address=MEQ0182095, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  EG_Kueche_Heating_VALVE    "Ventil [%d %%]"        <heating>       (EG_Kueche_Heating,Heatingvalve)  { homematic="address=MEQ0182095, channel=4, parameter=VALVE_STATE" }
+Number  EG_Kueche_Heating_VALVE    "EG Kueche Ventil [%d %%]"        <heating>       (EG_Kueche_Heating,Heatingvalve)  { homematic="address=MEQ0182095, channel=4, parameter=VALVE_STATE" }
 String  EG_Kueche_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Kueche_Heating)  { homematic="address=MEQ0182095, channel=4, parameter=CONTROL_MODE" }
 Number  EG_Kueche_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (EG_Kueche_Heating)  { homematic="address=MEQ0182095, channel=4, parameter=BOOST_STATE" }
 String  EG_Kueche_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Kueche_Heating)  { homematic="address=MEQ0182095, channel=4, parameter=FAULT_REPORTING" }
@@ -119,7 +119,7 @@ Switch  EG_Esszimmer_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182
 Switch  EG_Esszimmer_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182064, channel=4, parameter=COMFORT_MODE" }
 Number  EG_Esszimmer_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182064, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_EG_Esszimmer_Heating  "Temperatur EG Esszimmer [%.1f °C]"    <temperature>   (Temperature, EG_Esszimmer, Temperature_EG, EG_Esszimmer_Heating)  { homematic="address=MEQ0182064, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  EG_Esszimmer_Heating_VALVE    "Ventil [%d %%]"        <heating>       (EG_Esszimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182064, channel=4, parameter=VALVE_STATE" }
+Number  EG_Esszimmer_Heating_VALVE    "EG Esszimmer Ventil [%d %%]"        <heating>       (EG_Esszimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182064, channel=4, parameter=VALVE_STATE" }
 String  EG_Esszimmer_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Esszimmer_Heating)  { homematic="address=MEQ0182064, channel=4, parameter=CONTROL_MODE" }
 Number  EG_Esszimmer_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (EG_Esszimmer_Heating)  { homematic="address=MEQ0182064, channel=4, parameter=BOOST_STATE" }
 String  EG_Esszimmer_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Esszimmer_Heating)  { homematic="address=MEQ0182064, channel=4, parameter=FAULT_REPORTING" }
@@ -137,7 +137,7 @@ Switch  EG_Wohnzimmer_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ018
 Switch  EG_Wohnzimmer_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182042, channel=4, parameter=COMFORT_MODE" }
 Number  EG_Wohnzimmer_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182042, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_EG_Wohnzimmer_Heating  "Temperatur EG Wohnzimmer [%.1f °C]"    <temperature>   (Temperature, EG_Wohnzimmer, Temperature_EG, EG_Wohnzimmer_Heating)  { homematic="address=MEQ0182042, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  EG_Wohnzimmer_Heating_VALVE    "Ventil [%d %%]"        <heating>       (EG_Wohnzimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182042, channel=4, parameter=VALVE_STATE" }
+Number  EG_Wohnzimmer_Heating_VALVE    "EG Wohnzimmer Ventil [%d %%]"        <heating>       (EG_Wohnzimmer_Heating,Heatingvalve)  { homematic="address=MEQ0182042, channel=4, parameter=VALVE_STATE" }
 String  EG_Wohnzimmer_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Wohnzimmer_Heating)  { homematic="address=MEQ0182042, channel=4, parameter=CONTROL_MODE" }
 Number  EG_Wohnzimmer_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (EG_Wohnzimmer_Heating)  { homematic="address=MEQ0182042, channel=4, parameter=BOOST_STATE" }
 String  EG_Wohnzimmer_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (EG_Wohnzimmer_Heating)  { homematic="address=MEQ0182042, channel=4, parameter=FAULT_REPORTING" }
@@ -155,7 +155,7 @@ Switch  OG_Bad_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0233504, c
 Switch  OG_Bad_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0233504, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Bad_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0233504, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Bad_Heating  "Temperatur OG Bad [%.1f °C]"    <temperature>   (Temperature, OG_Bad, Temperature_OG, OG_Bad_Heating)  { homematic="address=MEQ0233504, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Bad_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Bad_Heating,Heatingvalve)  { homematic="address=MEQ0233504, channel=4, parameter=VALVE_STATE" }
+Number  OG_Bad_Heating_VALVE    "OG Bad Ventil [%d %%]"        <heating>       (OG_Bad_Heating,Heatingvalve)  { homematic="address=MEQ0233504, channel=4, parameter=VALVE_STATE" }
 String  OG_Bad_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0233504, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Bad_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0233504, channel=4, parameter=BOOST_STATE" }
 String  OG_Bad_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Bad_Heating)  { homematic="address=MEQ0233504, channel=4, parameter=FAULT_REPORTING" }
@@ -173,7 +173,7 @@ Switch  OG_Barbara_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ018265
 Switch  OG_Barbara_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182655, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Barbara_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182655, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Barbara_Heating  "Temperatur OG Barbara [%.1f °C]"    <temperature>   (Temperature, OG_Barbara, Temperature_OG, OG_Barbara_Heating)  { homematic="address=MEQ0182655, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Barbara_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Barbara_Heating,Heatingvalve)  { homematic="address=MEQ0182655, channel=4, parameter=VALVE_STATE" }
+Number  OG_Barbara_Heating_VALVE    "OG Barbara Ventil [%d %%]"        <heating>       (OG_Barbara_Heating,Heatingvalve)  { homematic="address=MEQ0182655, channel=4, parameter=VALVE_STATE" }
 String  OG_Barbara_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Barbara_Heating)  { homematic="address=MEQ0182655, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Barbara_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Barbara_Heating)  { homematic="address=MEQ0182655, channel=4, parameter=BOOST_STATE" }
 String  OG_Barbara_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Barbara_Heating)  { homematic="address=MEQ0182655, channel=4, parameter=FAULT_REPORTING" }
@@ -191,7 +191,7 @@ Switch  OG_Dominik_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ018213
 Switch  OG_Dominik_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182136, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Dominik_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182136, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Dominik_Heating  "Temperatur OG Dominik [%.1f °C]"    <temperature>   (Temperature, OG_Dominik, Temperature_OG, OG_Dominik_Heating)  { homematic="address=MEQ0182136, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Dominik_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Dominik_Heating,Heatingvalve)  { homematic="address=MEQ0182136, channel=4, parameter=VALVE_STATE" }
+Number  OG_Dominik_Heating_VALVE    "OG Dominik Ventil [%d %%]"        <heating>       (OG_Dominik_Heating,Heatingvalve)  { homematic="address=MEQ0182136, channel=4, parameter=VALVE_STATE" }
 String  OG_Dominik_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Dominik_Heating)  { homematic="address=MEQ0182136, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Dominik_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Dominik_Heating)  { homematic="address=MEQ0182136, channel=4, parameter=BOOST_STATE" }
 String  OG_Dominik_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Dominik_Heating)  { homematic="address=MEQ0182136, channel=4, parameter=FAULT_REPORTING" }
@@ -209,7 +209,7 @@ Switch  OG_Gang_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182081, 
 Switch  OG_Gang_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182081, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Gang_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182081, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Gang_Heating  "Temperatur OG Gang [%.1f °C]"    <temperature>   (Temperature, OG_Gang, Temperature_OG, OG_Gang_Heating)  { homematic="address=MEQ0182081, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Gang_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Gang_Heating,Heatingvalve)  { homematic="address=MEQ0182081, channel=4, parameter=VALVE_STATE" }
+Number  OG_Gang_Heating_VALVE    "OG Gang Ventil [%d %%]"        <heating>       (OG_Gang_Heating,Heatingvalve)  { homematic="address=MEQ0182081, channel=4, parameter=VALVE_STATE" }
 String  OG_Gang_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Gang_Heating)  { homematic="address=MEQ0182081, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Gang_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Gang_Heating)  { homematic="address=MEQ0182081, channel=4, parameter=BOOST_STATE" }
 String  OG_Gang_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Gang_Heating)  { homematic="address=MEQ0182081, channel=4, parameter=FAULT_REPORTING" }
@@ -227,7 +227,7 @@ Switch  OG_Schlafzimmer_left_STATE_ECO    (CTRL_Heating)    { homematic="address
 Switch  OG_Schlafzimmer_left_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182106, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Schlafzimmer_left_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182106, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Schlafzimmer_left_Heating  "Temperatur OG Schlafzimmer_left [%.1f °C]"    <temperature>   (Temperature, OG_Schlafzimmer_left, Temperature_OG, OG_Schlafzimmer_left_Heating)  { homematic="address=MEQ0182106, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Schlafzimmer_left_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Schlafzimmer_left_Heating,Heatingvalve)  { homematic="address=MEQ0182106, channel=4, parameter=VALVE_STATE" }
+Number  OG_Schlafzimmer_left_Heating_VALVE    "OG Schlafzimmer links Ventil [%d %%]"        <heating>       (OG_Schlafzimmer_left_Heating,Heatingvalve)  { homematic="address=MEQ0182106, channel=4, parameter=VALVE_STATE" }
 String  OG_Schlafzimmer_left_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Schlafzimmer_left_Heating)  { homematic="address=MEQ0182106, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Schlafzimmer_left_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Schlafzimmer_left_Heating)  { homematic="address=MEQ0182106, channel=4, parameter=BOOST_STATE" }
 String  OG_Schlafzimmer_left_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Schlafzimmer_left_Heating)  { homematic="address=MEQ0182106, channel=4, parameter=FAULT_REPORTING" }
@@ -245,7 +245,7 @@ Switch  OG_Schlafzimmer_right_STATE_ECO    (CTRL_Heating)    { homematic="addres
 Switch  OG_Schlafzimmer_right_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182137, channel=4, parameter=COMFORT_MODE" }
 Number  OG_Schlafzimmer_right_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182137, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_OG_Schlafzimmer_right_Heating  "Temperatur OG Schlafzimmer_right [%.1f °C]"    <temperature>   (Temperature, OG_Schlafzimmer_right, Temperature_OG, OG_Schlafzimmer_right_Heating)  { homematic="address=MEQ0182137, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  OG_Schlafzimmer_right_Heating_VALVE    "Ventil [%d %%]"        <heating>       (OG_Schlafzimmer_right_Heating,Heatingvalve)  { homematic="address=MEQ0182137, channel=4, parameter=VALVE_STATE" }
+Number  OG_Schlafzimmer_right_Heating_VALVE    "OG Schlafzimmer rechts Ventil [%d %%]"        <heating>       (OG_Schlafzimmer_right_Heating,Heatingvalve)  { homematic="address=MEQ0182137, channel=4, parameter=VALVE_STATE" }
 String  OG_Schlafzimmer_right_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Schlafzimmer_right_Heating)  { homematic="address=MEQ0182137, channel=4, parameter=CONTROL_MODE" }
 Number  OG_Schlafzimmer_right_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (OG_Schlafzimmer_right_Heating)  { homematic="address=MEQ0182137, channel=4, parameter=BOOST_STATE" }
 String  OG_Schlafzimmer_right_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (OG_Schlafzimmer_right_Heating)  { homematic="address=MEQ0182137, channel=4, parameter=FAULT_REPORTING" }
@@ -263,7 +263,7 @@ Switch  UG_Hannes_STATE_ECO    (CTRL_Heating)    { homematic="address=MEQ0182097
 Switch  UG_Hannes_STATE_COMFORT  (CTRL_Heating)    { homematic="address=MEQ0182097, channel=4, parameter=COMFORT_MODE" }
 Number  UG_Hannes_Heating_SET_TEMPERATURE  "Temperatur manuell einstellen [%.1f °C]"  <temperature>        { homematic="address=MEQ0182097, channel=4, parameter=SET_TEMPERATURE" }
 Number  Temperature_UG_Hannes_Heating  "Temperatur UG Hannes [%.1f °C]"    <temperature>   (Temperature, UG_Hannes, Temperature_UG, UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=ACTUAL_TEMPERATURE" }
-Number  UG_Hannes_Heating_VALVE    "Ventil [%d %%]"        <heating>       (UG_Hannes_Heating,Heatingvalve)  { homematic="address=MEQ0182097, channel=4, parameter=VALVE_STATE" }
+Number  UG_Hannes_Heating_VALVE    "UG Hannes Ventil [%d %%]"        <heating>       (UG_Hannes_Heating,Heatingvalve)  { homematic="address=MEQ0182097, channel=4, parameter=VALVE_STATE" }
 String  UG_Hannes_Heating_MODE    "Modus [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=CONTROL_MODE" }
 Number  UG_Hannes_Heating_BOOST_STATE  "Boost Restdauer [%d min]"      <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=BOOST_STATE" }
 String  UG_Hannes_Heating_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"    <heating>  (UG_Hannes_Heating)  { homematic="address=MEQ0182097, channel=4, parameter=FAULT_REPORTING" }
