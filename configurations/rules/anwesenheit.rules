@@ -26,7 +26,7 @@ when
   Item Presence_Hannes_Office changed from OFF to ON
 then
   logInfo("PresenceCheck", "Hannes ist im Bureau.")
-  pushover("Du bist nun im Bureau. Vergiss nicht BMD zu buchen!")
+  pushover("Du bist nun im Bureau. Vergiss nicht deine Arbeitszeiten zu buchen!")
 end
 
 rule "Hannes verlaesst Office"
@@ -34,7 +34,7 @@ when
   Item Presence_Hannes_Office changed from ON to OFF
 then
   logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
-  pushover("Du verlaesst nun das Bureau. Vergiss nicht BMD zu buchen!")
+  pushover("Du verlaesst nun das Bureau. Vergiss nicht deine Arbeitszeiten zu buchen!")
 end
 
 rule "MqttPostionParseHannes"
@@ -61,6 +61,7 @@ when
   Item Hannes_Remote_Anwesend changed to ON
 then
   sendCommand(Presence_Hannes_Home, ON)
+  JemandDa.sendCommand(ON)
   logInfo("PresenceCheck", "Hannes kommt nach Hause.")
 end
 
@@ -69,6 +70,7 @@ when
   Item Hannes_Remote_Abwesend changed to ON
 then
   sendCommand(Presence_Hannes_Home, OFF)
+  JemandDa.sendCommand(OFF)
   logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
 end
 
@@ -96,6 +98,7 @@ when
   Item Barbara_Remote_Anwesend changed to ON
 then
   sendCommand(Presence_Barbara_Home, ON)
+  JemandDa.sendCommand(ON)
 end
 
 rule "Barbara Fernbedienung Abwesend"
@@ -103,44 +106,45 @@ when
   Item Barbara_Remote_Abwesend changed to ON
 then
   sendCommand(Presence_Barbara_Home, OFF)
+  JemandDa.sendCommand(OFF)
 end
 
 //----------------------------------------------------------
 // Wenn niemand da ist, setze JemandDa auf OFF
 //
-rule "Ist noch wer im Haus"
-when
-  System started or
-  Item Presence_Hannes_Home changed or
-  Item Presence_Barbara_Home changed or
-  Item Presence_Guest_Home changed
-then
-  logInfo("PresenceCheck", "Kontrolliere ob noch jemand da ist:")
-        if( Presence_Hannes_Home.state == ON ) {
-    logInfo("PresenceCheck", "Hannes ist da.")
-    JemandDa.sendCommand(ON)
-        } else {
-    logInfo("PresenceCheck", "Hannes nicht.")
-        }
-
-        if( Presence_Barbara_Home.state == ON ) {
-    logInfo("PresenceCheck", "Barbara ist da.")
-    JemandDa.sendCommand(ON)
-        } else {
-    logInfo("PresenceCheck", "Barbara nicht.")
-        }
-
-        if( Presence_Guest_Home.state == ON ) {
-    logInfo("PresenceCheck", "Wir haben Gaeste.")
-    JemandDa.sendCommand(ON)
-        } else {
-          logInfo("PresenceCheck", "Keine Gaeste.")
-        }
-
-        if (( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF)) {
-          logInfo("PresenceCheck", "Alle weg.")
-          JemandDa.sendCommand(OFF)
-        } else {
-          logInfo("PresenceCheck", "Presence_Hannes_Home: [{}]. Presence_Barbara_Home: [{}]. Presence_Guest_Home: [{}].", Presence_Hannes_Home.state, Presence_Barbara_Home.state, Presence_Guest_Home.state)
-        }
-end
+//rule "Ist noch wer im Haus"
+//when
+//  System started or
+//  Item Presence_Hannes_Home changed or
+//  Item Presence_Barbara_Home changed or
+//  Item Presence_Guest_Home changed
+//then
+//  logInfo("PresenceCheck", "Kontrolliere ob noch jemand da ist:")
+//        if( Presence_Hannes_Home.state == ON ) {
+//    logInfo("PresenceCheck", "Hannes ist da.")
+//    JemandDa.sendCommand(ON)
+//        } else {
+//    logInfo("PresenceCheck", "Hannes nicht.")
+//        }
+//
+//        if( Presence_Barbara_Home.state == ON ) {
+//    logInfo("PresenceCheck", "Barbara ist da.")
+//    JemandDa.sendCommand(ON)
+//        } else {
+//    logInfo("PresenceCheck", "Barbara nicht.")
+//        }
+//
+//        if( Presence_Guest_Home.state == ON ) {
+//    logInfo("PresenceCheck", "Wir haben Gaeste.")
+//    JemandDa.sendCommand(ON)
+//        } else {
+//          logInfo("PresenceCheck", "Keine Gaeste.")
+//        }
+//
+//        if (( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF)) {
+//          logInfo("PresenceCheck", "Alle weg.")
+//          JemandDa.sendCommand(OFF)
+//        } else {
+//          logInfo("PresenceCheck", "Presence_Hannes_Home: [{}]. Presence_Barbara_Home: [{}]. Presence_Guest_Home: [{}].", Presence_Hannes_Home.state, Presence_Barbara_Home.state, Presence_Guest_Home.state)
+//        }
+//end

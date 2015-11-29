@@ -16,7 +16,8 @@ then
   if ( Security_Alarmanlage.state == ON ) {
     if ( ( Security_OpenWindows.state <= OpenContacts ) || (TamperswitchOpen >= 1 ) ) { // someone opened a door or window
       logInfo("AlarmanlageRule", "Windows opened during alarm active. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, OpenContacts, Tamperswitches.state)
-      Alarm_Security.postUpdate(ON)
+//      Alarm_Security.postUpdate(ON)
+      pushover("Alarm ausgeloest.")
     } else if ( Security_OpenWindows.state >= OpenContacts ) { // someone closed a door or window while the alarm is active
       logInfo("AlarmanlageRule", "Window closed. Security_OpenWindows: [{}], Openingcontacts: [{}], Tamperswitches: [{}]", Security_OpenWindows.state, OpenContacts, Tamperswitches.state)
       Security_OpenWindows.postUpdate(OpenContacts)
