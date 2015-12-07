@@ -1,5 +1,5 @@
-CLOSED=keine Bewegung
-OPEN=Bewegung erkannt
+CLOSED=Bewegung erkannt
+OPEN=keine Bewegung
 ON=An
 OFF=Aus
 undefined=undefiniert
