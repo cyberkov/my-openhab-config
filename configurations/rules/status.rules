@@ -16,12 +16,9 @@ rule "Send a status message at 21 if anything is NOT ok"
       if (Network_nas.state == OFF && !Network_nas.changedSince(now.minusHours(12))) {
               pushover('NAS is not responding, and has been off for 12 hours(' + Network_nas.lastUpdate.toString + ')')
       }
-      if (Network_mysensorgw.state == OFF && !Network_mysensorgw.changedSince(now.minusHours(12))) {
-              pushover('Mysensorsgw is not responding, and has been off for 12 hours(' + Network_mysensorgw.lastUpdate.toString + ')')
-      }
 
-      // Mysensors
-      Monitoring.allMembers.filter([ !changedSince(now.minusHours(12)) ]).map[
-        pushover( name + " has not changed since " + lastUpdate.toString + "." )
-      ]
+//      // Mysensors
+//      Monitoring.allMembers.filter([ !changedSince(now.minusHours(12)) ]).map[
+//        pushover( name + " has not changed since " + lastUpdate.toString + "." )
+//      ]
 end

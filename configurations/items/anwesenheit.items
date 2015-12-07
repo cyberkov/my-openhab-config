@@ -10,9 +10,9 @@ Switch  JemandDa    "Anwesenheit"    <selfShield>  (Security,Anwesenheit,Persist
 //-------------------------
 // Switches zu Hannes
 //
-Switch  Presence_Hannes_Home    "Hannes @Home"    <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Home" }
+Switch  Presence_Hannes_Home    "Hannes @Home"    <present>       (Anwesenheit) //  { mqttitude="proton:owntracks/cyberkov:Home" }
 String  Location_Hannes_Phone (gMobiles)   {mqtt="<[proton:owntracks/cyberkov:state:JS(mqttitude-coordinates.js)]"}
-Switch  Presence_Hannes_Office  "Hannes @Office"  <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Itsdone" }
+Switch  Presence_Hannes_Office  "Hannes @Office"  <present>       (Anwesenheit)   { mqttitude="proton:owntracks/cyberkov:Office" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
 
 String mqtt_Hannes_Position_Raw "Hannes Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/cyberkov:state:default]" }
@@ -22,7 +22,7 @@ Number mqtt_Hannes_Accuracy   "Genauigkeit [%s]" (gMobiles)
 Number mqtt_Hannes_Battery   "Batterie [%s]" (gMobiles)
 
 // Barbara
-Switch  Presence_Barbara_Home   "Barbara @Home"   <present>       (Anwesenheit)   { mqttitude="proton:owntracks/barbara:Home" }
+Switch  Presence_Barbara_Home   "Barbara @Home"   <present>       (Anwesenheit) //  { mqttitude="proton:owntracks/barbara:Home" }
 
 String mqtt_Barbara_Position_Raw "Barbara Last MQTT Report (Raw) [%s]" (gMobiles) { mqtt="<[proton:owntracks/barbara:state:default]" }
 Number mqtt_Barbara_Latitude "Latitude [%s]" (gMobiles)
@@ -31,8 +31,8 @@ Number mqtt_Barbara_Accuracy   "Genauigkeit [%s]" (gMobiles)
 Number mqtt_Barbara_Battery   "Batterie [%s]" (gMobiles)
 
 
-Group gMobiles (Test)
-Switch phone_hannes   (gMobiles) {nh="192.168.1.25"}
+//Group gMobiles (Test)
+//Switch phone_hannes   (gMobiles) {nh="192.168.1.25"}
 //Switch phone_barbara  (gMobiles) {nh="android-f107357c6bed4d40"}
 //Switch phone_tablet   (gMobiles) {nh="android-94404cd3b076b5b4"
 
