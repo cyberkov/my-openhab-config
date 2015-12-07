@@ -14,9 +14,9 @@ sitemap default label="Schallerburg"
         Group item=Anwesenheit
         Switch item=JemandDa
       }
-      Frame label="Aussen" {
-        Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"
-      }
+//      Frame label="Aussen" {
+//        Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"
+//      }
       Frame label="Innen" {
         Text item=Security_Last_Change label="Letzte Zustandsänderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"
         Group item=Openingcontacts
