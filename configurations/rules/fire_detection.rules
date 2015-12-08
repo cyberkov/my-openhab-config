@@ -14,15 +14,3 @@ then
         }
     }
 end
-
-rule "Fire alarm"
-when
-    Item Alarm_Fire received update ON
-then
-    // turn on all lights
-    // callScript("lights_on")
-
-    // send notifications
-    postUpdate(push_message_text, "FIRE alarm has been tripped!!!")
-
-end
