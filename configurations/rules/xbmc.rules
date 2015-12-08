@@ -31,12 +31,3 @@ then
         sendCommand(UG_Hannes_Deckenlampe,OFF)
     }
 end
-
-// XBMC Kueche Radio
-rule "Start Radio"
-when
-    Item EG_Kueche_XBMC_Radio changed to ON
-then
-    postUpdate(EG_Kueche_XBMC_Radio, OFF)
-    sendCommand(EG_Kueche_XBMC_OpenMedia, "http://mp3stream1.apasf.apa.at:8000")
-end
