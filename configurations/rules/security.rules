@@ -68,25 +68,25 @@ end
 //----------------------------------------------------------
 // Activate alarm if everyone is away
 //
-rule "Alarmanlage"
-when
-  Item JemandDa changed
-then
-        if( JemandDa.state == OFF ) {
-          logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
-
-          var String message = "Alle weg. Aktiviere Alarmanlage."
-          if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
-            val report = Openingcontacts.allMembers.filter([state == OPEN]).map[
-              name + ": " + state.format("%s")
-            ].join("\n")
-            message =  message + " Offene Fenster:\n" + report
-          }
-          logInfo("AlarmanlageRule", "Message: [{}]", message)
-          postUpdate(push_message_text, message)
-
-        } else {
-          logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
-          postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
-        }
-end
+//rule "Alarmanlage"
+//when
+//  Item JemandDa changed
+//then
+//        if( JemandDa.state == OFF ) {
+//          logInfo("AlarmanlageRule", "Aktiviere Alarmanlage.")
+//
+//          var String message = "Alle weg. Aktiviere Alarmanlage."
+//          if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {
+//            val report = Openingcontacts.allMembers.filter([state == OPEN]).map[
+//              name + ": " + state.format("%s")
+//            ].join("\n")
+//            message =  message + " Offene Fenster:\n" + report
+//          }
+//          logInfo("AlarmanlageRule", "Message: [{}]", message)
+//          postUpdate(push_message_text, message)
+//
+//        } else {
+//          logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
+//          postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
+//        }
+//end

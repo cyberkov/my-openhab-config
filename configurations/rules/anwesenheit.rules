@@ -3,148 +3,21 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 //----------------------------------------------------------
-// Hannes
+// Fernbedienungen
 //
-rule "Hannes verlaesst das Haus"
+rule "Fernbedienung Abwesend"
 when
-  Item Presence_Hannes_Home changed from ON to OFF
-then
-  logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
-  pushover("Viel Spass unterwegs, Hannes.")
-end
-
-rule "Hannes kommt nach Hause"
-when
-  Item Presence_Hannes_Home changed from OFF to ON
-then
-  logInfo("PresenceCheck", "Hannes kommt nach Hause.")
-  pushover("Willkommen zu Hause, Hannes.")
-end
-
-rule "Hannes im Office"
-when
-  Item Presence_Hannes_Office changed from OFF to ON
-then
-  logInfo("PresenceCheck", "Hannes ist im Bureau.")
-  pushover("Du bist nun im Bureau. Vergiss nicht deine Arbeitszeiten zu buchen!")
-end
-
-rule "Hannes verlaesst Office"
-when
-  Item Presence_Hannes_Office changed from ON to OFF
-then
-  logInfo("PresenceCheck", "Hannes verlaesst nun das Bureau.")
-  pushover("Du verlaesst nun das Bureau. Vergiss nicht deine Arbeitszeiten zu buchen!")
-end
-
-rule "MqttPostionParseHannes"
-  when
-    Item mqtt_Hannes_Position_Raw changed
-  then
-    var String json = (mqtt_Hannes_Position_Raw.state as StringType).toString
-    var String type = transform("JSONPATH", "$._type", json)
-    if (type == "location") {
-      var String lat  = transform("JSONPATH", "$.lat", json)
-      var String lon  = transform("JSONPATH", "$.lon", json)
-      var String acc  = transform("JSONPATH", "$.acc", json)
-      var String batt = transform("JSONPATH", "$.batt", json)
-
-      sendCommand(mqtt_Hannes_Latitude,  lat)
-      sendCommand(mqtt_Hannes_Longitude, lon)
-      sendCommand(mqtt_Hannes_Accuracy,   acc)
-      sendCommand(mqtt_Hannes_Battery,  batt)
-    }
-  end
-
-rule "Hannes Fernbedienung Abwesend"
-when
+  Item Barbara_Remote_Anwesend changed to ON or
   Item Hannes_Remote_Anwesend changed to ON
 then
-  sendCommand(Presence_Hannes_Home, ON)
   JemandDa.sendCommand(ON)
-  logInfo("PresenceCheck", "Hannes kommt nach Hause.")
 end
 
-rule "Hannes Fernbedienung Abwesend"
+rule "Fernbedienung Abwesend"
 when
+  Item Barbara_Remote_Abwesend changed to ON or
   Item Hannes_Remote_Abwesend changed to ON
 then
-  sendCommand(Presence_Hannes_Home, OFF)
-  JemandDa.sendCommand(OFF)
-  logInfo("PresenceCheck", "Hannes verlaesst das Haus.")
-end
-
-//----------------------------------------------------------
-// Barbara
-//
-rule "Barbara verlaesst das Haus"
-when
-  Item Presence_Barbara_Home changed from ON to OFF
-then
-  logInfo("PresenceCheck", "Barbara verlaesst das Haus.")
-  pushover(pushover_token_default.state.toString, pushover_token_barbara.state.toString, "Viel Spass unterwegs, Barbara.")
-end
-
-rule "Barbara kommt nach Hause"
-when
-  Item Presence_Barbara_Home changed from OFF to ON
-then
-  logInfo("PresenceCheck", "Barbara kommt nach Hause.")
-  pushover(pushover_token_default.state.toString, pushover_token_barbara.state.toString, "Willkommen zu Hause, Barbara.")
-end
-
-rule "Barbara Fernbedienung Abwesend"
-when
-  Item Barbara_Remote_Anwesend changed to ON
-then
-  sendCommand(Presence_Barbara_Home, ON)
-  JemandDa.sendCommand(ON)
-end
-
-rule "Barbara Fernbedienung Abwesend"
-when
-  Item Barbara_Remote_Abwesend changed to ON
-then
-  sendCommand(Presence_Barbara_Home, OFF)
   JemandDa.sendCommand(OFF)
 end
 
-//----------------------------------------------------------
-// Wenn niemand da ist, setze JemandDa auf OFF
-//
-//rule "Ist noch wer im Haus"
-//when
-//  System started or
-//  Item Presence_Hannes_Home changed or
-//  Item Presence_Barbara_Home changed or
-//  Item Presence_Guest_Home changed
-//then
-//  logInfo("PresenceCheck", "Kontrolliere ob noch jemand da ist:")
-//        if( Presence_Hannes_Home.state == ON ) {
-//    logInfo("PresenceCheck", "Hannes ist da.")
-//    JemandDa.sendCommand(ON)
-//        } else {
-//    logInfo("PresenceCheck", "Hannes nicht.")
-//        }
-//
-//        if( Presence_Barbara_Home.state == ON ) {
-//    logInfo("PresenceCheck", "Barbara ist da.")
-//    JemandDa.sendCommand(ON)
-//        } else {
-//    logInfo("PresenceCheck", "Barbara nicht.")
-//        }
-//
-//        if( Presence_Guest_Home.state == ON ) {
-//    logInfo("PresenceCheck", "Wir haben Gaeste.")
-//    JemandDa.sendCommand(ON)
-//        } else {
-//          logInfo("PresenceCheck", "Keine Gaeste.")
-//        }
-//
-//        if (( Presence_Hannes_Home.state == OFF ) && (Presence_Barbara_Home.state == OFF) && (Presence_Guest_Home.state == OFF)) {
-//          logInfo("PresenceCheck", "Alle weg.")
-//          JemandDa.sendCommand(OFF)
-//        } else {
-//          logInfo("PresenceCheck", "Presence_Hannes_Home: [{}]. Presence_Barbara_Home: [{}]. Presence_Guest_Home: [{}].", Presence_Hannes_Home.state, Presence_Barbara_Home.state, Presence_Guest_Home.state)
-//        }
-//end
