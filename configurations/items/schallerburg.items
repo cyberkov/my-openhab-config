@@ -216,13 +216,13 @@ String OG_Bad_currenttrack  "Bad CurrentTrack [%s]"  (OG_Bad,Sonos)   {sonos="[b
 String OG_Bad_radiostation  "Bad RadioStation [%s]"  (OG_Bad,Sonos)   {sonos="[bad:radio]", autoupdate="false"}
 Switch OG_Bad_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   {sonos="[ON:bad:play],[OFF:bad:pause]"}
 Switch OG_Bad_next          "Bad Next track"        (OG_Bad,Sonos)   {sonos="[ON:bad:next]"}
-Number OG_Bad_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos) {sonos="[bad:volume]", autoupdate="false"}
+Number OG_Bad_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos) {sonos="[bad:volume]"}
 
 String UG_Sauna_currenttrack  "Sauna CurrentTrack [%s]"  (UG_Sauna,Sonos)   {sonos="[sauna:currenttrack]", autoupdate="false"}
 String UG_Sauna_radiostation  "Sauna RadioStation [%s]"  (UG_Sauna,Sonos)   {sonos="[sauna:radio]", autoupdate="false"}
 Switch UG_Sauna_Play          "Sauna Play/Pause"        (UG_Sauna,Sonos)   {sonos="[ON:sauna:play],[OFF:sauna:pause]"}
 Switch UG_Sauna_next          "Sauna Next track"        (UG_Sauna,Sonos)   {sonos="[ON:sauna:next]"}
-Number UG_Sauna_Volume        "Sauna Volume [%.1f]"     (UG_Sauna,Sonos) {sonos="[sauna:volume]", autoupdate="false"}
+Number UG_Sauna_Volume        "Sauna Volume [%.1f]"     (UG_Sauna,Sonos) {sonos="[sauna:volume]"}
 
 //////////////// Test ////////////////
 
