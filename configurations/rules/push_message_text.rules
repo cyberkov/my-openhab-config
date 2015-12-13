@@ -1,0 +1,22 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+//----------------------------------------------------------
+// Pushover notifications are sent through the script
+// to the people currently in the house.
+// If no one is here the message is simply passed to
+// both.
+//
+rule "When text changes, send a push message"
+when
+        Item push_message_text received update
+then
+        logInfo('org.openhab', 'message text is: ' + push_message_text.state)
+        try {
+          callScript('pushMessages')
+        } catch (org.openhab.core.scriptengine.ScriptExecutionException e) {
+          pushover('Could not send push message: ' + push_message_text.state.toString)
+        }
+end
+
