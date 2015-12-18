@@ -15,17 +15,17 @@ then
   logInfo(    "Initializer", "Started Timer ...")
   createTimer(now.plusSeconds(45)) [|
       logInfo(    "Initializer", "... initializing!")
-      InitializeON?.members.filter( x | x.state == Uninitialized).forEach[ item |
+      InitializeON?.members.filter( x | x.state == NULL).forEach[ item |
         logInfo("Initializer", "... initialize {}", item.name)
         postUpdate(item, ON )
       ]
 
-      InitializeOFF?.members.filter( x | x.state == Uninitialized).forEach[ item |
+      InitializeOFF?.members.filter( x | x.state == NULL).forEach[ item |
         logInfo("Initializer", "... initialize {}", item.name)
         postUpdate(item, OFF )
       ]
 
-      InitializeZero?.members.filter( x | x.state == Uninitialized).forEach[ item |
+      InitializeZero?.members.filter( x | x.state == NULL).forEach[ item |
         logInfo("Initializer", "... initialize {}", item.name)
         postUpdate( item, 0)
       ]

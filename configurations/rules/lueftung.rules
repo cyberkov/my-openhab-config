@@ -110,7 +110,7 @@ then
     var double TDi
     var double TDo
 
-    if ( ( Temperature_OG != Uninitialized ) && ( Humidity_OG != Uninitialized ) && ( Weather_Temperature != Uninitialized ) && ( Weather_Humidity != Uninitialized ) ) {
+    if ( ( Temperature_OG != NULL ) && ( Humidity_OG != NULL ) && ( Weather_Temperature != NULL ) && ( Weather_Humidity != NULL ) ) {
       TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
       TDi = calculateDewPoint.apply((Temperature_OG.state as DecimalType).doubleValue, (Humidity_OG.state as DecimalType).doubleValue) as Double
       // Lueftungseffektivität ermitteln
@@ -148,7 +148,7 @@ then
     var double TDi
     var double TDo
 
-    if ( ( Temperature_EG != Uninitialized ) && ( Humidity_EG != Uninitialized ) && ( Weather_Temperature != Uninitialized ) && ( Weather_Humidity != Uninitialized ) ) {
+    if ( ( Temperature_EG != NULL ) && ( Humidity_EG != NULL ) && ( Weather_Temperature != NULL ) && ( Weather_Humidity != NULL ) ) {
       TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
       TDi = calculateDewPoint.apply((Temperature_EG.state as DecimalType).doubleValue, (Humidity_EG.state as DecimalType).doubleValue) as Double
       // Lueftungseffektivität ermitteln
@@ -179,7 +179,7 @@ then
     var double TDi
     var double TDo
 
-    if ( ( Temperature_UG != Uninitialized ) && ( Humidity_UG != Uninitialized ) && ( Weather_Temperature != Uninitialized ) && ( Weather_Humidity != Uninitialized ) ) {
+    if ( ( Temperature_UG != NULL ) && ( Humidity_UG != NULL ) && ( Weather_Temperature != NULL ) && ( Weather_Humidity != NULL ) ) {
       TDo = calculateDewPoint.apply((Weather_Temperature.state as DecimalType).doubleValue, (Weather_Humidity.state as DecimalType).doubleValue) as Double
       TDi = calculateDewPoint.apply((Temperature_UG.state as DecimalType).doubleValue, (Humidity_UG.state as DecimalType).doubleValue) as Double
       // Lueftungseffektivität ermitteln
