@@ -1,5 +1,3 @@
-import org.openhab.model.script.actions.Timer
-
 var Timer printerTimer = null
 
 rule "CUPS-Printer Queue"

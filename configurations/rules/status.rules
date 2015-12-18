@@ -1,7 +1,3 @@
-import org.openhab.core.library.types.*
-import org.openhab.core.persistence.*
-import org.openhab.model.script.actions.*
-
 rule "Send a status message at 21 if anything is NOT ok"
   when
       Time cron "0 0 21 ? * *"

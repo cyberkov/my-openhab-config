@@ -1,8 +1,3 @@
-import org.openhab.core.library.types.*
-import org.openhab.core.persistence.*
-import org.openhab.model.script.actions.*
-import java.util.Date
-
 // var Number brightnessBeforePause
 
 rule "Lights on when paused"

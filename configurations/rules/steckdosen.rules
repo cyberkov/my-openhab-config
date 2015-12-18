@@ -2,7 +2,6 @@
 // Marianne Spiller <github@spiller.me>
 // openhab-1.7.0-SNAPSHOT
 
-import org.openhab.core.library.types.*
 var Number Var_WH
 // Anbieterpreis für KWh incl. MwSt.
 var Number Naturkraft_KWH=0.51 // Naturkraft 14.5.2015

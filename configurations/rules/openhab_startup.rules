@@ -1,7 +1,3 @@
-import org.openhab.core.library.types.*
-import org.openhab.core.persistence.*
-import org.openhab.model.script.actions.*
-
 //----------------------------------------------------------
 // Some items are not persisted. They should be kept in a
 // certain state on startup.
