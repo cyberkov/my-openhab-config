@@ -55,7 +55,6 @@ String  UG_Sauna_Heizung_FAULT_REPORTING  "Fehlerwert [MAP(HM-CC-RT-DN.map):%s]"
 
 //---------------------------------------------------------------------------------------------------------------
 // EG_Windfang_Heating MEQ0182100
-Group:Number:AVG  CTRL_Heating
 Group EG_Windfang_Heating (EG_Windfang, Heizkoerper)
 
 Number  EG_Windfang_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -73,7 +72,6 @@ Contact EG_Windfang_Heating_LOWBAT             "EG Windfang Batterie [MAP(zustan
 
 //---------------------------------------------------------------------------------------------------------------
 // EG_Vorzimmer_Heating MEQ0182105
-Group:Number:AVG  CTRL_Heating
 Group EG_Vorzimmer_Heating (EG_Vorzimmer, Heizkoerper)
 
 Number  EG_Vorzimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -91,7 +89,6 @@ Contact EG_Vorzimmer_Heating_LOWBAT             "EG Vorzimmer Batterie [MAP(zust
 
 //---------------------------------------------------------------------------------------------------------------
 // EG_Kueche_Heating MEQ0182095
-Group:Number:AVG  CTRL_Heating
 Group EG_Kueche_Heating (EG_Kueche, Heizkoerper)
 
 Number  EG_Kueche_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -109,7 +106,6 @@ Contact EG_Kueche_Heating_LOWBAT             "EG Kueche Batterie [MAP(zustand.ma
 
 //---------------------------------------------------------------------------------------------------------------
 // EG_Esszimmer_Heating MEQ0182064
-Group:Number:AVG  CTRL_Heating
 Group EG_Esszimmer_Heating (EG_Esszimmer, Heizkoerper)
 
 Number  EG_Esszimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -127,7 +123,6 @@ Contact EG_Esszimmer_Heating_LOWBAT             "EG Esszimmer Batterie [MAP(zust
 
 //---------------------------------------------------------------------------------------------------------------
 // EG_Wohnzimmer_Heating MEQ0182042
-Group:Number:AVG  CTRL_Heating
 Group EG_Wohnzimmer_Heating (EG_Wohnzimmer, Heizkoerper)
 
 Number  EG_Wohnzimmer_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -145,7 +140,6 @@ Contact EG_Wohnzimmer_Heating_LOWBAT             "EG Wohnzimmer Batterie [MAP(zu
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Bad_Heating MEQ0233504
-Group:Number:AVG  CTRL_Heating
 Group OG_Bad_Heating (OG_Bad, Heizkoerper)
 
 Number  OG_Bad_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -163,7 +157,6 @@ Contact OG_Bad_Heating_LOWBAT             "OG Bad Batterie [MAP(zustand.map):%d]
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Barbara_Heating MEQ0182655
-Group:Number:AVG  CTRL_Heating
 Group OG_Barbara_Heating (OG_Barbara, Heizkoerper)
 
 Number  OG_Barbara_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -181,7 +174,6 @@ Contact OG_Barbara_Heating_LOWBAT             "OG Barbara Batterie [MAP(zustand.
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Dominik_Heating MEQ0182136
-Group:Number:AVG  CTRL_Heating
 Group OG_Dominik_Heating (OG_Dominik, Heizkoerper)
 
 Number  OG_Dominik_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -199,7 +191,6 @@ Contact OG_Dominik_Heating_LOWBAT             "OG Dominik Batterie [MAP(zustand.
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Gang_Heating MEQ0182081
-Group:Number:AVG  CTRL_Heating
 Group OG_Gang_Heating (OG_Gang, Heizkoerper)
 
 Number  OG_Gang_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -217,7 +208,6 @@ Contact OG_Gang_Heating_LOWBAT             "OG Gang Batterie [MAP(zustand.map):%
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Schlafzimmer_left_Heating MEQ0182106
-Group:Number:AVG  CTRL_Heating
 Group OG_Schlafzimmer_left_Heating (OG_Schlafzimmer_left, Heizkoerper)
 
 Number  OG_Schlafzimmer_left_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -235,7 +225,6 @@ Contact OG_Schlafzimmer_left_Heating_LOWBAT             "OG Schlafzimmer_left Ba
 
 //---------------------------------------------------------------------------------------------------------------
 // OG_Schlafzimmer_right_Heating MEQ0182137
-Group:Number:AVG  CTRL_Heating
 Group OG_Schlafzimmer_right_Heating (OG_Schlafzimmer_right, Heizkoerper)
 
 Number  OG_Schlafzimmer_right_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
@@ -253,7 +242,6 @@ Contact OG_Schlafzimmer_right_Heating_LOWBAT             "OG Schlafzimmer_right 
 
 //---------------------------------------------------------------------------------------------------------------
 // UG_Hannes_Heating MEQ0182097
-Group:Number:AVG  CTRL_Heating
 Group UG_Hannes_Heating (UG_Hannes, Heizkoerper)
 
 Number  UG_Hannes_Scene_Heating    "Modus Heizkoerper Sauna"      <sofa>
