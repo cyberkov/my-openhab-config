@@ -12,10 +12,10 @@ when
     Item Humidity_UG_Sauna changed
 then
   if (((Humidity_UG_Sauna.state >= 62) || (Humidity_UG_Sauna.state >= 57))) {
-    sendCommand(Humidity_UG_Sauna, ON)
+    sendCommand(UG_Sauna_Luftentfeuchter, ON)
   }
   else if ((Humidity_UG_Sauna.state < 57)) {
-    sendCommand(Humidity_UG_Sauna, OFF)
+    sendCommand(UG_Sauna_Luftentfeuchter, OFF)
   }
 end
 

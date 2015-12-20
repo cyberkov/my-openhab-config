@@ -1,0 +1,15 @@
+//schallerburg.items:112:Switch Network_Router          "Router"  <router>  (UG_Hannes, Network)   { nh="192.168.0.1" }
+//schallerburg.items:113:Switch Network_acedia          "acedia"  <router>  (UG_Hannes, Network)   { nh="192.168.1.1" }
+//schallerburg.items:114:Switch Network_nas    "NAS"    (UG_Hannes, Network)   { nh="192.168.1.5" }
+//schallerburg.items:115:Switch Network_ccu    "CCU"<homematic>  (UG_Hannes, Network)   { nh="192.168.1.6" }
+//schallerburg.items:116:Switch Network_pangea    "Pangea"      <computer> (UG_Hannes, Network)   { nh="192.168.1.9" }
+//schallerburg.items:117:Switch Network_raspi    "XBMC Hannes erreichbar" <video>  (UG_Hannes, Network)   { nh="192.168.1.12:9090" }
+//schallerburg.items:118:Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Network)   { nh="192.168.1.10:9090" }
+//schallerburg.items:119:Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { nh="192.168.1.23" }
+//schallerburg.items:208://Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+//schallerburg.items:209:Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66695.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+//schallerburg.items:250:Switch        tv_power    "TV"      <power>     (TV, proximity) {samsungtv="ON:Livingroom:KEY_POWERON, OFF:Livingroom:KEY_POWEROFF", nh="192.168.1.153"}
+//schallerburg.items:257:// Switch XBMC_Power  "XBMC Power"  (EG_Wohnzimmer)    { xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
+
+
+network:device:1 [ hostname="192.168.0.1", port="0", retry="1", timeout="5000", refresh_interval="60000", use_system_ping="true" ]

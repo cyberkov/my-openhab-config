@@ -34,11 +34,6 @@ Group UG_Wirtschaftsraum  "Wirtschaftsraum"  <cellar>    (gUG)
 // These items should be monitored for updates
 Group Monitoring          "Monitoring"          <selfInfo>              (Status)
 
-// Initialization helpers
-Group InitializeON      <selfInfo>      (Maintenance)
-Group InitializeOFF     <selfInfo>      (Maintenance)
-Group InitializeZero    <selfInfo>      (Maintenance)
-
 // Persistency Groups
 Group PersistentHistory
 Group PersistentChart
@@ -145,7 +140,7 @@ Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature
 
 /* Steckdosen */
 Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfSocket>
-Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets,InitializeON) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
+Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
 Switch EG_Wohnzimmer_Power_Stehlampe "Wohnzimmer Stehlampe" <socket> (EG_Wohnzimmer,Lights) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
 Switch EG_Wohnzimmer_Power_Stehlampe_tog      (Maintenance)  { rfxcom="<15888502.1:Command"}
 Switch Btn3 <socket> (Test,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
@@ -197,12 +192,17 @@ Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502
 
 //Astro
 Group Astro   (Status)
-DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"             <sunrise>       (Astro,PersistentCurrent)         { astro="planet=sun, type=rise, property=start, offset=0" }
-DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)         { astro="planet=sun, type=set, property=start, offset=0" }
-Switch          Sunrise_Event   "Sunrise Event"           <sunrise>       (Astro)         { astro="planet=sun, type=rise, property=start, offset=0" }
-Switch          Sunset_Event    "Sunset Event"         <sunrise>       (Astro)         { astro="planet=sun, type=set, property=start, offset=0" }
-Number          Azimuth         "Azimuth [%.2f]"                                                        (Astro)         { astro="planet=sun, type=position, property=azimuth" }
-Number          Elevation       "Elevation [%.2f]"                                                      (Astro)         { astro="planet=sun, type=position, property=elevation" }
+DateTime Sunrise_Time  "Sunrise [%1$tH:%1$tM]"
+DateTime Sunset_Time   "Sunset [%1$tH:%1$tM]" 
+Number   Azimuth       "Azimuth"                { channel="astro:sun:home:position#azimuth" }
+Number   Elevation     "Elevation"              { channel="astro:sun:home:position#elevation" }
+
+DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:rise#start" }
+DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
+Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
+Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
+Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { astro="planet=sun, type=position, property=azimuth" }
+Number          Elevation       "Elevation [%.2f]"                                (Astro)         { astro="planet=sun, type=position, property=elevation" }
 
 /* Drucker */
 //Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
