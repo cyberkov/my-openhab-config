@@ -8,3 +8,5 @@
 /extra/mysql_cleanup.sh
 /www/static/map2.html
 /bin/tvcheck.sh
+logback.xml
+logback_debug.xml
