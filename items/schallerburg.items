@@ -192,10 +192,8 @@ Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502
 
 //Astro
 Group Astro   (Status)
-DateTime Sunrise_Time  "Sunrise [%1$tH:%1$tM]"
-DateTime Sunset_Time   "Sunset [%1$tH:%1$tM]" 
-Number   Azimuth       "Azimuth"                { channel="astro:sun:home:position#azimuth" }
-Number   Elevation     "Elevation"              { channel="astro:sun:home:position#elevation" }
+//Number   Azimuth       "Azimuth"                { channel="astro:sun:home:position#azimuth" }
+//Number   Elevation     "Elevation"              { channel="astro:sun:home:position#elevation" }
 
 DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:rise#start" }
 DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
