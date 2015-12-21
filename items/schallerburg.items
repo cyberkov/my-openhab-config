@@ -112,8 +112,8 @@ Switch Network_pangea    "Pangea"      <computer> (UG_Hannes, Network)   { nh="1
 Switch Network_raspi    "XBMC Hannes erreichbar" <video>  (UG_Hannes, Network)   { nh="192.168.1.12:9090" }
 Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Network)   { nh="192.168.1.10:9090" }
 Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { nh="192.168.1.23" }
-Switch Network_Internet         "Internet" <internet>  (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
-Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 received.*/ON/\" -e \"s/.*0 received.*/OFF/\":30000:REGEX((.*))]" }
+Switch Network_Internet         "Internet" <internet>  (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
+Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
 
 /* Weather */
 Group Weather_Chart      (Weather)
@@ -201,8 +201,8 @@ DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>     
 DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
 Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
 Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
-Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { astro="planet=sun, type=position, property=azimuth" }
-Number          Elevation       "Elevation [%.2f]"                                (Astro)         { astro="planet=sun, type=position, property=elevation" }
+Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { channel="astro:sun:home:position#azimuth" }
+Number          Elevation       "Elevation [%.2f]"                                (Astro)         { channel="astro:sun:home:position#elevation" }
 
 /* Drucker */
 //Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
