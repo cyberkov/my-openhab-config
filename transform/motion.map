@@ -2,4 +2,4 @@ CLOSED=keine Bewegung
 OPEN=Bewegung erkannt
 ON=An
 OFF=Aus
-undefined=undefiniert
+NULL=undefiniert
