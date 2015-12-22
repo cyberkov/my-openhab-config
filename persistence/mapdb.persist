@@ -1,0 +1,12 @@
+// persistence strategies have a name and a definition and are referred to in the "Items" section
+Strategies {
+        everyMinute : "0 * * * * ?"
+}
+
+Items {
+        // everyChange, everyMinute, restoreOnStartup
+
+        // store everything for restore
+        * : strategy = everyMinute, everyChange, restoreOnStartup
+        PersistentChart* : strategy = everyMinute, restoreOnStartup
+}
