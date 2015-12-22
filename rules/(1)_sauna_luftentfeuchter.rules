@@ -11,7 +11,7 @@ rule "Sauna Luftentfeuchter"
 when
     Item Humidity_UG_Sauna changed
 then
-  if (((Humidity_UG_Sauna.state >= 62) || (Humidity_UG_Sauna.state >= 57))) {
+  if ((Humidity_UG_Sauna.state >= 62)) {
     sendCommand(UG_Sauna_Luftentfeuchter, ON)
   }
   else if ((Humidity_UG_Sauna.state < 57)) {
