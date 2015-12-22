@@ -9,7 +9,7 @@ String Gas_Forecast                           "Hochrechnung [%s]"              <
 Number Electricity_Meter                      "Zählerstand [%.2f KWh]"         <selfEnergy>   (Test,PersistentHistory) { homematic="address=MEQ0705859,channel=1,parameter=ENERGY_COUNTER" }
 Number Electricity_Meter_power                "Verbrauch [%.2f W]"             <selfEnergy>   (Test,PersistentHistory) { homematic="address=MEQ0705859,channel=1,parameter=POWER" }
 Number Electricity_Current_Daily_Consumption  "Tagesverbrauch [%.2f KWh]"      <selfEnergy>   (Test,PersistentCurrent)
-Number Electricity_Current_Consumption        "Aktueller Verbrauch [%d Watt]"  <selfEnergy>   (Test,PersistentChart)
+Number Electricity_Current_Consumption        "Aktueller Verbrauch [%d Watt]"  <selfEnergy>   (Test,PersistentChart) { homematic="address=MEQ0705859,channel=1,parameter=POWER" }
 Number Electricity_Last_Daily_Consumption     "Strom"                                         (Test,PersistentChart)
 Number Electricity_Annual_Consumption         "Aktuelle Periode [%.2f KWh]"    <selfEnergy>   (Test,PersistentCurrent)
 String Electricity_Forecast                   "Hochrechnung [%s]"              <selfEnergy>   (Test,PersistentCurrent)

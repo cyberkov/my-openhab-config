@@ -109,7 +109,7 @@ sitemap default label="Schallerburg"
           Chart item=Weather_Humidity period=D refresh=10000
         }
       }
-      Text item=Electricity_Current_Daily_Consumption label="Strom [%.2f KWh]"{
+      Text item=Electricity_Meter_power label="Strom [%.2f Wh]"{
         Frame {
           Text item=Electricity_Current_Daily_Consumption
           Text item=Electricity_Current_Consumption
@@ -122,7 +122,7 @@ sitemap default label="Schallerburg"
           Chart item=Electricity_Current_Consumption period=W refresh=10000
         }
       }
-      Text item=Gas_Current_Daily_Consumption label="Gas [%.2f m³]" {
+      Text item=Gas_Current_Consumption label="Gas [%.2f m³]" {
         Frame {
           Text item=Gas_Current_Daily_Consumption
           Text item=Gas_Current_Consumption

@@ -14,3 +14,4 @@ String pushover_token_default   "Pushover default [%s]" (Maintenance,PersistentC
 
 /* Text values */
 String push_message_text "Default message [%s]" (Maintenance)
+String say_message_text  "Default message [%s]" (Maintenance)

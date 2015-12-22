@@ -197,8 +197,8 @@ Group Astro   (Status)
 
 DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:rise#start" }
 DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
-Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
-Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
+//Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
+//Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
 Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { channel="astro:sun:home:position#azimuth" }
 Number          Elevation       "Elevation [%.2f]"                                (Astro)         { channel="astro:sun:home:position#elevation" }
 
@@ -210,17 +210,15 @@ Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <pr
 /* Sonos */
 Group Sonos (Status)
 
-String OG_Bad_currenttrack  "Bad CurrentTrack [%s]"  (OG_Bad,Sonos)   {sonos="[bad:currenttrack]", autoupdate="false"}
-String OG_Bad_radiostation  "Bad RadioStation [%s]"  (OG_Bad,Sonos)   {sonos="[bad:radio]", autoupdate="false"}
-Switch OG_Bad_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   {sonos="[ON:bad:play],[OFF:bad:pause]"}
-Switch OG_Bad_next          "Bad Next track"        (OG_Bad,Sonos)   {sonos="[ON:bad:next]"}
-Number OG_Bad_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos) {sonos="[bad:volume]"}
+String OG_Bad_Sonos_currenttrack  "Bad CurrentTrack [%s]" (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:currenttrack" }
+Player OG_Bad_Sonos_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:control" }
+Dimmer OG_Bad_Sonos_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:volume"}
+String OG_Bad_Sonos_uri           "Bad Playuri"           (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:playuri" }
 
-String UG_Sauna_currenttrack  "Sauna CurrentTrack [%s]"  (UG_Sauna,Sonos)   {sonos="[sauna:currenttrack]", autoupdate="false"}
-String UG_Sauna_radiostation  "Sauna RadioStation [%s]"  (UG_Sauna,Sonos)   {sonos="[sauna:radio]", autoupdate="false"}
-Switch UG_Sauna_Play          "Sauna Play/Pause"        (UG_Sauna,Sonos)   {sonos="[ON:sauna:play],[OFF:sauna:pause]"}
-Switch UG_Sauna_next          "Sauna Next track"        (UG_Sauna,Sonos)   {sonos="[ON:sauna:next]"}
-Number UG_Sauna_Volume        "Sauna Volume [%.1f]"     (UG_Sauna,Sonos) {sonos="[sauna:volume]"}
+String EG_wohnzimmer_Sonos_currenttrack  "Wohnzimmer CurrentTrack [%s]"  (EG_Wohnzimmer,Sonos)  { channel="sonos:zoneplayer:wohnzimmer:currenttrack" }
+Player EG_wohnzimmer_Sonos_Play          "Wohnzimmer Play/Pause"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:control" }
+Dimmer EG_wohnzimmer_Sonos_Volume        "Wohnzimmer Volume [%.1f]"      (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:volume"}
+String EG_wohnzimmer_Sonos_uri          "Wohnzimmer Playuri"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:playuri" }
 
 //////////////// Test ////////////////
 
