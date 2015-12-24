@@ -7,6 +7,6 @@ when
         System started
 then
   pushover("OpenHAB wurde gestartet.")
-
-  logInfo("Initializer", ""OpenHAB initilized.")
+  postUpdate(say_message_text, "OpenHAB wurde gestartet.")
+  logInfo("Initializer", "OpenHAB initialized.")
 end
