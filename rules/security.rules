@@ -45,8 +45,8 @@ end
 //
 rule "SecurityCheck vorm Weggehen"
 when
-        Item Barbara_Remote_AnAus changed to ON or
-        Item Hannes_Remote_AnAus changed to ON
+        Item Barbara_Remote_Abwesendchanged to ON or
+        Item Hannes_Remote_Abwesend changed to ON
 then
         var String message = "SecCheck:"
         if (! Openingcontacts.allMembers.filter([state == OPEN]).empty) {

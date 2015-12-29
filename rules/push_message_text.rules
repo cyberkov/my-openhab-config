@@ -14,5 +14,6 @@ then
         } catch (org.openhab.core.scriptengine.ScriptExecutionException e) {
           pushover('Could not send push message: ' + push_message_text.state.toString)
         }
+        sendCommand(display_message_text, push_message_text.state)
 end
 

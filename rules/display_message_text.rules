@@ -1,0 +1,13 @@
+//----------------------------------------------------------
+// Pushover notifications are sent through the script
+// to the people currently in the house.
+// If no one is here the message is simply passed to
+// both.
+//
+rule "When text changes, send a push message"
+when
+        Item display_message_text received update
+then
+        postUpdate(display_message,"{img:sender2_128.png}{backgroundColor:black}{text:<b>Meldungen</b><br>" + display_message_text.state + "}")
+end
+

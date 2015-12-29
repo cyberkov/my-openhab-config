@@ -8,5 +8,6 @@ when
 then
   pushover("OpenHAB wurde gestartet.")
   postUpdate(say_message_text, "OpenHAB wurde gestartet.")
+  postUpdate(display_message_text, "OpenHAB wurde gestartet.")
   logInfo("Initializer", "OpenHAB initialized.")
 end

@@ -12,8 +12,8 @@ String VoiceCommand
 Switch Testswitch  "Testswitch" (Test)
 
 // Alarmfunktion
-Switch Security_Alarmanlage   "Alarmanlage" <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarmanlage" }
-Switch Alarm_Security         "Alarm"       <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarm" }
+String Security_Alarmanlage   "Alarmanlage [%s]" <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarmanlage" }
+//Switch Alarm_Security         "Alarm"       <siren> (EG_Vorzimmer,Anwesenheit,PersistentCurrent) { homematic="variable=Alarm" }
 Number Security_OpenWindows   // Number of open Windows at time of activation
 
 // Feueralarm
