@@ -1,0 +1,11 @@
+//Astro
+Group Astro   (Status)
+//Number   Azimuth       "Azimuth"                { channel="astro:sun:home:position#azimuth" }
+//Number   Elevation     "Elevation"              { channel="astro:sun:home:position#elevation" }
+
+DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:rise#start" }
+DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
+//Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
+//Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
+Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { channel="astro:sun:home:position#azimuth" }
+Number          Elevation       "Elevation [%.2f]"                                (Astro)         { channel="astro:sun:home:position#elevation" }

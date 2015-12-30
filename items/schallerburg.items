@@ -5,7 +5,6 @@ Group gEG "Erdgeschoss"  <groundfloor>    (All)
 Group gOG "Obergeschoss" <firstfloor>    (All)
 Group gUG "Keller"       <cellar>         (All)
 Group Outdoor "Garten"   <garden>         (All)
-//Group Shutters   (All)
 Group Weather <sun_clouds> (All)
 Group Status              (All)
 Group Network <settings>  (Status)
@@ -45,196 +44,15 @@ Group:Switch:OR(ON, OFF)   Lights     "All Lights [(%d)]"             (All)
 
 //////////////// Fertig ////////////////
 
-/* Temperature */
-Group:Number:MAX         Temperature  "Max. Room Temperature [%.1f °C]"   <temperature>  (Status)
-Group:Number:MAX         Temperature_OG  "Max. Room Temperature OG [%.1f °C]"   <temperature>  (gOG)
-Group:Number:MAX         Temperature_EG  "Max. Room Temperature EG [%.1f °C]"   <temperature>  (gEG)
-Group:Number:MAX         Temperature_UG  "Max. Room Temperature UG [%.1f °C]"   <temperature>  (gUG)
-Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"   <temperature>  (Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG) { homematic="address=LEQ0868021,channel=1,parameter=TEMPERATURE" }
-Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
-Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
-Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0867920,channel=1,parameter=TEMPERATURE" }
-//Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna   "Temperatur Sauna [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
-//Number Temperature_UG_Wirtschaftsraum   "Temperatur Wirtschaftsraum [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/22/1/V_TEMP:state:default]"}
-//Number Temperature_UG_Hannes   "Temperatur Hannes [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Hannes, Temperature_UG)
-
-/* Humidity */
-Group:Number:MAX         Humidity  "Max. Room Humidity [%.1f %%Rh]"   <temperature>  (Status)
-Group:Number:MAX         Humidity_OG  "Max. Room Humidity OG [%.1f %%Rh]"   <temperature>  (gOG)
-Group:Number:MAX         Humidity_EG  "Max. Room Humidity EG [%.1f %%Rh]"   <temperature>  (gEG)
-Group:Number:MAX         Humidity_UG  "Max. Room Humidity UG [%.1f %%Rh]"   <temperature>  (gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { homematic="address=LEQ0868021,channel=1,parameter=HUMIDITY" }
-Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, Monitoring, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)  { homematic="address=LEQ0867920,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Wohnzimmer   "Luftfeuchte Wohnzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, EG_Wohnzimmer, Humidity_EG) { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Sauna   "Luftfeuchte Sauna [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
-//Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/22/0/V_HUM:state:default]"}
-//Number Humidity_UG_Hannes   "Luftfeuchte Hannes [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Hannes, Humidity_UG)
-
-/* Lueftungseffizienz */
-Group:Number:MAX Lueftungseffizienz   "Lüftungseffizienz [MAP(lueftung.map):%s]" <selfInfo>      (Maintenance)
-Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG, Lueftungseffizienz)
-Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG, Lueftungseffizienz)
-Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG, Lueftungseffizienz)
-Number Dewpoint_OG        "Taupunkt OG [%.1f °C]" <temperature> (gOG)
-Number Dewpoint_EG        "Taupunkt EG [%.1f °C]" <temperature> (gEG)
-Number Dewpoint_UG        "Taupunkt UG [%.1f °C]" <temperature> (gUG)
-Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor)
-
-
-/* Bell */
-Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)
-Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfBell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
-Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfBell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
-DateTime  EG_Vorzimmer_Bell_Last_Change  "Klingel [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfBell>   (EG_Vorzimmer,PersistentCurrent)
-
-/* Fernbedienungen */
-Switch Barbara_Remote_Anwesend { homematic="address=LEQ0496279, channel=1, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_Abwesend { homematic="address=LEQ0496279, channel=2, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_Licht    { homematic="address=LEQ0496279, channel=3, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_AnAus    { homematic="address=LEQ0496279, channel=4, parameter=PRESS_SHORT" }
-Contact Barbara_Remote_LOWBAT   "Barbara Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0496279, channel=0, parameter=LOWBAT"}
-
-Switch Hannes_Remote_Anwesend { homematic="address=LEQ0496323, channel=1, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_Abwesend { homematic="address=LEQ0496323, channel=2, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_Licht    { homematic="address=LEQ0496323, channel=3, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_AnAus    { homematic="address=LEQ0496323, channel=4, parameter=PRESS_SHORT" }
-Contact Hannes_Remote_LOWBAT   "Hannes Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0496323, channel=0, parameter=LOWBAT"}
-
-/* Network Health */
-Switch Network_Router          "Router"  <router>  (UG_Hannes, Network)   { nh="192.168.0.1" }
-Switch Network_acedia          "acedia"  <router>  (UG_Hannes, Network)   { nh="192.168.1.1" }
-Switch Network_nas    "NAS"    (UG_Hannes, Network)   { nh="192.168.1.5" }
-Switch Network_ccu    "CCU"<homematic>  (UG_Hannes, Network)   { nh="192.168.1.6" }
-Switch Network_pangea    "Pangea"      <computer> (UG_Hannes, Network)   { nh="192.168.1.9" }
-Switch Network_raspi    "XBMC Hannes erreichbar" <video>  (UG_Hannes, Network)   { nh="192.168.1.12:9090" }
-Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Network)   { nh="192.168.1.10:9090" }
-Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { nh="192.168.1.23" }
-Switch Network_Internet         "Internet" <internet>  (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
-Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
-
-/* Weather */
-Group Weather_Chart      (Weather)
-Number  Weather_Temperature   "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { homematic="address=LEQ0798807,channel=1,parameter=TEMPERATURE" }
-Number  Weather_Humidity      "Luftfeuchte Aussen [%d %%]"   <temperature> (Weather,Outdoor)       { homematic="address=LEQ0798807,channel=1,parameter=HUMIDITY" }
-
-//Number Weather_Temperature     "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
-Number Weather_Temp_Max     "Todays Maximum [%.1f °C]"  <temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=max"}
-Number Weather_Temp_Min     "Todays Minimum [%.1f °C]"  <temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=min"}
-Number Weather_Chart_Period    "Chart Period"
-DateTime Weather_LastUpdate             "Last update [%1$td.%1$tm. %1$tH:%1$tM]"  <clock> (Weather)  {weather="locationId=home, type=condition, property=lastUpdate"}
-
-//Number   Weather_Humidity               "Luftfeuchte Aussen [%d %%]"    <temperature> (Weather,Outdoor)  {weather="locationId=home, type=athmosphere, property=humidity"}
-String   Weather_CommonId               "[MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, type=condition, property=commonId"}
-String   Weather_CommonId_today         "heute: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=0, type=condition, property=commonId"}
-String   Weather_CommonId_tomorrow      "morgen: [MAP(weather_de.map):%s]"  <weather> (Weather)    {weather="locationId=home, forecast=1, type=condition, property=commonId"}
-String   Condition                      "Wetter [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, property=text"}
-
-// Wetterbericht f heute Rule
-String   Condition_today              "Condition [%s]"              <sun_clouds>  (Weather)  {weather="locationId=home, forecast=0, type=condition, property=text"}
-Number   Weather_Forecast_Temp_Min    "Temperature min [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=min"}
-Number   Weather_Forecast_Temp_Max    "Temperature max [%.2f °C]"   <temperature> (Weather)  {weather="locationId=home, forecast=0, type=temperature, property=max"}
-Number   Weather_Precip_Probability   "Precip probability [%d %%]"  <temperature> (Weather)  {weather="locationId=home, forecast=0, type=precipitation, property=probability"}
-
-/* Steckdosen */
-Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfSocket>
-Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
-Switch EG_Wohnzimmer_Power_Stehlampe "Wohnzimmer Stehlampe" <socket> (EG_Wohnzimmer,Lights) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
-Switch EG_Wohnzimmer_Power_Stehlampe_tog      (Maintenance)  { rfxcom="<15888502.1:Command"}
-Switch Btn3 <socket> (Test,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
-Switch Btn3_tog      (Maintenance)  { rfxcom="<66696.2:Command"}
-
-Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
-Switch UG_Wirtschaftsraum_CCU2_Waschmaschine    "Waschmaschine in Betrieb"            <waschmaschine>  (UG_Wirtschaftsraum,PersistentCurrent)  { homematic="variable=Waschmaschine" }
-DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Wirtschaftsraum,PersistentCurrent)
-Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
-Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
-Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
-Number UG_Wirtschaftsraum_Waschmaschine_voltage         "Waschmaschine Netzspannung [%.2f V]"     <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=VOLTAGE"}
-Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Netzfrequenz [%.2f   Hz]"  <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=FREQUENCY"}
-Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Wirtschaftsraum)
-Number UG_Wirtschaftsraum_Waschmaschine_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Wirtschaftsraum)
-
-Switch EG_Kueche_Geschirrspueler                 "Geschirrspueler"                           <socket>  (EG_Kueche,Sockets)  {homematic="address=LEQ0531373,channel=1,parameter=STATE"}
-Switch EG_Kueche_CCU2_Geschirrspueler    "Geschirrspueler in Betrieb"            <geschirr>  (EG_Kueche,PersistentCurrent)  { homematic="variable=Geschirrspueler" }
-DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (EG_Kueche,PersistentCurrent)
-Number EG_Kueche_Geschirrspueler_current         "Geschirrspueler Strom [%.2f mA]"           <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=CURRENT"}
-Number EG_Kueche_Geschirrspueler_power           "Geschirrspueler Leistung [%.2f W]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=POWER"}
-Number EG_Kueche_Geschirrspueler_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=ENERGY_COUNTER"}
-Number EG_Kueche_Geschirrspueler_voltage         "Geschirrspueler Netzspannung [%.2f V]"     <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=VOLTAGE"}
-Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [%.2f   Hz]"  <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=FREQUENCY"}
-Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (EG_Kueche)
-Number EG_Kueche_Geschirrspueler_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (EG_Kueche)
-
-Switch UG_Sauna_Luftentfeuchter                 "Luftentfeuchter"                           <socket>  (UG_Sauna,Sockets)  {homematic="address=LEQ0531146,channel=1,parameter=STATE"}
-//Switch UG_Sauna_CCU2_Luftentfeuchter    "Luftentfeuchter in Betrieb"            <geschirr>  (UG_Sauna,PersistentCurrent)  { homematic="variable=Luftentfeuchter" }
-//DateTime UG_Sauna_CCU2_Luftentfeuchter_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Sauna,PersistentCurrent)
-Number UG_Sauna_Luftentfeuchter_current         "Luftentfeuchter Strom [%.2f mA]"           <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=CURRENT"}
-Number UG_Sauna_Luftentfeuchter_power           "Luftentfeuchter Leistung [%.2f W]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=POWER"}
-Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=ENERGY_COUNTER"}
-Number UG_Sauna_Luftentfeuchter_voltage         "Luftentfeuchter Netzspannung [%.2f V]"     <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=VOLTAGE"}
-Number UG_Sauna_Luftentfeuchter_frequency       "Luftentfeuchter Netzfrequenz [%.2f   Hz]"  <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=FREQUENCY"}
-Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Sauna)
-Number UG_Sauna_Luftentfeuchter_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Sauna)
-
-Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
-Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
-
-Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
-
-Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
-Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
-
-Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
-Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502.3:Command", rfxcom="<66696.2:Command"}
-
-//Astro
-Group Astro   (Status)
-//Number   Azimuth       "Azimuth"                { channel="astro:sun:home:position#azimuth" }
-//Number   Elevation     "Elevation"              { channel="astro:sun:home:position#elevation" }
-
-DateTime        Sunrise_Time    "Sonnenaufgang [%1$tH:%1$tM]"     <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:rise#start" }
-DateTime        Sunset_Time     "Sonnenuntergang [%1$tH:%1$tM]"   <sunrise>       (Astro,PersistentCurrent)   { channel="astro:sun:home:set#start" }
-//Switch          Sunrise_Event   "Sunrise Event"                   <sunrise>       (Astro)                     { channel="astro:sun:home:rise#start" }
-//Switch          Sunset_Event    "Sunset Event"                    <sunrise>       (Astro)                     { channel="astro:sun:home:set#start" }
-Number          Azimuth         "Azimuth [%.2f]"                                  (Astro)         { channel="astro:sun:home:position#azimuth" }
-Number          Elevation       "Elevation [%.2f]"                                (Astro)         { channel="astro:sun:home:position#elevation" }
-
 /* Drucker */
 //Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
 Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66695.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
 Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <printer>   (UG_Hannes)             { cups="http://127.0.0.1:631/printers/C500#NOT_COMPLETED" }
 
-/* Sonos */
-Group Sonos (Status)
-
-String OG_Bad_Sonos_currenttrack  "Bad CurrentTrack [%s]" (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:currenttrack" }
-Player OG_Bad_Sonos_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:control" }
-Dimmer OG_Bad_Sonos_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:volume"}
-String OG_Bad_Sonos_uri           "Bad Playuri"           (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:playuri" }
-
-String EG_wohnzimmer_Sonos_currenttrack  "Wohnzimmer CurrentTrack [%s]"  (EG_Wohnzimmer,Sonos)  { channel="sonos:zoneplayer:wohnzimmer:currenttrack" }
-Player EG_wohnzimmer_Sonos_Play          "Wohnzimmer Play/Pause"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:control" }
-Dimmer EG_wohnzimmer_Sonos_Volume        "Wohnzimmer Volume [%.1f]"      (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:volume"}
-String EG_wohnzimmer_Sonos_uri          "Wohnzimmer Playuri"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:playuri" }
-
 //////////////// Test ////////////////
-
-/* Heating */
-Switch UG_Sauna_Heating   "Heizung Sauna"   <heating>  (UG_Sauna, Heating)
 
 /* Batterien */
 Group:Contact:OR(CLOSED,OPEN)       Battery         "Batterien [(%d)]"              <energy>      (Status)
-Contact UG_Sauna_Heating_LOWBAT             "Sauna Heizung Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
-Contact EG_Frontdoor_Contact_LOWBAT         "Eingangstuer Batterie [MAP(zustand.map):%d]"       <energy>    (Battery) {homematic="address=LEQ1177637, channel=0, parameter=LOWBAT"}
-Contact EG_Vorzimmer_Doorbell_LOWBAT        "Tuerklingel Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}
-Contact Temperature_EG_Kueche_LOWBAT        "Kueche Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
-Contact Temperature_UG_Sauna_LOWBAT         "Sauna Temp Batterie [MAP(zustand.map):%d]"         <energy>    (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
-Contact Temperature_OG_Schlafzimmer_LOWBAT  "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>    (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
-Number  Weather_Temperature_LOWBAT          "Aussen Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0798807, channel=0, parameter=LOWBAT"}
-
 
 //////////////// Vorbereitet ////////////////
 

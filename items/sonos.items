@@ -1,0 +1,12 @@
+/* Sonos */
+Group Sonos (Status)
+
+String OG_Bad_Sonos_currenttrack  "Bad CurrentTrack [%s]" (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:currenttrack" }
+Player OG_Bad_Sonos_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:control" }
+Dimmer OG_Bad_Sonos_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:volume"}
+String OG_Bad_Sonos_uri           "Bad Playuri"           (OG_Bad,Sonos)   { channel="sonos:zoneplayer:bad:playuri" }
+
+String EG_wohnzimmer_Sonos_currenttrack  "Wohnzimmer CurrentTrack [%s]"  (EG_Wohnzimmer,Sonos)  { channel="sonos:zoneplayer:wohnzimmer:currenttrack" }
+Player EG_wohnzimmer_Sonos_Play          "Wohnzimmer Play/Pause"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:control" }
+Dimmer EG_wohnzimmer_Sonos_Volume        "Wohnzimmer Volume [%.1f]"      (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:volume"}
+String EG_wohnzimmer_Sonos_uri          "Wohnzimmer Playuri"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:playuri" }

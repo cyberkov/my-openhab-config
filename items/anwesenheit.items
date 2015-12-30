@@ -4,7 +4,7 @@ Group:Switch:OR(ON, OFF)    Anwesenheit  "Anwesenheit [(%d)]"    <present>
 //-------------------------
 // Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
 //
-Switch  JemandDa    "Anwesenheit"    <selfShield>  (Security,Anwesenheit,PersistentCurrent)  { homematic="variable=Anwesenheit" }
+Switch  JemandDa    "Anwesenheit"    <selfShield>  (Security,Anwesenheit,PersistentCurrent)  { homematic="variable=Haus SV Anwesenheit" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
 
 /* Config-values */

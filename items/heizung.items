@@ -30,6 +30,8 @@ Switch  UG_Sauna_STATE_ECO    (CTRL_Heating)    { homematic="address=LEQ0584727,
 // Anheben des Sollwerts auf Comfort-Temperatur (CONTROL_MODE bleibt AUTO-MODE)
 Switch  UG_Sauna_STATE_COMFORT  (CTRL_Heating)    { homematic="address=LEQ0584727, channel=4, parameter=COMFORT_MODE" }
 
+Contact UG_Sauna_Heating_LOWBAT             "Sauna Heizung Batterie [MAP(zustand.map):%d]"      <energy>    (Battery) {homematic="address=LEQ0584727, channel=0, parameter=LOWBAT"}
+
 //---------------------------------------------------------------------------------------------------------------
 // Und alle Werte auslesen, die moeglich sind
 // Der Sollwert

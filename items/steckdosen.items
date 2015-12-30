@@ -1,0 +1,51 @@
+/* Steckdosen */
+Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfSocket>
+Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { rfxcom=">15888502.2:LIGHTING2.AC:Command" }
+Switch EG_Wohnzimmer_Power_Stehlampe "Wohnzimmer Stehlampe" <socket> (EG_Wohnzimmer,Lights) { rfxcom=">15888502.1:LIGHTING2.AC:Command" }
+Switch EG_Wohnzimmer_Power_Stehlampe_tog      (Maintenance)  { rfxcom="<15888502.1:Command"}
+Switch Btn3 <socket> (Test,Sockets) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
+Switch Btn3_tog      (Maintenance)  { rfxcom="<66696.2:Command"}
+
+Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
+Switch UG_Wirtschaftsraum_CCU2_Waschmaschine    "Waschmaschine in Betrieb"            <waschmaschine>  (UG_Wirtschaftsraum,PersistentCurrent)  { homematic="variable=Waschmaschine" }
+DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Wirtschaftsraum,PersistentCurrent)
+Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
+Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
+Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
+Number UG_Wirtschaftsraum_Waschmaschine_voltage         "Waschmaschine Netzspannung [%.2f V]"     <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=VOLTAGE"}
+Number UG_Wirtschaftsraum_Waschmaschine_frequency       "Waschmaschine Netzfrequenz [%.2f   Hz]"  <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=FREQUENCY"}
+Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Wirtschaftsraum)
+Number UG_Wirtschaftsraum_Waschmaschine_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Wirtschaftsraum)
+
+Switch EG_Kueche_Geschirrspueler                 "Geschirrspueler"                           <socket>  (EG_Kueche,Sockets)  {homematic="address=LEQ0531373,channel=1,parameter=STATE"}
+Switch EG_Kueche_CCU2_Geschirrspueler    "Geschirrspueler in Betrieb"            <geschirr>  (EG_Kueche,PersistentCurrent)  { homematic="variable=Geschirrspueler" }
+DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (EG_Kueche,PersistentCurrent)
+Number EG_Kueche_Geschirrspueler_current         "Geschirrspueler Strom [%.2f mA]"           <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=CURRENT"}
+Number EG_Kueche_Geschirrspueler_power           "Geschirrspueler Leistung [%.2f W]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=POWER"}
+Number EG_Kueche_Geschirrspueler_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=ENERGY_COUNTER"}
+Number EG_Kueche_Geschirrspueler_voltage         "Geschirrspueler Netzspannung [%.2f V]"     <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=VOLTAGE"}
+Number EG_Kueche_Geschirrspueler_frequency       "Geschirrspueler Netzfrequenz [%.2f   Hz]"  <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=FREQUENCY"}
+Number EG_Kueche_Geschirrspueler_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (EG_Kueche)
+Number EG_Kueche_Geschirrspueler_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (EG_Kueche)
+
+Switch UG_Sauna_Luftentfeuchter                 "Luftentfeuchter"                           <socket>  (UG_Sauna,Sockets)  {homematic="address=LEQ0531146,channel=1,parameter=STATE"}
+//Switch UG_Sauna_CCU2_Luftentfeuchter    "Luftentfeuchter in Betrieb"            <geschirr>  (UG_Sauna,PersistentCurrent)  { homematic="variable=Luftentfeuchter" }
+//DateTime UG_Sauna_CCU2_Luftentfeuchter_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Sauna,PersistentCurrent)
+Number UG_Sauna_Luftentfeuchter_current         "Luftentfeuchter Strom [%.2f mA]"           <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=CURRENT"}
+Number UG_Sauna_Luftentfeuchter_power           "Luftentfeuchter Leistung [%.2f W]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=POWER"}
+Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=ENERGY_COUNTER"}
+Number UG_Sauna_Luftentfeuchter_voltage         "Luftentfeuchter Netzspannung [%.2f V]"     <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=VOLTAGE"}
+Number UG_Sauna_Luftentfeuchter_frequency       "Luftentfeuchter Netzfrequenz [%.2f   Hz]"  <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=FREQUENCY"}
+Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch_KWH  "Gesamtverbrauch in KWh [%.2f KWh]"  <socket>        (UG_Sauna)
+Number UG_Sauna_Luftentfeuchter_Summe    "Bislang verursachte Kosten [%.2f Eur]"    <smiley>  (UG_Sauna)
+
+Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Lights) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
+Switch UG_Hannes_Power_Lamp_tog (Maintenance) { rfxcom="<66696.5:Command"}
+
+Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
+
+Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
+Switch OG_Schlafzimmer_Power_Lamp_tog (Maintenance) { rfxcom="<66696.4:Command"}
+
+Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { rfxcom=">15888502.3:LIGHTING2.AC:Command" }
+Switch OG_Schlafzimmer_Power_Gelsenstecker_tog (Maintenance) { rfxcom="<15888502.3:Command", rfxcom="<66696.2:Command"}
