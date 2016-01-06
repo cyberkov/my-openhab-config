@@ -10,3 +10,7 @@
 /bin/tvcheck.sh
 logback.xml
 logback_debug.xml
+/services/weather.cfg
+/services/snmp.cfg
+/services/mysql.cfg
+/services/openhab.cfg
