@@ -52,7 +52,7 @@ sitemap default label="Schallerburg"
     Group item=Temperature label="Temperatur [%.1f °C]" valuecolor=[>23="orange",>19="green",>5="orange",<5="blue"]
     Group item=Humidity label="Luftfeuchte [%.1f %%Rh]" valuecolor=[>65="orange",>45="green",>20="orange"]
     Group item=Lueftungseffizienz
-    Switch item=Security_Alarmanlage label="Alarmanlage" mappings=[ON="Scharf", OFF="Unscharf"]
+    Text item=Security_Alarmanlage label="Alarmanlage" valuecolor=["Unscharf"="green", "Intern Scharf"="yellow", "Extern Scharf"="red"]
     Text item=Alarm_Fire label="Feueralarm [%s]"
     Text item=EG_Vorzimmer_Door valuecolor=["CLOSED"="green", "OPEN"="red"]
     Text item=OG_Schlafzimmer_Door_left valuecolor=["CLOSED"="green", "OPEN"="red"]
