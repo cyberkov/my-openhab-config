@@ -5,6 +5,7 @@ extra/mosquitto.conf
 extra/mysql_cleanup.sh
 extra/openhab.htpasswd
 services/mysql.cfg
+services/openhab.cfg
 services/snmp.cfg
 services/weather.cfg
 www/static/map2.html
