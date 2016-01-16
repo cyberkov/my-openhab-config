@@ -4,7 +4,7 @@
 FROM java:8u45-jre
 MAINTAINER Marcus of Wetware Labs <marcus@wetwa.re>
 
-RUN apt-get update && apt-get install -y unzip supervisor wget
+RUN apt-get update && apt-get install -y unzip supervisor wget inotify-tools
 
 ENV OPENHAB_VERSION SNAPSHOT 
 #ENV OPENHAB_VERSION 2.0.0.alpha2
