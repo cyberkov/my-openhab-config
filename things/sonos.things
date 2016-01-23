@@ -1,3 +1,4 @@
 sonos:zoneplayer:bad [ udn="RINCON_5CAAFD40ED4001400", refresh=60]
 sonos:zoneplayer:wohnzimmer [ udn="RINCON_5CAAFD40EDB401400", refresh=60]
-
+sonos:zoneplayer:sauna [ udn="RINCON_B8E937ED63BA01400", refresh=60]
+sonos:zoneplayer:kueche [ udn="RINCON_B8E937E7B3DE01400", refresh=60]

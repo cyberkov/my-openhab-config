@@ -10,3 +10,13 @@ String EG_wohnzimmer_Sonos_currenttrack  "Wohnzimmer CurrentTrack [%s]"  (EG_Woh
 Player EG_wohnzimmer_Sonos_Play          "Wohnzimmer Play/Pause"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:control" }
 Dimmer EG_wohnzimmer_Sonos_Volume        "Wohnzimmer Volume [%.1f]"      (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:volume"}
 String EG_wohnzimmer_Sonos_uri          "Wohnzimmer Playuri"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:wohnzimmer:playuri" }
+
+String EG_Kueche_Sonos_currenttrack  "Kueche CurrentTrack [%s]" (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:bad:currenttrack" }
+Player EG_Kueche_Sonos_Play          "Kueche Play/Pause"        (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:bad:control" }
+Dimmer EG_Kueche_Sonos_Volume        "Kueche Volume [%.1f]"     (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:bad:volume"}
+String EG_Kueche_Sonos_uri           "Kueche Playuri"           (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:bad:playuri" }
+
+String UG_Sauna_Sonos_currenttrack  "Sauna CurrentTrack [%s]" (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:sauna:currenttrack" }
+Player UG_Sauna_Sonos_Play          "Sauna Play/Pause"        (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:sauna:control" }
+Dimmer UG_Sauna_Sonos_Volume        "Sauna Volume [%.1f]"     (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:sauna:volume"}
+String UG_Sauna_Sonos_uri           "Sauna Playuri"           (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:sauna:playuri" }
