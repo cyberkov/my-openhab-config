@@ -1,0 +1,16 @@
+---
+oh2:
+  build: .
+  environment:
+    OPENHAB_VERSION: '2.0.0.b1'
+  ports:
+    - "8080:8080"
+    - "8443:8443"
+    - "5555:5555"
+    - "9001:9001"
+    - "9123:9123"
+  volumes:
+    - "/opt/openhab/config/keystore/keystore:/opt/openhab/runtime/etc/keystore:ro"
+    - "/opt/openhab/userdata:/opt/openhab/userdata"
+    - "/opt/openhab/config:/etc/openhab"
+  net: 'host'

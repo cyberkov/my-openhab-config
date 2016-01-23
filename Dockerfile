@@ -6,13 +6,14 @@ MAINTAINER Marcus of Wetware Labs <marcus@wetwa.re>
 
 RUN apt-get update && apt-get install -y unzip supervisor wget inotify-tools
 
-ENV OPENHAB_VERSION SNAPSHOT 
-#ENV OPENHAB_VERSION 2.0.0.alpha2
+#ENV OPENHAB_VERSION SNAPSHOT 
+ENV OPENHAB_VERSION 2.0.0.b1
 
 #
 # Download openHAB based on Environment OPENHAB_VERSION
 #
 COPY files/scripts/download_openhab.sh /root/docker-files/scripts/
+RUN wget --no-cookies -O /tmp/distribution-runtime.zip  https://bintray.com/artifact/download/openhab/mvn/org/openhab/distro/openhab-offline/2.0.0.b1/openhab-offline-${OPENHAB_VERSION}.zip
 RUN /root/docker-files/scripts/download_openhab.sh
 
 #
@@ -25,11 +26,13 @@ RUN wget -q -P /opt/openhab/addons-available/addons/ https://github.com/cdjackso
 # Download Openhab 1.x dependencies
 #
 RUN echo "Download OpenHAB 1.x dependencies"
-RUN wget -q -P /tmp/ https://openhab.ci.cloudbees.com/job/openHAB/lastStableBuild/artifact/distribution/target/distribution-1.8.0-SNAPSHOT-addons.zip && \
-    wget -q -P /tmp/ https://openhab.ci.cloudbees.com/job/openHAB/lastStableBuild/artifact/distribution/target/distribution-1.8.0-SNAPSHOT-runtime.zip && \
-    unzip -q /tmp/distribution-1.8.0-SNAPSHOT-addons.zip -d /opt/openhab/addons-available-oh1 && \
-    unzip -j /tmp/distribution-1.8.0-SNAPSHOT-runtime.zip server/plugins/org.openhab.io.transport.mqtt* -d /opt/openhab/addons-available-oh1/  && \
-    unzip -j /tmp/distribution-1.8.0-SNAPSHOT-runtime.zip configurations/openhab_default.cfg -d /opt/openhab/ && \
+#RUN wget -q -P /tmp/ https://openhab.ci.cloudbees.com/job/openHAB/lastStableBuild/artifact/distribution/target/distribution-1.8.0-SNAPSHOT-addons.zip && \
+#    wget -q -P /tmp/ https://openhab.ci.cloudbees.com/job/openHAB/lastStableBuild/artifact/distribution/target/distribution-1.8.0-SNAPSHOT-runtime.zip && \
+RUN wget -q -P /tmp/ https://bintray.com/artifact/download/openhab/bin/distribution-1.8.0-addons.zip && \
+    wget -q -P /tmp/ https://bintray.com/artifact/download/openhab/bin/distribution-1.8.0-runtime.zip && \
+    unzip -q /tmp/distribution-1.8.0-addons.zip -d /opt/openhab/addons-available-oh1 && \
+    unzip -j /tmp/distribution-1.8.0-runtime.zip server/plugins/org.openhab.io.transport.mqtt* -d /opt/openhab/addons-available-oh1/  && \
+    unzip -j /tmp/distribution-1.8.0-runtime.zip configurations/openhab_default.cfg -d /opt/openhab/ && \
     rm -f /opt/openhab/runtime/server/plugins/org.openhab.io.transport.mqtt* && \
     rm /tmp/distribution-1.8.0-*
 
