@@ -5,6 +5,7 @@ extra/mosquitto.conf
 extra/mysql_cleanup.sh
 extra/openhab.htpasswd
 services/mqtt.cfg
+services/mqtt-persistence.cfg
 services/mysql.cfg
 services/openhab.cfg
 services/pushover.cfg
