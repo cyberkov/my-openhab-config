@@ -6,7 +6,7 @@
 /extra/openhab.htpasswd
 /extra/mosquitto.conf
 /extra/mysql_cleanup.sh
-/www/static/map2.html
+/html/map2.html
 /bin/tvcheck.sh
 logback.xml
 logback_debug.xml
