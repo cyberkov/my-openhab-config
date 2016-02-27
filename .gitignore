@@ -14,3 +14,6 @@ logback_debug.xml
 /services/snmp.cfg
 /services/mysql.cfg
 /services/openhab.cfg
+/services/pushover.cfg
+/services/mqtt.cfg
+/services/mqtt-persistence.cfg
