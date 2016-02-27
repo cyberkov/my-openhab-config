@@ -12,7 +12,7 @@ oh2:
     - '/etc/localtime:/etc/localtime:ro'
     - "/opt/openhab/userdata:/openhab/userdata"
     - "/opt/openhab/config:/openhab/conf"
-  command: dockerize -stdout /userdata/logs/openhab.log /openhab/start.sh debug
+  command: "dockerize -stdout /userdata/logs/openhab.log /openhab/start.sh debug"
   devices:
     - '/dev/ttyUSB0'
 
