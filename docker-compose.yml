@@ -1,16 +1,18 @@
 ---
 oh2:
-  build: .
-  environment:
-    OPENHAB_VERSION: '2.0.0.b1'
+  image: 'cyberkov/openhab2'
   ports:
     - "8080:8080"
     - "8443:8443"
     - "5555:5555"
     - "9001:9001"
     - "9123:9123"
+  net: "host"
   volumes:
-    - "/opt/openhab/config/keystore/keystore:/opt/openhab/runtime/etc/keystore:ro"
-    - "/opt/openhab/userdata:/opt/openhab/userdata"
-    - "/opt/openhab/config:/etc/openhab"
-  net: 'host'
+    - '/etc/localtime:/etc/localtime:ro'
+    - "/opt/openhab/userdata:/openhab/userdata"
+    - "/opt/openhab/config:/openhab/conf"
+  command: dockerize -stdout /userdata/logs/openhab.log /openhab/start.sh debug
+  devices:
+    - '/dev/ttyUSB0'
+
