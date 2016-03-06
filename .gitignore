@@ -1,15 +1,11 @@
 /keyrings/live/pubring.gpg~
 /keyrings/live/pubring.kbx~
 /keyrings/live/secring.gpg
-/configurations/users.cfg
-/configurations/openhab.cfg
 /extra/openhab.htpasswd
 /extra/mosquitto.conf
 /extra/mysql_cleanup.sh
 /html/map2.html
 /bin/tvcheck.sh
-logback.xml
-logback_debug.xml
 /services/weather.cfg
 /services/snmp.cfg
 /services/mysql.cfg
