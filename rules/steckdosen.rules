@@ -101,55 +101,55 @@ then
   UG_Sauna_Luftentfeuchter_Summe.postUpdate(Kosten)
 end
 
-//----------------------------------------------------------
-// Schalte Schlafzimmerlampe mit der Fernbedienung
+////----------------------------------------------------------
+//// Schalte Schlafzimmerlampe mit der Fernbedienung
+////
+//rule "Lampe Schlafzimmer"
+//when
+//        Item OG_Schlafzimmer_Power_Lamp_tog changed
+//then
+//        sendCommand(OG_Schlafzimmer_Power_Lamp, OG_Schlafzimmer_Power_Lamp_tog.state.toString )
+//end
 //
-rule "Lampe Schlafzimmer"
-when
-        Item OG_Schlafzimmer_Power_Lamp_tog changed
-then
-        sendCommand(OG_Schlafzimmer_Power_Lamp, OG_Schlafzimmer_Power_Lamp_tog.state.toString )
-end
-
-//----------------------------------------------------------
-// Schalte Hannes' Zimmerlampe mit der Fernbedienung
+////----------------------------------------------------------
+//// Schalte Hannes' Zimmerlampe mit der Fernbedienung
+////
+//rule "Lampe Hannes"
+//when
+//        Item UG_Hannes_Power_Lamp_tog changed
+//then
+//        sendCommand(UG_Hannes_Power_Lamp, UG_Hannes_Power_Lamp_tog.state.toString )
+//end
 //
-rule "Lampe Hannes"
-when
-        Item UG_Hannes_Power_Lamp_tog changed
-then
-        sendCommand(UG_Hannes_Power_Lamp, UG_Hannes_Power_Lamp_tog.state.toString )
-end
-
-//----------------------------------------------------------
-// Schalte Schlafzimmer Gelsenstecker mit der Fernbedienung
+////----------------------------------------------------------
+//// Schalte Schlafzimmer Gelsenstecker mit der Fernbedienung
+////
+//rule "Gelsenstecker Schlafzimmer"
+//when
+//        Item OG_Schlafzimmer_Power_Gelsenstecker_tog changed
+//then
+//        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OG_Schlafzimmer_Power_Gelsenstecker_tog.state.toString )
+//end
 //
-rule "Gelsenstecker Schlafzimmer"
-when
-        Item OG_Schlafzimmer_Power_Gelsenstecker_tog changed
-then
-        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OG_Schlafzimmer_Power_Gelsenstecker_tog.state.toString )
-end
-
-//----------------------------------------------------------
-// Schalte EG_Wohnzimmer_Power_Stehlampe mit der Fernbedienung
+////----------------------------------------------------------
+//// Schalte EG_Wohnzimmer_Power_Stehlampe mit der Fernbedienung
+////
+//rule "EG_Wohnzimmer_Power_Stehlampe"
+//when
+//        Item EG_Wohnzimmer_Power_Stehlampe_tog changed
+//then
+//        sendCommand(EG_Wohnzimmer_Power_Stehlampe, EG_Wohnzimmer_Power_Stehlampe_tog.state.toString )
+//end
 //
-rule "EG_Wohnzimmer_Power_Stehlampe"
-when
-        Item EG_Wohnzimmer_Power_Stehlampe_tog changed
-then
-        sendCommand(EG_Wohnzimmer_Power_Stehlampe, EG_Wohnzimmer_Power_Stehlampe_tog.state.toString )
-end
-
-//----------------------------------------------------------
-// Schalte Btn3 mit der Fernbedienung
-//
-rule "Btn3"
-when
-        Item Btn3_tog changed
-then
-        sendCommand(Btn3, Btn3_tog.state.toString )
-end
+////----------------------------------------------------------
+//// Schalte Btn3 mit der Fernbedienung
+////
+//rule "Btn3"
+//when
+//        Item Btn3_tog changed
+//then
+//        sendCommand(Btn3, Btn3_tog.state.toString )
+//end
 
 //----------------------------------------------------------
 // Schalte Gelsenstecker ein wenn jemand zu Hause ist
