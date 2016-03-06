@@ -14,7 +14,7 @@ oh2:
     - '/opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro'
     - "/opt/openhab/userdata:/openhab/userdata"
     - "/opt/openhab/config:/openhab/conf"
-  command: "dockerize -stdout /userdata/logs/openhab.log /openhab/start.sh debug"
+  command: "dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug"
   devices:
     - '/dev/ttyUSB0'
 
