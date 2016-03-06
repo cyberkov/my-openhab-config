@@ -1,11 +1,11 @@
 /* Network Health */
-Switch Network_Router          "Router"  <router>  (UG_Hannes, Network)   { nh="192.168.0.1" }
-Switch Network_acedia          "acedia"  <router>  (UG_Hannes, Network)   { nh="192.168.1.1" }
-Switch Network_nas    "NAS"    (UG_Hannes, Network)   { nh="192.168.1.5" }
-Switch Network_ccu    "CCU"<homematic>  (UG_Hannes, Network)   { nh="192.168.1.6" }
-Switch Network_pangea    "Pangea"      <computer> (UG_Hannes, Network)   { nh="192.168.1.9" }
-Switch Network_raspi    "XBMC Hannes erreichbar" <video>  (UG_Hannes, Network)   { nh="192.168.1.12:9090" }
-Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Network)   { nh="192.168.1.10:9090" }
-Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { nh="192.168.1.23" }
+Switch Network_Router          "Router"  <router>  (UG_Hannes, Network)   { channel="network:device:router:online" }
+Switch Network_acedia          "acedia"  <router>  (UG_Hannes, Network)   { channel="network:device:acedia:online" }
+Switch Network_nas    "NAS"    (UG_Hannes, Network)   { channel="network:device:nas:online" }
+Switch Network_ccu    "CCU"<homematic>  (UG_Hannes, Network)   { channel="network:device:ccu:online" }
+Switch Network_pangea    "Pangea"      <computer> (UG_Hannes, Network)   { channel="network:device:pangea:online" }
+Switch Network_raspi    "XBMC Hannes erreichbar" <video>  (UG_Hannes, Network)   { channel="network:device:raspi:online" }
+Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Network)   { channel="network:device:cybmc:online" }
+Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { channel="network:device:helix:online" }
 Switch Network_Internet         "Internet" <internet>  (Status,Network)  { exec="<[/bin/sh@@-c@@ping -c 1 8.8.8.8 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
 Switch Network_Avaratia          "Avaratia"     (Network)  { exec="<[/bin/sh@@-c@@ping -c 1 77.244.252.84 | grep \"packets transmitted\" | sed -e \"s/.*1 packets received.*/ON/\" -e \"s/.*0 packets received.*/OFF/\":30000:REGEX((.*))]" }
