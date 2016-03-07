@@ -14,9 +14,6 @@ sitemap default label="Schallerburg"
         Group item=Anwesenheit
         Switch item=JemandDa
       }
-//      Frame label="Aussen" {
-//        Text label="Hier könnte ein Bewegungsmelder stehen [Hui, das is wer]" icon="selfLightMotion"
-//      }
       Frame label="Innen" {
         Text item=Security_Last_Change label="Letzte Zustandsänderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm.]"
         Group item=Openingcontacts
@@ -33,20 +30,6 @@ sitemap default label="Schallerburg"
     }
     Group item=Tasks
   }
-// TODO: Das sollten Gruppen sein.
-//  Frame label="Menue" {
-//    Text label="OG"
-//    Text label="EG"
-//    Text label="UG"
-//    Text label="Einzelgeraete"
-//    Text label="TV"
-//    Text label="Klima"
-//    Text label="Wetter"
-//    Text label="Server"
-//    Text label="Multimedia"
-//    Text label="Sicherheit"
-//    Text label="Automatik"
-//  }
   Frame label="Warnungen" {
     Switch item=Network_Internet label="Internet [%s]" mappings=["ON"="ON","OFF"="Reset"]
     Group item=Temperature label="Temperatur [%.1f °C]" valuecolor=[>23="orange",>19="green",>5="orange",<5="blue"]
@@ -65,14 +48,8 @@ sitemap default label="Schallerburg"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
   Frame label="Programme" {
-//    Switch item=mode label="Modus" mappings=[0="Home", 1="Nacht", 2="Abwesend"]
-//    Switch item=mode_sofa label="Sofa" icon="selfCouch" mappings=[ON="An", OFF="Aus"]
     Switch item=mode_bed label="Bett" icon="selfBedSleep" mappings=[ON="An", OFF="Aus"]
-//    Switch item=mode_party label="Party" icon="outdoorlight" mappings=[ON="An", OFF="Aus"]
     Switch item=mode_night label="Nacht" icon="selfRuntime" mappings=[ON="An", OFF="Aus"]
-//    Switch item=mode_bath label="Bad" icon="bath" mappings=[ON="An", OFF="Aus"]
-//    Switch item=mode_cooking label="Kochen" icon="kitchen" mappings=[ON="An", OFF="Aus"]
-//    Switch item=mode_outdoor label="Garten" icon="garden" mappings=[ON="An", OFF="Aus"]
   }
   Frame label="Anwesenheit" {
     Text item=JemandDa label="Jemand Da [%s]"
