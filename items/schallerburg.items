@@ -45,8 +45,8 @@ Group:Switch:OR(ON, OFF)   Lights     "All Lights [(%d)]"             (All)
 //////////////// Fertig ////////////////
 
 /* Drucker */
-//Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
-Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { rfxcom=">66695.3:LIGHTING2.HOME_EASY_EU:Command",  nh="192.168.1.15" }
+Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { channel="rfxcom:lighting2:rfx:printer:command" }
+// ,  nh="192.168.1.15" }
 Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <printer>   (UG_Hannes)             { cups="http://127.0.0.1:631/printers/C500#NOT_COMPLETED" }
 
 //////////////// Test ////////////////
@@ -70,24 +70,6 @@ Rollershutter tv_volume   "Volume"  <volume>    (TV) {samsungtv="UP:Livingroom:K
 // String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
 // Switch XBMC_Power  "XBMC Power"  (EG_Wohnzimmer)    { xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
 
-
-/*
-Switch Btn1 (Test) { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
-Switch Btn2 (Test) { rfxcom=">66696.3:LIGHTING2.HOME_EASY_EU:Command" }
-Switch btn3  (Test)  { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
-String Btn1RawData (Test) { rfxcom="<66696.2:RawData" }
-
-Switch lights_bed_table  (Test)  { rfxcom=">66696.2:LIGHTING2.HOME_EASY_EU:Command" }
-
-Switch btn3  (Test)  { rfxcom=">66696.4:LIGHTING2.HOME_EASY_EU:Command" }
-Switch tog_btn3 (Test) { rfxcom="<66696.4:Command"}
-
-Dimmer Btn4DimLevel (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:DimmingLevel" }
-Switch Btn4 (Test) { rfxcom=">66696.5:LIGHTING2.HOME_EASY_EU:Command" }
-*/
-// Dimmer Btn4DimLevel { rfxcom="<636602.2:DimmingLevel" }
-
-//Number RFXTemp_Living { rfxcom="<22016:Temperature" }
 
 /* Rollershutters */
 /*
@@ -136,23 +118,3 @@ String   Weather_Wind_Direction       "Wind direction [%s]"   <temperature> (Wea
 Number   Weather_Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=degree"}
 Number   Weather_Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=gust"}
 Number   Weather_Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=chill"}
-
-/* NTP binding demo item */
-//DateTime    Date      "Date [%1$tA, %1$td.%1$tm.%1$tY]"  <calendar>  { ntp="Europe/Vienna:de_DE" }
-//DateTime Weather_LastUpdate    "Last Update [%1$ta %1$tR]"  <clock>
-
-/* Demo items */
-/*
-Switch DemoSwitch        "Switch"
-Dimmer DimmedLight        "Dimmer [%d %%]"    <slider>
-Color  RGBLight          "RGB Light"        <slider>
-Rollershutter DemoShutter     "Roller Shutter"
-Dimmer DemoBlinds         "Blinds [%d %%]"    <rollershutter>
-Number Scene_General      "Scene"          <sofa>
-Number Radio_Station      "Radio"          <network>
-Dimmer Volume           "Volume [%.1f %%]"
-Number Temperature_Setpoint    "Temperature [%.1f °C]" <temperature>
-
-String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
-Number NoOfPairedDevices "Paired Devices in Range: [%d]"  { bluetooth="!" }
-*/
