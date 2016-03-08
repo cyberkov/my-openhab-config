@@ -45,7 +45,7 @@ end
 //
 rule "SecurityCheck vorm Weggehen"
 when
-        Item Barbara_Remote_Abwesendchanged to ON or
+        Item Barbara_Remote_Abwesend changed to ON or
         Item Hannes_Remote_Abwesend changed to ON
 then
         var String message = "SecCheck:"
