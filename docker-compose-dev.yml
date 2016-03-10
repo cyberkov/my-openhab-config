@@ -1,0 +1,13 @@
+---
+oh2:
+  image: 'cyberkov/openhab2:offline'
+  ports:
+    - "8080:8080"
+    - "8443:8443"
+    - "5555:5555"
+    - "9123:9123"
+  net: "host"
+  volumes:
+    - '/etc/localtime:/etc/localtime:ro'
+    - ".:/openhab/conf"
+  command: "dockerize -stdout /userdata/logs/openhab.log /openhab/start.sh debug"

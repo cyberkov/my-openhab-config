@@ -1,6 +1,6 @@
 ---
-oh2:
-  image: 'cyberkov/openhab2'
+openhab2:
+  image: 'cyberkov/openhab2:offline'
   restart: always
   ports:
     - "8080:8080"
@@ -12,7 +12,7 @@ oh2:
     - '/etc/localtime:/etc/localtime:ro'
     - '/opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro'
     - "/opt/openhab/userdata:/openhab/userdata"
-    - "/opt/openhab/config:/openhab/conf"
+    - ".:/openhab/conf"
   command: "dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug"
   devices:
     - '/dev/ttyUSB0'
