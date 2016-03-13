@@ -3,10 +3,10 @@
 #
 
 DOCKER_IMAGE="cyberkov/openhab2:offline"
-CONTAINER_NAME="oh2"
+CONTAINER_NAME="openhab2"
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf:ro
-#VOLUMES=-v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf:ro
-VOLUMES=-v /opt/openhab/config:/openhab/conf:ro
+#VOLUMES=-v /opt/openhab/config:/openhab/conf:ro
+VOLUMES=-v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
 .PHONY: all update pull run clean purgelogs
