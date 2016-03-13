@@ -7,7 +7,7 @@ Switch Reload_Variables (Maintenance) {homematic="address=BidCoS-RF, channel=1, 
 Switch Reload_Datapoints (Maintenance) {homematic="action=RELOAD_DATAPOINTS"}
 
 
-String MainStatus  "Status [%s]"    <selfError>
+String MainStatus  "Status [%s]"    <selferror>
 String VoiceCommand
 Switch Testswitch  "Testswitch" (Test)
 
@@ -30,10 +30,10 @@ Group Automatik  "Automatiksteuerung" <settings> (Status)
 Number mode "Modus: [MAP(modus.map)]" <present>
 Number previous_mode
 
-Switch  mode_sofa    "Sofa"     <selfCouch> (Automatik)
-Switch  mode_bed     "Bett"     <selfBedSleep> (Automatik)
+Switch  mode_sofa    "Sofa"     <selfcouch> (Automatik)
+Switch  mode_bed     "Bett"     <selfbedsleep> (Automatik)
 Switch  mode_party   "Party"    <outdoorlight> (Automatik)
-Switch  mode_night   "Nacht"    <selfRuntime> (Automatik)
+Switch  mode_night   "Nacht"    <selfruntime> (Automatik)
 Switch  mode_bath    "Bad"      <bath> (Automatik)
 Switch  mode_cooking "Kochen"   <kitchen> (Automatik)
 Switch  mode_outdoor "Garten"   <garden> (Automatik)

@@ -34,7 +34,7 @@ Contact Temperature_OG_Schlafzimmer_LOWBAT  "Schlafzimmer Temp Batterie [MAP(zus
 Number  Weather_Temperature_LOWBAT          "Aussen Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0798807, channel=0, parameter=LOWBAT"}
 
 /* Lueftungseffizienz */
-Group:Number:MAX Lueftungseffizienz   "Lüftungseffizienz [MAP(lueftung.map):%s]" <selfInfo>      (Maintenance)
+Group:Number:MAX Lueftungseffizienz   "Lüftungseffizienz [MAP(lueftung.map):%s]" <selfinfo>      (Maintenance)
 Number Lueftungseff_OG    "Lüftungseffizienz OG [MAP(lueftung.map):%s]"   <contact> (gOG, Lueftungseffizienz)
 Number Lueftungseff_EG    "Lüftungseffizienz EG [MAP(lueftung.map):%s]"   <contact> (gEG, Lueftungseffizienz)
 Number Lueftungseff_UG    "Lüftungseffizienz UG [MAP(lueftung.map):%s]"   <contact> (gUG, Lueftungseffizienz)

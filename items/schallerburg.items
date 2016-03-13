@@ -9,7 +9,7 @@ Group Weather <sun_clouds> (All)
 Group Status              (All)
 Group Network <settings>  (Status)
 Group Test    <smiley>    (Status)
-Group Maintenance    <selfWrench>    (Status)
+Group Maintenance    <selfwrench>    (Status)
 
 Group EG_Wohnzimmer     "Wohnzimmer"           <sofa>       (gEG)
 Group EG_Esszimmer     "Esszimmer"           <dining>           (gEG)
@@ -31,7 +31,7 @@ Group UG_Sauna      "Sauna"    <cellar>    (gUG)
 Group UG_Wirtschaftsraum  "Wirtschaftsraum"  <cellar>    (gUG)
 
 // These items should be monitored for updates
-Group Monitoring          "Monitoring"          <selfInfo>              (Status)
+Group Monitoring          "Monitoring"          <selfinfo>              (Status)
 
 // Persistency Groups
 Group PersistentHistory

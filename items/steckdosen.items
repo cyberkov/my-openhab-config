@@ -1,12 +1,12 @@
 /* Steckdosen */
-Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfSocket>
+Group:Switch:OR(ON, OFF)        Sockets         "Steckdosen"      <selfsocket>
 Switch UG_Hannes_Power_Internet "Internet Steckdose" <socket> (UG_Hannes,Sockets) { channel="rfxcom:lighting2:rfx:internet:command" }
 Switch EG_Wohnzimmer_Power_Stehlampe "Wohnzimmer Stehlampe" <socket> (EG_Wohnzimmer,Lights) { channel="rfxcom:lighting2:rfx:stehlampe:command" }
 Switch Btn3 <socket> (Test,Sockets) { channel="rfxcom:lighting2:rfx:btn2:command" }
 
 Switch UG_Wirtschaftsraum_Waschmaschine                 "Waschmaschine"                           <socket>  (UG_Wirtschaftsraum,Sockets)  {homematic="address=LEQ0574052,channel=1,parameter=STATE"}
 Switch UG_Wirtschaftsraum_CCU2_Waschmaschine    "Waschmaschine in Betrieb"            <waschmaschine>  (UG_Wirtschaftsraum,PersistentCurrent)  { homematic="variable=Waschmaschine" }
-DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Wirtschaftsraum,PersistentCurrent)
+DateTime UG_Wirtschaftsraum_CCU2_Waschmaschine_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfcalendar> (UG_Wirtschaftsraum,PersistentCurrent)
 Number UG_Wirtschaftsraum_Waschmaschine_current         "Waschmaschine Strom [%.2f mA]"           <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=CURRENT"}
 Number UG_Wirtschaftsraum_Waschmaschine_power           "Waschmaschine Leistung [%.2f W]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=POWER"}
 Number UG_Wirtschaftsraum_Waschmaschine_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Wirtschaftsraum)  {homematic="address=LEQ0574052,channel=2,parameter=ENERGY_COUNTER"}
@@ -17,7 +17,7 @@ Number UG_Wirtschaftsraum_Waschmaschine_Summe    "Bislang verursachte Kosten [%.
 
 Switch EG_Kueche_Geschirrspueler                 "Geschirrspueler"                           <socket>  (EG_Kueche,Sockets)  {homematic="address=LEQ0531373,channel=1,parameter=STATE"}
 Switch EG_Kueche_CCU2_Geschirrspueler    "Geschirrspueler in Betrieb"            <geschirr>  (EG_Kueche,PersistentCurrent)  { homematic="variable=Geschirrspueler" }
-DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (EG_Kueche,PersistentCurrent)
+DateTime EG_Kueche_CCU2_Geschirrspueler_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfcalendar> (EG_Kueche,PersistentCurrent)
 Number EG_Kueche_Geschirrspueler_current         "Geschirrspueler Strom [%.2f mA]"           <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=CURRENT"}
 Number EG_Kueche_Geschirrspueler_power           "Geschirrspueler Leistung [%.2f W]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=POWER"}
 Number EG_Kueche_Geschirrspueler_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (EG_Kueche)  {homematic="address=LEQ0531373,channel=2,parameter=ENERGY_COUNTER"}
@@ -28,7 +28,7 @@ Number EG_Kueche_Geschirrspueler_Summe    "Bislang verursachte Kosten [%.2f Eur]
 
 Switch UG_Sauna_Luftentfeuchter                 "Luftentfeuchter"                           <socket>  (UG_Sauna,Sockets)  {homematic="address=LEQ0531146,channel=1,parameter=STATE"}
 //Switch UG_Sauna_CCU2_Luftentfeuchter    "Luftentfeuchter in Betrieb"            <geschirr>  (UG_Sauna,PersistentCurrent)  { homematic="variable=Luftentfeuchter" }
-//DateTime UG_Sauna_CCU2_Luftentfeuchter_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfCalendar> (UG_Sauna,PersistentCurrent)
+//DateTime UG_Sauna_CCU2_Luftentfeuchter_LastUpdate "Zuletzt gewaschen [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfcalendar> (UG_Sauna,PersistentCurrent)
 Number UG_Sauna_Luftentfeuchter_current         "Luftentfeuchter Strom [%.2f mA]"           <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=CURRENT"}
 Number UG_Sauna_Luftentfeuchter_power           "Luftentfeuchter Leistung [%.2f W]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=POWER"}
 Number UG_Sauna_Luftentfeuchter_Gesamtverbrauch "Gesamtverbrauch in Wh [%.2f Wh]"         <socket>  (UG_Sauna)  {homematic="address=LEQ0531146,channel=2,parameter=ENERGY_COUNTER"}

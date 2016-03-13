@@ -1,7 +1,7 @@
 /* Bell */
-Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfBell>  (EG_Vorzimmer,PersistentHistory)
-Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfBell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
-Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfBell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
-DateTime  EG_Vorzimmer_Bell_Last_Change  "Klingel [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfBell>   (EG_Vorzimmer,PersistentCurrent)
+Switch   EG_Vorzimmer_Bell              "Tuerglocke" <selfbell>  (EG_Vorzimmer,PersistentHistory)
+Switch   EG_Vorzimmer_Bell_short        "Tuerglocke kurz" <selfbell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_SHORT" }
+Switch   EG_Vorzimmer_Bell_long         "Tuerglocke lang" <selfbell>  (EG_Vorzimmer,PersistentHistory)  { homematic="address=JEQ0684449, channel=4, parameter=PRESS_LONG" }
+DateTime  EG_Vorzimmer_Bell_Last_Change  "Klingel [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"  <selfbell>   (EG_Vorzimmer,PersistentCurrent)
 
 Contact EG_Vorzimmer_Doorbell_LOWBAT        "Tuerklingel Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=JEQ0684449, channel=0, parameter=LOWBAT"}
