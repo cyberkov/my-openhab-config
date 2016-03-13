@@ -3,10 +3,14 @@ when
     Item Heatingvalve received update
 then
     if (Heatingvalve.members.filter(s | s.state as DecimalType > 15).size > 0) {
-      logInfo("heating.rules", "Aktiviere Heizung.")
-      UG_Wirtschaftsraum_Therme.postUpdate(ON)
+      if (UG_Wirtschaftsraum_Therme.state == OFF) {
+        logInfo("heating.rules", "Aktiviere Heizung. [{}]", UG_Wirtschaftsraum_Therme.state)
+        UG_Wirtschaftsraum_Therme.postUpdate(ON)
+      }
     } else {
-      logInfo("heating.rules", "Deaktiviere Heizung.")
-      UG_Wirtschaftsraum_Therme.postUpdate(OFF)
+      if (UG_Wirtschaftsraum_Therme.state == ON) {
+        logInfo("heating.rules", "Deaktiviere Heizung. [{}]", UG_Wirtschaftsraum_Therme.state)
+        UG_Wirtschaftsraum_Therme.postUpdate(OFF)
+      }
     }
 end
