@@ -21,9 +21,9 @@ sitemap default label="Schallerburg"
         Group item=Motionsensors
       }
     }
-    Group item=Lights label="Licht [(%d)]" icon="selfLight"
+    Group item=Lights label="Licht [(%d)]" icon="switch"
     Group item=Sockets label="Steckdosen [(%d)]" icon="socket"
-    Text item=EG_Vorzimmer_Bell_Last_Change icon="selfBell" {
+    Text item=EG_Vorzimmer_Bell_Last_Change icon="selfbell" {
       Text item=EG_Vorzimmer_Bell_Last_Change
       Switch item=EG_Esszimmer_Tuergong_Led
       Switch item=EG_Esszimmer_Tuergong_Signal
@@ -48,8 +48,8 @@ sitemap default label="Schallerburg"
     Text item=UG_Wirtschaftsraum_CCU2_Waschmaschine label="Waschmaschine [%s]"
   }
   Frame label="Programme" {
-    Switch item=mode_bed label="Bett" icon="selfBedSleep" mappings=[ON="An", OFF="Aus"]
-    Switch item=mode_night label="Nacht" icon="selfRuntime" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_bed label="Bett" icon="selfbedsleep" mappings=[ON="An", OFF="Aus"]
+    Switch item=mode_night label="Nacht" icon="selfruntime" mappings=[ON="An", OFF="Aus"]
   }
   Frame label="Anwesenheit" {
     Text item=JemandDa label="Jemand Da [%s]"
