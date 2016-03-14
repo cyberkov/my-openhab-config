@@ -5,12 +5,12 @@ then
     if (Heatingvalve.members.filter(s | s.state as DecimalType > 15).size > 0) {
       if (UG_Wirtschaftsraum_Therme.state == OFF) {
         logInfo("heating.rules", "Aktiviere Heizung. [{}]", UG_Wirtschaftsraum_Therme.state)
-        UG_Wirtschaftsraum_Therme.postUpdate(ON)
+        UG_Wirtschaftsraum_Therme.sendCommand(ON)
       }
     } else {
       if (UG_Wirtschaftsraum_Therme.state == ON) {
         logInfo("heating.rules", "Deaktiviere Heizung. [{}]", UG_Wirtschaftsraum_Therme.state)
-        UG_Wirtschaftsraum_Therme.postUpdate(OFF)
+        UG_Wirtschaftsraum_Therme.sendCommand(OFF)
       }
     }
 end
