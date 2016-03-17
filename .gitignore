@@ -13,3 +13,4 @@
 /services/pushover.cfg
 /services/mqtt.cfg
 /services/mqtt-persistence.cfg
+/services/influxdb.cfg
