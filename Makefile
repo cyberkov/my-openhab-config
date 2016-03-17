@@ -19,9 +19,6 @@ update:
 pull:
 	docker pull $(DOCKER_IMAGE)
 
-build: Dockerfile
-	docker build -t cyberkov/openhab2 .
-
 demo:
 	/usr/bin/docker run \
 	  --rm \
@@ -42,6 +39,7 @@ run: purgelogs
 	  -m 0b \
 	  -p 8080:8080 -p 5555:5555 -p 9123:9123 \
 	  -v '/etc/localtime:/etc/localtime:ro' \
+	  -v '/etc/timezone:/etc/timezone:ro' \
 	  -it \
 	  $(VOLUMES) \
 	  --device=/dev/ttyUSB0 \
