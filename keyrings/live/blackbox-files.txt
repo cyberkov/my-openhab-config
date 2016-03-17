@@ -2,10 +2,11 @@ bin/tvcheck.sh
 extra/mosquitto.conf
 extra/mysql_cleanup.sh
 extra/openhab.htpasswd
+html/map2.html
+services/influxdb.cfg
 services/mqtt.cfg
 services/mqtt-persistence.cfg
 services/mysql.cfg
 services/pushover.cfg
 services/snmp.cfg
 services/weather.cfg
-html/map2.html
