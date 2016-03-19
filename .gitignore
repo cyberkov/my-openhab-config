@@ -14,3 +14,4 @@
 /services/mqtt.cfg
 /services/mqtt-persistence.cfg
 /services/influxdb.cfg
+/services/pebble.cfg
