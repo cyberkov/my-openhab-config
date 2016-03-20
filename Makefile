@@ -2,6 +2,8 @@
 # Makefile
 #
 
+ITEMS=build/items/*.items
+
 DOCKER_IMAGE="cyberkov/openhab2:offline"
 CONTAINER_NAME="openhab2"
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf:ro
@@ -10,7 +12,34 @@ VOLUMES=-v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openh
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
 .PHONY: all update pull run clean purgelogs
-all: update pull purgelogs run
+all: update items sitemaps rules pull purgelogs run
+
+items: items/all.items
+
+items/all.items: $(ITEMS)
+	for ITEM in build/items/*.items; do \
+	  echo "// FILE: $$ITEM" >> $@.tmp; \
+	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
+	done
+	mv $@.tmp $@
+
+sitemaps: sitemaps/default.sitemap
+
+sitemaps/default.sitemap: $(ITEMS)
+	for ITEM in build/sitemaps/*.sitemap; do \
+	  echo "// FILE: $$ITEM" >> $@.tmp; \
+	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
+	done
+	mv $@.tmp $@
+
+rules: rules/all.rules
+
+rules/all.rules: $(ITEMS)
+	for ITEM in build/rules/*.rules; do \
+	  echo "// FILE: $$ITEM" >> $@.tmp; \
+	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
+	done
+	mv $@.tmp $@
 
 update:
 	git pull
@@ -38,7 +67,10 @@ run:
 	  #debug
 
 clean:
-	rm -Rf /opt/openhab/userdata
+	-rm items/*.items
+	-rm sitemaps/*.sitemap
+	-rm rules/*.rules
+	-rm -Rf /opt/openhab/userdata
 purgelogs:
 	rm -Rf /opt/openhab/userdata/logs/*
 	mkdir -p /opt/openhab/userdata/logs
