@@ -9,9 +9,9 @@ when
     Item Humidity_UG_Sauna changed
 then
   if ((Humidity_UG_Sauna.state >= 62)) {
-    sendCommand(UG_Sauna_Luftentfeuchter, ON)
+    UG_Sauna_Luftentfeuchter.sendCommand(ON)
   }
   else if ((Humidity_UG_Sauna.state < 57)) {
-    sendCommand(UG_Sauna_Luftentfeuchter, OFF)
+    UG_Sauna_Luftentfeuchter.sendCommand(OFF)
   }
 end

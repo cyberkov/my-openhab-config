@@ -58,7 +58,7 @@ then
           message = message + " Alles ok."
         }
         logInfo("SecurityCheckRule", "Message: [{}]", message)
-        postUpdate(push_message_text, message)
+        push_message_text.postUpdate(message)
 end
 
 //----------------------------------------------------------
@@ -79,10 +79,10 @@ end
 //            message =  message + " Offene Fenster:\n" + report
 //          }
 //          logInfo("AlarmanlageRule", "Message: [{}]", message)
-//          postUpdate(push_message_text, message)
+//          push_message_text.postUpdate(message)
 //
 //        } else {
 //          logInfo("AlarmanlageRule", "Deaktiviere Alarmanlage.")
-//          postUpdate(push_message_text, "Deaktiviere Alarmanlage.")
+//          push_message_text.postUpdate("Deaktiviere Alarmanlage.")
 //        }
 //end

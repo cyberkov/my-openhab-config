@@ -17,7 +17,7 @@ then
             internetTimer=null
         }
         // Just to be sure.
-        sendCommand(UG_Hannes_Power_Internet,ON)
+        UG_Hannes_Power_Internet.sendCommand(ON)
     } else if (Network_Internet.state==OFF) {
       logInfo("Internetswitchrule", "Internet is [{}]. Checking network.", Network_Internet.state)
       if ((Network_nas.state == OFF) || (Network_ccu.state == OFF)) {
@@ -26,14 +26,14 @@ then
         logInfo("Internetswitchrule", "acedia is [{}]. We need a powerswitch here :)", Network_acedia.state)
       } else if (Network_Router.state == OFF) {
         logInfo("Internetswitchrule", "Router is [{}] for some reason. I turn it on.", Network_Router.state)
-        sendCommand(UG_Hannes_Power_Internet,ON)
+        UG_Hannes_Power_Internet.sendCommand(ON)
       } else {
         logInfo("Internetswitchrule", "Network is OK. Rebooting modem in 5 Minutes.")
         internetTimer = createTimer(now.plusMinutes(2)) [|
           logInfo("Internetswitchrule", "No Internet since 5 Minutes. powercycle modem.")
-          sendCommand(UG_Hannes_Power_Internet,OFF)
+          UG_Hannes_Power_Internet.sendCommand(OFF)
           cycleTimer = createTimer(now.plusSeconds(5)) [|
-            sendCommand(UG_Hannes_Power_Internet,ON)
+            UG_Hannes_Power_Internet.sendCommand(ON)
           ]
         ]
       }

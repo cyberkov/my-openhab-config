@@ -5,7 +5,7 @@ then
         logInfo('org.openhab', 'message text is: ' + say_message_text.state)
         val url = "x-rincon-mp3radio://translate.google.com/translate_tts?tl=de&q=\"" + say_message_text.state.toString + "\"&client=OpenHAB"
         logInfo("Sonos Say URI","Link: " + url)
-//        sendCommand(EG_wohnzimmer_Sonos_uri, url)
+//        EG_wohnzimmer_Sonos_uri.sendCommand(url)
 end
 
 /*

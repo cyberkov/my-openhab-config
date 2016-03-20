@@ -101,56 +101,6 @@ then
   UG_Sauna_Luftentfeuchter_Summe.postUpdate(Kosten)
 end
 
-////----------------------------------------------------------
-//// Schalte Schlafzimmerlampe mit der Fernbedienung
-////
-//rule "Lampe Schlafzimmer"
-//when
-//        Item OG_Schlafzimmer_Power_Lamp_tog changed
-//then
-//        sendCommand(OG_Schlafzimmer_Power_Lamp, OG_Schlafzimmer_Power_Lamp_tog.state.toString )
-//end
-//
-////----------------------------------------------------------
-//// Schalte Hannes' Zimmerlampe mit der Fernbedienung
-////
-//rule "Lampe Hannes"
-//when
-//        Item UG_Hannes_Power_Lamp_tog changed
-//then
-//        sendCommand(UG_Hannes_Power_Lamp, UG_Hannes_Power_Lamp_tog.state.toString )
-//end
-//
-////----------------------------------------------------------
-//// Schalte Schlafzimmer Gelsenstecker mit der Fernbedienung
-////
-//rule "Gelsenstecker Schlafzimmer"
-//when
-//        Item OG_Schlafzimmer_Power_Gelsenstecker_tog changed
-//then
-//        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OG_Schlafzimmer_Power_Gelsenstecker_tog.state.toString )
-//end
-//
-////----------------------------------------------------------
-//// Schalte EG_Wohnzimmer_Power_Stehlampe mit der Fernbedienung
-////
-//rule "EG_Wohnzimmer_Power_Stehlampe"
-//when
-//        Item EG_Wohnzimmer_Power_Stehlampe_tog changed
-//then
-//        sendCommand(EG_Wohnzimmer_Power_Stehlampe, EG_Wohnzimmer_Power_Stehlampe_tog.state.toString )
-//end
-//
-////----------------------------------------------------------
-//// Schalte Btn3 mit der Fernbedienung
-////
-//rule "Btn3"
-//when
-//        Item Btn3_tog changed
-//then
-//        sendCommand(Btn3, Btn3_tog.state.toString )
-//end
-
 //----------------------------------------------------------
 // Schalte Gelsenstecker ein wenn jemand zu Hause ist
 //
@@ -166,7 +116,7 @@ then
       if ((JemandDa.state == ON) && (mode_night.state == ON)) { // wenn jemand da ist, Nacht oder 21h ist
         if (( OG_Schlafzimmer_Door_left.state == OPEN ) || ( OG_Schlafzimmer_Door_right.state == OPEN )) { // Tuer wird geoeffnet
           logInfo("GelsensteckerRule", "Schalte Gelsenstecker ein.")
-          sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, ON)
+          OG_Schlafzimmer_Power_Gelsenstecker.sendCommand(ON)
         }
       }
     } else {
@@ -190,7 +140,7 @@ then
         logInfo("GelsensteckerRule", "Tuer links ist [{}], Tuer rechts ist [{}], Nacht [{}]. Lasse Gelsenstecker an.", OG_Schlafzimmer_Door_left.state, OG_Schlafzimmer_Door_right.state, mode_night.state)
       } else {
         logInfo("GelsensteckerRule", "Schalte Gelsenstecker aus. Tuer links [{}], Tuer rechts [{}], Nacht [{}]", OG_Schlafzimmer_Door_left.state, OG_Schlafzimmer_Door_right.state, mode_night.state)
-        sendCommand(OG_Schlafzimmer_Power_Gelsenstecker, OFF)
+        OG_Schlafzimmer_Power_Gelsenstecker.sendCommand(OFF)
       }
     }
 end

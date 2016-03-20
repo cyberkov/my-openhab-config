@@ -12,7 +12,7 @@ rule "Tausche Zahnbuerste vierteljaehrlich"
 when
     Time cron "0 0 8 20W MAR,JUN,SEP,DEC ?"   // vierteljaehrlich, werktags um den 20. um 8:00
 then
-    sendCommand(Task_Toothbrush, ON)
+    Task_Toothbrush.sendCommand(ON)
 end
 
 //Task_Waschmaschine
@@ -21,9 +21,9 @@ when
     Item UG_Wirtschaftsraum_CCU2_Waschmaschine changed to OFF
 then
     logInfo("Task_Waschmaschine", "Waschmaschine ist fertig")
-    sendCommand(Task_Waschmaschine, OFF)
-    sendCommand(Task_Waesche, ON)
-    postUpdate(push_message_text, "Waschmaschine ist fertig.")
+    Task_Waschmaschine.sendCommand(OFF)
+    Task_Waesche.sendCommand(ON)
+    push_message_text.postUpdate("Waschmaschine ist fertig.")
 end
 
 rule "Waschmaschine wird ausgeschaltet"
@@ -32,7 +32,7 @@ when
 then
     if  (( UG_Wirtschaftsraum_Waschmaschine_power.state <= 1 ) && (Task_Waesche.state == ON )) {
         logInfo("Task Waschmaschine2", "Waschmaschine ausgeschaltet")
-        sendCommand(Task_Waesche, OFF)
+        Task_Waesche.sendCommand(OFF)
     }
 end
 
@@ -42,5 +42,5 @@ when
     Item EG_Kueche_CCU2_Geschirrspueler changed to OFF
 then
     logInfo("Task_Geschirrspueler", "Geschirrspueler ist fertig")
-    postUpdate(push_message_text, "Geschirrspueler ist fertig.")
+    push_message_text.postUpdate("Geschirrspueler ist fertig.")
 end

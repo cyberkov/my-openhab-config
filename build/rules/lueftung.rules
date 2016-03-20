@@ -114,21 +114,18 @@ then
       // if ((TDo+5.0 <= TDi)&& (VCBSSupplyCellarVentilation.state == OPEN)) {
       if (TDo+5.0 <= TDi) {
           effectivity = 1
-          //sendCommand(VCBSSupplyCellarVentilation, CLOSED)
           // Hier den Code fuer die Benachrichtigung einbauen -> Lueften
       //} else if ((TDo+3.0 > TDi)&& (VCBSSupplyCellarVentilation.state == CLOSED)) {
       } else if (TDo+3.0 > TDi) {
           effectivity = 2
-          //sendCommand(VCBSSupplyCellarVentilation, OPEN)
           // Hier den Code fuer die Benachrichtigung einbauen -> Nicht lueften
       } else {
           effectivity = 3
-          //sendCommand(VCBSSupplyCellarVentilation, OPEN)
       }
       logDebug("LueftungOG", "Temperature_OG: [{}], Humidity_OG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_OG.state, Humidity_OG.state, Weather_Temperature.state, Weather_Humidity.state)
-      postUpdate(Weather_Dewpoint, TDo)
-      postUpdate(Dewpoint_OG, TDi)
-      postUpdate(Lueftungseff_OG, effectivity)
+      Weather_Dewpoint.postUpdate(TDo)
+      Dewpoint_OG.postUpdate(TDi)
+      Lueftungseff_OG.postUpdate(effectivity)
     } else {
       logInfo("LueftungOG", "skipping: Temperature_OG: [{}], Humidity_OG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_OG.state, Humidity_OG.state, Weather_Temperature.state, Weather_Humidity.state)
     }
@@ -158,8 +155,8 @@ then
           effectivity = 3
       }
         logDebug("LueftungEG", "Temperature_EG: [{}], Humidity_EG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_EG.state, Humidity_EG.state, Weather_Temperature.state, Weather_Humidity.state)
-      postUpdate(Dewpoint_EG, TDi)
-      postUpdate(Lueftungseff_EG, effectivity)
+      Dewpoint_EG.postUpdate(TDi)
+      Lueftungseff_EG.postUpdate(effectivity)
     } else {
       logInfo("LueftungEG", "skipping: Temperature_EG: [{}], Humidity_EG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_EG.state, Humidity_EG.state, Weather_Temperature.state, Weather_Humidity.state)
     }
@@ -189,8 +186,8 @@ then
           effectivity = 3
       }
         logDebug("LueftungUG", "Temperature_UG: [{}], Humidity_UG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_UG.state, Humidity_UG.state, Weather_Temperature.state, Weather_Humidity.state)
-      postUpdate(Dewpoint_UG, TDi)
-      postUpdate(Lueftungseff_UG, effectivity)
+      Dewpoint_UG.postUpdate(TDi)
+      Lueftungseff_UG.postUpdate(effectivity)
     } else {
       logInfo("LueftungUG", "skipping: Temperature_UG: [{}], Humidity_UG: [{}], Weather_Temperature: [{}], Weather_Humidity: [{}]", Temperature_UG.state, Humidity_UG.state, Weather_Temperature.state, Weather_Humidity.state)
     }
@@ -212,6 +209,6 @@ then
       ]
       message = message + " lueften."
       logInfo("LueftungsNotification", "Sending: [{}]", message)
-      // postUpdate(push_message_text, message)
+      // push_message_text.postUpdate(message)
     }
 end

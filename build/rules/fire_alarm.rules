@@ -8,7 +8,7 @@ when
     Item Alarm_Fire changed
 then
   if ((Alarm_Fire.state == ON)) {
-    postUpdate(push_message_text, "FIRE alarm has been tripped!!!")
+    push_message_text.postUpdate("FIRE alarm has been tripped!!!")
   }
 end
 

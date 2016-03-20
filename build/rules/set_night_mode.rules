@@ -12,8 +12,8 @@ then
     var Date sunsetTime  = (Sunset_Time.state as DateTimeType).calendar.time
     var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
     if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
-      sendCommand(mode_night, ON)
+      mode_night.sendCommand(ON)
     } else {
-      sendCommand(mode_night, OFF)
+      mode_night.sendCommand(OFF)
     }
 end

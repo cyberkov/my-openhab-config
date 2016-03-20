@@ -10,7 +10,7 @@ when
   Item EG_Vorzimmer_Bell_long changed to ON
 then
   logInfo("Bell rule on", "Turn bell on")
-  sendCommand(EG_Vorzimmer_Bell,ON)
+  EG_Vorzimmer_Bell.sendCommand(ON)
 end
 
 rule "Bell State OFF"
@@ -19,7 +19,7 @@ when
   Item EG_Vorzimmer_Bell_long changed to OFF
 then
   logInfo("Bell rule off", "Turn bell off")
-  sendCommand(EG_Vorzimmer_Bell,OFF)
+  EG_Vorzimmer_Bell.sendCommand(OFF)
 end
 
 rule "Bell State"
@@ -34,6 +34,6 @@ then
         notificationTimer=null
       ]
       pushover("Klingel: Es klingelt")
-                        //postUpdate(push_message_text, "Klingel: Es klingelt")
+      //push_message_text.postUpdate("Klingel: Es klingelt")
     }
 end

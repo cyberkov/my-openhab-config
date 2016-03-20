@@ -4,8 +4,8 @@
 //  Time cron "0 0 0 * * ?" or
 //  System started
 //then
-//  postUpdate(Weather_Temp_Max, Weather_Temperature.maximumSince(now.toDateMidnight).state)
-//  postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
+//  Weather_Temp_Max.postUpdate(Weather_Temperature.maximumSince(now.toDateMidnight).state)
+//  Weather_Temp_Min.postUpdate(Weather_Temperature.minimumSince(now.toDateMidnight).state)
 //end
 
 // Creates an item that stores the last update time of this item
@@ -13,7 +13,7 @@ rule "Records last weather update time"
 when
   Item Weather_Temperature received update
 then
-  postUpdate(Weather_LastUpdate, new DateTimeType())
+  Weather_LastUpdate.postUpdate( new DateTimeType())
 end
 
 rule "schicke Wetterbericht fuer heute"

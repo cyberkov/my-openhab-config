@@ -12,13 +12,13 @@ then
         }
         if (UG_Hannes_Power_Printer.state==OFF) {
       logInfo("Printerrule", "Schalte Drucker ein.")
-            sendCommand(UG_Hannes_Power_Printer,ON)
+            UG_Hannes_Power_Printer.sendCommand(ON)
         }
     }
     else if (UG_Hannes_Power_Printer.state==ON) {
         printerTimer = createTimer(now.plusMinutes(5)) [|
       logInfo("Printerrule", "Schalte Drucker aus.")
-            sendCommand(UG_Hannes_Power_Printer,OFF)
+            UG_Hannes_Power_Printer.sendCommand(OFF)
         ]
     }
 end

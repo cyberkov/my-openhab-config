@@ -14,10 +14,10 @@ when
     Item Barbara_Remote_Abwesend changed
 then
   if (((Hannes_Remote_Anwesend.state == ON) || (Barbara_Remote_Anwesend.state == ON))) {
-    sendCommand(JemandDa, ON)
+    JemandDa.sendCommand(ON)
   }
   else if (((Hannes_Remote_Abwesend.state == ON) || (Barbara_Remote_Abwesend.state == ON))) {
-    sendCommand(JemandDa, OFF)
+    JemandDa.sendCommand(OFF)
   }
 end
 
