@@ -3,6 +3,8 @@
 #
 
 ITEMS=build/items/*.items
+RULES=build/rules/*.rules
+SITEMAPS=build/sitemaps/*.sitemap
 
 DOCKER_IMAGE="cyberkov/openhab2:offline"
 CONTAINER_NAME="openhab2"
@@ -25,7 +27,7 @@ items/all.items: $(ITEMS)
 
 sitemaps: sitemaps/default.sitemap
 
-sitemaps/default.sitemap: $(ITEMS)
+sitemaps/default.sitemap: $(SITEMAPS)
 	for ITEM in build/sitemaps/*.sitemap; do \
 	  echo "// FILE: $$ITEM" >> $@.tmp; \
 	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
@@ -34,7 +36,7 @@ sitemaps/default.sitemap: $(ITEMS)
 
 rules: rules/all.rules
 
-rules/all.rules: $(ITEMS)
+rules/all.rules: $(RULES)
 	for ITEM in build/rules/*.rules; do \
 	  echo "// FILE: $$ITEM" >> $@.tmp; \
 	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
@@ -44,6 +46,7 @@ rules/all.rules: $(ITEMS)
 update:
 	git pull
 	blackbox_postdeploy
+	make rules items sitemaps
 
 pull:
 	docker pull $(DOCKER_IMAGE)
