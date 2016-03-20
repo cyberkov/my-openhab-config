@@ -43,6 +43,10 @@ rules/all.rules: $(RULES)
 	done
 	mv $@.tmp $@
 
+rules-override:
+	rm rules/all.rules
+	cp build/rules/*.rules rules/
+
 update:
 	git pull
 	blackbox_postdeploy
@@ -51,7 +55,7 @@ update:
 pull:
 	docker pull $(DOCKER_IMAGE)
 
-run: items rules sitemaps
+run: items rules-override sitemaps
 	/usr/bin/docker run \
 	  --rm \
 	  --net host \
