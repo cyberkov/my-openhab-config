@@ -12,7 +12,7 @@ VOLUMES=-v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openh
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
 .PHONY: all update pull run clean purgelogs
-all: update items sitemaps rules pull purgelogs run
+all: update pull purgelogs run
 
 items: items/all.items
 
@@ -48,7 +48,7 @@ update:
 pull:
 	docker pull $(DOCKER_IMAGE)
 
-run:
+run: items rules sitemaps
 	/usr/bin/docker run \
 	  --rm \
 	  --net host \
