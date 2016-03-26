@@ -1,0 +1,3 @@
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="ttyUSBrfxcom0", GROUP="dialout", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="ttyUSBzwave0", GROUP="dialout", MODE="0666"
+

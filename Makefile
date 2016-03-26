@@ -6,11 +6,15 @@ ITEMS=build/items/*.items
 RULES=build/rules/*.rules
 SITEMAPS=build/sitemaps/*.sitemap
 
-DOCKER_IMAGE="cyberkov/openhab2:offline"
+#DOCKER_IMAGE="cyberkov/openhab2:offline"
+DOCKER_IMAGE="cyberkov/openhab:amd64-online"
 CONTAINER_NAME="openhab2"
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf:ro
 #VOLUMES=-v /opt/openhab/config:/openhab/conf:ro
-VOLUMES=-v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf
+VOLUMES=-v /opt/openhab/userdata:/openhab/userdata \
+  -v /opt/openhab/config:/openhab/conf \
+  -v /opt/openhab/addons:/openhab/addons \
+  -v /opt/openhab/config/extra/50-zwave.rules:/etc/udev/rules.d/50-zwave.rules:ro
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
 .PHONY: all update pull run clean purgelogs
@@ -44,7 +48,7 @@ rules/all.rules: $(RULES)
 	mv $@.tmp $@
 
 rules-override:
-	rm rules/all.rules
+	-rm rules/all.rules
 	cp build/rules/*.rules rules/
 
 update:
@@ -67,11 +71,12 @@ run: items rules-override sitemaps
 	  -it \
 	  -u root \
 	  $(VOLUMES) \
-	  --device=/dev/ttyUSB0 \
+	  --device=$(shell realpath /dev/ttyUSBrfxcom0) \
+	  --device=$(shell realpath /dev/ttyUSBzwave0) \
 	  --name $(CONTAINER_NAME) \
 	  $(DOCKER_IMAGE) \
-	  dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug
-	  #debug
+	  debug
+	  #dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug
 
 clean:
 	-rm items/*.items
