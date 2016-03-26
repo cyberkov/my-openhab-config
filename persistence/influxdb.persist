@@ -7,6 +7,6 @@ Items {
         // everyChange, everyMinute, restoreOnStartup
 
         // store everything for restore
-        * : strategy = everyMinute, everyChange
+//        * : strategy = everyMinute, everyChange
         PersistentChart* : strategy = everyMinute
 }
