@@ -11,3 +11,4 @@ services/pebble.cfg
 services/pushover.cfg
 services/snmp.cfg
 services/weather.cfg
+things/zwave.things
