@@ -2,5 +2,6 @@
 1=NIGHT
 2=AWAY
 NULL=unknown
-CLOSED=keine Aktivitaet
-OPEN=Aktivitaet erkannt
+CLOSED=Aktivitaet erkannt
+OPEN=keine Aktivitaet
+-=unknown

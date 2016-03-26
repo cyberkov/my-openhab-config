@@ -1,5 +1,8 @@
-Bridge zwave:serial_zstick:controller [ port="/dev/ttyACM0", controller_softreset=false, controller_master=true, security_networkkey="8374B8194AF0595FFF46CA42A1C023E02FA7276427605CC212D9E6F6C0B0529C", heal_enable="true" ] {
+Bridge zwave:serial_zstick:controller [ port="/dev/ttyACM0", controller_softreset=false, controller_master=true, security_networkkey="8374B8194AF0595FFF46CA42A1C023E02FA7276427605CC212D9E6F6C0B0529C", heal_enable="true" ]
+
+Thing zwave:tkb_tz67_00_000:controller:zwavedimmer [ zwave_nodeid="2" config_1_1="0" ]
+
 
 // TZ67 Wall Plug Dimmer
-  Thing device node2 [ zwave_nodeid=2, zwave_class_basic=ROUTING_SLAVE, zwave_class_generic=MULTILEVEL_SWITCH, zwave_class_specific=POWER_SWITCH_MULTILEVEL ]
-}
+//  Thing device node2 [ zwave_nodeid=2, zwave_class_basic=ROUTING_SLAVE, zwave_class_generic=MULTILEVEL_SWITCH, zwave_class_specific=POWER_SWITCH_MULTILEVEL ]
+// zwave:device:controller:node2, bridgeId=zwave:serial_zstick:controller, properties={zwave_class_basic=ROUTING_SLAVE, zwave_class_generic=MULTILEVEL_SWITCH, zwave_frequent=false, zwave_version=0.0, zwave_listening=true, zwave_deviceid=2147483647, zwave_nodeid=2, zwave_routing=true, zwave_beaming=true, zwave_class_specific=POWER_SWITCH_MULTILEVEL, zwave_manufacturer=2147483647, zwave_devicetype=2147483647}, timestamp=Sat Mar 26 22:03:46 CET 2016, timeToLive=UNLIMITED

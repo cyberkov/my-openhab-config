@@ -75,16 +75,22 @@ run: items rules-override sitemaps
 	  --name $(CONTAINER_NAME) \
 	  $(DOCKER_IMAGE) \
 	  debug
-	  #dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug
 
 clean:
 	-rm items/*.items
 	-rm sitemaps/*.sitemap
 	-rm rules/*.rules
 	-rm -Rf /opt/openhab/userdata
-purgelogs:
+	make phoenix
+purge:
 	rm -Rf /opt/openhab/userdata/logs/*
+	touch /opt/openhab/userdata/logs/openhab.log
+	chown cyberkov:cyberkov -R /opt/openhab/userdata/
+phoenix:
 	mkdir -p /opt/openhab/userdata/logs
 	mkdir -p /opt/openhab/userdata/persistence/mapdb
 	touch /opt/openhab/userdata/logs/openhab.log
 	chown cyberkov:cyberkov -R /opt/openhab/userdata/
+
+habmin:
+	curl -Lo /opt/openhab/addons/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.1.2.jar https://github.com/cdjackson/HABmin2/raw/master/output/org.openhab.ui.habmin_2.0.0.SNAPSHOT-0.1.2.jar

@@ -1,0 +1,9 @@
+Group gZwaveStats "ZWave" <selfwrench>  (Status)
+Number ZwaveStatsSOF "Number Start of Frames[%s]"     (gZwaveStats)  {channel="zwave:serial_zstick:controller:serial_sof"}
+Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats)  {channel="zwave:serial_zstick:controller:serial_ack"}
+Number ZwaveStatsNAK "Number of NAK [%s]"             (gZwaveStats)  {channel="zwave:serial_zstick:controller:serial_nak"}
+Number ZwaveStatsCAN "Number of CAN [%s]"             (gZwaveStats)  {channel="zwave:serial_zstick:controller:serial_can"}
+Number ZwaveStatsOOF "Number of OOF [%s]"             (gZwaveStats)  {channel="zwave:serial_zstick:controller:serial_oof"}
+//Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats)   {channel="1:command=info,item=time_out"}
+//String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01)           {channel="1:command=info,item=home_id"}
+//Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01)           {channel="1:command=info,item=node_id"}
