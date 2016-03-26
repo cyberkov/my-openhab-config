@@ -86,6 +86,6 @@ clean:
 purgelogs:
 	rm -Rf /opt/openhab/userdata/logs/*
 	mkdir -p /opt/openhab/userdata/logs
-	mkdir -p /openhab/userdata/persistence/mapdb
+	mkdir -p /opt/openhab/userdata/persistence/mapdb
 	touch /opt/openhab/userdata/logs/openhab.log
 	chown cyberkov:cyberkov -R /opt/openhab/userdata/
