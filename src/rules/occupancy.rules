@@ -1,0 +1,81 @@
+//Contact UG_Hannes_Occupancy      "UG Hannes Aktivitaet" (Automatik,UG_Hannes)
+//Contact EG_Esszimmer_Occupancy   "OG Gang Aktivitaet"   (Automatik,EG_Esszimmer)
+//Contact OG_Gang_Occupancy        "OG Gang Aktivitaet"   (Automatik,OG_Gang)
+
+var Timer UG_tOccupancy
+
+rule "UG Motion Trigger"
+when
+  Item UG_Hannes_Motion changed from OPEN to CLOSED
+then
+  UG_Hannes_Occupancy.postUpdate(CLOSED)
+end
+
+rule "UG Motion Absence"
+when
+  Item UG_Hannes_Motion changed from CLOSED to OPEN
+then
+  UG_tOccupancy?.cancel
+  UG_tOccupancy = createTimer(now.plusMinutes(10)) [|
+    logInfo("occupancy", "UG Occupancy timeout reached")
+    UG_Hannes_Occupancy.postUpdate(OPEN)
+  ]
+end
+
+//rule "UG Occupancy_Trigger"
+//when
+//  Item occupancy changed from OPEN to CLOSED
+//then
+//  UG_tOccupancy?.cancel
+//  UG_tOccupancy = null                               
+//  callScript("room_occupied")
+//end
+//
+//rule "UG Occupancy_Absence"
+//when
+//  Item occupancy changed from CLOSED to OPEN
+//then
+//  callScript("room_absent")
+//end
+
+var Timer EG_tOccupancy
+
+rule "EG Motion Trigger"
+when
+  Item EG_Esszimmer_Motion changed from OPEN to CLOSED
+then
+  EG_Esszimmer_Occupancy.postUpdate(CLOSED)
+end
+
+rule "EG Motion Absence"
+when
+  Item EG_Esszimmer_Motion changed from CLOSED to OPEN
+then
+  EG_tOccupancy?.cancel
+  EG_tOccupancy = createTimer(now.plusMinutes(10)) [|
+    logInfo("occupancy", "EG Occupancy timeout reached")
+    EG_Esszimmer_Occupancy.postUpdate(OPEN)
+  ]
+end
+
+var Timer OG_tOccupancy
+
+rule "OG Motion Trigger"
+when
+  Item OG_Gang_Motion changed from OPEN to CLOSED
+then
+  OG_Gang_Occupancy.postUpdate(CLOSED)
+end
+
+rule "OG Motion Absence"
+when
+  Item OG_Gang_Motion changed from CLOSED to OPEN
+then
+  OG_tOccupancy?.cancel
+  OG_tOccupancy = createTimer(now.plusMinutes(10)) [|
+    logInfo("occupancy", "OG Occupancy timeout reached")
+    OG_Gang_Occupancy.postUpdate(OPEN)
+  ]
+end
+
+

@@ -2,9 +2,9 @@
 # Makefile
 #
 
-ITEMS=build/items/*.items
-RULES=build/rules/*.rules
-SITEMAPS=build/sitemaps/*.sitemap
+ITEMS=src/items/*.items
+RULES=src/rules/*.rules
+SITEMAPS=src/sitemaps/*.sitemap
 
 #DOCKER_IMAGE="cyberkov/openhab2:offline"
 DOCKER_IMAGE="cyberkov/openhab:amd64-offline"
@@ -18,11 +18,12 @@ VOLUMES=-v /opt/openhab/userdata:/openhab/userdata \
 
 .PHONY: all update pull run clean purgelogs
 all: update pull purgelogs run
+config: items sitemaps rules
 
 items: items/all.items
 
 items/all.items: $(ITEMS)
-	for ITEM in build/items/*.items; do \
+	for ITEM in src/items/*.items; do \
 	  echo "// FILE: $$ITEM" >> $@.tmp; \
 	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
 	done
@@ -31,24 +32,23 @@ items/all.items: $(ITEMS)
 sitemaps: sitemaps/default.sitemap
 
 sitemaps/default.sitemap: $(SITEMAPS)
-	for ITEM in build/sitemaps/*.sitemap; do \
+	for ITEM in src/sitemaps/*.sitemap; do \
 	  echo "// FILE: $$ITEM" >> $@.tmp; \
 	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
 	done
 	mv $@.tmp $@
 
-rules: rules/all.rules
+rules: rules-override
 
-rules/all.rules: $(RULES)
-	for ITEM in build/rules/*.rules; do \
-	  echo "// FILE: $$ITEM" >> $@.tmp; \
-	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
-	done
-	mv $@.tmp $@
+#rules/all.rules: $(RULES)
+#	for ITEM in src/rules/*.rules; do \
+#	  echo "// FILE: $$ITEM" >> $@.tmp; \
+#	  cat $$ITEM | egrep -v '^//|^$$' >> $@.tmp; \
+#	done
+#	mv $@.tmp $@
 
 rules-override:
-	-rm rules/all.rules
-	cp build/rules/*.rules rules/
+	rsync -a --delete src/rules/*.rules rules/
 
 update:
 	git pull

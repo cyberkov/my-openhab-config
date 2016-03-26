@@ -42,17 +42,17 @@ Contact UG_Hannes_Window_LOWBAT "Hannes Fenster [MAP(zustand.map):%d]" <energy> 
 Contact UG_Hannes_Door_LOWBAT "Hannes Tuer [MAP(zustand.map):%d]" <energy>  (Battery) { homematic="address=MEQ0186547,channel=0,parameter=LOWBAT" }
 
 /* Motionsensors */
-Switch UG_Hannes_Motion     "UG Motion Detected [MAP(motion.map):%s]" <selfmotion>     (UG_Hannes,Motionsensors) {homematic="address=MEQ0537387, channel=1, parameter=MOTION" }
+Contact UG_Hannes_Motion     "UG Motion Detected [MAP(motion.map):%s]" <selfmotion>     (UG_Hannes,Motionsensors) {homematic="address=MEQ0537387, channel=1, parameter=MOTION" }
 Number UG_Hannes_Brightness "Brightness [%.1f %%]" <selflightmotion> (UG_Hannes,Brightness)  {homematic="address=MEQ0537387, channel=1, parameter=BRIGHTNESS" }
 Contact UG_Hannes_Motion_LOWBAT "Hannes Bewegungsmelder [MAP(zustand.map):%d]" <energy>  (Battery) { homematic="address=MEQ0537387,channel=0,parameter=LOWBAT" }
 Contact UG_Hannes_Motion_Sabotage   "UG Motion Sabotagekontakt [MAP(sabotage.map):%s]"  <selfmotion>  (UG_Hannes, Tamperswitches) { homematic="address=MEQ0537387,channel=1,parameter=ERROR" }
 
-Switch EG_Esszimmer_Motion     "EG Motion Detected [MAP(motion.map):%s]"  <selfmotion>    (EG_Esszimmer,Motionsensors) {homematic="address=LAB0091601, channel=1, parameter=MOTION" }
+Contact EG_Esszimmer_Motion     "EG Motion Detected [MAP(motion.map):%s]"  <selfmotion>    (EG_Esszimmer,Motionsensors) {homematic="address=LAB0091601, channel=1, parameter=MOTION" }
 Number EG_Esszimmer_Brightness "EG Brightness [%.1f %%]" <selflightmotion> (EG_Esszimmer,Brightness)    {homematic="address=LAB0091601, channel=1, parameter=BRIGHTNESS" }
 Contact EG_Esszimmer_Motion_LOWBAT "Esszimmer Bewegungsmelder [MAP(zustand.map):%d]" <energy>  (Battery) { homematic="address=LAB0091601,channel=0,parameter=LOWBAT" }
 Contact EG_Esszimmer_Motion_Sabotage   "EG Motion Sabotagekontakt [MAP(sabotage.map):%s]"  <selfmotion>  (EG_Esszimmer, Tamperswitches) { homematic="address=LAB0091601,channel=1,parameter=ERROR" }
 
-Switch OG_Gang_Motion     "OG Motion Detected [MAP(motion.map):%s]" <selfmotion>     (OG_Gang,Motionsensors) {homematic="address=MEQ0537083, channel=1, parameter=MOTION" }
+Contact OG_Gang_Motion     "OG Motion Detected [MAP(motion.map):%s]" <selfmotion>     (OG_Gang,Motionsensors) {homematic="address=MEQ0537083, channel=1, parameter=MOTION" }
 Number OG_Gang_Brightness "OG Brightness [%.1f %%]" <selflightmotion> (OG_Gang,Brightness)    {homematic="address=MEQ0537083, channel=1, parameter=BRIGHTNESS" }
 Contact OG_Gang_Motion_LOWBAT "OG Gang Bewegungsmelder [MAP(zustand.map):%d]" <energy>  (Battery) { homematic="address=MEQ0537083,channel=0,parameter=LOWBAT" }
 Contact OG_Gang_Motion_Sabotage   "OG Motion Sabotagekontakt [MAP(sabotage.map):%s]"  <selfmotion>  (OG_Gang, Tamperswitches) { homematic="address=MEQ0537083,channel=1,parameter=ERROR" }

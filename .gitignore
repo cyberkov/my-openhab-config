@@ -15,6 +15,6 @@
 /services/mqtt-persistence.cfg
 /services/influxdb.cfg
 /services/pebble.cfg
-items/all.items
-rules/all.rules
-sitemaps/default.sitemap
+/items/all.items
+/rules/*.rules
+/sitemaps/default.sitemap
