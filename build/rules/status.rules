@@ -1,0 +1,20 @@
+rule "Send a status message at 21 if anything is NOT ok"
+  when
+      Time cron "0 0 21 ? * *"
+  then
+      // Netzwerk
+      if (Network_raspi.state == OFF && !Network_raspi.changedSince(now.minusHours(12))) {
+              pushover('Raspi is not responding, and has been off for 12 hours (' + Network_raspi.lastUpdate.toString + ')')
+      }
+      if (Network_cybmc.state == OFF && !Network_cybmc.changedSince(now.minusHours(12))) {
+              pushover('Raspi is not responding, and has been off for 12 hours (' + Network_raspi.lastUpdate.toString + ')')
+      }
+      if (Network_nas.state == OFF && !Network_nas.changedSince(now.minusHours(12))) {
+              pushover('NAS is not responding, and has been off for 12 hours(' + Network_nas.lastUpdate.toString + ')')
+      }
+
+//      // Mysensors
+//      Monitoring.allMembers.filter([ !changedSince(now.minusHours(12)) ]).map[
+//        pushover( name + " has not changed since " + lastUpdate.toString + "." )
+//      ]
+end

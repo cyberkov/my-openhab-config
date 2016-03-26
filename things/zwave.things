@@ -1,0 +1,1 @@
+Thing zwave:serial_zstick:controller [ port="/dev/ttyACM0", softReset=false, masterController=true ]

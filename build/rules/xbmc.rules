@@ -1,0 +1,28 @@
+// var Number brightnessBeforePause
+
+rule "Lights on when paused"
+when
+        Item UG_Hannes_XBMC_State changed from Play to Pause
+then
+        if( mode_night.state == ON ) {
+          UG_Hannes_Deckenlampe.sendCommand(ON)
+        }
+end
+
+rule "Lights off when pause end"
+when
+        Item UG_Hannes_XBMC_State changed from Pause to Play
+then
+        UG_Hannes_Deckenlampe.sendCommand(OFF)
+end
+
+rule "Lights off when screensaver activates"
+when
+    Item UG_Hannes_XBMC_Screensaver changed
+then
+    if(UG_Hannes_XBMC_Screensaver.state == ON)
+    {
+        logInfo("screensaver", "turn lamp OFF")
+        UG_Hannes_Deckenlampe.sendCommand(OFF)
+    }
+end

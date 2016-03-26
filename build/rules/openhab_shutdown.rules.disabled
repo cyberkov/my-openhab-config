@@ -1,0 +1,6 @@
+rule Goodbye
+when
+  System shuts down
+then
+  pushover("OpenHAB wird beendet.")
+end

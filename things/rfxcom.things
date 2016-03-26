@@ -1,0 +1,10 @@
+Bridge rfxcom:bridge:rfx  [ serialPort="/dev/ttyUSB0" ] {
+  Thing lighting2 stehlampe     [deviceId="15888502.1", subType="AC"]
+  Thing lighting2 internet      [deviceId="15888502.2", subType="AC"]
+  Thing lighting2 gelsenstecker [deviceId="15888502.3", subType="AC"]
+  Thing lighting2 btn1          [deviceId="66696.1", subType="HOME_EASY_EU"]
+  Thing lighting2 btn2          [deviceId="66696.2", subType="HOME_EASY_EU"]
+  Thing lighting2 printer       [deviceId="66696.3", subType="HOME_EASY_EU"]
+  Thing lighting2 nachtkasterl  [deviceId="66696.4", subType="HOME_EASY_EU"]
+  Thing lighting2 kleinelampe   [deviceId="66696.5", subType="HOME_EASY_EU"]
+}

@@ -1,0 +1,15 @@
+Number Gas_Pulse_Counter                                                                      (Test,PersistentHistory) { homematic="address=MEQ0705863,channel=1,parameter=GAS_ENERGY_COUNTER" }
+Number Gas_Current_Count                      "Zählerstand [%.2f m³]"          <selfgas>      (Test,PersistentHistory)
+Number Gas_Current_Daily_Consumption          "Tagesverbrauch [%.2f m³]"       <selfgas>      (Test,PersistentCurrent)
+Number Gas_Current_Consumption                "Aktueller Verbrauch [%.2f m³]"  <selfgas>      (Test,PersistentChart) { homematic="address=MEQ0705863,channel=1,parameter=GAS_POWER" }
+Number Gas_Last_Daily_Consumption             "Gas"                                           (Test,PersistentChart)
+Number Gas_Annual_Consumption                 "Aktuelle Periode [%.2f m³]"     <selfgas>      (Test,PersistentCurrent)
+String Gas_Forecast                           "Hochrechnung [%s]"              <selfgas>      (Test,PersistentCurrent)
+
+Number Electricity_Meter                      "Zählerstand [%.2f KWh]"         <selfenergy>   (Test,PersistentHistory) { homematic="address=MEQ0705859,channel=1,parameter=ENERGY_COUNTER" }
+Number Electricity_Meter_power                "Verbrauch [%.2f W]"             <selfenergy>   (Test,PersistentHistory) { homematic="address=MEQ0705859,channel=1,parameter=POWER" }
+Number Electricity_Current_Daily_Consumption  "Tagesverbrauch [%.2f KWh]"      <selfenergy>   (Test,PersistentCurrent)
+Number Electricity_Current_Consumption        "Aktueller Verbrauch [%d Watt]"  <selfenergy>   (Test,PersistentChart) { homematic="address=MEQ0705859,channel=1,parameter=POWER" }
+Number Electricity_Last_Daily_Consumption     "Strom"                                         (Test,PersistentChart)
+Number Electricity_Annual_Consumption         "Aktuelle Periode [%.2f KWh]"    <selfenergy>   (Test,PersistentCurrent)
+String Electricity_Forecast                   "Hochrechnung [%s]"              <selfenergy>   (Test,PersistentCurrent)

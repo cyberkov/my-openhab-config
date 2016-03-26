@@ -1,0 +1,19 @@
+---
+openhab2:
+  image: 'cyberkov/openhab2:offline'
+  restart: always
+  ports:
+    - "8080:8080"
+    - "8443:8443"
+    - "5555:5555"
+    - "9123:9123"
+  net: "host"
+  volumes:
+    - '/etc/localtime:/etc/localtime:ro'
+    - '/opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro'
+    - "/opt/openhab/userdata:/openhab/userdata"
+    - ".:/openhab/conf"
+  command: "dockerize -stdout /openhab/userdata/logs/openhab.log /openhab/start.sh debug"
+  devices:
+    - '/dev/ttyUSB0'
+

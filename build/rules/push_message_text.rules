@@ -1,0 +1,17 @@
+//----------------------------------------------------------
+// Pushover notifications are sent through the script
+// to the people currently in the house.
+// If no one is here the message is simply passed to
+// both.
+//
+rule "When text changes, send a push message"
+when
+        Item push_message_text received update
+then
+        logInfo('org.openhab', 'message text is: ' + push_message_text.state)
+        try {
+          callScript('pushMessages')
+        }
+        display_message_text.postUpdate(push_message_text.state.toString)
+end
+

@@ -1,0 +1,8 @@
+// Bad
+Thing sonos:zoneplayer:RINCON_5CAAFD40ED4001400 [ udn="RINCON_5CAAFD40ED4001400", refresh=60]
+// Wohnzimmer
+Thing sonos:zoneplayer:RINCON_5CAAFD40EDB401400 [ udn="RINCON_5CAAFD40EDB401400", refresh=60]
+// Sauna
+Thing sonos:zoneplayer:RINCON_B8E937ED63BA01400 [ udn="RINCON_B8E937ED63BA01400", refresh=60]
+// Kueche
+Thing sonos:zoneplayer:RINCON_B8E937E7B3DE01400 [ udn="RINCON_B8E937E7B3DE01400", refresh=60]

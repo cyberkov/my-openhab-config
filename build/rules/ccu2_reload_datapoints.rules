@@ -1,0 +1,11 @@
+//----------------------------------------------------------
+// Datapoints shall be reloaded once a day
+// according to documentation
+//
+rule "Reload datapoints"
+when
+    Time cron "0 0 0/6 * * ?"   // every 6 hours
+then
+    Reload_Datapoints.sendCommand(ON)
+    Reload_Variables.sendCommand(ON)
+end

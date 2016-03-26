@@ -1,0 +1,24 @@
+var Timer printerTimer = null
+
+rule "CUPS-Printer Queue"
+when
+    Item UG_Hannes_C500_Print_Jobs_Queued changed
+then
+    if (UG_Hannes_C500_Print_Jobs_Queued.state>0) {
+  logInfo("Printerrule", "Druckauftrag erhalten.")
+        if (printerTimer!=null) {
+            printerTimer.cancel
+            printerTimer=null
+        }
+        if (UG_Hannes_Power_Printer.state==OFF) {
+      logInfo("Printerrule", "Schalte Drucker ein.")
+            UG_Hannes_Power_Printer.sendCommand(ON)
+        }
+    }
+    else if (UG_Hannes_Power_Printer.state==ON) {
+        printerTimer = createTimer(now.plusMinutes(5)) [|
+      logInfo("Printerrule", "Schalte Drucker aus.")
+            UG_Hannes_Power_Printer.sendCommand(OFF)
+        ]
+    }
+end

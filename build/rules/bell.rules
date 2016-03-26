@@ -1,0 +1,39 @@
+var Timer notificationTimer = null
+
+//----------------------------------------------------------
+// Wenn jemand klingelt kann er auch
+// mehrfach oder lange druecken
+//
+rule "Bell State ON"
+when
+  Item EG_Vorzimmer_Bell_short changed to ON or
+  Item EG_Vorzimmer_Bell_long changed to ON
+then
+  logInfo("Bell rule on", "Turn bell on")
+  EG_Vorzimmer_Bell.sendCommand(ON)
+end
+
+rule "Bell State OFF"
+when
+  Item EG_Vorzimmer_Bell_short changed to OFF or
+  Item EG_Vorzimmer_Bell_long changed to OFF
+then
+  logInfo("Bell rule off", "Turn bell off")
+  EG_Vorzimmer_Bell.sendCommand(OFF)
+end
+
+rule "Bell State"
+when
+  Item EG_Vorzimmer_Bell changed to ON
+then
+  EG_Vorzimmer_Bell_Last_Change.postUpdate( now.toString() )
+        logInfo("Bell rule", "Es hat geklingelt.")
+
+    if(notificationTimer==null) {
+      notificationTimer = createTimer(now.plusSeconds(30)) [|
+        notificationTimer=null
+      ]
+      pushover("Klingel: Es klingelt")
+      //push_message_text.postUpdate("Klingel: Es klingelt")
+    }
+end

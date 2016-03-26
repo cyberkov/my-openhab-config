@@ -1,0 +1,13 @@
+//----------------------------------------------------------
+// Some items are not persisted. They should be kept in a
+// certain state on startup.
+//
+rule "Initialize items"
+when
+        System started
+then
+  pushover("OpenHAB wurde gestartet.")
+  say_message_text.postUpdate("OpenHAB wurde gestartet.")
+  display_message_text.postUpdate("OpenHAB wurde gestartet.")
+  logInfo("Initializer", "OpenHAB initialized.")
+end

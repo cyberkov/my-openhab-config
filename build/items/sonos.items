@@ -1,0 +1,22 @@
+/* Sonos */
+Group Sonos (Status)
+
+String OG_Bad_Sonos_currenttrack  "Bad CurrentTrack [%s]" (OG_Bad,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40ED4001400:currenttrack" }
+Player OG_Bad_Sonos_Play          "Bad Play/Pause"        (OG_Bad,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40ED4001400:control" }
+Dimmer OG_Bad_Sonos_Volume        "Bad Volume [%.1f]"     (OG_Bad,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40ED4001400:volume"}
+String OG_Bad_Sonos_uri           "Bad Playuri"           (OG_Bad,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40ED4001400:playuri" }
+
+String EG_wohnzimmer_Sonos_currenttrack  "Wohnzimmer CurrentTrack [%s]"  (EG_Wohnzimmer,Sonos)  { channel="sonos:zoneplayer:RINCON_5CAAFD40EDB401400:currenttrack" }
+Player EG_wohnzimmer_Sonos_Play          "Wohnzimmer Play/Pause"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40EDB401400:control" }
+Dimmer EG_wohnzimmer_Sonos_Volume        "Wohnzimmer Volume [%.1f]"      (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40EDB401400:volume"}
+String EG_wohnzimmer_Sonos_uri          "Wohnzimmer Playuri"         (EG_Wohnzimmer,Sonos)   { channel="sonos:zoneplayer:RINCON_5CAAFD40EDB401400:playuri" }
+
+String EG_Kueche_Sonos_currenttrack  "Kueche CurrentTrack [%s]" (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937E7B3DE01400:currenttrack" }
+Player EG_Kueche_Sonos_Play          "Kueche Play/Pause"        (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937E7B3DE01400:control" }
+Dimmer EG_Kueche_Sonos_Volume        "Kueche Volume [%.1f]"     (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937E7B3DE01400:volume"}
+String EG_Kueche_Sonos_uri           "Kueche Playuri"           (EG_Kueche,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937E7B3DE01400:playuri" }
+
+String UG_Sauna_Sonos_currenttrack  "Sauna CurrentTrack [%s]" (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937ED63BA01400:currenttrack" }
+Player UG_Sauna_Sonos_Play          "Sauna Play/Pause"        (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937ED63BA01400:control" }
+Dimmer UG_Sauna_Sonos_Volume        "Sauna Volume [%.1f]"     (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937ED63BA01400:volume"}
+String UG_Sauna_Sonos_uri           "Sauna Playuri"           (UG_Sauna,Sonos)   { channel="sonos:zoneplayer:RINCON_B8E937ED63BA01400:playuri" }

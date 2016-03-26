@@ -1,0 +1,49 @@
+import org.joda.time.*
+import java.lang.Math
+
+var DateTime letzteAblesungDatum = parse("2015-11-13")
+var Number letzteAblesungWert = 115699
+var Number letzteAblesungJahresverbrauch = 2166
+
+rule "Last daily electricity consumption"
+when
+     Time cron "0 59 23 * * ?"
+then
+
+  postUpdate(Electricity_Last_Daily_Consumption, (Electricity_Meter.state as DecimalType) - (Electricity_Meter.historicState(now.toDateMidnight).state as DecimalType) )
+end
+
+rule "Stromverbrauch"
+when
+  Item Electricity_Meter received update
+then
+
+//  logInfo("strom","start1")
+//  Electricity_Meter.state
+//  logInfo("strom","start2")
+//  Electricity_Meter.historicState(now).state
+//  logInfo("strom","start3")
+//  Electricity_Meter.historicState(now.toDateMidnight).state
+//  logInfo("strom","start4")
+
+  var Number Aktuell_Zaehler = Electricity_Meter.state as DecimalType
+
+  // Jahresverbrauch
+  var Number aktuellerJahresverbrauch = Aktuell_Zaehler - letzteAblesungWert
+  postUpdate( Electricity_Annual_Consumption, aktuellerJahresverbrauch )
+
+  // Hochrechnung
+  var Number aktuellesJahrMillis = now.getMillis - letzteAblesungDatum.getMillis
+  var Number ganzesJahrMillis = 31536000000l
+  var hochrechnungVerbrauch = Math::round((ganzesJahrMillis * aktuellerJahresverbrauch / aktuellesJahrMillis).doubleValue)
+  postUpdate( Electricity_Forecast, hochrechnungVerbrauch + " KWh, " + letzteAblesungJahresverbrauch + " KWh" )
+
+  // Aktueller Verbrauch
+        // durch 3 teilen weil die Berechnungsbasis 5 ist und nicht 15
+  var Number Letzter_Zaehler = Electricity_Meter.historicState(now.minusMinutes(15)).state as DecimalType
+  var Number Aktuell = Math::round((( ( Aktuell_Zaehler - Letzter_Zaehler ) / 3 ) * 12 * 1000).doubleValue)
+  postUpdate(Electricity_Current_Consumption, Aktuell )
+
+  // Tagesverbrauch
+  postUpdate(Electricity_Current_Daily_Consumption, Aktuell_Zaehler - Electricity_Meter.historicState(now.toDateMidnight).state as DecimalType )
+end

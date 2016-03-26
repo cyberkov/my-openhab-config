@@ -1,0 +1,120 @@
+//////////////// Gruppen
+
+Group All
+Group gEG "Erdgeschoss"  <groundfloor>    (All)
+Group gOG "Obergeschoss" <firstfloor>    (All)
+Group gUG "Keller"       <cellar>         (All)
+Group Outdoor "Garten"   <garden>         (All)
+Group Weather <sun_clouds> (All)
+Group Status              (All)
+Group Network <settings>  (Status)
+Group Test    <smiley>    (Status)
+Group Maintenance    <selfwrench>    (Status)
+
+Group EG_Wohnzimmer     "Wohnzimmer"           <sofa>       (gEG)
+Group EG_Esszimmer     "Esszimmer"           <dining>           (gEG)
+Group EG_Kueche     "Kueche"     <kitchen>     (gEG)
+Group EG_Toilet     "WC"       <bath>       (gEG)
+Group EG_Vorzimmer     "Vorzimmer"    <corridor>     (gEG)
+Group EG_Windfang     "Windfang"    <door>     (gEG)
+
+Group OG_Bad       "Bad"       <bath>       (gOG)
+Group OG_Barbara     "Barbara"     <office>     (gOG)
+Group OG_Dominik    "Dominik"     <boy1>       (gOG)
+Group OG_Schlafzimmer    "Schlafzimmer"   <bedroom>     (gOG)
+Group OG_Schrankraum     "Schrankraum"         <wardrobe>    (gOG)
+Group OG_Gang        "Gang"     <corridor>     (gOG)
+
+Group UG_Hannes      "Hannes"    <office>    (gUG)
+Group UG_Vorzimmer    "Vorraum"    <corridor>    (gUG)
+Group UG_Sauna      "Sauna"    <cellar>    (gUG)
+Group UG_Wirtschaftsraum  "Wirtschaftsraum"  <cellar>    (gUG)
+
+// These items should be monitored for updates
+Group Monitoring          "Monitoring"          <selfinfo>              (Status)
+
+// Persistency Groups
+Group PersistentHistory
+Group PersistentChart
+Group PersistentCurrent
+
+/* active groups */
+Group:Switch:OR(ON, OFF)   Lights     "All Lights [(%d)]"             (All)
+//Group:Switch:OR(ON, OFF)   Heating   "No. of Active Heatings [(%d)]" <heating>     (Status)
+
+//////////////// Fertig ////////////////
+
+/* Drucker */
+Switch UG_Hannes_Power_Printer            "Hannes Drucker"              <printer>   (UG_Hannes, Network, Sockets)  { channel="rfxcom:lighting2:rfx:printer:command" }
+// ,  nh="192.168.1.15" }
+Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <printer>   (UG_Hannes)             { cups="http://127.0.0.1:631/printers/C500#NOT_COMPLETED" }
+
+//////////////// Test ////////////////
+
+/* Batterien */
+Group:Contact:OR(CLOSED,OPEN)       Battery         "Batterien [(%d)]"              <energy>      (Status)
+
+//////////////// Vorbereitet ////////////////
+
+/* Steckdosen */
+
+/* Living room TV */
+/*
+Group TV <tv>
+Switch        tv_power    "TV"      <power>     (TV, proximity) {samsungtv="ON:Livingroom:KEY_POWERON, OFF:Livingroom:KEY_POWEROFF", nh="192.168.1.153"}
+Rollershutter tv_channel  "Kanal"   <channel>   (TV) {samsungtv="UP:Livingroom:KEY_CHUP, DOWN:Livingroom:KEY_CHDOWN"}
+Switch        tv_mute     "Mute"    <volume>    (TV){samsungtv="ON:Livingroom:KEY_MUTE, OFF:Livingroom:KEY_MUTE"}
+Rollershutter tv_volume   "Volume"  <volume>    (TV) {samsungtv="UP:Livingroom:KEY_VOLUP, DOWN:Livingroom:KEY_VOLDOWN"}
+*/
+
+// String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
+// Switch XBMC_Power  "XBMC Power"  (EG_Wohnzimmer)    { xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
+
+
+/* Rollershutters */
+/*
+Switch Shutter_all (Shutters)
+
+Rollershutter Shutter_GF_Toilet     "Toilet"    (GF_Toilet, Shutters)
+Rollershutter Shutter_GF_Kitchen     "Kitchen"    (GF_Kitchen, Shutters)
+Rollershutter Shutter_EG_Wohnzimmer     "Livingroom"  (EG_Wohnzimmer, Shutters)
+
+Rollershutter Shutter_FF_Bed       "Bedroom"    (FF_Bed, Shutters)
+Rollershutter Shutter_FF_Bath       "Bath"      (FF_Bath, Shutters)
+Rollershutter Shutter_FF_Barbara_Window  "Office Window"  (FF_Barbara, Shutters)
+Rollershutter Shutter_FF_Barbara_Door   "Office Door"  (FF_Barbara, Shutters)
+*/
+
+/* Weather */
+// athmosphere
+Number   Weather_Visibility       "Visibility [%.2f km]"<temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=visibility"}
+Number   Weather_Pressure         "Pressure [%.2f mb]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressure"}
+String   Weather_Pressure_Trend   "Pressuretrend [%s]"  <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=pressureTrend"}
+Number   Weather_Ozone            "Ozone [%d ppm]"      <temperature> (Weather)  {weather="locationId=home, type=athmosphere, property=ozone"}
+
+// clouds
+Number   Weather_Clouds   "Clouds [%.0f %%]" <temperature> (Weather)  {weather="locationId=home, type=clouds, property=percent"}
+
+// condition
+String   Weather_Condition_ID     "Condition id [%s]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=id"}
+DateTime Weather_ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <temperature> (Weather)  {weather="locationId=home, type=condition, property=observationTime"}
+String   Condition_tomorrow        "Condition [%s]"    <sun_clouds> (Weather)  {weather="locationId=home, type=condition, forecast=1, property=text"}
+
+// precipitation
+Number   Weather_Rain          "Rain [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=rain"}
+Number   Weather_Snow          "Snow [%.2f mm/h]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=snow"}
+//Number   Weather_Precip_Probability   "Precip probability [%d %%]" <temperature> (Weather)  {weather="locationId=home, type=precipitation, property=probability"}
+
+// temperature
+//Number   Weather_Temperature      "Temperature [%.2f °C]"     <temperature> (Weather)  {weather="locationId=home, type=temperature, property=current"}
+Number   Weather_Temp_Feel        "Temperature feel [%.2f °C]" <temperature> (Weather)  {weather="locationId=home, type=temperature, property=feel"}
+Number   Weather_Temp_Dewpoint    "Dewpoint [%.2f °C]"        <temperature> (Weather)  {weather="locationId=home, type=temperature, property=dewpoint"}
+// min and max values only available in forecasts
+String   Weather_Temp_MinMax      "Min/Max [%s °C]"           <temperature> (Weather)  {weather="locationId=home, type=temperature, property=minMax"}
+
+// wind
+Number   Weather_Wind_Speed           "Windspeed [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=speed"}
+String   Weather_Wind_Direction       "Wind direction [%s]"   <temperature> (Weather)   {weather="locationId=home, type=wind, property=direction"}
+Number   Weather_Wind_Degree          "Wind degree [%.0f °]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=degree"}
+Number   Weather_Wind_Gust            "Wind gust [%.2f km/h]" <temperature> (Weather)   {weather="locationId=home, type=wind, property=gust"}
+Number   Weather_Wind_Chill           "Wind chill [%.2f °C]"  <temperature> (Weather)   {weather="locationId=home, type=wind, property=chill"}

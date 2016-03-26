@@ -1,0 +1,17 @@
+// Global Variables
+
+// Constants used to generate this rule
+// HumidityHigh == 62
+// HumidityLow == 57
+
+rule "Sauna Luftentfeuchter"
+when
+    Item Humidity_UG_Sauna changed
+then
+  if ((Humidity_UG_Sauna.state >= 62)) {
+    UG_Sauna_Luftentfeuchter.sendCommand(ON)
+  }
+  else if ((Humidity_UG_Sauna.state < 57)) {
+    UG_Sauna_Luftentfeuchter.sendCommand(OFF)
+  }
+end

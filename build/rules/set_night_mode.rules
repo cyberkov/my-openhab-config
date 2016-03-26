@@ -1,0 +1,19 @@
+//----------------------------------------------------------
+// This rule allows more simpler decisions.
+// You can check on one switch rather than calculating
+// if it is night over and over again.
+//
+rule "Set night mode"
+when
+    Item Sunrise_Event received update ON or
+    Item Sunset_Event received update ON or
+    System started
+then
+    var Date sunsetTime  = (Sunset_Time.state as DateTimeType).calendar.time
+    var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
+    if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
+      mode_night.sendCommand(ON)
+    } else {
+      mode_night.sendCommand(OFF)
+    }
+end

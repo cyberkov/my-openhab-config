@@ -1,0 +1,7 @@
+rule "Public Holiday"
+when
+        Time cron "0 0 0 * * ?" or
+        System started
+then
+        callScript("holiday")
+end

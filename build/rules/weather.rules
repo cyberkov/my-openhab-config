@@ -1,0 +1,30 @@
+//rule "Update max and min temperatures"
+//when
+//  Item Weather_Temperature changed or
+//  Time cron "0 0 0 * * ?" or
+//  System started
+//then
+//  Weather_Temp_Max.postUpdate(Weather_Temperature.maximumSince(now.toDateMidnight).state)
+//  Weather_Temp_Min.postUpdate(Weather_Temperature.minimumSince(now.toDateMidnight).state)
+//end
+
+// Creates an item that stores the last update time of this item
+rule "Records last weather update time"
+when
+  Item Weather_Temperature received update
+then
+  Weather_LastUpdate.postUpdate( new DateTimeType())
+end
+
+rule "schicke Wetterbericht fuer heute"
+when
+  Time cron "0 0 7 * * ?"
+then
+    var String wetterOutput = "Wetter heute: "
+        wetterOutput = wetterOutput + Condition_today.state
+        wetterOutput = wetterOutput + " Min: " + Weather_Forecast_Temp_Min.state
+        wetterOutput = wetterOutput + " Max: " + Weather_Forecast_Temp_Max.state
+        wetterOutput = wetterOutput + " Regen: " + Weather_Precip_Probability.state
+        logInfo("Rule Wetterbericht", wetterOutput)
+        pushover(wetterOutput, 0, "http://wetter.orf.at/m/wien/", "wetter.orf.at")
+end
