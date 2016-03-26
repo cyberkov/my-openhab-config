@@ -1,6 +1,5 @@
-Thing zwave:serial_zstick:controller [ port="/dev/ttyACM1", controller_softreset=false, controller_master=true ] 
-Thing zwave:device:controller:node2 [ deviceId="2", config_1_1="0" ]
-//{
-  // TZ67 Wall Plug Dimmer
-//  Thing node2 [ deviceId="2", config_1_1="0" ]
-//}
+Bridge zwave:serial_zstick:controller [ port="/dev/ttyACM0", controller_softreset=false, controller_master=true, security_networkkey="8374B8194AF0595FFF46CA42A1C023E02FA7276427605CC212D9E6F6C0B0529C", heal_enable="true" ] {
+
+// TZ67 Wall Plug Dimmer
+  Thing device node2 [ zwave_nodeid=2, zwave_class_basic=ROUTING_SLAVE, zwave_class_generic=MULTILEVEL_SWITCH, zwave_class_specific=POWER_SWITCH_MULTILEVEL ]
+}

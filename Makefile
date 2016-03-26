@@ -13,8 +13,7 @@ CONTAINER_NAME="openhab2"
 #VOLUMES=-v /opt/openhab/config:/openhab/conf:ro
 VOLUMES=-v /opt/openhab/userdata:/openhab/userdata \
   -v /opt/openhab/config:/openhab/conf \
-  -v /opt/openhab/addons:/openhab/addons \
-  -v /opt/openhab/config/extra/50-zwave.rules:/etc/udev/rules.d/50-zwave.rules:ro
+  -v /opt/openhab/addons:/openhab/addons
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
 .PHONY: all update pull run clean purgelogs
