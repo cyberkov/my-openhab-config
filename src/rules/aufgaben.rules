@@ -24,6 +24,7 @@ then
     Task_Waschmaschine.sendCommand(OFF)
     Task_Waesche.sendCommand(ON)
     push_message_text.postUpdate("Waschmaschine ist fertig.")
+    pebblePin("hannes", new DateTime().withHourOfDay(23).withMinuteOfHour(30).toDate, "Waschmaschine", "Waschmaschine ist fertig.")
 end
 
 rule "Waschmaschine wird ausgeschaltet"
@@ -43,4 +44,5 @@ when
 then
     logInfo("Task_Geschirrspueler", "Geschirrspueler ist fertig")
     push_message_text.postUpdate("Geschirrspueler ist fertig.")
+    pebblePin("hannes", new DateTime().withHourOfDay(23).withMinuteOfHour(30).toDate, "Geschirrspueler", "Geschirrspueler ist fertig.")
 end

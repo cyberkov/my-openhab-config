@@ -9,5 +9,6 @@ then
   pushover("OpenHAB wurde gestartet.")
   say_message_text.postUpdate("OpenHAB wurde gestartet.")
   display_message_text.postUpdate("OpenHAB wurde gestartet.")
+  pebblePin("hannes", new DateTime().withHourOfDay(23).withMinuteOfHour(30).toDate, "OpenHAB", "OpenHAB wurde gestartet.")
   logInfo("Initializer", "OpenHAB initialized.")
 end
