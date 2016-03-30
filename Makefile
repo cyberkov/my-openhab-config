@@ -16,8 +16,8 @@ VOLUMES=-v /opt/openhab/userdata:/openhab/userdata \
   -v /opt/openhab/addons:/openhab/addons
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/config:/openhab/conf:ro
 
-.PHONY: all update pull run clean purgelogs
-all: update pull purgelogs run
+.PHONY: all update pull run clean purgelogs config
+all: update pull purge run
 config: items sitemaps rules
 
 items: items/all.items
@@ -58,7 +58,7 @@ update:
 pull:
 	docker pull $(DOCKER_IMAGE)
 
-run: items rules-override sitemaps
+run: config
 	/usr/bin/docker run \
 	  --rm \
 	  --net host \
@@ -68,13 +68,13 @@ run: items rules-override sitemaps
 	  -v '/etc/localtime:/etc/localtime:ro' \
 	  -v '/etc/timezone:/etc/timezone:ro' \
 	  -it \
-	  -u root \
 	  $(VOLUMES) \
 	  --device=$(shell realpath /dev/ttyUSBrfxcom0) \
 	  --device=$(shell realpath /dev/ttyUSBzwave0) \
 	  --name $(CONTAINER_NAME) \
 	  $(DOCKER_IMAGE) \
 	  debug
+#	  -u root \
 
 clean:
 	-rm items/*.items
@@ -84,12 +84,10 @@ clean:
 	make phoenix
 purge:
 	rm -Rf /opt/openhab/userdata/logs/*
-	touch /opt/openhab/userdata/logs/openhab.log
 	chown cyberkov:cyberkov -R /opt/openhab/userdata/
 phoenix:
 	mkdir -p /opt/openhab/userdata/logs
 	mkdir -p /opt/openhab/userdata/persistence/mapdb
-	touch /opt/openhab/userdata/logs/openhab.log
 	chown cyberkov:cyberkov -R /opt/openhab/userdata/
 
 habmin:
