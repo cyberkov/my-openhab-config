@@ -3,6 +3,9 @@
 //Contact OG_Gang_Occupancy        "OG Gang Aktivitaet"   (Automatik,OG_Gang)
 
 var Timer UG_tOccupancy
+var Timer EG_tOccupancy
+var Timer OG_tOccupancy
+
 
 rule "UG Motion Trigger"
 when
@@ -22,24 +25,6 @@ then
   ]
 end
 
-//rule "UG Occupancy_Trigger"
-//when
-//  Item occupancy changed from OPEN to CLOSED
-//then
-//  UG_tOccupancy?.cancel
-//  UG_tOccupancy = null                               
-//  callScript("room_occupied")
-//end
-//
-//rule "UG Occupancy_Absence"
-//when
-//  Item occupancy changed from CLOSED to OPEN
-//then
-//  callScript("room_absent")
-//end
-
-var Timer EG_tOccupancy
-
 rule "EG Motion Trigger"
 when
   Item EG_Esszimmer_Motion changed from OPEN to CLOSED
@@ -58,8 +43,6 @@ then
   ]
 end
 
-var Timer OG_tOccupancy
-
 rule "OG Motion Trigger"
 when
   Item OG_Gang_Motion changed from OPEN to CLOSED
@@ -77,5 +60,21 @@ then
     OG_Gang_Occupancy.postUpdate(OPEN)
   ]
 end
+
+//rule "UG Occupancy_Trigger"
+//when
+//  Item occupancy changed from OPEN to CLOSED
+//then
+//  UG_tOccupancy?.cancel
+//  UG_tOccupancy = null                               
+//  callScript("room_occupied")
+//end
+//
+//rule "UG Occupancy_Absence"
+//when
+//  Item occupancy changed from CLOSED to OPEN
+//then
+//  callScript("room_absent")
+//end
 
 

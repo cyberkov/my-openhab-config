@@ -7,6 +7,12 @@ Group:Contact:OR(OPEN, CLOSED)   Motionsensors    "Bewegungsmelder [(%d)]"  <con
 Group:Number:AVG                 Brightness      "Helligkeitssensoren [(%.1f %%)]"  <sun> (Security)
 DateTime Security_Last_Change   "Sicherheit [%1$td.%1$tm. %1$tH:%1$tM:%1$tS]"   <selfcalendar>  (Security,PersistentCurrent)
 
+Switch Outdoor_Sirene_Sirene "Sirene" (Outdoor, Security) { homematic="address=MEQ0727791,channel=1,parameter=STATE" }
+Switch Outdoor_Sirene_Blitzlicht "Blitzlicht" (Outdoor, Security) { homematic="address=MEQ0727791,channel=2,parameter=STATE" }
+Contact Outdoor_Sirene_Sabotage   "Sirene Sabotagekontakt [MAP(sabotage.map):%s]"  (Outdoor, Tamperswitches) { homematic="address=MEQ0727791,channel=1,parameter=ERROR_SABOTAGE" }
+Contact Outdoor_Sirene_Power   "Sirene Stromversorgung [MAP(sabotage.map):%s]" <energy>  (Outdoor,Battery) { homematic="address=MEQ0727791,channel=1,parameter=ERROR_POWER" }
+Contact Outdoor_Sirene_Battery   "Sirene Batterie [MAP(sabotage.map):%s]" <battery>  (Outdoor,Battery) { homematic="address=MEQ0727791,channel=1,parameter=ERROR_BATTERY" }
+
 
 Contact EG_Vorzimmer_Door  "Eingangstuer [MAP(de.map):%s]"  <door>  (EG_Vorzimmer, Openingcontacts) { homematic="address=LEQ1177637,channel=1,parameter=STATE" }
 Contact EG_Wohnzimmer_Door "Terrassentuer [MAP(de.map):%s]" <door>  (EG_Wohnzimmer, Openingcontacts) { homematic="address=MEQ0186561,channel=1,parameter=STATE" }
