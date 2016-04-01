@@ -40,6 +40,7 @@ Group PersistentCurrent
 
 /* active groups */
 Group:Switch:OR(ON, OFF)   Lights     "All Lights [(%d)]"             (All)
+Group:Contact:OR(CLOSED,OPEN)       Battery         "Batterien [(%d)]"              <energy>      (Status)
 //Group:Switch:OR(ON, OFF)   Heating   "No. of Active Heatings [(%d)]" <heating>     (Status)
 
 //////////////// Fertig ////////////////
@@ -51,39 +52,6 @@ Number UG_Hannes_C500_Print_Jobs_Queued   "C500 Unfinished print jobs [%d]"  <pr
 
 //////////////// Test ////////////////
 
-/* Batterien */
-Group:Contact:OR(CLOSED,OPEN)       Battery         "Batterien [(%d)]"              <energy>      (Status)
-
-//////////////// Vorbereitet ////////////////
-
-/* Steckdosen */
-
-/* Living room TV */
-/*
-Group TV <tv>
-Switch        tv_power    "TV"      <power>     (TV, proximity) {samsungtv="ON:Livingroom:KEY_POWERON, OFF:Livingroom:KEY_POWEROFF", nh="192.168.1.153"}
-Rollershutter tv_channel  "Kanal"   <channel>   (TV) {samsungtv="UP:Livingroom:KEY_CHUP, DOWN:Livingroom:KEY_CHDOWN"}
-Switch        tv_mute     "Mute"    <volume>    (TV){samsungtv="ON:Livingroom:KEY_MUTE, OFF:Livingroom:KEY_MUTE"}
-Rollershutter tv_volume   "Volume"  <volume>    (TV) {samsungtv="UP:Livingroom:KEY_VOLUP, DOWN:Livingroom:KEY_VOLDOWN"}
-*/
-
-// String UnknownDevices    "Unknown Devices in Range: [%s]" { bluetooth="?" }
-// Switch XBMC_Power  "XBMC Power"  (EG_Wohnzimmer)    { xbmc=">[#livingRoom|System.Shutdown]", wol="192.168.1.0#xx:xx:xx:xx:xx:xx", nh="raspi:80" }
-
-
-/* Rollershutters */
-/*
-Switch Shutter_all (Shutters)
-
-Rollershutter Shutter_GF_Toilet     "Toilet"    (GF_Toilet, Shutters)
-Rollershutter Shutter_GF_Kitchen     "Kitchen"    (GF_Kitchen, Shutters)
-Rollershutter Shutter_EG_Wohnzimmer     "Livingroom"  (EG_Wohnzimmer, Shutters)
-
-Rollershutter Shutter_FF_Bed       "Bedroom"    (FF_Bed, Shutters)
-Rollershutter Shutter_FF_Bath       "Bath"      (FF_Bath, Shutters)
-Rollershutter Shutter_FF_Barbara_Window  "Office Window"  (FF_Barbara, Shutters)
-Rollershutter Shutter_FF_Barbara_Door   "Office Door"  (FF_Barbara, Shutters)
-*/
 
 /* Weather */
 // athmosphere

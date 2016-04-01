@@ -5,7 +5,7 @@ Group:Switch:OR(ON, OFF)    Anwesenheit  "Anwesenheit [(%d)]"    <present>
 // Variable wird auf der CCU2 gesetzt, damit sie dort ggf. weiter verwendet werden kann
 //
 Switch  JemandDa    "Anwesenheit"    <selfshield>  (Security,Anwesenheit,PersistentCurrent)  { homematic="variable=Haus SV Anwesenheit" }
-Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit)
+Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit,PersistentCurrent)
 
 /* Config-values */
 String pushover_token_barbara  "Pushover Barbara [%s]" (Maintenance,PersistentCurrent)  {configadmin = "pushover:barbaraToken"}
