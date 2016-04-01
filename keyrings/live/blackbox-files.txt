@@ -1,6 +1,7 @@
 bin/tvcheck.sh
 extra/mosquitto.conf
 extra/mysql_cleanup.sh
+extra/node-sonos-api.json
 extra/openhab.htpasswd
 html/map2.html
 services/influxdb.cfg
