@@ -4,4 +4,6 @@
 NULL=unknown
 CLOSED=Aktivitaet erkannt
 OPEN=keine Aktivitaet
+ON=Aktivitaet erkannt
+OFF=keine Aktivitaet
 -=unknown

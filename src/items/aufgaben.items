@@ -1,5 +1,5 @@
 Group:Number:SUM   Tasks          "Aufgaben [(%d)]"             <tasklist>      (All)
-DateTime Tasks_Last_Change   "Letzte Aenderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfCalendar>  (Tasks,PersistentCurrent)
+DateTime Tasks_Last_Change   "Letzte Aenderung [%1$tH:%1$tM:%1$tS, %1$td.%1$tm]"   <selfcalendar>  (Tasks,PersistentCurrent)
 
 Switch Task_Waschmaschine         "Waschmaschine"   <waschmaschine>  (Tasks,PersistentCurrent)
 Switch Task_Waesche            "Waesche aufhaengen" <waschmaschine>  (Tasks,PersistentCurrent)

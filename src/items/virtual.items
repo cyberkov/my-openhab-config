@@ -40,6 +40,6 @@ Switch  mode_outdoor "Garten"   <garden> (Automatik)
 
 Switch auto_gelsenstecker "Gelsensteckerautomatik" <socket> (Automatik)
 
-Contact UG_Hannes_Occupancy      "UG Hannes Aktivitaet [MAP(modus.map):%s]"     <selfmotion>  (Automatik,UG_Hannes)
-Contact EG_Esszimmer_Occupancy   "EG Esszimmer Aktivitaet [MAP(modus.map):%s]"  <selfmotion>  (Automatik,EG_Esszimmer)
-Contact OG_Gang_Occupancy        "OG Gang Aktivitaet [MAP(modus.map):%s]"       <selfmotion>  (Automatik,OG_Gang)
+Switch UG_Hannes_Occupancy      "UG Hannes Aktivitaet [MAP(modus.map):%s]"     <selfmotion>  (Automatik,UG_Hannes)
+Switch EG_Esszimmer_Occupancy   "EG Esszimmer Aktivitaet [MAP(modus.map):%s]"  <selfmotion>  (Automatik,EG_Esszimmer)
+Switch OG_Gang_Occupancy        "OG Gang Aktivitaet [MAP(modus.map):%s]"       <selfmotion>  (Automatik,OG_Gang)
