@@ -9,61 +9,61 @@ var Timer OG_tOccupancy
 
 rule "UG Motion Trigger"
 when
-  Item UG_Hannes_Motion changed from OPEN to CLOSED
+  Item UG_Hannes_Motion changed from ON to OFF
 then
-  UG_Hannes_Occupancy.postUpdate(CLOSED)
+  UG_Hannes_Occupancy.postUpdate(OFF)
 end
 
 rule "UG Motion Absence"
 when
-  Item UG_Hannes_Motion changed from CLOSED to OPEN
+  Item UG_Hannes_Motion changed from OFF to ON
 then
   UG_tOccupancy?.cancel
   UG_tOccupancy = createTimer(now.plusMinutes(10)) [|
     logInfo("occupancy", "UG Occupancy timeout reached")
-    UG_Hannes_Occupancy.postUpdate(OPEN)
+    UG_Hannes_Occupancy.postUpdate(ON)
   ]
 end
 
 rule "EG Motion Trigger"
 when
-  Item EG_Esszimmer_Motion changed from OPEN to CLOSED
+  Item EG_Esszimmer_Motion changed from ON to OFF
 then
-  EG_Esszimmer_Occupancy.postUpdate(CLOSED)
+  EG_Esszimmer_Occupancy.postUpdate(OFF)
 end
 
 rule "EG Motion Absence"
 when
-  Item EG_Esszimmer_Motion changed from CLOSED to OPEN
+  Item EG_Esszimmer_Motion changed from OFF to ON
 then
   EG_tOccupancy?.cancel
   EG_tOccupancy = createTimer(now.plusMinutes(10)) [|
     logInfo("occupancy", "EG Occupancy timeout reached")
-    EG_Esszimmer_Occupancy.postUpdate(OPEN)
+    EG_Esszimmer_Occupancy.postUpdate(ON)
   ]
 end
 
 rule "OG Motion Trigger"
 when
-  Item OG_Gang_Motion changed from OPEN to CLOSED
+  Item OG_Gang_Motion changed from ON to OFF
 then
-  OG_Gang_Occupancy.postUpdate(CLOSED)
+  OG_Gang_Occupancy.postUpdate(OFF)
 end
 
 rule "OG Motion Absence"
 when
-  Item OG_Gang_Motion changed from CLOSED to OPEN
+  Item OG_Gang_Motion changed from OFF to ON
 then
   OG_tOccupancy?.cancel
   OG_tOccupancy = createTimer(now.plusMinutes(10)) [|
     logInfo("occupancy", "OG Occupancy timeout reached")
-    OG_Gang_Occupancy.postUpdate(OPEN)
+    OG_Gang_Occupancy.postUpdate(ON)
   ]
 end
 
 //rule "UG Occupancy_Trigger"
 //when
-//  Item occupancy changed from OPEN to CLOSED
+//  Item occupancy changed from ON to OFF
 //then
 //  UG_tOccupancy?.cancel
 //  UG_tOccupancy = null                               
@@ -72,7 +72,7 @@ end
 //
 //rule "UG Occupancy_Absence"
 //when
-//  Item occupancy changed from CLOSED to OPEN
+//  Item occupancy changed from OFF to ON
 //then
 //  callScript("room_absent")
 //end
