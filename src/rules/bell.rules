@@ -33,6 +33,7 @@ then
       notificationTimer = createTimer(now.plusSeconds(30)) [|
         notificationTimer=null
       ]
+      postUpdate(say_message_text, "Es hat geklingelt.")
       pushover("Klingel: Es klingelt")
       pebbleNotification("hannes", "Klingel", "Es klingelt")
       //push_message_text.postUpdate("Klingel: Es klingelt")

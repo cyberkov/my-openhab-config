@@ -1,0 +1,15 @@
+rule "When text changes, send a message to sonos"
+when
+        Item say_message_text received update
+then
+        logInfo('saymessagetext', 'message text is: ' + say_message_text.state)
+        //sendHttpGetRequest("http://localhost:5060/sauna/say/"+say_message_text.state.toString.encode("UTF-8")+"/de-de")
+        sendHttpGetRequest("http://localhost:5060/sayall/"+say_message_text.state.toString.encode("UTF-8")+"/de-de")
+end
+
+rule "Test say message"
+when 
+    Item Testswitch changed
+then
+      postUpdate(say_message_text, "Schalter wurde gedrückt")
+end
