@@ -4,4 +4,5 @@ Items {
 
         // store everything for restore
         * : strategy = everyChange, restoreOnStartup
+        PersistentCurrent* : strategy =  everyChange, restoreOnStartup, everyMinute
 }

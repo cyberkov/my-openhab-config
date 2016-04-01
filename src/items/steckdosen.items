@@ -43,5 +43,3 @@ Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer
 
 Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { channel="rfxcom:lighting2:rfx:gelsenstecker:command" }
 
-Dimmer UG_Hannes_zwavedimmer        "ZwaveDimmer [%.1f]"     (UG_Hannes,Lights)   { channel="zwave:device:controller:node3:switch_dimmer"}
-//Dimmer UG_Hannes_zwavedimmer        "ZwaveDimmer [%.1f]"     (UG_Hannes,Lights)   { channel="zwave:tkb_tz67_00_000:controller:zwavedimmer:switch_dimmer"}

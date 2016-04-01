@@ -7,3 +7,7 @@ Number ZwaveStatsOOF "Number of OOF [%s]"             (gZwaveStats)  {channel="z
 //Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats)   {channel="1:command=info,item=time_out"}
 //String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01)           {channel="1:command=info,item=home_id"}
 //Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01)           {channel="1:command=info,item=node_id"}
+
+
+//Dimmer UG_Hannes_zwavedimmer        "ZwaveDimmer [%.1f]"     (UG_Hannes,Lights)   { channel="zwave:device:controller:node3:switch_dimmer"}
+Dimmer UG_Hannes_zwavedimmer        "ZwaveDimmer [%.1f]"     (UG_Hannes,Lights)   { channel="zwave:device:controller:node3:switch_dimmer"}
