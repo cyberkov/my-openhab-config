@@ -5,15 +5,11 @@
 //
 rule "Set night mode"
 when
-    Item Sunrise_Event received update ON or
-    Item Sunset_Event received update ON or
-    System started
+    Item Elevation changed
 then
-    var Date sunsetTime  = (Sunset_Time.state as DateTimeType).calendar.time
-    var Date sunriseTime = (Sunrise_Time.state as DateTimeType).calendar.time
-    if( now.toDate().after(sunsetTime) || now.toDate().before(sunriseTime)){
-      mode_night.sendCommand(ON)
+    if( Elevation.state < 0 ){
+      mode_night.postUpdate(ON)
     } else {
-      mode_night.sendCommand(OFF)
+      mode_night.postUpdate(OFF)
     }
 end
