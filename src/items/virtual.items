@@ -39,7 +39,3 @@ Switch  mode_cooking "Kochen"   <kitchen> (Automatik,PersistentCurrent)
 Switch  mode_outdoor "Garten"   <garden> (Automatik,PersistentCurrent)
 
 Switch auto_gelsenstecker "Gelsensteckerautomatik" <socket> (Automatik,PersistentCurrent)
-
-Switch UG_Hannes_Occupancy      "UG Hannes Aktivitaet [MAP(modus.map):%s]"     <selfmotion>  (Automatik,UG_Hannes,PersistentCurrent)
-Switch EG_Esszimmer_Occupancy   "EG Esszimmer Aktivitaet [MAP(modus.map):%s]"  <selfmotion>  (Automatik,EG_Esszimmer,PersistentCurrent)
-Switch OG_Gang_Occupancy        "OG Gang Aktivitaet [MAP(modus.map):%s]"       <selfmotion>  (Automatik,OG_Gang,PersistentCurrent)

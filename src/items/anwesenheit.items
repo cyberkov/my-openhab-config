@@ -7,6 +7,10 @@ Group:Switch:OR(ON, OFF)    Anwesenheit  "Anwesenheit [(%d)]"    <present>
 Switch  JemandDa    "Anwesenheit"    <selfshield>  (Security,Anwesenheit,PersistentCurrent)  { homematic="variable=Haus SV Anwesenheit" }
 Switch  Presence_Guest_Home     "Guests @Home"    <present>       (Anwesenheit,PersistentCurrent)
 
+Switch UG_Hannes_Occupancy      "UG Hannes Aktivitaet [MAP(modus.map):%s]"     <selfmotion>  (Automatik,UG_Hannes,Anwesenheit,PersistentCurrent)
+Switch EG_Esszimmer_Occupancy   "EG Esszimmer Aktivitaet [MAP(modus.map):%s]"  <selfmotion>  (Automatik,EG_Esszimmer,Anwesenheit,PersistentCurrent)
+Switch OG_Gang_Occupancy        "OG Gang Aktivitaet [MAP(modus.map):%s]"       <selfmotion>  (Automatik,OG_Gang,Anwesenheit,PersistentCurrent)
+
 /* Config-values */
 String pushover_token_barbara  "Pushover Barbara [%s]" (Maintenance,PersistentCurrent)  {configadmin = "pushover:barbaraToken"}
 String pushover_token_both    "Pushover both [%s]" (Maintenance,PersistentCurrent)  {configadmin = "pushover:bothToken"}
