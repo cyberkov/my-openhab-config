@@ -8,5 +8,7 @@ then
             logInfo("safety.rules", "Fire alarm tripped by temperature sensor!")
             Alarm_Fire.postUpdate(ON)
         }
+    } else {
+        Alarm_Fire.postUpdate(OFF)
     }
 end
