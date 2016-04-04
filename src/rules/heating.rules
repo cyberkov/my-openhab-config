@@ -2,7 +2,7 @@ rule "enable heating when valves open"
 when
     Item Heatingvalve received update
 then
-    if (Heatingvalve.members.filter(s | s.state as DecimalType > 15).size >= 3) {
+    if (Heatingvalve.members.filter(s | s.state > 15).size >= 3) {
       if (UG_Wirtschaftsraum_Therme.state == OFF) {
         logInfo("heating.rules", "Aktiviere Heizung. [{}]", UG_Wirtschaftsraum_Therme.state)
         UG_Wirtschaftsraum_Therme.sendCommand(ON)

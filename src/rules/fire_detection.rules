@@ -3,7 +3,7 @@ when
     Item Temperature received update
 then
     // check for any temperature sensors in the house that are very high
-    if (Temperature.members.filter(s | s.state as DecimalType >= 45).size > 0) {
+    if (Temperature.members.filter(s | s.state >= 45).size > 0) {
         if (Alarm_Fire.state == OFF) {
             logInfo("safety.rules", "Fire alarm tripped by temperature sensor!")
             Alarm_Fire.postUpdate(ON)

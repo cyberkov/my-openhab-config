@@ -1,0 +1,18 @@
+//----------------------------------------------------------
+// Every now and then rules and items are not loaded properly
+// This check switches the light for a few seconds to make sure
+// everything is fine.
+
+var Timer UG_tAlivecheck
+
+rule "OpenHAB alive check"
+when
+        Item UG_Hannes_Occupancy changed from OFF to ON
+then
+  		UG_Hannes_Deckenlampe.sendCommand(ON)
+  		
+  		UG_tAlivecheck?.cancel
+  		UG_tAlivecheck = createTimer(now.plusSeconds(3)) [|
+    		UG_Hannes_Deckenlampe.sendCommand(OFF)
+  		]
+end

@@ -10,7 +10,7 @@ then
 
   val OpenContacts = Openingcontacts.allMembers.filter([state == OPEN]).size
   val TamperswitchOpen = Tamperswitches.allMembers.filter([state == OPEN]).size
-  val MotionsensorOpen = Motionsensors.allMembers.filter([state == OPEN]).size
+  val MotionsensorOpen = Motionsensors.allMembers.filter([state == ON]).size
 
   if ( Security_Alarmanlage.state == ON ) {
     if ( ( Security_OpenWindows.state <= OpenContacts ) || (TamperswitchOpen >= 1 ) ) { // someone opened a door or window
