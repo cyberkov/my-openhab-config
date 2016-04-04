@@ -1,10 +1,19 @@
 Bridge rfxcom:bridge:rfx  [ serialPort="/dev/ttyUSB1" ] {
-  Thing lighting2 stehlampe     [deviceId="15888502.1", subType="AC"]
-  Thing lighting2 internet      [deviceId="15888502.2", subType="AC"]
-  Thing lighting2 gelsenstecker [deviceId="15888502.3", subType="AC"]
+  Thing lighting2 stehlampe     [deviceId="13374242.1", subType="AC"]
+  Thing lighting2 internet      [deviceId="13374242.2", subType="AC"]
+  Thing lighting2 gelsenstecker [deviceId="13374242.3", subType="AC"]
   Thing lighting2 btn1          [deviceId="66696.1", subType="HOME_EASY_EU"]
   Thing lighting2 btn2          [deviceId="66696.2", subType="HOME_EASY_EU"]
   Thing lighting2 printer       [deviceId="66696.3", subType="HOME_EASY_EU"]
   Thing lighting2 nachtkasterl  [deviceId="66696.4", subType="HOME_EASY_EU"]
   Thing lighting2 kleinelampe   [deviceId="66696.5", subType="HOME_EASY_EU"]
+
+// Intertechno Remote
+  Thing lighting2 it1           [deviceId="15888502.1", subType="AC"]
+  Thing lighting2 it2           [deviceId="15888502.2", subType="AC"]
+  Thing lighting2 it3           [deviceId="15888502.3", subType="AC"]
+
+// Unknown Devices
+  Thing lighting2 schalter1     [deviceId="44739242.11", subType="HOME_EASY_EU"]
+  Thing temperature 20224       [deviceId="20224", subType="TEMP5"]
 }

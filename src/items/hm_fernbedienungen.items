@@ -1,12 +1,17 @@
 /* Fernbedienungen */
-Switch Barbara_Remote_Anwesend { homematic="address=LEQ0496279, channel=1, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_Abwesend { homematic="address=LEQ0496279, channel=2, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_Licht    { homematic="address=LEQ0496279, channel=3, parameter=PRESS_SHORT" }
-Switch Barbara_Remote_AnAus    { homematic="address=LEQ0496279, channel=4, parameter=PRESS_SHORT" }
-Contact Barbara_Remote_LOWBAT   "Barbara Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0496279, channel=0, parameter=LOWBAT"}
+Switch Barbara_Remote_Anwesend (Virtual) { homematic="address=LEQ0496279, channel=1, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_Abwesend (Virtual) { homematic="address=LEQ0496279, channel=2, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_Licht    (Virtual) { homematic="address=LEQ0496279, channel=3, parameter=PRESS_SHORT" }
+Switch Barbara_Remote_AnAus    (Virtual) { homematic="address=LEQ0496279, channel=4, parameter=PRESS_SHORT" }
+Contact Barbara_Remote_LOWBAT   "Barbara Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Virtual,Battery) {homematic="address=LEQ0496279, channel=0, parameter=LOWBAT"}
 
-Switch Hannes_Remote_Anwesend { homematic="address=LEQ0496323, channel=1, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_Abwesend { homematic="address=LEQ0496323, channel=2, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_Licht    { homematic="address=LEQ0496323, channel=3, parameter=PRESS_SHORT" }
-Switch Hannes_Remote_AnAus    { homematic="address=LEQ0496323, channel=4, parameter=PRESS_SHORT" }
-Contact Hannes_Remote_LOWBAT   "Hannes Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Battery) {homematic="address=LEQ0496323, channel=0, parameter=LOWBAT"}
+Switch Hannes_Remote_Anwesend (Virtual) { homematic="address=LEQ0496323, channel=1, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_Abwesend (Virtual) { homematic="address=LEQ0496323, channel=2, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_Licht    (Virtual) { homematic="address=LEQ0496323, channel=3, parameter=PRESS_SHORT" }
+Switch Hannes_Remote_AnAus    (Virtual) { homematic="address=LEQ0496323, channel=4, parameter=PRESS_SHORT" }
+Contact Hannes_Remote_LOWBAT   "Hannes Fernbedienung Batterie [MAP(zustand.map):%d]"  <energy>        (Virtual,Battery) {homematic="address=LEQ0496323, channel=0, parameter=LOWBAT"}
+
+
+Switch Virtual_Remote_IT_1 "IT Remote Btn1" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it1:command" }
+Switch Virtual_Remote_IT_2 "IT Remote Btn2" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it2:command" }
+Switch Virtual_Remote_IT_3 "IT Remote Btn3" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it3:command" }
