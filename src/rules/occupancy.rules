@@ -16,7 +16,9 @@ end
 
 rule "UG Motion Absence"
 when
-  Item UG_Hannes_Motion changed from ON to OFF
+  Item UG_Hannes_Motion changed from ON to OFF or
+  Item UG_Hannes_XBMC_State changed to Play or
+  Item Network_pangea changed from OFF to ON
 then
   UG_tOccupancy?.cancel
   UG_tOccupancy = createTimer(now.plusMinutes(10)) [|
@@ -34,7 +36,8 @@ end
 
 rule "EG Motion Absence"
 when
-  Item EG_Esszimmer_Motion changed from ON to OFF
+  Item EG_Esszimmer_Motion changed from ON to OFF or
+  Item EG_Wohnzimmer_XBMC_State changed to Play
 then
   EG_tOccupancy?.cancel
   EG_tOccupancy = createTimer(now.plusMinutes(10)) [|
