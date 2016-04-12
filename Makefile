@@ -6,8 +6,8 @@ ITEMS=src/items/*.items
 RULES=src/rules/*.rules
 SITEMAPS=src/sitemaps/*.sitemap
 
-#DOCKER_IMAGE="cyberkov/openhab2:offline"
-DOCKER_IMAGE="cyberkov/openhab:amd64-offline"
+DOCKER_IMAGE="openhab/openhab:amd64-online"
+#DOCKER_IMAGE="cyberkov/openhab:amd64-offline"
 CONTAINER_NAME="openhab2"
 #VOLUMES=-v /opt/openhab/config/keystore/keystore:/openhab/userdata/etc/keystore:ro -v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/config:/openhab/conf:ro
 #VOLUMES=-v /opt/openhab/config:/openhab/conf:ro
