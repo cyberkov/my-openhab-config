@@ -39,7 +39,9 @@ Switch UG_Hannes_Power_Lamp "Kleine Lampe" <socket> (UG_Hannes,Lights) { channel
 
 Switch UG_Hannes_Deckenlampe "Hannes Deckenlampe" (UG_Hannes,Lights) {homematic="address=MEQ0325581, channel=1, parameter=STATE"}
 
-Switch OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { channel="rfxcom:lighting2:rfx:nachtkasterl:command" }
+Dimmer OG_Schlafzimmer_Power_Lamp "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { channel="zwave:device:controller:node3:switch_dimmer"}
+Switch OG_Schlafzimmer_Power_Lamp_tog "Nachtkasterl Lampe" <socket> (OG_Schlafzimmer,Lights) { channel="zwave:device:controller:node3:switch_dimmer"}
+//{ channel="rfxcom:lighting2:rfx:nachtkasterl:command" }
 
 Switch OG_Schlafzimmer_Power_Gelsenstecker "Gelsenstecker" <socket> (OG_Schlafzimmer,Sockets) { channel="rfxcom:lighting2:rfx:gelsenstecker:command" }
 

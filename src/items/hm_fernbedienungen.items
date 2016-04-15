@@ -15,3 +15,9 @@ Contact Hannes_Remote_LOWBAT   "Hannes Fernbedienung Batterie [MAP(zustand.map):
 Switch Virtual_Remote_IT_1 "IT Remote Btn1" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it1:command" }
 Switch Virtual_Remote_IT_2 "IT Remote Btn2" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it2:command" }
 Switch Virtual_Remote_IT_3 "IT Remote Btn3" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:it3:command" }
+
+Switch Virtual_Remote_HE_1 "HE Remote Btn1" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:btn1:command" }
+Switch Virtual_Remote_HE_2 "HE Remote Btn2" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:btn2:command" }
+Switch Virtual_Remote_HE_3 "HE Remote Btn3" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:printer:command" }
+Switch Virtual_Remote_HE_4 "HE Remote Btn4" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:nachtkasterl:command" }
+Switch Virtual_Remote_HE_5 "HE Remote Btn5" <socket> (Virtual) { channel="rfxcom:lighting2:rfx:kleinelampe:command" }

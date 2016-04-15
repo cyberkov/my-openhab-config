@@ -144,3 +144,14 @@ then
       }
     }
 end
+
+rule "RFX Toggle Zwave Schlafzimmer"
+when
+    Item Virtual_Remote_HE_4 changed
+then
+   if (Virtual_Remote_HE_4.state == ON ) {
+      OG_Schlafzimmer_Power_Lamp.sendCommand(100)
+    } else {
+      OG_Schlafzimmer_Power_Lamp.sendCommand(0)
+    }
+end
