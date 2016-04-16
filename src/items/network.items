@@ -9,3 +9,6 @@ Switch Network_cybmc    "XBMC Wohnzimmer erreichbar" <video>  (EG_Wohnzimmer, Ne
 Switch Network_helix  "helix 8Port Switch"  <router>  (UG_Hannes,Network)   { channel="network:device:helix:online" }
 Switch Network_Internet         "Internet" <internet>  (Status,Network)  { channel="network:device:internet:online" }
 Switch Network_Avaratia          "Avaratia"     (Network)  { channel="network:device:avaratia:online" }
+
+
+Switch Network_petsi    "Petsi Roomba" <router>  (EG_Vorzimmer, Network)   { channel="network:device:petsi:online" }

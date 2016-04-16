@@ -1,0 +1,23 @@
+/* Think Cleaner Roomba */
+Group Roomba (EG_Vorzimmer)
+
+// status.json:
+//{
+//  "action" : "status",
+//  "result" : "success",
+//  "status" : {
+//    "name" : "petsi",
+//    "battery_charge" : 100,
+//    "capacity" : "2696",
+//    "cleaner_state" : "st_base_trickle",
+//    "cleaning" : "0",
+//    "schedule_serial_number" : "0",
+//    "near_homebase" : "0"
+//  }
+//}
+
+String EG_Vorzimmer_Roomba_json  "Roomba JSON [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000]" }
+String EG_Vorzimmer_Roomba_status  "Roomba Status [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaner_state)]" }
+Number EG_Vorzimmer_Roomba_battery  "Roomba Batterie [%d %%]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }
+Switch EG_Vorzimmer_Roomba_cleaning  "Roomba aktiv [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaning)]" }
+Switch EG_Vorzimmer_Roomba_homebase  "Roomba near Homebase [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.near_homebase)]" }
