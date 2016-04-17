@@ -1,0 +1,27 @@
+rule "Thinkingcleaner JSON"
+when
+    Item EG_Vorzimmer_Roomba_json received update
+then
+// status.json:
+//{
+//  "action" : "status",
+//  "result" : "success",
+//  "status" : {
+//    "name" : "petsi",
+//    "battery_charge" : 100,
+//    "capacity" : "2696",
+//    "cleaner_state" : "st_base_trickle",
+//    "cleaning" : "0",
+//    "schedule_serial_number" : "0",
+//    "near_homebase" : "0"
+//  }
+//}
+
+    logInfo("Roomba", "json_value: [{}]", EG_Vorzimmer_Roomba_json.state)
+    EG_Vorzimmer_Roomba_status.postUpdate( transform("JSONPATH","$.status.cleaner_state", EG_Vorzimmer_Roomba_json.state) )
+    EG_Vorzimmer_Roomba_battery.postUpdate( transform("JSONPATH","$.status.battery_charge", EG_Vorzimmer_Roomba_json.state) )
+    EG_Vorzimmer_Roomba_capacity.postUpdate( transform("JSONPATH","$.status.capacity", EG_Vorzimmer_Roomba_json.state) )
+    EG_Vorzimmer_Roomba_cleaning.postUpdate( transform("JSONPATH","$.status.cleaning", EG_Vorzimmer_Roomba_json.state) )
+    EG_Vorzimmer_Roomba_homebase.postUpdate( transform("JSONPATH","$.status.near_homebase", EG_Vorzimmer_Roomba_json.state) )
+end
+

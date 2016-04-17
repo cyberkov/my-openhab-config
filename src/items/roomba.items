@@ -16,8 +16,10 @@ Group Roomba (EG_Vorzimmer)
 //  }
 //}
 
-String EG_Vorzimmer_Roomba_json  "Roomba JSON [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000]" }
-String EG_Vorzimmer_Roomba_status  "Roomba Status [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaner_state)]" }
-Number EG_Vorzimmer_Roomba_battery  "Roomba Batterie [%d %%]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }
-Switch EG_Vorzimmer_Roomba_cleaning  "Roomba aktiv [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaning)]" }
-Switch EG_Vorzimmer_Roomba_homebase  "Roomba near Homebase [%s]" (Roomba)   { http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.near_homebase)]" }
+String EG_Vorzimmer_Roomba_json      "Roomba JSON [%s]" (Roomba)           { http="<[http://192.168.1.13/status.json:60000:JSONPATH($)]" }
+String EG_Vorzimmer_Roomba_status    "Roomba Status [MAP(roomba.map):%s]" (Roomba)         //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaner_state)]" }
+Number EG_Vorzimmer_Roomba_battery   "Roomba Batterie [%d %%]" (Roomba)    //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }
+Number EG_Vorzimmer_Roomba_capacity  "Roomba Kapazitaet [%d mA]" (Roomba)    //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }
+Switch EG_Vorzimmer_Roomba_cleaning  "Roomba aktiv [%s]" (Roomba)          //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaning)]" }
+Switch EG_Vorzimmer_Roomba_homebase  "Roomba near Homebase [%s]" (Roomba)  //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.near_homebase)]" }
+Switch EG_Vorzimmer_Roomba_clean (Roomba) { http=">[ON:GET:http://192.168.1.13/command.json?command=clean] >[OFF:GET:http://192.168.1.13/command.json?command=dock]" }
