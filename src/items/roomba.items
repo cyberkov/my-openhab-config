@@ -16,7 +16,7 @@ Group Roomba (EG_Vorzimmer)
 //  }
 //}
 
-String EG_Vorzimmer_Roomba_json      "Roomba JSON [%s]" (Roomba)           { http="<[http://192.168.1.13/status.json:60000:JSONPATH($)]" }
+String EG_Vorzimmer_Roomba_json      "Roomba JSON [%s]" (Roomba)           { http="<[http://192.168.1.13/status.json:60000:REGEX((.*))]" }
 String EG_Vorzimmer_Roomba_status    "Roomba Status [MAP(roomba.map):%s]" (Roomba)         //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.cleaner_state)]" }
 Number EG_Vorzimmer_Roomba_battery   "Roomba Batterie [%d %%]" (Roomba)    //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }
 Number EG_Vorzimmer_Roomba_capacity  "Roomba Kapazitaet [%d mA]" (Roomba)    //{ http="<[http://192.168.1.13/status.json:60000:JSONPATH($.status.battery_charge)]" }

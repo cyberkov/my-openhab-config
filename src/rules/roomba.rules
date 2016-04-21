@@ -17,11 +17,24 @@ then
 //  }
 //}
 
-    logInfo("Roomba", "json_value: [{}]", EG_Vorzimmer_Roomba_json.state)
-    EG_Vorzimmer_Roomba_status.postUpdate( transform("JSONPATH","$.status.cleaner_state", EG_Vorzimmer_Roomba_json.state) )
-    EG_Vorzimmer_Roomba_battery.postUpdate( transform("JSONPATH","$.status.battery_charge", EG_Vorzimmer_Roomba_json.state) )
-    EG_Vorzimmer_Roomba_capacity.postUpdate( transform("JSONPATH","$.status.capacity", EG_Vorzimmer_Roomba_json.state) )
-    EG_Vorzimmer_Roomba_cleaning.postUpdate( transform("JSONPATH","$.status.cleaning", EG_Vorzimmer_Roomba_json.state) )
-    EG_Vorzimmer_Roomba_homebase.postUpdate( transform("JSONPATH","$.status.near_homebase", EG_Vorzimmer_Roomba_json.state) )
+    var String json = EG_Vorzimmer_Roomba_json.state.toString
+    logInfo("Roomba", json)
+
+    EG_Vorzimmer_Roomba_status.postUpdate(   transform("JSONPATH","$.status.cleaner_state",  json) )
+    EG_Vorzimmer_Roomba_battery.postUpdate(  transform("JSONPATH","$.status.battery_charge", json) )
+    EG_Vorzimmer_Roomba_capacity.postUpdate( transform("JSONPATH","$.status.capacity",       json) )
+
+// Switch Items
+    if ( transform("JSONPATH","$.status.near_homebase",json) == "1" ) {
+      EG_Vorzimmer_Roomba_homebase.postUpdate(ON)
+    } else {
+      EG_Vorzimmer_Roomba_homebase.postUpdate(OFF)
+    }
+
+    if ( transform("JSONPATH","$.status.cleaning", json) == "1" ) {
+      EG_Vorzimmer_Roomba_cleaning.postUpdate(ON)
+    } else {
+      EG_Vorzimmer_Roomba_cleaning.postUpdate(OFF)
+    }
 end
 
