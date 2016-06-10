@@ -1,4 +1,4 @@
-Bridge rfxcom:bridge:rfx  [ serialPort="/dev/ttyUSB1" ] {
+Bridge rfxcom:bridge:rfx  [ serialPort="/dev/ttyUSB0" ] {
   Thing lighting2 stehlampe     [deviceId="13374242.1", subType="AC"]
   Thing lighting2 internet      [deviceId="13374242.2", subType="AC"]
   Thing lighting2 gelsenstecker [deviceId="13374242.3", subType="AC"]

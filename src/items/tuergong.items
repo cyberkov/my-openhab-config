@@ -6,5 +6,5 @@
 //SUBMIT("1,2,108000,4,,6")
 
 /* Tuergong */
-Switch EG_Esszimmer_Tuergong_Led     "Tuergong LED" (EG_Esszimmer)    { homematic="address=LEQ0230481,channel=1,parameter=STATE" }
-Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { homematic="address=LEQ0230481,channel=2,parameter=STATE" }
+Switch EG_Esszimmer_Tuergong_Led     "Tuergong LED" (EG_Esszimmer)    { channel="homematic:HM-OU-CFM-Pl:ccu:LEQ0230481:1#STATE" }
+Switch EG_Esszimmer_Tuergong_Signal  "Tuergong Signal" (EG_Esszimmer) { channel="homematic:HM-OU-CFM-Pl:ccu:LEQ0230481:2#STATE" }

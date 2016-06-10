@@ -3,13 +3,13 @@ Group:Number:MAX         Temperature  "Max. Room Temperature [%.1f °C]"   <temp
 Group:Number:MAX         Temperature_OG  "Max. Room Temperature OG [%.1f °C]"   <temperature>  (gOG)
 Group:Number:MAX         Temperature_EG  "Max. Room Temperature EG [%.1f °C]"   <temperature>  (gEG)
 Group:Number:MAX         Temperature_UG  "Max. Room Temperature UG [%.1f °C]"   <temperature>  (gUG)
-Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"   <temperature>  (Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG) { homematic="address=LEQ0868021,channel=1,parameter=TEMPERATURE" }
-Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { homematic="address=LEQ0122248,channel=1,parameter=TEMPERATURE" }
-Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0584727,channel=4,parameter=ACTUAL_TEMPERATURE" }
-Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0867920,channel=1,parameter=TEMPERATURE" }
-//Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { homematic="address=LEQ0868616,channel=1,parameter=TEMPERATURE" }
-Number Temperature_UG_Sauna   "Temperatur Sauna [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Sauna, Temperature_UG) { homematic="address=LEQ0868600,channel=1,parameter=TEMPERATURE" }
+Number Temperature_OG_Schlafzimmer  "Temperatur Schlafzimmer [%.1f °C]"   <temperature>  (Temperature, Monitoring, OG_Schlafzimmer, Temperature_OG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868021:1#TEMPERATURE" }
+Number Temperature_OG_Bad           "Temperatur Bad [%.1f °C]" <temperature>  (Temperature, Monitoring, OG_Bad, Temperature_OG)  { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0122248:1#TEMPERATURE" }
+Number Temperature_EG_Wohnzimmer    "Temperatur Wohnzimmer [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Wohnzimmer, Temperature_EG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868616:1#TEMPERATURE" }
+Number Temperature_UG_Sauna_Heating "Temperatur Sauna Heizung [%.1f °C]"  <temperature> (Temperature, Monitoring, UG_Sauna, Temperature_UG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0584727:4#ACTUAL_TEMPERATURE" }
+Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0867920:1#TEMPERATURE" }
+//Number Temperature_EG_Kueche   "Temperatur Kueche [%.1f °C]"  <temperature>  (Temperature, Monitoring, EG_Kueche, Temperature_EG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868616:1#TEMPERATURE" }
+Number Temperature_UG_Sauna   "Temperatur Sauna [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Sauna, Temperature_UG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868600:1#TEMPERATURE" }
 //Number Temperature_UG_Wirtschaftsraum   "Temperatur Wirtschaftsraum [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Wirtschaftsraum, Temperature_UG)  {mqtt="<[proton:/mySensors/22/1/V_TEMP:state:default]"}
 //Number Temperature_UG_Hannes   "Temperatur Hannes [%.1f °C]"  <temperature>  (Temperature, Monitoring, UG_Hannes, Temperature_UG)
 
@@ -18,20 +18,20 @@ Group:Number:MAX         Humidity  "Max. Room Humidity [%.1f %%Rh]"   <temperatu
 Group:Number:MAX         Humidity_OG  "Max. Room Humidity OG [%.1f %%Rh]"   <temperature>  (gOG)
 Group:Number:MAX         Humidity_EG  "Max. Room Humidity EG [%.1f %%Rh]"   <temperature>  (gEG)
 Group:Number:MAX         Humidity_UG  "Max. Room Humidity UG [%.1f %%Rh]"   <temperature>  (gUG)
-Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { homematic="address=LEQ0868021,channel=1,parameter=HUMIDITY" }
-Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, Monitoring, OG_Bad, Humidity_OG)          { homematic="address=LEQ0122248,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)  { homematic="address=LEQ0867920,channel=1,parameter=HUMIDITY" }
-Number Humidity_EG_Wohnzimmer   "Luftfeuchte Wohnzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, EG_Wohnzimmer, Humidity_EG) { homematic="address=LEQ0868616,channel=1,parameter=HUMIDITY" }
-Number Humidity_UG_Sauna   "Luftfeuchte Sauna [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Sauna, Humidity_UG)        { homematic="address=LEQ0868600,channel=1,parameter=HUMIDITY" }
+Number Humidity_OG_Schlafzimmer "Luftfeuchte Schlafzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, OG_Schlafzimmer, Humidity_OG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868021:1#HUMIDITY" }
+Number Humidity_OG_Bad          "Luftfeuchte Bad [%.1f %%Rh]"           <temperature>   (Humidity, Monitoring, OG_Bad, Humidity_OG)          { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0122248:1#HUMIDITY" }
+Number Humidity_EG_Kueche   "Luftfeuchte Kueche [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, EG_Kueche, Humidity_EG)  { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0867920:1#HUMIDITY" }
+Number Humidity_EG_Wohnzimmer   "Luftfeuchte Wohnzimmer [%.1f %%Rh]"  <temperature>  (Humidity, Monitoring, EG_Wohnzimmer, Humidity_EG) { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868616:1#HUMIDITY" }
+Number Humidity_UG_Sauna   "Luftfeuchte Sauna [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Sauna, Humidity_UG)        { channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868600:1#HUMIDITY" }
 //Number Humidity_UG_Wirtschaftsraum   "Luftfeuchte Wirtschaftsraum [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Wirtschaftsraum, Humidity_UG) { mqtt="<[proton:/mySensors/22/0/V_HUM:state:default]"}
 //Number Humidity_UG_Hannes   "Luftfeuchte Hannes [%.1f %%Rh]"          <temperature>  (Humidity, Monitoring, UG_Hannes, Humidity_UG)
 
 
 /* Batterien */
-Contact Temperature_EG_Kueche_LOWBAT        "Kueche Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0868616, channel=0, parameter=LOWBAT"}
-Contact Temperature_UG_Sauna_LOWBAT         "Sauna Temp Batterie [MAP(zustand.map):%d]"         <energy>    (Battery) {homematic="address=LEQ0868600, channel=0, parameter=LOWBAT"}
-Contact Temperature_OG_Schlafzimmer_LOWBAT  "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>    (Battery) {homematic="address=LEQ0122248, channel=0, parameter=LOWBAT"}
-Number  Weather_Temperature_LOWBAT          "Aussen Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {homematic="address=LEQ0798807, channel=0, parameter=LOWBAT"}
+Contact Temperature_EG_Kueche_LOWBAT        "Kueche Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868616:0#LOWBAT"}
+Contact Temperature_UG_Sauna_LOWBAT         "Sauna Temp Batterie [MAP(zustand.map):%d]"         <energy>    (Battery) {channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0868600:0#LOWBAT"}
+Contact Temperature_OG_Schlafzimmer_LOWBAT  "Schlafzimmer Temp Batterie [MAP(zustand.map):%d]"  <energy>    (Battery) {channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0122248:0#LOWBAT"}
+Number  Weather_Temperature_LOWBAT          "Aussen Temp Batterie [MAP(zustand.map):%d]"        <energy>    (Battery) {channel="homematic:HM-WDS40-TH-I-2:ccu:LEQ0798807:0#LOWBAT"}
 
 /* Lueftungseffizienz */
 Group:Number:MAX Lueftungseffizienz   "Lüftungseffizienz [MAP(lueftung.map):%s]" <selfinfo>      (Maintenance)
@@ -45,8 +45,8 @@ Number Weather_Dewpoint   "Taupunkt Aussen [%.1f °C]" <temperature> (Outdoor)
 
 /* Weather */
 Group Weather_Chart      (Weather)
-Number  Weather_Temperature   "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { homematic="address=LEQ0798807,channel=1,parameter=TEMPERATURE" }
-Number  Weather_Humidity      "Luftfeuchte Aussen [%d %%]"   <temperature> (Weather,Outdoor)       { homematic="address=LEQ0798807,channel=1,parameter=HUMIDITY" }
+Number  Weather_Temperature   "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { channel="homematic:HM-WDS10-TH-O:ccu:LEQ0798807:1#TEMPERATURE" }
+Number  Weather_Humidity      "Luftfeuchte Aussen [%d %%]"   <temperature> (Weather,Outdoor)       { channel="homematic:HM-WDS10-TH-O:ccu:LEQ0798807:1#HUMIDITY" }
 
 //Number Weather_Temperature     "Temperatur Aussen [%.1f °C]"  <temperature> (Weather_Chart,Outdoor) { weather="locationId=home, type=temperature, property=current" }
 Number Weather_Temp_Max     "Todays Maximum [%.1f °C]"  <temperature> (Weather_Chart) {weather="locationId=home, forecast=0, type=temperature, property=max"}
