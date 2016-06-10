@@ -1,6 +1,8 @@
 Bridge homematic:bridge:ccu [ gatewayAddress="192.168.1.6", callbackHost="192.168.1.4"]
 {
+  Thing HM-RCV-50 BidCoS-RF
   Thing GATEWAY-EXTRAS-CCU GWE00000000
+  Thing HM-CC-RT-DN LEQ0584727
   Thing HM-CC-RT-DN MEQ0182042
   Thing HM-CC-RT-DN MEQ0182064
   Thing HM-CC-RT-DN MEQ0182081
@@ -16,6 +18,8 @@ Bridge homematic:bridge:ccu [ gatewayAddress="192.168.1.6", callbackHost="192.16
   Thing HM-ES-PMSw1-Pl LEQ0531146
   Thing HM-ES-PMSw1-Pl LEQ0531373
   Thing HM-ES-PMSw1-Pl LEQ0574052
+  Thing HM-LC-Sw1-FM MEQ0325581
+  Thing HM-LC-Sw1-FM MEQ0712568
   Thing HM-OU-CFM-Pl LEQ0230481
   Thing HM-PB-2-WM55-2 MEQ0160125
   Thing HM-PBI-4-FM JEQ0684449
@@ -40,6 +44,6 @@ Bridge homematic:bridge:ccu [ gatewayAddress="192.168.1.6", callbackHost="192.16
   Thing HM-WDS40-TH-I-2 LEQ0122248
   Thing HM-WDS40-TH-I-2 LEQ0867920
   Thing HM-WDS40-TH-I-2 LEQ0868021
+  Thing HM-WDS40-TH-I-2 LEQ0868600
   Thing HM-WDS40-TH-I-2 LEQ0868616
-  Thing HM-LC-Sw1-FM MEQ0325581
 }
